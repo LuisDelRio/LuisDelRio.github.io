@@ -7,5 +7,6 @@ document.body.appendChild(renderizador.domElement);
 var forma = new THREE.CylinderGeometry(5, 5, 20, 32);
 var material = new THREE.MeshNormalMaterial();
 var cilindro = new THREE.Mesh( forma, material);
+cilindro.rotateX(-Math.PI/4);
 escena.add(cilindro);
 renderizador.render( escena, camara);
