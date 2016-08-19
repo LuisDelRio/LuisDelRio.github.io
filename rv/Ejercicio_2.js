@@ -10,5 +10,6 @@ var material = new THREE.MeshNormalMaterial();
 var esfera = new THREE.Mesh(formaesf, material);
 var cilindro = new THREE.Mesh( formacil, material);
 esfera.position.y = 1;
+cilindro.position.y = -1;
 escena.add(esfera, cilindro);
 renderizador.render( escena, camara);
