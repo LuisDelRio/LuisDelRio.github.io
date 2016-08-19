@@ -7,7 +7,7 @@ document.body.appendChild(renderizador.domElement);
 
 var cyl_width = 1;
 var cyl_height = 5;
-// THREE.CylinderGeometry(bottomRadius, topRadius, height, segmentsRadius, segmentsHeight, openEnded )
+
 var forma = new THREE.CylinderGeometry(cyl_width, cyl_width, cyl_height, 20, 1, false);
 
 var material = new THREE.MeshNormalMaterial();
