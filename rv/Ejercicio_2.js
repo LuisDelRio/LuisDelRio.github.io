@@ -9,7 +9,5 @@ var forma = new THREE.CylinderGeometry(1, 1, 5, 10, 1, false);
 
 var material = new THREE.MeshNormalMaterial();
 var cilindro = new THREE.Mesh( forma, material);
-cilindro.rotateX(-Math.PI/4);
-cilindro.rotateY(Math.PI/4);
 escena.add(cilindro);
 renderizador.render( escena, camara);
