@@ -13,6 +13,6 @@ var cilindro = new THREE.Mesh( formacil, materialcil);
 esfera.position.y = 3;
 cilindro.position.y = -1;
 cilindro.rotateX(Math.PI/4);
-esfera.rotateX(Math.PI/4);
+esfera.rotateY(Math.PI/4);
 escena.add(esfera, cilindro);
 renderizador.render( escena, camara);
