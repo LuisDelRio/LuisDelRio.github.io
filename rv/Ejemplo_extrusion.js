@@ -12,7 +12,7 @@ malla.rotateX( Math.PI/4 );
 
 var escena = new THREE.Scene();
 escena.add(malla);
-var camar = new THREE.PerspectiveCamera();
+var camara = new THREE.PerspectiveCamera();
 camara.position.z = 500;
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize( window.innerHeight*.95, window.innerHeight*.95);
