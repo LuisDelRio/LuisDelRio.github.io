@@ -29,7 +29,7 @@ var torreMalla = new THREE.Mesh(torreForma, material);
 var escena = new THREE.Scene();
 escena.add(torreMalla);
 var camara = new THREE.PerspectiveCamera();
-camara.position.z=100;
+camara.position.z=50;
 renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerHeight*.95, window.innerHeight*.95);
 document.body.appendChild(renderizador.domElement);
