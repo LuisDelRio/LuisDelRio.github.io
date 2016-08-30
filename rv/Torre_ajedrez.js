@@ -1,6 +1,6 @@
 var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
-var base2Forma = new THREE.CylinderGeometry(4,4,1.5,20,1.5,false);
-var base3Forma = new THREE.CylinderGeometry(4,3,2,20,2,false);
+var base2Forma = new THREE.CylinderGeometry(4,4,1,20,1,false);
+var base3Forma = new THREE.CylinderGeometry(3,4,2,20,2,false);
 base2Forma.translate(0,1,0);
 base3Forma.translate(0,2.5,0);
 var base1Malla = new THREE.Mesh(base1Forma);
