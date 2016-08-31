@@ -1,7 +1,7 @@
 var figura = new THREE.Shape();
 
 figura.moveTo(-10, 0);
-figura.lineTo(0, 10);
+figura.lineTo(0, 20);
 figura.lineTo(10, 0);
 figura.lineTo(-10, 0);
 
