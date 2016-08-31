@@ -12,6 +12,8 @@ figura.lineTo(0, -3);
 figura.lineTo(-2, -3);
 figura.lineTo(-1, -2);
 figura.lineTo(-2, 0);
+figura.lineTo(0, 0);
+figura.lineTo(1, 2);
 
 var forma = new THREE.ShapeGeometry(figura);
 var malla = new THREE.Mesh(forma);
