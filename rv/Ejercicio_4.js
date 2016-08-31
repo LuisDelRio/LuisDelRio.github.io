@@ -6,7 +6,7 @@ figura.lineTo(10, 0);
 figura.lineTo(30, 0);
 figura.lineTo(15, -15);
 figura.lineTo(25, -35);
-figura.lineTo(0, -28.96);
+figura.lineTo(0, -25);
 figura.lineTo(-25, -35);
 figura.lineTo(-15, -15);
 figura.lineTo(-30, 0);
