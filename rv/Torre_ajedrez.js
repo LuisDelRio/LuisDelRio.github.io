@@ -7,10 +7,10 @@ var cubierta2Forma = new THREE.CylinderGeometry(4,4,2,20,3,false);
 
 var arco = new THREE.Shape();
 
-figura.moveTo(-6, 0);
-figura.arc(0, 0, 4, .52, -.52, true);
-figura.lineTo(3.46, -2);
-var pico1 = new THREE.ExtrudeGeometry( figura, {amount: 1, bevelEnabled: false});
+arco.moveTo(-6, 0);
+arco.arc(0, 0, 4, .52, -.52, true);
+arco.lineTo(3.46, -2);
+var pico1 = new THREE.ExtrudeGeometry( arco, {amount: 1, bevelEnabled: false});
 
 
 base2Forma.translate(0,1,0);
