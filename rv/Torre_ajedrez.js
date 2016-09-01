@@ -4,6 +4,15 @@ var base3Forma = new THREE.CylinderGeometry(3,4,2,20,2,false);
 var troncoForma = new THREE.CylinderGeometry(3,3,6,20,6,false);
 var cubierta1Forma = new THREE.CylinderGeometry(4,3,2,20,2,false);
 var cubierta2Forma = new THREE.CylinderGeometry(4,4,2,20,3,false);
+
+var arco = new THREE.Shape();
+arco.moveTo(-20,0);
+arco.arcTo(3.75,1.36,3.75,-1.36,4);
+arco.lineTo(3.75,1.36);
+
+
+
+
 base2Forma.translate(0,1,0);
 base3Forma.translate(0,2,0);
 troncoForma.translate(0,4,0);
