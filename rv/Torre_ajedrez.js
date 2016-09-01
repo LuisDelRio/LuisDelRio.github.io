@@ -7,7 +7,7 @@ var cubierta2Forma = new THREE.CylinderGeometry(4,4,2,20,3,false);
 
 var arco = new THREE.Shape();
 arco.moveTo(-20,0);
-arco.arcTo(3.75,1.36,3.75,-1.36,4);
+arco.arc(3.75,1.36, 4, 20,-20);
 arco.lineTo(3.75,1.36);
 
 
