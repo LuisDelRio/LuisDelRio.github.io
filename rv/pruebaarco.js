@@ -8,6 +8,7 @@ var forma = new THREE.ExtrudeGeometry( figura, {amount: 1, bevelEnabled: false})
 
 var material = new THREE.MeshNormalMaterial();
 var malla = new THREE.Mesh( forma, material );
+malla.rotateX(Math.PI/4);
 
 var escena = new THREE.Scene();
 escena.add(malla);
