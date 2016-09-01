@@ -4,8 +4,11 @@ figura.moveTo(0, 0);
 figura.arc(0, 0, 4, .52, -.52, true);
 figura.lineTo(3.46, -2);
 
-var forma = new THREE.ShapeGeometry(figura);
-var malla = new THREE.Mesh(forma);
+var forma = new THREE.ExtrudeGeometry( figura, {amount: 5} );
+
+var material = new THREE.MeshNormalMaterial();
+var malla = new THREE.Mesh( forma, material );
+malla.rotateX( Math.PI/4 );
 
 var escena = new THREE.Scene();
 escena.add(malla);
