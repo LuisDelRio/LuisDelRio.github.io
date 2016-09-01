@@ -4,7 +4,7 @@ figura.moveTo(0, 0);
 figura.arc(0, 0, 4, .52, -.52, true);
 figura.lineTo(3.46, -2);
 
-var forma = new THREE.ExtrudeGeometry( figura, {amount: 1} );
+var forma = new THREE.ExtrudeGeometry( figura, {amount: 1} {bevelEnabled: false});
 
 var material = new THREE.MeshNormalMaterial();
 var malla = new THREE.Mesh( forma, material );
