@@ -27,7 +27,7 @@ var cubierta1Malla= new THREE.Mesh(cubierta1Forma);
 var cubierta2Malla= new THREE.Mesh(cubierta2Forma);
 var pico1Malla= new THREE.Mesh(pico1);
 
-picoMalla.rotateX(Math.PI/2);
+pico1Malla.rotateX(Math.PI/2);
 
 var torreForma = new THREE.Geometry();
 torreForma.merge(base1Malla.geometry, base1Malla.matrix);
