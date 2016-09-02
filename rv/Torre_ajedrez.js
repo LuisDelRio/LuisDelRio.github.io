@@ -10,6 +10,9 @@ var arco = new THREE.Shape();
 arco.moveTo(0, 0);
 arco.arc(0, 0, 4, .52, -.52, true);
 arco.lineTo(3.46, -2);
+
+arco.rotateX(Math.PI/2);
+
 var pico1 = new THREE.ExtrudeGeometry( arco, {amount: 1, bevelEnabled: false});
 
 
@@ -20,7 +23,6 @@ cubierta1Forma.translate(0,8,0);
 cubierta2Forma.translate(0,10,0);
 pico1.translate(0,14,0);
 
-pico1.rotateX(Math.PI/2);
 
 var base1Malla = new THREE.Mesh(base1Forma);
 var base2Malla= new THREE.Mesh(base2Forma);
