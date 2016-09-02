@@ -19,6 +19,9 @@ troncoForma.translate(0,4,0);
 cubierta1Forma.translate(0,8,0);
 cubierta2Forma.translate(0,10,0);
 pico1.translate(0,14,0);
+
+pico1.rotateX(Math.PI/2);
+
 var base1Malla = new THREE.Mesh(base1Forma);
 var base2Malla= new THREE.Mesh(base2Forma);
 var base3Malla= new THREE.Mesh(base3Forma);
@@ -26,8 +29,6 @@ var toncoMalla= new THREE.Mesh(troncoForma);
 var cubierta1Malla= new THREE.Mesh(cubierta1Forma);
 var cubierta2Malla= new THREE.Mesh(cubierta2Forma);
 var pico1Malla= new THREE.Mesh(pico1);
-
-pico1Malla.rotateX(Math.PI/2);
 
 var torreForma = new THREE.Geometry();
 torreForma.merge(base1Malla.geometry, base1Malla.matrix);
