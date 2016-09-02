@@ -11,10 +11,8 @@ arco.moveTo(0, 0);
 arco.arc(0, 0, 4, .52, -.52, true);
 arco.lineTo(3.46, -2);
 
-arco.rotateX(Math.PI/2);
-
 var pico1 = new THREE.ExtrudeGeometry( arco, {amount: 1, bevelEnabled: false});
-
+pico1.rotateX(Math.PI/2);
 
 base2Forma.translate(0,1,0);
 base3Forma.translate(0,2,0);
