@@ -7,7 +7,7 @@ var cubierta2Forma = new THREE.CylinderGeometry(4,4,2,20,3,false);
 
 var arco = new THREE.Shape();
 
-arco.moveTo(-6, 0);
+arco.moveTo(0, 0);
 arco.arc(0, 0, 4, .52, -.52, true);
 arco.lineTo(3.46, -2);
 var pico1 = new THREE.ExtrudeGeometry( arco, {amount: 1, bevelEnabled: false});
