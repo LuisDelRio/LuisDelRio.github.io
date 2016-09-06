@@ -2,7 +2,7 @@ var campoVision = 45;
 var relacionAspecto = window.innerWidth / window.innerWidth;
 var planoCercano = 1;
 var planoLejano = 1000;
-var camara = new THREE.PerspectiveCamera(campovision, relacionAspecto, planoCercano, planoLejano);
+var camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
 camara.position.z=15;
 
 var cubo = new THREE.Mesh( new THREE.BoxGeometry(2, 2, 2), new THREE.MeshNormalMaterial() );
