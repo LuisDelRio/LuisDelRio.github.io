@@ -3,7 +3,7 @@ var relacionAspecto = window.innerWidth / window.innerWidth;
 var planoCercano = 100;
 var planoLejano = 100;
 var camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
-camara.position.z=10;
+camara.position.z=50;
 
 var escena = new THREE.Scene();
 var cubo = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10", 
