@@ -5,9 +5,9 @@ var planoLejano = 100;
 var camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
 camara.position.z=50;
 
+var cubo[8,8] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 10), new THREE.MeshNormalMaterial() );
 for (i = 0; i < 8; i++) {
   for (j = 0; j < 8; j++){
-    var cubo = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 10), new THREE.MeshNormalMaterial() );
     cubo[i,j].rotateX(Math.PI/4);
     cubo[i,j].position.x=i+10;
   }
