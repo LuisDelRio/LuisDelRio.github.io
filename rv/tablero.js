@@ -13,7 +13,7 @@ var cubo = new Array("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10"
                      "c51", "c52", "c53", "c54", "c55", "c56", "c57", "c58", "c59", "c60",
                      "c61", "c62", "c63", "c64");
 for (k = 0; k < 64; k++) {    
-  if (k%2=0) {
+  if (k%2==0) {
     var cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 10), new THREE.MeshBasicMaterial(0xffffff) );
   }else{
     var cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 10), new THREE.MeshBasicMaterial(0x888888) );
