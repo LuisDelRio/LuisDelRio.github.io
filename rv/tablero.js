@@ -6,7 +6,7 @@ var camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCerc
 camara.position.z=15;
 
 var cubo = new THREE.Mesh( new THREE.BoxGeometry(2, 2, 2), new THREE.MeshNormalMaterial() );
-cubo.rotate.x(Math.PI/4);
+cubo.rotateX(Math.PI/4);
 var esfera1 = new THREE.Mesh( new THREE.SphereGeometry(1), new THREE.MeshNormalMaterial() );
 esfera1.position.x=5;
 var esfera2= new THREE.Mesh( new THREE.SphereGeometry(1), new THREE.MeshNormalMaterial());
