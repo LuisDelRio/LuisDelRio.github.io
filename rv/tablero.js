@@ -15,9 +15,9 @@ var cubo = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10",
                      "c61", "c62", "c63", "c64"];
 for (k = 0; k < 64; k++) {    
   if (k%2==0) {
-    cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 10), new THREE.MeshBasicMaterial(0xFFFFFF) );
+    cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial(0xFFFFFF) );
   }else{
-    cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 10), new THREE.MeshBasicMaterial(0x888888) );
+    cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial(0x888888) );
   }
   for (i = 0; i < 8; i++) {
     for (j = 0; j < 8; j++){
