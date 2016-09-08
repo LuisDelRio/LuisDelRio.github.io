@@ -5,6 +5,7 @@ var planoLejano = 100;
 var camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
 camara.position.z=10;
 
+var escena = new THREE.Scene();
 var cubo = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10", 
                      "c11", "c12", "c13", "c14", "c15", "c16", "c17", "c18", "c19", "c20",
                      "c21", "c22", "c23", "c24", "c25", "c26", "c27", "c28", "c29", "c30",
@@ -23,13 +24,12 @@ for (k = 0; k < 64; k++) {
       cubo[k].rotateX(Math.PI/4);
       cubo[k].position.x=i*10;
       cubo[k].position.y=j*10;
+      
     }
   }
+  escena.add(cubo[k]);
 }
 
-
-var escena = new THREE.Scene();
-escena.add(cubo[1]);
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderizador.domElement);
