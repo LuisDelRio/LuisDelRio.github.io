@@ -28,7 +28,8 @@ for (k = 0; k < 64; k++) {
 }
 
 
-var escena = new THREE.Scene()
+var escena = new THREE.Scene();
+escena.add(cubo);
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderizador.domElement);
