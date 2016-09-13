@@ -31,6 +31,8 @@ for (k = 0; k < 64; k++) {
   escena.add(cubo[k]);
 }
 
+escena.add(cubo);
+
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderizador.domElement);
