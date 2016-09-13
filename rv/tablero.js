@@ -14,7 +14,7 @@ cubo = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10",
                      "c41", "c42", "c43", "c44", "c45", "c46", "c47", "c48", "c49", "c50", 
                      "c51", "c52", "c53", "c54", "c55", "c56", "c57", "c58", "c59", "c60",
                      "c61", "c62", "c63", "c64"];
-for (k = 0; k < 64; k++) {    
+for (k = 0; k <= 64; k++) {    
   if (k%2==0) {
     cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0xFFFFFF}) );
   }else{
@@ -30,8 +30,6 @@ for (k = 0; k < 64; k++) {
   }
   escena.add(cubo[k]);
 }
-
-escena.add(cubo);
 
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth, window.innerHeight);
