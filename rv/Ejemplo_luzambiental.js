@@ -1,4 +1,4 @@
-var iluminación= new THREE.AmbientalLight(0xFFFFFF);
+var iluminación= new THREE.AmbientLight(0xFFFFFF);
 
 var forma = new THREE.SphereGeometry(1);
 var material = new THREE.MeshLambertMaterial({color: '#00cc00'});
