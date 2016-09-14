@@ -7,6 +7,7 @@ camara.position.z=25;
 camara.position.x=160;
 camara.position.y=40;
 camara.rotateY(1.365);
+camara.rotateX(Math.PI/4);
 
 
 var escena = new THREE.Scene();
