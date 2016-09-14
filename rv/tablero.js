@@ -73,8 +73,6 @@ torreForma.merge(pico4Malla.geometry, pico4Malla.matrix);
 var material= new THREE.MeshNormalMaterial();
 var torreMalla = new THREE.Mesh(torreForma, material);
 
-torreMalla.translateOnAxis('z',2);
-
 
 //Tablero
 var campoVision = 45;
