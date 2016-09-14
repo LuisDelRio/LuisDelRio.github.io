@@ -1,9 +1,9 @@
 var campoVision = 45;
 var relacionAspecto = window.innerWidth / window.innerWidth;
-var planoCercano = 100;
+var planoCercano = 1;
 var planoLejano = 1000;
 var camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
-camara.position.z=200;
+camara.position.z=500;
 
 var escena = new THREE.Scene();
 var cubo= new Array();
@@ -15,7 +15,7 @@ for(var k=0; k<64; k++){
         cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0xffffff}) );
         a=1;
       }else{
-        cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0xff0000}) );
+        cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0x999999}) );
         a=2;
       }
      cubo[k].position.x=j*10;
