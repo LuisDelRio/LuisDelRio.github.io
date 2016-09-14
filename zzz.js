@@ -7,10 +7,16 @@ camara.position.z=100;
 
 var escena = new THREE.Scene();
 var cubo= new Array();
-for(var i=0; i<3; i++){
-cubo[i] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormalMaterial({color: 0xffffff}) );
-cubo[i].position.x=i*10;
-escena.add(cubo[i]);
+
+for(var k=0; k<64; k++){
+  for(var i=0; i<8; i++){
+    for(var j=0; j<8; j++){
+     cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormalMaterial({color: 0xffffff}) );
+     cubo[k].position.x=j*10;
+     cubo[k].position.y=i*10;
+     escena.add(cubo[k]);
+   }
+  }
 }
 
 var renderizador = new THREE.WebGLRenderer();
