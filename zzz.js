@@ -11,7 +11,7 @@ var cubo1 = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNorm
 cubo1.position.x=20;
 var cubo2= new THREE.Mesh(new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormalMaterial({color: '#00cc00'}));
 cubo2.position.x=-10;
-cubo2.position.z=-10;
+cubo2.position.y=-10;
 
 var escena = new THREE.Scene();
 escena.add(cubo1);
