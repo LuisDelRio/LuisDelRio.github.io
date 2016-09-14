@@ -10,8 +10,8 @@ var cubo= new Array();
 for(var i=0; i<3; i++){
 cubo[i] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormalMaterial({color: 0xffffff}) );
 cubo[i].rotateY(Math.PI/4);
+cubo[i].rotateX(Math.PI/4);
 cubo[i].position.x=i*10;
-cubo[i].position.y=i*10;
 escena.add(cubo[i]);
 }
 
