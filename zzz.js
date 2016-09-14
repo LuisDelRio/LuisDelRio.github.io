@@ -8,8 +8,8 @@ camara.position.x=120;
 camara.position.y=-40;
 //camara.rotateY(1.365);
 //camara.rotateX(Math.PI/4);
-camara.lookAt(new THREE.Vector3(40,40,0));
-camara.rotateZ(-Math.PI/2);
+camara.lookAt(new THREE.Vector3(0,80,0));
+camara.rotateZ(Math.PI/2);
 
 
 var escena = new THREE.Scene();
