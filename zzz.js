@@ -11,7 +11,7 @@ var a=2;
 for(var k=0; k<64; k++){
   for(var i=0; i<8; i++){
     for(var j=0; j<8; j++){
-      if(j==7){
+      if(j==8){
         a=1;
       }
       if(a==2){
