@@ -11,12 +11,10 @@ cubo[i] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormal
 cubo[i].rotateY(Math.PI/4);
 cubo[i].position.x=i*10;
 cubo[i].position.y=i*10;
+escena.add(cubo[i]);
 }
 
 var escena = new THREE.Scene();
-escena.add(cubo[1]);
-escena.add(cubo[2]);
-escena.add(cubo[0]);
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderizador.domElement);
