@@ -31,6 +31,6 @@ for(var k=0; k<64; k++){
 }
 
 var renderizador = new THREE.WebGLRenderer();
-renderizador.setSize(window.innerWidth, window.innerHeight);
+renderizador.setSize(600, 600);
 document.body.appendChild(renderizador.domElement);
 renderizador.render(escena, camara);
