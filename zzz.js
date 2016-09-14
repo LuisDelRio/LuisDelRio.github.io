@@ -5,13 +5,13 @@ var planoLejano = 1000;
 var camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
 camara.position.z=15;
 
-var cubo = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormalMaterial() );
+var cubo = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormalMaterial({color: 0xffffff}) );
 cubo.rotateY(Math.PI/4);
-var cubo1 = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormalMaterial() );
-esfera1.position.x=5;
-var cubo2= new THREE.Mesh(new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormalMaterial());
-esfera2.position.x=-5;
-esfera2.position.z=-10;
+var cubo1 = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormalMaterial({color: 0x888888}) );
+cubo1.position.x=5;
+var cubo2= new THREE.Mesh(new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormalMaterial({color: '#00cc00'}));
+cubo2.position.x=-5;
+cubo2.position.z=-10;
 
 var escena = new THREE.Scene();
 escena.add(cubo1);
