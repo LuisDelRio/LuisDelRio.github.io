@@ -11,8 +11,10 @@ var cubo = new Array();
 for (var k = 0; k < 64; k++) {    
   if (k%2==0) {
     cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0xFFFFFF}) );
+    escena.add(cubo[k]);
   }else{
     cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0x888888}) );
+    escena.add(cubo[k]);
   }
   for (var i = 0; i < 8; i++) {
     for (var j = 0; j < 8; j++){
@@ -22,7 +24,7 @@ for (var k = 0; k < 64; k++) {
       
     }
   }
-  escena.add(cubo[k]);
+  
 }
 
 var renderizador = new THREE.WebGLRenderer();
