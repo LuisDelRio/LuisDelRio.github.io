@@ -1,4 +1,4 @@
-var campoVision = 90;
+var campoVision = 45;
 var relacionAspecto = window.innerWidth / window.innerHeight;
 var planoCercano = 1;
 var planoLejano = 1000;
@@ -6,6 +6,7 @@ var camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCerc
 camara.position.z=250;
 camara.position.x=40;
 camara.position.y=40;
+camara.rotateX(Math.PI/4);
 
 
 var escena = new THREE.Scene();
