@@ -11,7 +11,11 @@ var cubo= new Array();
 for(var k=0; k<64; k++){
   for(var i=0; i<8; i++){
     for(var j=0; j<8; j++){
-     cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormalMaterial({color: 0xffffff}) );
+      if(k%2==0){
+        cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0xffffff}) );
+      }else{
+        cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0x999999}) );
+      }
      cubo[k].position.x=j*10;
      cubo[k].position.y=i*10;
      escena.add(cubo[k]);
