@@ -4,12 +4,12 @@ var planoCercano = 1;
 var planoLejano = 1000;
 var camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
 camara.position.z=50;
-camara.position.x=120;
-camara.position.y=-40;
+camara.position.x=160;
+camara.position.y=40;
 //camara.rotateY(1.365);
 //camara.rotateX(Math.PI/4);
 camara.lookAt(new THREE.Vector3(40,40,0));
-camara.rotateZ(.436);
+camara.rotateZ(Math.PI/4);
 
 
 var escena = new THREE.Scene();
