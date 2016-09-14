@@ -14,7 +14,7 @@ for(var k=0; k<64; k++){
       if(k%2==0){
         cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0xffffff}) );
       }else{
-        cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0x999999}) );
+        cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0xff0000}) );
       }
      cubo[k].position.x=j*10;
      cubo[k].position.y=i*10;
