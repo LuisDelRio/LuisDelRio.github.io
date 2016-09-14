@@ -6,8 +6,9 @@ var camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCerc
 camara.position.z=25;
 camara.position.x=160;
 camara.position.y=40;
-camara.rotateY(1.365);
-camara.rotateX(Math.PI/4);
+//camara.rotateY(1.365);
+//camara.rotateX(Math.PI/4);
+camara.lookAt(new THREE.Vector3(40,40,0));
 
 
 var escena = new THREE.Scene();
