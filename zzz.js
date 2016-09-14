@@ -4,7 +4,7 @@ var planoCercano = 1;
 var planoLejano = 1000;
 var camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
 camara.position.z=100;
-camara.position.x=120;
+camara.position.x=80;
 camara.position.y=40;
 camara.rotateX(Math.PI/2);
 camara.rotateY(Math.PI/4);
