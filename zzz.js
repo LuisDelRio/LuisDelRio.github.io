@@ -11,9 +11,6 @@ var a=2;
 for(var k=0; k<64; k++){
   for(var i=0; i<8; i++){
     for(var j=0; j<8; j++){
-      if(j==8){
-        a=1;
-      }
       if(a==2){
         cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0xffffff}) );
         a=1;
@@ -25,6 +22,11 @@ for(var k=0; k<64; k++){
      cubo[k].position.y=i*10;
      escena.add(cubo[k]);
    }
+   if(a==2){
+        a=1;
+      }else{
+        a=2;
+      }
   }
 }
 
