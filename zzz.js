@@ -1,7 +1,7 @@
-var campoVision = 100;
-var relacionAspecto = window.innerWidth / window.innerWidth;
-var planoCercano = 100;
-var planoLejano = 100;
+var campoVision = 45;
+var relacionAspecto = window.innerWidth / window.innerHeight;
+var planoCercano = 1;
+var planoLejano = 1000;
 var camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
 camara.position.z=500;
 
@@ -31,6 +31,6 @@ for(var k=0; k<64; k++){
 }
 
 var renderizador = new THREE.WebGLRenderer();
-renderizador.setSize(600, 600);
+renderizador.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderizador.domElement);
 renderizador.render(escena, camara);
