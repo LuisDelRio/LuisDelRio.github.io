@@ -3,14 +3,14 @@ var relacionAspecto = window.innerWidth / window.innerWidth;
 var planoCercano = 1;
 var planoLejano = 1000;
 var camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
-camara.position.z=15;
+camara.position.z=50;
 
 var cubo = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormalMaterial({color: 0xffffff}) );
 cubo.rotateY(Math.PI/4);
 var cubo1 = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormalMaterial({color: 0x888888}) );
-cubo1.position.x=5;
+cubo1.position.x=20;
 var cubo2= new THREE.Mesh(new THREE.BoxGeometry(10, 10, 2), new THREE.MeshNormalMaterial({color: '#00cc00'}));
-cubo2.position.x=-5;
+cubo2.position.x=-10;
 cubo2.position.z=-10;
 
 var escena = new THREE.Scene();
