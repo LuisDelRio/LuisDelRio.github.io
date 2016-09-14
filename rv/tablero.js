@@ -72,8 +72,22 @@ torreForma.merge(pico3Malla.geometry, pico3Malla.matrix);
 torreForma.merge(pico4Malla.geometry, pico4Malla.matrix);
 var material= new THREE.MeshNormalMaterial();
 var torreMalla = new THREE.Mesh(torreForma, material);
+var torreMalla1 = new THREE.Mesh(torreForma, material);
+var torreMalla2 = new THREE.Mesh(torreForma, material);
+var torreMalla3 = new THREE.Mesh(torreForma, material);
+
 torreMalla.rotateX(Math.PI/2);
 torreMalla.translateY(2);
+
+torreMalla1.rotateX(Math.PI/2);
+torreMalla1.translateY(2);
+torreMalla1.translateZ(-40);
+
+torreMalla2.rotateX(Math.PI/2);
+torreMalla2.translateY(2);
+
+torreMalla3.rotateX(Math.PI/2);
+torreMalla3.translateY(2);
 
 //Tablero
 var campoVision = 45;
@@ -114,6 +128,7 @@ for(var k=0; k<64; k++){
       }
   }
 }
+var caja = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0x999999}) );
 escena.add(torreMalla);
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth, window.innerHeight);
