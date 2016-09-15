@@ -132,8 +132,8 @@ for(var k=0; k<64; k++){
   }
 }
 var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), new THREE.MeshBasicMaterial({color: 0xCC6633}) );
-base.position.x=40;
-base.position.y=40;
+base.position.x=30;
+base.position.y=30;
 base.position.z=-2;
 escena.add(base);
 escena.add(torreMalla);
