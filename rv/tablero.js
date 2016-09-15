@@ -131,7 +131,10 @@ for(var k=0; k<64; k++){
       }
   }
 }
-var caja = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0x999999}) );
+var base = new THREE.Mesh( new THREE.BoxGeometry(100, 100, 1), new THREE.MeshBasicMaterial({color: 0x996600}) );
+base.position.x=-10;
+base.position.y=-10;
+escena.add(base);
 escena.add(torreMalla);
 escena.add(torreMalla1);
 escena.add(torreMalla2);
