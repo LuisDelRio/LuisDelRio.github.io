@@ -130,6 +130,9 @@ for(var k=0; k<64; k++){
 }
 var caja = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0x999999}) );
 escena.add(torreMalla);
+escena.add(torreMalla1);
+escena.add(torreMalla2);
+escena.add(torreMalla3);
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderizador.domElement);
