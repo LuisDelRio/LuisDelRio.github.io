@@ -77,19 +77,19 @@ var torreMalla2 = new THREE.Mesh(torreForma, material);
 var torreMalla3 = new THREE.Mesh(torreForma, material);
 
 torreMalla.rotateX(Math.PI/2);
-torreMalla.translateY(4);
+torreMalla.translateY(3);
 
 torreMalla1.rotateX(Math.PI/2);
-torreMalla1.translateY(4);
+torreMalla1.translateY(3);
 torreMalla1.translateZ(-70);
 
 torreMalla2.rotateX(Math.PI/2);
-torreMalla2.translateY(4);
+torreMalla2.translateY(3);
 torreMalla2.translateZ(-70);
 torreMalla2.translateX(70);
 
 torreMalla3.rotateX(Math.PI/2);
-torreMalla3.translateY(4);
+torreMalla3.translateY(3);
 torreMalla3.translateX(70);
 
 //Tablero
@@ -132,8 +132,8 @@ for(var k=0; k<64; k++){
   }
 }
 var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), new THREE.MeshBasicMaterial({color: 0xCC6633}) );
-base.position.x=30;
-base.position.y=30;
+base.position.x=35;
+base.position.y=35;
 base.position.z=-2;
 escena.add(base);
 escena.add(torreMalla);
