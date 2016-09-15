@@ -81,7 +81,7 @@ torreMalla.translateY(2);
 
 torreMalla1.rotateX(Math.PI/2);
 torreMalla1.translateY(2);
-torreMalla1.translateZ(-5);
+torreMalla1.translateZ(-40);
 
 torreMalla2.rotateX(Math.PI/2);
 torreMalla2.translateY(2);
