@@ -131,9 +131,9 @@ for(var k=0; k<64; k++){
       }
   }
 }
-var base = new THREE.Mesh( new THREE.BoxGeometry(100, 100, 1), new THREE.MeshBasicMaterial({color: 0x996600}) );
-base.position.x=-10;
-base.position.y=-10;
+var base = new THREE.Mesh( new THREE.BoxGeometry(100, 100, 1), new THREE.MeshBasicMaterial({color: 0x663300}) );
+base.position.x=40;
+base.position.y=40;
 escena.add(base);
 escena.add(torreMalla);
 escena.add(torreMalla1);
