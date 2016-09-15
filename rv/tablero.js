@@ -77,19 +77,19 @@ var torreMalla2 = new THREE.Mesh(torreForma, material);
 var torreMalla3 = new THREE.Mesh(torreForma, material);
 
 torreMalla.rotateX(Math.PI/2);
-torreMalla.translateY(2);
+torreMalla.translateY(4);
 
 torreMalla1.rotateX(Math.PI/2);
-torreMalla1.translateY(2);
+torreMalla1.translateY(4);
 torreMalla1.translateZ(-70);
 
 torreMalla2.rotateX(Math.PI/2);
-torreMalla2.translateY(2);
+torreMalla2.translateY(4);
 torreMalla2.translateZ(-70);
 torreMalla2.translateX(70);
 
 torreMalla3.rotateX(Math.PI/2);
-torreMalla3.translateY(2);
+torreMalla3.translateY(4);
 torreMalla3.translateX(70);
 
 //Tablero
@@ -114,10 +114,10 @@ for(var k=0; k<64; k++){
   for(var i=0; i<8; i++){
     for(var j=0; j<8; j++){
       if(a==2){
-        cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0xffffff}) );
+        cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), new THREE.MeshBasicMaterial({color: 0xffffff}) );
         a=1;
       }else{
-        cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 2), new THREE.MeshBasicMaterial({color: 0x999999}) );
+        cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), new THREE.MeshBasicMaterial({color: 0x999999}) );
         a=2;
       }
      cubo[k].position.x=j*10;
@@ -131,9 +131,10 @@ for(var k=0; k<64; k++){
       }
   }
 }
-var base = new THREE.Mesh( new THREE.BoxGeometry(100, 100, 1), new THREE.MeshBasicMaterial({color: 0x663300}) );
+var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), new THREE.MeshBasicMaterial({color: 0xCC6633}) );
 base.position.x=40;
 base.position.y=40;
+base.position.z=-2;
 escena.add(base);
 escena.add(torreMalla);
 escena.add(torreMalla1);
