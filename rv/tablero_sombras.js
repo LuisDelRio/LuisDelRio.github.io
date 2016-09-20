@@ -93,6 +93,7 @@ var torreMalla3 = new THREE.Mesh(torreForma, material);
 
 torreMalla.rotateX(Math.PI/2);
 torreMalla.translateY(3);
+torreMalla.transparent=true;
 torreMalla.opacity=.25;
 
 torreMalla1.rotateX(Math.PI/2);
