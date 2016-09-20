@@ -158,11 +158,14 @@ escena.add(torreMalla3);
 escena.add(iluminacion);
 escena.add(iluminacion1);
 escena.add(iluminacion2);
-var renderizador = new THREE.WebGLRenderer();
-renderizador.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderizador.domElement);
+
+var lienzo=document.getElementById("luzSombras");
+var renderizador = new THREE.WebGLRenderer({canvas: lienzo, antialias: true});
+renderizador.setSize(600,600);
+
 renderizador.shadowMapEnabled=true;
 torreMalla.castShadow=true;
 base.receiveShadow=true;
 iluminacion.castShadow=true;
+
 renderizador.render(escena, camara);
