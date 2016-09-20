@@ -147,7 +147,7 @@ for(var k=0; k<64; k++){
       }
   }
 }
-var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), new THREE.MeshBasicMaterial({color: 0xCC6633}) );
+var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), new THREE.MeshLambertMaterial({color: 0xCC6633}) );
 base.position.x=35;
 base.position.y=35;
 base.position.z=-2;
