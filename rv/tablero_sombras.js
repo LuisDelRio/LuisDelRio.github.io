@@ -84,33 +84,35 @@ torreForma.merge(pico1Malla.geometry, pico1Malla.matrix);
 torreForma.merge(pico2Malla.geometry, pico2Malla.matrix);
 torreForma.merge(pico3Malla.geometry, pico3Malla.matrix);
 torreForma.merge(pico4Malla.geometry, pico4Malla.matrix);
-var material= new THREE.MeshLambertMaterial({color: 0xFFFFFF});
-var material2= new THREE.MeshLambertMaterial({color: 0x888888});
+var material= new THREE.MeshLambertMaterial({color: 0xFFFFFF, transparent: true});
+var material1= new THREE.MeshLambertMaterial({color: 0x888888, transparent: true});
+var material2= new THREE.MeshLambertMateria2({color: 0x888888, transparent: true});
+var material3= new THREE.MeshLambertMateria3({color: 0xFFFFFF, transparent: true});
+material.opacity=0.25;
+material.opacity=0.50;
+material.opacity=0.75;
+material.opacity=1;
 var torreMalla = new THREE.Mesh(torreForma, material);
-var torreMalla1 = new THREE.Mesh(torreForma, material2);
+var torreMalla1 = new THREE.Mesh(torreForma, material1);
 var torreMalla2 = new THREE.Mesh(torreForma, material2);
-var torreMalla3 = new THREE.Mesh(torreForma, material);
+var torreMalla3 = new THREE.Mesh(torreForma, material3);
 
 torreMalla.rotateX(Math.PI/2);
 torreMalla.translateY(3);
 torreMalla.transparent=true;
-torreMalla.opacity=.25;
 
 torreMalla1.rotateX(Math.PI/2);
 torreMalla1.translateY(3);
 torreMalla1.translateZ(-70);
-torreMalla1.opacity=.50;
 
 torreMalla2.rotateX(Math.PI/2);
 torreMalla2.translateY(3);
 torreMalla2.translateZ(-70);
 torreMalla2.translateX(70);
-torreMalla2.opacity=.75;
 
 torreMalla3.rotateX(Math.PI/2);
 torreMalla3.translateY(3);
 torreMalla3.translateX(70);
-torreMalla3.opacity=1;
 
 //Tablero
 var campoVision = 45;
