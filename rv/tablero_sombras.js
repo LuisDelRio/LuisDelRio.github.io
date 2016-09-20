@@ -2,15 +2,15 @@
 var iluminacion= new THREE.PointLight(0xFFFF00);
 iluminacion.position.y=-20;
 iluminacion.position.x=-20;
-iluminacion.position.z=20;
+iluminacion.position.z=60;
 var iluminacion1= new THREE.PointLight(0xFF00CC);
 iluminacion1.position.y=100;
 iluminacion1.position.x=-20;
-iluminacion1.position.z=20;
+iluminacion1.position.z=60;
 var iluminacion2= new THREE.PointLight(0x66FFFF);
 iluminacion2.position.y=0;
 iluminacion2.position.x=100;
-iluminacion2.position.z=20;
+iluminacion2.position.z=60;
 
 //Torres
 var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
@@ -164,5 +164,7 @@ renderizador.setSize(window.innerWidth, window.innerHeight);
 renderizador.shadowMapEnabled=true;
 torreMalla.castShadow=true;
 iluminacion.castShadow=true;
+iluminacion1.castShadow=true;
+iluminacion2.castShadow=true;
 document.body.appendChild(renderizador.domElement);
 renderizador.render(escena, camara);
