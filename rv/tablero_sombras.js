@@ -172,5 +172,5 @@ iluminacion2.castShadow=true;
 renderizador.shadowMapEnabled=true;
 torreMalla.castShadow=true;
 base.receiveShadow=true;
-iluminacion3.castShadow=true;
+iluminacion2.castShadow=true;
 renderizador.render(escena, camara);
