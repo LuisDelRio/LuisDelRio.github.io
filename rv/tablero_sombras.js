@@ -137,8 +137,8 @@ for(var k=0; k<64; k++){
       }
      cubo[k].position.x=j*10;
      cubo[k].position.y=i*10;
-     cubo[k].receiveShadow=true;
      escena.add(cubo[k]);
+     cubo[k].receiveShadow=true;
    }
    if(a==2){
         a=1;
