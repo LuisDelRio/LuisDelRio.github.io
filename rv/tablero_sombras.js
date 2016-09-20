@@ -161,4 +161,8 @@ escena.add(iluminacion2);
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderizador.domElement);
+renderizador.shadowMapEnabled=true;
+malla.castShadow=true;
+base.receiveShadow=true;
+iluminacion.castShadow=true;
 renderizador.render(escena, camara);
