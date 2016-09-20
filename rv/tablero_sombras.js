@@ -1,3 +1,17 @@
+//Iluminación
+var iluminacion= new THREE.PointLight(0xFFFF00);
+iluminacion.position.y=-20;
+iluminacion.position.x=-20;
+iluminacion.position.z=20;
+var iluminacion1= new THREE.PointLight(0xFF00CC);
+iluminacion1.position.y=100;
+iluminacion1.position.x=-20;
+iluminacion1.position.z=20;
+var iluminacion2= new THREE.PointLight(0x66FFFF);
+iluminacion2.position.y=0;
+iluminacion2.position.x=100;
+iluminacion2.position.z=20;
+
 //Torres
 var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
 var base2Forma = new THREE.CylinderGeometry(4,4,1,20,1,false);
@@ -70,10 +84,11 @@ torreForma.merge(pico1Malla.geometry, pico1Malla.matrix);
 torreForma.merge(pico2Malla.geometry, pico2Malla.matrix);
 torreForma.merge(pico3Malla.geometry, pico3Malla.matrix);
 torreForma.merge(pico4Malla.geometry, pico4Malla.matrix);
-var material= new THREE.MeshNormalMaterial();
+var material= new THREE.MeshLambertMaterial({color: 0xFFFFFF});
+var material2= new THREE.MeshLambertMaterial({color: 0x888888});
 var torreMalla = new THREE.Mesh(torreForma, material);
-var torreMalla1 = new THREE.Mesh(torreForma, material);
-var torreMalla2 = new THREE.Mesh(torreForma, material);
+var torreMalla1 = new THREE.Mesh(torreForma, material2);
+var torreMalla2 = new THREE.Mesh(torreForma, material2);
 var torreMalla3 = new THREE.Mesh(torreForma, material);
 
 torreMalla.rotateX(Math.PI/2);
@@ -140,6 +155,9 @@ escena.add(torreMalla);
 escena.add(torreMalla1);
 escena.add(torreMalla2);
 escena.add(torreMalla3);
+escena.add(iluminacion);
+escena.add(iluminacion1);
+escena.add(iluminacion2);
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderizador.domElement);
