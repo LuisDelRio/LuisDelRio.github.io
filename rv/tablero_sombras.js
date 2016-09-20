@@ -93,19 +93,23 @@ var torreMalla3 = new THREE.Mesh(torreForma, material);
 
 torreMalla.rotateX(Math.PI/2);
 torreMalla.translateY(3);
+torreMalla.opacity=.25;
 
 torreMalla1.rotateX(Math.PI/2);
 torreMalla1.translateY(3);
 torreMalla1.translateZ(-70);
+torreMalla1.opacity=.50;
 
 torreMalla2.rotateX(Math.PI/2);
 torreMalla2.translateY(3);
 torreMalla2.translateZ(-70);
 torreMalla2.translateX(70);
+torreMalla2.opacity=.75;
 
 torreMalla3.rotateX(Math.PI/2);
 torreMalla3.translateY(3);
 torreMalla3.translateX(70);
+torreMalla3.opacity=1;
 
 //Tablero
 var campoVision = 45;
