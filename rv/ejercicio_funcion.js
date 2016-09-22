@@ -11,7 +11,6 @@ function init (p){
   }
   
   var loop = function(p){
-    a=a+1;
     requestAnimationFrame(loop);
     renderizador.render(escena, camara);
     malla.rotateY(0.01);
