@@ -14,11 +14,6 @@ function init (p){
     requestAnimationFrame(loop);
     renderizador.render(escena, camara);
     malla.position.x=0.01;
-    if(a==100){
-      requestAnimationFrame(loop);
-    renderizador.render(escena, camara);
-    malla.position.x=-0.01;
-    }
   }
 
 var escena, camara, renderizador, malla;
