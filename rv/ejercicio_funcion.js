@@ -3,7 +3,8 @@ function init (p){
   escena = new THREE.Scene();
   escena.add(malla);
   camara = new THREE.PerspectiveCamera();
-  camara.position.z=25;
+  camara.position.z=5*p;
+  step=0.01;
   renderizador = new THREE.WebGLRenderer();
   renderizador.setSize(700,700);
   document.body.appendChild(renderizador.domElement);
@@ -13,17 +14,13 @@ function init (p){
     a=a+1;
     requestAnimationFrame(loop);
     renderizador.render(escena, camara);
-    malla.position.x=a;
-    if(a==100){
-      b=b+1;
-      requestAnimationFrame(loop);
-      renderizador.render(escena, camara);
-      malla.position.x=100-b;
+    malla.rotateY(0.01);
+    if(Math.abs(malla.position.x)>=5){
+      step=-step;
+      malla.position.x=step;
     }
   }
 
-var escena, camara, renderizador, malla;
-var a=0;
-var b=0;
+var escena, camara, renderizador, malla, step;
 init(1);
 loop();
