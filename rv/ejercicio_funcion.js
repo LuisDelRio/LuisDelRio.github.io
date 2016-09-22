@@ -17,7 +17,7 @@ function init (p){
     if(a==100){
       requestAnimationFrame(loop);
       renderizador.render(escena, camara);
-      malla.position.x=-a;
+      malla.position.x=100-a;
     }
   }
 
