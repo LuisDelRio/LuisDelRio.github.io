@@ -17,4 +17,4 @@ function init (p){
 
 var escena, camara, renderizador, malla;
 init(1);
-main(2);
+loop();
