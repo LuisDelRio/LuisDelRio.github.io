@@ -13,7 +13,7 @@ function init (p){
     a=a+1;
     requestAnimationFrame(loop);
     renderizador.render(escena, camara);
-    malla.position.x=0.01;
+    malla.position.x=a;
   }
 
 var escena, camara, renderizador, malla;
