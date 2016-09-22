@@ -10,7 +10,7 @@ function init (p){
   }
   
   var loop = function(p){
-    a+=;
+    a=a+1;
     requestAnimationFrame(loop);
     renderizador.render(escena, camara);
     malla.position.x=0.01;
