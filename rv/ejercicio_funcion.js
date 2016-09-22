@@ -15,13 +15,15 @@ function init (p){
     renderizador.render(escena, camara);
     malla.position.x=a;
     if(a==100){
+      b=b+1;
       requestAnimationFrame(loop);
       renderizador.render(escena, camara);
-      malla.position.x=100-a;
+      malla.position.x=100-b;
     }
   }
 
 var escena, camara, renderizador, malla;
 var a=0;
+var b=0;
 init(1);
 loop();
