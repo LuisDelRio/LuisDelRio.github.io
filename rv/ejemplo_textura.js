@@ -20,4 +20,9 @@ TEXTURA.loop=function(){
   if (TEXTURA.malla !== undefined){
     TEXTURA.malla.rotateX(0.01);
     TEXTURA.malla.rotateY(0.01);
-    
+  }
+  TEXTURA.renderizador.render(TEXTURA.escena, TEXTURA.camara);
+}
+
+TEXTURA.setup();
+TEXTURA.loop();
