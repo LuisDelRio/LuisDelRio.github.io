@@ -18,7 +18,7 @@ VENTANA.setup=function(){
   VENTANA.escena.add(VENTANA.malla);
 }
 VENTANA.loop=function(){
-  requestAnimationFrame(Ventana.loop);
+  requestAnimationFrame(VENTANA.loop);
   VENTANA.malla.rotateX(0.01);
   VENTANA.malla.rotateY(0.01);
   VENTANA.renderizador.render(VENTANA.escena, VENTANA.camara);
