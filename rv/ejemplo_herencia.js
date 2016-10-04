@@ -27,7 +27,7 @@ PROTOTIPO.setup = function(){
   PROTOTIPO.camara = new THREE.PerspectiveCamera();
   PROTOTIPO.camara.position.z = 20;
   
-  var lienzo = document.getElementById("ejemploherencia");
+  var lienzo = document.getElementById("ejemplo_herencia");
   PROTOTIPO.renderizador = new THREE.WebGLRenderer({canvas:lienzo,antialias:true});
   
   PROTOTIPO.renderizador.setSize(600,600);
