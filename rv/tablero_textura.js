@@ -1,3 +1,4 @@
+var camara,escena,renderizador;
 
 function setup(){
   //Texturas
@@ -112,7 +113,7 @@ function setup(){
   var relacionAspecto = window.innerWidth / window.innerHeight;
   var planoCercano = 1;
   var planoLejano = 1000;
-  var camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
+  camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
   camara.position.z=50;
   camara.position.x=160;
   camara.position.y=40;
@@ -122,7 +123,7 @@ function setup(){
   camara.rotateZ(Math.PI/2);
   
   
-  var escena = new THREE.Scene();
+  escena = new THREE.Scene();
   var cubo= new Array();
   var a=2;
   for(var k=0; k<64; k++){
@@ -155,7 +156,7 @@ function setup(){
   escena.add(torreMalla1);
   escena.add(torreMalla2);
   escena.add(torreMalla3);
-  var renderizador = new THREE.WebGLRenderer();
+  renderizador = new THREE.WebGLRenderer();
   renderizador.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderizador.domElement);
   
