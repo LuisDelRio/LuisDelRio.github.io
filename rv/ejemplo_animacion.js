@@ -25,7 +25,7 @@ function setup(){
   renderizador.render(escena, camara);  
 }
 
-funtionloop(){
+funtion loop(){
   pieza.rotateY(0.1);
 }
 
