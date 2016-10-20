@@ -1,3 +1,4 @@
+var camara, escena;
 function Pieza(){
   THREE.Object3D.call(this);
   this.piernaIzq = new THREE.Mesh(new THREE.BoxGeometry(1,5,1));
@@ -15,9 +16,9 @@ Pieza.prototype=new THREE.Object3D;
 
 function setup(){
   pieza=new Pieza();
-  var escena= new THREE.Scene();
+  escena= new THREE.Scene();
   escena.add(pieza);
-  var camara = new THREE.PerspectiveCamera();
+  camara = new THREE.PerspectiveCamera();
   camara.position.z=5;
   renderizador = new THREE.WebGLRenderer();
   renderizador.setSize(window.innerHeight*.95, window.innerHeight*.95);
