@@ -11,7 +11,7 @@ function Pieza(){
   cuerpo.position.z=2.5;
 }
 
-Pieza.prototype=new THREE.Object3D
+Pieza.prototype=new THREE.Object3D;
 
 function setup(){
   pieza=new Pieza();
@@ -26,7 +26,7 @@ function setup(){
 }
 
 funtionloop(){
-  pieza.rotateY=0.1;
+  pieza.rotateY(0.1);
 }
 
 setup();
