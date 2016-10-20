@@ -24,7 +24,7 @@ function setup(){
   document.body.appendChild(renderizador.domElement); 
 }
 
-funtion loop(){
+function loop(){
   pieza.rotateY(0.1);
   renderizador.render(escena, camara); 
   requestAnimationFrame(loop);
