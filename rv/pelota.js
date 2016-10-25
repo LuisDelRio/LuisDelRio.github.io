@@ -70,7 +70,7 @@ Pared.prototype=new THREE.Object3D();
 
 function setup(){
   entorno = new Environment();
-  camra=new THREE.PerspectiveCamera();
+  camara=new THREE.PerspectiveCamera();
   camara.position.z=30;
   
   entorno.add( new Pared(1,7,0));
