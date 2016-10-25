@@ -10,7 +10,7 @@ Agent.prototype.sense=function(enviroment) {};
 Agent.prototype.plan=function(enviroment) {};
 Agent.prototype.act=function(enviroment) {};
 
-funtion Enviroment(){
+function Enviroment(){
   THREE.Scene.call(this);
 }
 
@@ -87,7 +87,7 @@ function setup(){
   document.body.appendChild(renderer.domElement);
 }
 
-funtion loop(){
+function loop(){
   requestAnimationFrame(loop);
   
   entorno.sense();
