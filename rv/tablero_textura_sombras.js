@@ -102,10 +102,10 @@ function setup(){
   torreForma.merge(pico3Malla.geometry, pico3Malla.matrix);
   torreForma.merge(pico4Malla.geometry, pico4Malla.matrix);
   //var material= new THREE.MeshNormalMaterial();
-  var torreMalla = new THREE.Mesh(torreForma, ceramicablanca);
-  var torreMalla1 = new THREE.Mesh(torreForma, ceramicanegra);
-  var torreMalla2 = new THREE.Mesh(torreForma, ceramicanegra);
-  var torreMalla3 = new THREE.Mesh(torreForma, ceramicablanca);
+  var torreMalla = new THREE.MeshLambertMaterial(torreForma, ceramicablanca);
+  var torreMalla1 = new THREE.MeshLambertMaterial(torreForma, ceramicanegra);
+  var torreMalla2 = new THREE.MeshLambertMaterial(torreForma, ceramicanegra);
+  var torreMalla3 = new THREE.MeshLambertMaterial(torreForma, ceramicablanca);
   
   torreMalla.rotateX(Math.PI/2);
   torreMalla.translateY(3);
@@ -145,10 +145,10 @@ function setup(){
     for(var i=0; i<8; i++){
       for(var j=0; j<8; j++){
         if(a==2){
-          cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), marmolblanco );
+          cubo[k] = new THREE.MeshLambertMaterial( new THREE.BoxGeometry(10, 10, 4), marmolblanco );
           a=1;
         }else{
-          cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), marmolnegro );
+          cubo[k] = new THREE.MeshLambertMaterial( new THREE.BoxGeometry(10, 10, 4), marmolnegro );
           a=2;
         }
        cubo[k].position.x=j*10;
@@ -162,7 +162,7 @@ function setup(){
         }
     }
   }
-  var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), marmolcafe );
+  var base = new THREE.MeshLambertMaterial( new THREE.BoxGeometry(90, 90, 2), marmolcafe );
   base.position.x=35;
   base.position.y=35;
   base.position.z=-2;
