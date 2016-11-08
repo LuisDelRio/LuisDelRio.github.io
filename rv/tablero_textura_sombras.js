@@ -22,11 +22,11 @@ function setup(){
   var textura3 = new THREE.TextureLoader().load('marnol_negro.jpg');
   var textura4 = new THREE.TextureLoader().load('ceramica_blanca.jpg');
   var textura5 = new THREE.TextureLoader().load('ceramica_negra.jpg');
-  var marmolblanco = new THREE.MeshBasicMaterial({map:textura1});
-  var marmolcafe = new THREE.MeshBasicMaterial({map:textura2});
-  var marmolnegro = new THREE.MeshBasicMaterial({map:textura3});
-  var ceramicablanca = new THREE.MeshBasicMaterial({map:textura4});
-  var ceramicanegra = new THREE.MeshBasicMaterial({map:textura5});
+  var marmolblanco = new THREE.MeshLambertMaterial({map:textura1});
+  var marmolcafe = new THREE.MeshLambertMaterial({map:textura2});
+  var marmolnegro = new THREE.MeshLambertMaterial({map:textura3});
+  var ceramicablanca = new THREE.MeshLambertMaterial({map:textura4});
+  var ceramicanegra = new THREE.MeshLambertMaterial({map:textura5});
   
   
   //Torres
@@ -145,10 +145,10 @@ function setup(){
     for(var i=0; i<8; i++){
       for(var j=0; j<8; j++){
         if(a==2){
-          cubo[k] = new THREE.MeshLambertMaterial( new THREE.BoxGeometry(10, 10, 4), marmolblanco );
+          cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), marmolblanco );
           a=1;
         }else{
-          cubo[k] = new THREE.MeshLambertMaterial( new THREE.BoxGeometry(10, 10, 4), marmolnegro );
+          cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), marmolnegro );
           a=2;
         }
        cubo[k].position.x=j*10;
