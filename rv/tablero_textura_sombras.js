@@ -162,7 +162,7 @@ function setup(){
         }
     }
   }
-  var base = new THREE.MeshLambertMaterial( new THREE.BoxGeometry(90, 90, 2), marmolcafe );
+  var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), marmolcafe );
   base.position.x=35;
   base.position.y=35;
   base.position.z=-2;
