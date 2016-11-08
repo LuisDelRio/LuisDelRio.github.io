@@ -174,8 +174,6 @@ function setup(){
   torreMalla3.castShadow=true;
   base.receiveShadow=true;
   iluminacion.castShadow=true;
-  iluminacion1.castShadow=true;
-  iluminacion2.castShadow=true;
   document.body.appendChild(renderizador.domElement);
   
 }
