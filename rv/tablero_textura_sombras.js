@@ -1,16 +1,8 @@
 //Iluminación
-var iluminacion= new THREE.PointLight(0xFFFF00);
-iluminacion.position.y=-20;
-iluminacion.position.x=-20;
-iluminacion.position.z=30;
-var iluminacion1= new THREE.PointLight(0xFF00CC);
-iluminacion1.position.y=100;
-iluminacion1.position.x=-20;
-iluminacion1.position.z=30;
-var iluminacion2= new THREE.PointLight(0x66FFFF);
-iluminacion2.position.y=0;
-iluminacion2.position.x=100;
-iluminacion2.position.z=30;
+var iluminacion= new THREE.PointLight(0xFFFFFF);
+iluminacion.position.y= 40;
+iluminacion.position.x= 40;
+iluminacion.position.z= 50;
 
 
 var camara,escena,renderizador;
@@ -173,8 +165,6 @@ function setup(){
   escena.add(torreMalla2);
   escena.add(torreMalla3);
   escena.add(iluminacion);
-  escena.add(iluminacion1);
-  escena.add(iluminacion2);
   renderizador = new THREE.WebGLRenderer();
   renderizador.setSize(window.innerWidth, window.innerHeight);
   renderizador.shadowMapEnabled=true;
