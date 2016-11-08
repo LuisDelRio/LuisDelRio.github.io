@@ -154,6 +154,7 @@ function setup(){
        cubo[k].position.x=j*10;
        cubo[k].position.y=i*10;
        escena.add(cubo[k]);
+       cubo[k].receiveShadow=true;
      }
      if(a==2){
           a=1;
