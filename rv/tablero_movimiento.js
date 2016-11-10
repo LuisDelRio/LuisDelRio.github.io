@@ -180,7 +180,8 @@ function setup(){
 
 
 function loop(){
-  
+  requestAnimationFrame(loop);
+  renderizador.render(escena,camara);
   window.onload=function(){document.onkeydown=desplazar};
     function desplazar(objeto){
     var tecla = objeto.which;
@@ -208,8 +209,6 @@ function loop(){
         default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
         }
     }
-  requestAnimationFrame(loop);
-  renderizador.render(escena,camara);
 }
 
 setup();
