@@ -5,7 +5,7 @@ iluminacion.position.x= 40;
 iluminacion.position.z= 50;
 
 
-var camara,escena,renderizador;
+var camara,escena,renderizador,torreMalla;
 
 function setup(){
   //Texturas
@@ -94,7 +94,7 @@ function setup(){
   torreForma.merge(pico3Malla.geometry, pico3Malla.matrix);
   torreForma.merge(pico4Malla.geometry, pico4Malla.matrix);
   //var material= new THREE.MeshNormalMaterial();
-  var torreMalla = new THREE.Mesh(torreForma, ceramicablanca);
+  torreMalla = new THREE.Mesh(torreForma, ceramicablanca);
   //var torreMalla1 = new THREE.Mesh(torreForma, ceramicanegra);
   //var torreMalla2 = new THREE.Mesh(torreForma, ceramicanegra);
   //var torreMalla3 = new THREE.Mesh(torreForma, ceramicablanca);
@@ -185,9 +185,9 @@ function loop(){
     var tecla = objeto.which;
         switch (tecla){
             case 37 :   
-                torreMalla.position.x=70;
-                torreMalla.position.y=3;
-                torreMalla.position.z=-70;
+                torreMalla.translateX(70);
+                torreMalla.translateY(3);
+                torreMalla.translateZ(-70);
                 break;
             case 38 : 
                 torreMalla.translateY(3);
