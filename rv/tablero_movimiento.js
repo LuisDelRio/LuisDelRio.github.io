@@ -185,9 +185,9 @@ function loop(){
     var tecla = objeto.which;
         switch (tecla){
             case 37 :   
-                torreMalla.translateX(70);
+                torreMalla.translateX(10);
                 torreMalla.translateY(3);
-                torreMalla.translateZ(-70);
+                torreMalla.translateZ(-10);
                 break;
             case 38 : 
                 torreMalla.translateY(3);
