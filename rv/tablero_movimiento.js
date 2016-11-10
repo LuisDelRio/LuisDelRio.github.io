@@ -192,13 +192,10 @@ function loop(){
                 break;
             case 39 :  
                 torreMalla.translateZ(10);
-                
-                torreMalla.translateX(-10);
+              
                 break;
             case 40 : 
-                torreMalla.translateY(3); 
-                torreMalla.translateZ(-40);
-                torreMalla.translateX(40);
+                torreMalla.translateX(-10);
                 break;
         default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
         }
