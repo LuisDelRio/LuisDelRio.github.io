@@ -185,27 +185,23 @@ function loop(){
     var tecla = objeto.which;
         switch (tecla){
             case 37 :   
-                torreMalla.translateY(3);
-                torreMalla.translateZ(-70);
-                torreMalla.translateX(70);
-            escena.add(torreMalla);
+                torreMalla.position.x=70;
+                torreMalla.position.y=3;
+                torreMalla.position.z=-70;
                 break;
             case 38 : 
                 torreMalla.translateY(3);
                 torreMalla.translateZ(-70);
-                escena.add(torreMalla);
                 break;
             case 39 :  
                 torreMalla.translateY(3);
                 
                 torreMalla.translateX(70);
-            escena.add(torreMalla);
                 break;
             case 40 : 
                 torreMalla.translateY(3); 
                 torreMalla.translateZ(-40);
                 torreMalla.translateX(40);
-            escena.add(torreMalla);
                 break;
         default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
         }
