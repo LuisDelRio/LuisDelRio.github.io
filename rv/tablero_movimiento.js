@@ -186,13 +186,25 @@ function loop(){
     var tecla = objeto.which;
         switch (tecla){
             case 37 :   
-                torreMalla.translateY(23); break;
+                torreMalla.translateY(3);
+                torreMalla.translateZ(-70);
+                torreMalla.translateX(70);
+                break;
             case 38 : 
-                torreMalla.translateY(43); ;break;
+                torreMalla.translateY(3);
+                torreMalla.translateZ(-70);
+                
+                break;
             case 39 :  
-                torreMalla.translateY(63); ;break;
+                torreMalla.translateY(3);
+                
+                torreMalla.translateX(70);
+                break;
             case 40 : 
-                torreMalla.translateY(83); break;
+                torreMalla.translateY(3); 
+                torreMalla.translateZ(-40);
+                torreMalla.translateX(40);
+                break;
         default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
         }
     }
