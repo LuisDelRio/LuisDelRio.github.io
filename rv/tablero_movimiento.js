@@ -166,7 +166,7 @@ function setup(){
   //escena.add(torreMalla3);
   escena.add(iluminacion);
   renderizador = new THREE.WebGLRenderer();
-  renderizador.setSize(window.innerWidth-10, window.innerHeight-10);
+  renderizador.setSize(window.innerWidth-100, window.innerHeight-100);
   renderizador.shadowMapEnabled=true;
   torreMalla.castShadow=true;
   //torreMalla1.castShadow=true;
