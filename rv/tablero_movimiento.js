@@ -180,8 +180,6 @@ function setup(){
 
 
 function loop(){
-  requestAnimationFrame(loop);
-  renderizador.render(escena,camara);
   window.onload=function(){document.onkeydown=desplazar};
     function desplazar(objeto){
     var tecla = objeto.which;
@@ -190,25 +188,30 @@ function loop(){
                 torreMalla.translateY(3);
                 torreMalla.translateZ(-70);
                 torreMalla.translateX(70);
+            escena.add(torreMalla);
                 break;
             case 38 : 
                 torreMalla.translateY(3);
                 torreMalla.translateZ(-70);
-                
+                escena.add(torreMalla);
                 break;
             case 39 :  
                 torreMalla.translateY(3);
                 
                 torreMalla.translateX(70);
+            escena.add(torreMalla);
                 break;
             case 40 : 
                 torreMalla.translateY(3); 
                 torreMalla.translateZ(-40);
                 torreMalla.translateX(40);
+            escena.add(torreMalla);
                 break;
         default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
         }
     }
+  requestAnimationFrame(loop);
+  renderizador.render(escena,camara);
 }
 
 setup();
