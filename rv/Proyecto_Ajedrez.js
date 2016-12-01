@@ -687,6 +687,8 @@ function loop(){
       auxx=seleccionadorMalla.position.x;
       auxy=seleccionadorMalla.position.y;
       cuyo=3;
+      requestAnimationFrame(loop);
+      renderizador.render(escena,camara);
   }
   if(cuyo==4){
     if(auxx==0 && auxy==0){
@@ -696,8 +698,8 @@ function loop(){
       valor[0][0]= " ";                 
     }else if(auxx==1 && auxy==0){
       valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[1][0];
-      valor[1][0].translateX(seleccionadorMalla.position.x);
-      valor[1][0].translateZ(seleccionadorMalla.position.y);
+      valor[1][0].position.x=seleccionadorMalla.position.x;
+      valor[1][0].position.y=seleccionadorMalla.position.y;
       valor[1][0]=" ";
     }
     seleccionadorMalla.position.x=0;
