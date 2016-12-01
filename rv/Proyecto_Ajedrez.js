@@ -19,7 +19,7 @@ seleccionadorMalla.rotateX(Math.PI/2);
 seleccionadorMalla.translateY(30);
 var posicionador= new THREE.MeshBasicMaterial({color: 0x0096D6});
 
-var camara,escena,renderizador, valor;
+var camara,escena,renderizador, valor, posicionadorMalla;
 
 
 function setup(){
@@ -616,7 +616,13 @@ function loop(){
                 seleccionadorMalla.translateX(-10);
                 break;
             case 13 : 
-                material.color=0x0096D6;
+                escena.remove( seleccionadorMalla );
+                posicionadorMalla = new THREE.Mesh(seleccionadorForma, posicionador);
+                posicionadorMalla.rotateX(Math.PI/2);
+                posicionadorMalla.position.x=seleccionadorMalla.position.x;
+                posicionadorMalla.position.y=seleccionadorMalla.position.y;
+                posicionadorMalla.position.z=seleccionadorMalla.position.z;
+
                 break;
         default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
         }
