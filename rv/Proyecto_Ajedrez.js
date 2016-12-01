@@ -687,6 +687,7 @@ function loop(){
       var auxx=posicionadorMalla.position.x;
       var auxy=posicionadorMalla.position.y;
       var auxz=posicionadorMalla.position.z;
+      alert(auxx);
       cuyo=3;
   }
   if(cuyo==4){
