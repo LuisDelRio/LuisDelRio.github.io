@@ -683,15 +683,14 @@ function setup(){
 
 
 function loop(){
-  alert(cuyo);
-  if(cuyo==2){
+  if(cuyo==3){
       auxx=posicionadorMalla.position.x;
       auxy=posicionadorMalla.position.y;
       cuyo=cuyo+1;
       requestAnimationFrame(loop);
       renderizador.render(escena,camara);
   }
-  else if(cuyo==4){
+  else if(cuyo==5){
     if(auxx==0 && auxy==0){
       valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][0];
       valor[0][0].position.x=seleccionadorMalla.position.x;
