@@ -687,11 +687,12 @@ function loop(){
       var auxx=posicionadorMalla.position.x;
       var auxy=posicionadorMalla.position.y;
       var auxz=posicionadorMalla.position.z;
-      alert(auxx);
+      requestAnimationFrame(loop);
+      renderizador.render(escena,camara);
       cuyo=3;
   }
   if(cuyo==4){
-    if(auxx=!0){
+    if(auxx==0 && auxy==0){
       valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][0];
       valor[0][0].position.x=seleccionadorMalla.position.x;
       valor[0][0].position.y=seleccionadorMalla.position.y;
@@ -700,7 +701,7 @@ function loop(){
       valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[1][0];
       valor[1][0].translateX(seleccionadorMalla.position.x);
       valor[1][0].translateZ(seleccionadorMalla.position.y);
-      valor[1][0]="";
+      valor[1][0]=" ";
     }
     seleccionadorMalla.position.x=0;
     seleccionadorMalla.position.y=0;
