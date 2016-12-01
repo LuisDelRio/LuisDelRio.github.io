@@ -686,8 +686,6 @@ function loop(){
   if(cuyo==2){
       var auxx=posicionadorMalla.position.x;
       var auxy=posicionadorMalla.position.y;
-      requestAnimationFrame(loop);
-      renderizador.render(escena,camara);
       cuyo=3;
   }
   if(cuyo==4){
