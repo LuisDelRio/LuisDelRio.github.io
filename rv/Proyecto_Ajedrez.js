@@ -616,7 +616,7 @@ function loop(){
                 seleccionadorMalla.translateX(-10);
                 break;
             case 13 : 
-                seleccionadorMalla.color=0x0096D6;
+                seleccionadorMalla.material.color=0x0096D6;
                 break;
         default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
         }
