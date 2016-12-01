@@ -596,17 +596,17 @@ function loop(){
     var tecla = objeto.which;
         switch (tecla){
             case 37 :   
-                torreMalla.translateX(10);
+                seleccionador.position.x=10;
                 break;
             case 38 : 
-                torreMalla.translateZ(-10);
+                seleccionador.position.z=-10;
                 break;
             case 39 :  
-                torreMalla.translateZ(10);
+                seleccionador.position.z=10;
               
                 break;
             case 40 : 
-                torreMalla.translateX(-10);
+                seleccionador.position.x=-10;
                 break;
         default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
         }
