@@ -599,8 +599,7 @@ function setup(){
 
 
 function loop(){
-  cuyo=cuyo+1;
-  if(cuyo==4){
+  if(cuyo==3){
     escena.remove(posicionadorMalla);
     seleccionadorMalla.position.x=0;
     seleccionadorMalla.position.y=0;
@@ -621,7 +620,6 @@ function loop(){
                   break;
               case 39 :  
                   seleccionadorMalla.translateZ(10);
-
                   break;
               case 40 : 
                   seleccionadorMalla.translateX(-10);
@@ -633,6 +631,7 @@ function loop(){
                   posicionadorMalla.position.y=seleccionadorMalla.position.y;
                   posicionadorMalla.position.z=seleccionadorMalla.position.z;
                   escena.add(posicionadorMalla);
+                  cuyo=cuyo+1;
                   break;
           default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
           }
