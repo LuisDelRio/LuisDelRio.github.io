@@ -711,6 +711,7 @@ function loop(){
     requestAnimationFrame(loop);
     renderizador.render(escena,camara);
   }else{
+    alert(auxx);
     window.onload=function(){document.onkeydown=desplazar};
       function desplazar(objeto){
       var tecla = objeto.which;
