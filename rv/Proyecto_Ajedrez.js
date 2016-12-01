@@ -603,9 +603,11 @@ function loop(){
   if(cuyo==4){
     escena.remove(posicionadorMalla);
     seleccionadorMalla.position.x=0;
-    seleccionadorMalla.position.y=30;
-    seleccionadorMalla.position.z=0;
+    seleccionadorMalla.position.y=0;
+    seleccionadorMalla.position.z=30;
     cuyo=1;
+    requestAnimationFrame(loop);
+    renderizador.render(escena,camara);
   }else{
     window.onload=function(){document.onkeydown=desplazar};
       function desplazar(objeto){
@@ -635,9 +637,9 @@ function loop(){
           default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
           }
       }
+    requestAnimationFrame(loop);
+    renderizador.render(escena,camara);
   }
-  requestAnimationFrame(loop);
-  renderizador.render(escena,camara);
 }
 
 
