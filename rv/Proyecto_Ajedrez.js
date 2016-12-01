@@ -683,13 +683,18 @@ function setup(){
 
 
 function loop(){
+  if(cuyo==2){
+      var auxx=posicionadorMalla.position.x;
+      var auxy=posicionadorMalla.position.y;
+      var auxz=posicionadorMalla.position.z;
+  }
   if(cuyo==3){
-    if(posicionadorMalla.position.x==0 && posicionadorMalla.position.y==0){
+    if(auxx==0 && auxy==0){
       valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][0];
       valor[0][0].position.x=seleccionadorMalla.position.x;
       valor[0][0].position.y=seleccionadorMalla.position.y;
       valor[0][0]= " ";                 
-    }else if(seleccionadorMalla.position.x==1 && seleccionadorMalla.position.y==0){
+    }else if(auxx==1 && auxy==0){
       valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[1][0];
       valor[1][0].translateX(seleccionadorMalla.position.x);
       valor[1][0].translateZ(seleccionadorMalla.position.y);
