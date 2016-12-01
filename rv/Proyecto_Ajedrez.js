@@ -685,10 +685,10 @@ function setup(){
 function loop(){
   if(cuyo==3){
     //if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==0){
-    valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][0];
+    //valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][0];
     valor[0][0].position.x=seleccionadorMalla.position.x;
     valor[0][0].position.y=seleccionadorMalla.position.y;
-    valor[0][0]="";                 
+    //valor[0][0]="";                 
     //}else if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==1){
       //valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][1];
       //valor[0][1].translateX(seleccionadorMalla.position.x);
