@@ -4,16 +4,12 @@ iluminacion.position.y= 40;
 iluminacion.position.x= 40;
 iluminacion.position.z= 50;
 
-var seleccionador= new THREE.PointLight(0xB40100);
-seleccionador.position.y= 10;
-seleccionador.position.x= 10;
-seleccionador.position.z= 5;
 
 
 
 
 
-var camara,escena,renderizador, valor;
+var camara,escena,renderizador, valor, seleccionadorMalla;
 
 
 function setup(){
@@ -29,6 +25,21 @@ function setup(){
   var ceramicablanca = new THREE.MeshLambertMaterial({map:textura4});
   var ceramicanegra = new THREE.MeshLambertMaterial({map:textura5});
   
+  
+  //Seleccionador
+  var base1Forma = new THREE.CylinderGeometry(2,2,6,6,6,false);
+  var base2Forma = new THREE.CylinderGeometry(4,0,4,4,4,false);
+  base2Forma.translate(0,-4,0);
+  var base1Malla = new THREE.Mesh(base1Forma);
+  var base2Malla= new THREE.Mesh(base2Forma);
+  var seleccionadorForma = new THREE.Geometry();
+  seleccionadorForma.merge(base1Malla.geometry, base1Malla.matrix);
+  seleccionadorForma.merge(base2Malla.geometry, base2Malla.matrix);
+  var material= new THREE.MeshNormalMaterial();
+  seleccionadorMalla = new THREE.Mesh(seleccionadorForma, material);
+  seleccionadorMalla.rotateX(Math.PI/2);
+  seleccionadorMalla.translateY(15);
+
   
   //Torres
   var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
@@ -505,6 +516,7 @@ function setup(){
        cubo[k].position.x=j*10;
        cubo[k].position.y=i*10;
        escena.add(cubo[k]);
+       cubo[k].receiveShadow=true;
      }
      if(a==2){
           a=1;
@@ -522,6 +534,7 @@ function setup(){
   base.position.x=35;
   base.position.y=35;
   base.position.z=-2;
+  escena.add(seleccionadorMalla);
   escena.add(base);
   escena.add(torreMalla);
   escena.add(torreMalla1);
@@ -552,13 +565,11 @@ function setup(){
   escena.add(peonMalla14);
   escena.add(peonMalla15);
   escena.add(iluminacion);
-  escena.add(seleccionador);
   renderizador = new THREE.WebGLRenderer();
   renderizador.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderizador.domElement);
   renderizador.shadowMapEnabled=true;
   iluminacion.castShadow=true;
-  seleccionador.castShadow=true;
   torreMalla.castShadow=true;
   torreMalla1.castShadow=true;
   torreMalla2.castShadow=true;
@@ -587,6 +598,7 @@ function setup(){
   peonMalla13.castShadow=true;
   peonMalla14.castShadow=true;
   peonMalla15.castShadow=true;
+  base.receiveShadow=true;
 }
 
 
@@ -596,17 +608,17 @@ function loop(){
     var tecla = objeto.which;
         switch (tecla){
             case 37 :   
-                seleccionador.translateX(10);
+                seleccionadorMalla.translateX(10);
                 break;
             case 38 : 
-                seleccionador.translateY(-10);
+                seleccionadorMalla.translateZ(-10);
                 break;
             case 39 :  
-                seleccionador.translateY(10);
+                seleccionadorMalla.translateZ(10);
               
                 break;
             case 40 : 
-                seleccionador.translateX(-10);
+                seleccionadorMalla.translateX(-10);
                 break;
         default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
         }
