@@ -600,7 +600,6 @@ function setup(){
 
 function loop(){
   if(cuyo==3){
-    escena.remove(posicionadorMalla);
     seleccionadorMalla.position.x=0;
     seleccionadorMalla.position.y=0;
     seleccionadorMalla.position.z=30;
@@ -627,7 +626,8 @@ function loop(){
               case 40 : 
                   seleccionadorMalla.translateX(-10);
                   break;
-              case 13 : 
+              case 13 :
+                  escena.remove(posicionadorMalla);
                   posicionadorMalla = new THREE.Mesh(seleccionadorForma, posicionador);
                   posicionadorMalla.rotateX(Math.PI/2);
                   posicionadorMalla.position.x=seleccionadorMalla.position.x;
