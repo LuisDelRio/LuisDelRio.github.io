@@ -38,7 +38,7 @@ function setup(){
   var material= new THREE.MeshBasicMaterial({color: 0xB40100});
   seleccionadorMalla = new THREE.Mesh(seleccionadorForma, material);
   seleccionadorMalla.rotateX(Math.PI/2);
-  seleccionadorMalla.translateY(15);
+  seleccionadorMalla.translateY(50);
 
   
   //Torres
