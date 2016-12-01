@@ -19,7 +19,13 @@ seleccionadorMalla.rotateX(Math.PI/2);
 seleccionadorMalla.translateY(30);
 var posicionador= new THREE.MeshBasicMaterial({color: 0x0096D6});
 
-var camara,escena,renderizador, valor, posicionadorMalla, torreMalla;
+var camara,escena,renderizador, valor, posicionadorMalla;
+var torreMalla, torreMalla1, torreMalla2, torreMalla3;
+var alfilMalla, alfilMalla1, alfilMalla2, alfilMalla3;
+var reyMalla, reyMalla1;
+var reinaMalla, reinaMalla1;
+var peonMalla, peonMalla1, peonMalla2, peonMalla3, peonMalla4, peonMalla5, peonMalla6, peonMalla7, peonMalla8, peonMalla9;
+var peonMalla10, peonMalla11, peonMalla12, peonMalla13, peonMalla14, peonMalla15;
 var cuyo=1;
 
 
@@ -111,9 +117,9 @@ function setup(){
   torreForma.merge(pico4Malla.geometry, pico4Malla.matrix);
   //var material= new THREE.MeshNormalMaterial();
   torreMalla = new THREE.Mesh(torreForma, ceramicablanca);
-  var torreMalla1 = new THREE.Mesh(torreForma, ceramicanegra);
-  var torreMalla2 = new THREE.Mesh(torreForma, ceramicanegra);
-  var torreMalla3 = new THREE.Mesh(torreForma, ceramicablanca);
+  torreMalla1 = new THREE.Mesh(torreForma, ceramicanegra);
+  torreMalla2 = new THREE.Mesh(torreForma, ceramicanegra);
+  torreMalla3 = new THREE.Mesh(torreForma, ceramicablanca);
   
   torreMalla.rotateX(Math.PI/2);
   torreMalla.translateY(3);
@@ -192,8 +198,8 @@ function setup(){
   reyForma.merge(cabeza4Malla.geometry, cabeza4Malla.matrix);
   reyForma.merge(cabeza5Malla.geometry, cabeza5Malla.matrix);
   //var material= new THREE.MeshNormalMaterial();
-  var reyMalla = new THREE.Mesh(reyForma, ceramicablanca);
-  var reyMalla1 = new THREE.Mesh(reyForma, ceramicanegra);
+  reyMalla = new THREE.Mesh(reyForma, ceramicablanca);
+  reyMalla1 = new THREE.Mesh(reyForma, ceramicanegra);
 
   reyMalla.rotateX(Math.PI/2);
   reyMalla.translateY(3);
@@ -292,8 +298,8 @@ function setup(){
   reinaForma.merge(cubierta2Malla.geometry, cubierta2Malla.matrix);
   reinaForma.merge(cabeza1Malla.geometry, cabeza1Malla.matrix);
   //var material= new THREE.MeshNormalMaterial();
-  var reinaMalla = new THREE.Mesh(reinaForma, ceramicablanca);
-  var reinaMalla1 = new THREE.Mesh(reinaForma, ceramicanegra);
+  reinaMalla = new THREE.Mesh(reinaForma, ceramicablanca);
+  reinaMalla1 = new THREE.Mesh(reinaForma, ceramicanegra);
 
   reinaMalla.rotateX(Math.PI/2);
   reinaMalla.translateY(3);
@@ -342,10 +348,10 @@ function setup(){
   alfilForma.merge(detalle2Malla.geometry, detalle2Malla.matrix);
   alfilForma.merge(detalle3Malla.geometry, detalle3Malla.matrix);
   //var material= new THREE.MeshNormalMaterial();
-  var alfilMalla = new THREE.Mesh(alfilForma, ceramicablanca);
-  var alfilMalla1 = new THREE.Mesh(alfilForma, ceramicanegra);
-  var alfilMalla2 = new THREE.Mesh(alfilForma, ceramicablanca);
-  var alfilMalla3 = new THREE.Mesh(alfilForma, ceramicanegra);
+  alfilMalla = new THREE.Mesh(alfilForma, ceramicablanca);
+  alfilMalla1 = new THREE.Mesh(alfilForma, ceramicanegra);
+  alfilMalla2 = new THREE.Mesh(alfilForma, ceramicablanca);
+  alfilMalla3 = new THREE.Mesh(alfilForma, ceramicanegra);
   
   alfilMalla.rotateX(Math.PI/2);
   alfilMalla.translateY(3);
@@ -386,22 +392,22 @@ function setup(){
   peonForma.merge(troncoMalla.geometry, troncoMalla.matrix);
   peonForma.merge(cabezaMalla.geometry, cabezaMalla.matrix);
   //var material= new THREE.MeshNormalMaterial();
-  var peonMalla = new THREE.Mesh(peonForma, ceramicablanca);
-  var peonMalla1 = new THREE.Mesh(peonForma, ceramicablanca);
-  var peonMalla2 = new THREE.Mesh(peonForma, ceramicablanca);
-  var peonMalla3 = new THREE.Mesh(peonForma, ceramicablanca);
-  var peonMalla4 = new THREE.Mesh(peonForma, ceramicablanca);
-  var peonMalla5 = new THREE.Mesh(peonForma, ceramicablanca);
-  var peonMalla6 = new THREE.Mesh(peonForma, ceramicablanca);
-  var peonMalla7 = new THREE.Mesh(peonForma, ceramicablanca);
-  var peonMalla8 = new THREE.Mesh(peonForma, ceramicanegra);
-  var peonMalla9 = new THREE.Mesh(peonForma, ceramicanegra);
-  var peonMalla10 = new THREE.Mesh(peonForma, ceramicanegra);
-  var peonMalla11 = new THREE.Mesh(peonForma, ceramicanegra);
-  var peonMalla12 = new THREE.Mesh(peonForma, ceramicanegra);
-  var peonMalla13 = new THREE.Mesh(peonForma, ceramicanegra);
-  var peonMalla14 = new THREE.Mesh(peonForma, ceramicanegra);
-  var peonMalla15 = new THREE.Mesh(peonForma, ceramicanegra);
+  peonMalla = new THREE.Mesh(peonForma, ceramicablanca);
+  peonMalla1 = new THREE.Mesh(peonForma, ceramicablanca);
+  peonMalla2 = new THREE.Mesh(peonForma, ceramicablanca);
+  peonMalla3 = new THREE.Mesh(peonForma, ceramicablanca);
+  peonMalla4 = new THREE.Mesh(peonForma, ceramicablanca);
+  peonMalla5 = new THREE.Mesh(peonForma, ceramicablanca);
+  peonMalla6 = new THREE.Mesh(peonForma, ceramicablanca);
+  peonMalla7 = new THREE.Mesh(peonForma, ceramicablanca);
+  peonMalla8 = new THREE.Mesh(peonForma, ceramicanegra);
+  peonMalla9 = new THREE.Mesh(peonForma, ceramicanegra);
+  peonMalla10 = new THREE.Mesh(peonForma, ceramicanegra);
+  peonMalla11 = new THREE.Mesh(peonForma, ceramicanegra);
+  peonMalla12 = new THREE.Mesh(peonForma, ceramicanegra);
+  peonMalla13 = new THREE.Mesh(peonForma, ceramicanegra);
+  peonMalla14 = new THREE.Mesh(peonForma, ceramicanegra);
+  peonMalla15 = new THREE.Mesh(peonForma, ceramicanegra);
   
   peonMalla.rotateX(Math.PI/2);
   peonMalla.translateY(3);
@@ -525,83 +531,83 @@ function setup(){
   valor = new Array(8)
   valor[0] = new Array(8);
   valor[0][0] = torreMalla;
-  valor[0][1] = "";
-  valor[0][2] = "alfilMalla";
-  valor[0][3] = "reyMalla";
-  valor[0][4] = "reinaMalla";
-  valor[0][5] = "alfilMalla2";
-  valor[0][6] = "";
-  valor[0][7] = "torreMalla3";
+  valor[0][1] =  ;
+  valor[0][2] = alfilMalla;
+  valor[0][3] = reyMalla;
+  valor[0][4] = reinaMalla;
+  valor[0][5] = alfilMalla2;
+  valor[0][6] =  ;
+  valor[0][7] = torreMalla3;
 
   valor[1] = new Array(8);
-  valor[1][0] = "peonMalla";
-  valor[1][1] = "peonMalla1";
-  valor[1][2] = "peonMalla2";
-  valor[1][3] = "peonMalla3";
-  valor[1][4] = "peonMalla4";
-  valor[1][5] = "peonMalla5";
-  valor[1][6] = "peonMalla6";
-  valor[1][7] = "peonMalla7";
+  valor[1][0] = peonMalla;
+  valor[1][1] = peonMalla1;
+  valor[1][2] = peonMalla2;
+  valor[1][3] = peonMalla3;
+  valor[1][4] = peonMalla4;
+  valor[1][5] = peonMalla5;
+  valor[1][6] = peonMalla6;
+  valor[1][7] = peonMalla7;
 
   valor[2] = new Array(8);
-  valor[2][0] = "";
-  valor[2][1] = "";
-  valor[2][2] = "";
-  valor[2][3] = "";
-  valor[2][4] = "";
-  valor[2][5] = "";
-  valor[2][6] = "";
-  valor[2][7] = "";
+  valor[2][0] =  ;
+  valor[2][1] =  ;
+  valor[2][2] =  ;
+  valor[2][3] =  ;
+  valor[2][4] =  ;
+  valor[2][5] =  ;
+  valor[2][6] =  ;
+  valor[2][7] =  ;
 
   valor[3] = new Array(8);
-  valor[3][0] = "";
-  valor[3][1] = "";
-  valor[3][2] = "";
-  valor[3][3] = "";
-  valor[3][4] = "";
-  valor[3][5] = "";
-  valor[3][6] = "";
-  valor[3][7] = "";
+  valor[3][0] =  ;
+  valor[3][1] =  ;
+  valor[3][2] =  ;
+  valor[3][3] =  ;
+  valor[3][4] =  ;
+  valor[3][5] =  ;
+  valor[3][6] =  ;
+  valor[3][7] =  ;
 
   valor[4] = new Array(8);
-  valor[4][0] = "";
-  valor[4][1] = "";
-  valor[4][2] = "";
-  valor[4][3] = "";
-  valor[4][4] = "";
-  valor[4][5] = "";
-  valor[4][6] = "";
-  valor[4][7] = "";
+  valor[4][0] =  ;
+  valor[4][1] =  ;
+  valor[4][2] =  ;
+  valor[4][3] =  ;
+  valor[4][4] =  ;
+  valor[4][5] =  ;
+  valor[4][6] =  ;
+  valor[4][7] =  ;
 
   valor[5] = new Array(8);
-  valor[5][0] = "";
-  valor[5][1] = "";
-  valor[5][2] = "";
-  valor[5][3] = "";
-  valor[5][4] = "";
-  valor[5][5] = "";
-  valor[5][6] = "";
-  valor[5][7] = "";
+  valor[5][0] =  ;
+  valor[5][1] =  ;
+  valor[5][2] =  ;
+  valor[5][3] =  ;
+  valor[5][4] =  ;
+  valor[5][5] =  ;
+  valor[5][6] =  ;
+  valor[5][7] =  ;
 
   valor[6] = new Array(8);
-  valor[6][0] = "peonMalla8";
-  valor[6][1] = "peonMalla9";
-  valor[6][2] = "peonMalla10";
-  valor[6][3] = "peonMalla11";
-  valor[6][4] = "peonMalla12";
-  valor[6][5] = "peonMalla13";
-  valor[6][6] = "peonMalla14";
-  valor[6][7] = "peonMalla15";
+  valor[6][0] = peonMalla8;
+  valor[6][1] = peonMalla9;
+  valor[6][2] = peonMalla10;
+  valor[6][3] = peonMalla11;
+  valor[6][4] = peonMalla12;
+  valor[6][5] = peonMalla13;
+  valor[6][6] = peonMalla14;
+  valor[6][7] = peonMalla15;
 
   valor[7] = new Array(8);
-  valor[7][0] = "torreMalla1";
-  valor[7][1] = "";
-  valor[7][2] = "alfilMalla1";
-  valor[7][3] = "reyMalla1";
-  valor[7][4] = "reinaMalla1";
-  valor[7][5] = "alfilMalla3";
-  valor[7][6] = "";
-  valor[7][7] = "torreMalla2";  
+  valor[7][0] = torreMalla1;
+  valor[7][1] =  ;
+  valor[7][2] = alfilMalla1;
+  valor[7][3] = reyMalla1;
+  valor[7][4] = reinaMalla1;
+  valor[7][5] = alfilMalla3;
+  valor[7][6] =  ;
+  valor[7][7] = torreMalla2;  
   
   
   var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), marmolcafe );
@@ -678,17 +684,17 @@ function setup(){
 
 function loop(){
   if(cuyo==3){
-    //if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==0){
-      //valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][0];
-      //valor[0][0].translateX(seleccionadorMalla.position.x);
-      //valor[0][0].translateZ(seleccionadorMalla.position.y);
-      //valor[0][0]="";                 
-    //}else if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==1){
-      //valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][1];
-      //valor[0][1].translateX(seleccionadorMalla.position.x);
-      //valor[0][1].translateZ(seleccionadorMalla.position.y);
-      //valor[0][1]="";
-    //}
+    if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==0){
+      valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][0];
+      valor[0][0].position.x=seleccionadorMalla.position.x;
+      valor[0][0].position.y=seleccionadorMalla.position.y;
+      valor[0][0]="";                 
+    }else if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==1){
+      valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][1];
+      valor[0][1].position.x=seleccionadorMalla.position.x;
+      valor[0][1].position.y=seleccionadorMalla.position.y;
+      valor[0][1]="";
+    }
     seleccionadorMalla.position.x=0;
     seleccionadorMalla.position.y=0;
     seleccionadorMalla.position.z=30;
@@ -705,19 +711,15 @@ function loop(){
           switch (tecla){
               case 37 :   
                   seleccionadorMalla.translateX(10);
-                  valor[0][0].translateX(10);
                   break;
               case 38 : 
                   seleccionadorMalla.translateZ(-10);
-                  valor[0][0].translateZ(-10);
                   break;
               case 39 :  
                   seleccionadorMalla.translateZ(10);
-                  valor[0][0].translateZ(10);
                   break;
               case 40 : 
                   seleccionadorMalla.translateX(-10);
-                  valor[0][0].translateX(-10);
                   break;
               case 13 :
                   escena.remove(posicionadorMalla);
