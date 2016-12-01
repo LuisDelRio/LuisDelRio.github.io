@@ -19,7 +19,7 @@ seleccionadorMalla.rotateX(Math.PI/2);
 seleccionadorMalla.translateY(30);
 var posicionador= new THREE.MeshBasicMaterial({color: 0x0096D6});
 
-var camara,escena,renderizador, valor, posicionadorMalla;
+var camara,escena,renderizador, valor, posicionadorMalla, val;
 var cuyo=1;
 
 
@@ -522,8 +522,86 @@ function setup(){
     }
   }
   
-  valor= ["torreMalla", "", "alfilMalla", "reyMalla", "reinaMalla", "alfilMalla2", "", "torreMalla3", "peonMalla", "peonMalla1", "peonMalla2", "peonMalla3", "peonMalla4", "peonMalla5", "peonMalla6", "peonMalla7", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "peonMalla8", "peonMalla9", "peonMalla10", "peonMalla11", "peonMalla12", "peonMalla13", "peonMalla14", "peonMalla15", "torreMalla1", "", "alfilMalla1", "reyMalla1", "reinaMalla1", "alfilMalla3", "", "torreMalla2"];
+  valor = new Array(8)
+  valor[0] = new Array(8);
+  valor[0][0] = "torreMalla";
+  valor[0][1] = "";
+  valor[0][2] = "alfilMalla";
+  valor[0][3] = "reyMalla";
+  valor[0][4] = "reinaMalla";
+  valor[0][5] = "alfilMalla2";
+  valor[0][6] = "";
+  valor[0][7] = "torreMalla3";
 
+  valor[1] = new Array(8);
+  valor[1][0] = "peonMalla";
+  valor[1][1] = "peonMalla1";
+  valor[1][2] = "peonMalla2";
+  valor[1][3] = "peonMalla3";
+  valor[1][4] = "peonMalla4";
+  valor[1][5] = "peonMalla5";
+  valor[1][6] = "peonMalla6";
+  valor[1][7] = "peonMalla7";
+
+  valor[2] = new Array(8);
+  valor[2][0] = "";
+  valor[2][1] = "";
+  valor[2][2] = "";
+  valor[2][3] = "";
+  valor[2][4] = "";
+  valor[2][5] = "";
+  valor[2][6] = "";
+  valor[2][7] = "";
+
+  valor[3] = new Array(8);
+  valor[3][0] = "";
+  valor[3][1] = "";
+  valor[3][2] = "";
+  valor[3][3] = "";
+  valor[3][4] = "";
+  valor[3][5] = "";
+  valor[3][6] = "";
+  valor[3][7] = "";
+
+  valor[4] = new Array(8);
+  valor[4][0] = "";
+  valor[4][1] = "";
+  valor[4][2] = "";
+  valor[4][3] = "";
+  valor[4][4] = "";
+  valor[4][5] = "";
+  valor[4][6] = "";
+  valor[4][7] = "";
+
+  valor[5] = new Array(8);
+  valor[5][0] = "";
+  valor[5][1] = "";
+  valor[5][2] = "";
+  valor[5][3] = "";
+  valor[5][4] = "";
+  valor[5][5] = "";
+  valor[5][6] = "";
+  valor[5][7] = "";
+
+  valor[6] = new Array(8);
+  valor[6][0] = "peonMalla8";
+  valor[6][1] = "peonMalla9";
+  valor[6][2] = "peonMalla10";
+  valor[6][3] = "peonMalla11";
+  valor[6][4] = "peonMalla12";
+  valor[6][5] = "peonMalla13";
+  valor[6][6] = "peonMalla14";
+  valor[6][7] = "peonMalla15";
+
+  valor[7] = new Array(8);
+  valor[7][0] = "torreMalla1";
+  valor[7][1] = "";
+  valor[7][2] = "alfilMalla1";
+  valor[7][3] = "reyMalla1";
+  valor[7][4] = "reinaMalla1";
+  valor[7][5] = "alfilMalla3";
+  valor[7][6] = "";
+  valor[7][7] = "torreMalla2";  
   
   
   var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), marmolcafe );
@@ -603,9 +681,6 @@ function loop(){
     seleccionadorMalla.position.x=0;
     seleccionadorMalla.position.y=0;
     seleccionadorMalla.position.z=30;
-    posicionadorMalla.position.x=0;
-    posicionadorMalla.position.y=0;
-    posicionadorMalla.position.z=1000;
     cuyo=1;
     requestAnimationFrame(loop);
     renderizador.render(escena,camara);
@@ -634,6 +709,17 @@ function loop(){
                   posicionadorMalla.position.y=seleccionadorMalla.position.y;
                   posicionadorMalla.position.z=seleccionadorMalla.position.z;
                   escena.add(posicionadorMalla);
+                  if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==0){
+                    valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][0];
+                    valor[0][0].position.x=seleccionadorMalla.position.x;
+                    valor[0][0].position.y=seleccionadorMalla.position.y;
+                    valor[0][0]="";                 
+                  }else if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==1){
+                    valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][1];
+                    valor[0][1].position.x=seleccionadorMalla.position.x;
+                    valor[0][1].position.y=seleccionadorMalla.position.y;
+                    valor[0][1]="";
+                           }
                   cuyo=cuyo+1;
                   break;
           default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
