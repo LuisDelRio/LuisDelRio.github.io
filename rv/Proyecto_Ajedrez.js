@@ -4,12 +4,22 @@ iluminacion.position.y= 40;
 iluminacion.position.x= 40;
 iluminacion.position.z= 50;
 
+//Seleccionador
+var base1selec = new THREE.CylinderGeometry(2,2,6,6,6,false);
+var base2selec = new THREE.CylinderGeometry(4,0,4,4,4,false);
+base2Forma.translate(0,-4,0);
+var base1selec = new THREE.Mesh(base1selec);
+var base2selec= new THREE.Mesh(base2selec);
+var seleccionadorForma = new THREE.Geometry();
+seleccionadorForma.merge(base1selec.geometry, base1selec.matrix);
+seleccionadorForma.merge(base2selec.geometry, base2selec.matrix);
+var material= new THREE.MeshBasicMaterial({color: 0xB40100});
+var seleccionadorMalla = new THREE.Mesh(seleccionadorForma, material);
+seleccionadorMalla.rotateX(Math.PI/2);
+seleccionadorMalla.translateY(30);
+var posicionador= new THREE.MeshBasicMaterial({color: 0x0096D6});
 
-
-
-
-
-var camara,escena,renderizador, valor, seleccionadorMalla;
+var camara,escena,renderizador, valor;
 
 
 function setup(){
@@ -24,21 +34,6 @@ function setup(){
   var marmolnegro = new THREE.MeshLambertMaterial({map:textura3});
   var ceramicablanca = new THREE.MeshLambertMaterial({map:textura4});
   var ceramicanegra = new THREE.MeshLambertMaterial({map:textura5});
-  
-  
-  //Seleccionador
-  var base1Forma = new THREE.CylinderGeometry(2,2,6,6,6,false);
-  var base2Forma = new THREE.CylinderGeometry(4,0,4,4,4,false);
-  base2Forma.translate(0,-4,0);
-  var base1Malla = new THREE.Mesh(base1Forma);
-  var base2Malla= new THREE.Mesh(base2Forma);
-  var seleccionadorForma = new THREE.Geometry();
-  seleccionadorForma.merge(base1Malla.geometry, base1Malla.matrix);
-  seleccionadorForma.merge(base2Malla.geometry, base2Malla.matrix);
-  var material= new THREE.MeshBasicMaterial({color: 0xB40100});
-  seleccionadorMalla = new THREE.Mesh(seleccionadorForma, material);
-  seleccionadorMalla.rotateX(Math.PI/2);
-  seleccionadorMalla.translateY(50);
 
   
   //Torres
@@ -526,7 +521,7 @@ function setup(){
     }
   }
   
-  valor= [10, 8, 6, 20, 50, 6, 8, 10, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -10, -8, -6, -20, -50, -6, -8, -10];
+  valor= ["torreMalla", "", "alfilMalla", "reyMalla", "reinaMalla", "alfilMalla2", "", "torreMalla3", "peonMalla", "peonMalla1", "peonMalla2", "peonMalla3", "peonMalla4", "peonMalla5", "peonMalla6", "peonMalla7", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "peonMalla8", "peonMalla9", "peonMalla10", "peonMalla11", "peonMalla12", "peonMalla13", "peonMalla14", "peonMalla15", "torreMalla1", "", "alfilMalla1", "reyMalla1", "reinaMalla1", "alfilMalla3", "", "torreMalla2"];
 
   
   
@@ -619,6 +614,9 @@ function loop(){
                 break;
             case 40 : 
                 seleccionadorMalla.translateX(-10);
+                break;
+            case 13 : 
+                seleccionadorMalla = new THREE.Mesh(seleccionadorForma, posicionador);
                 break;
         default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
         }
