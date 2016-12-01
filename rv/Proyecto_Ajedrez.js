@@ -4,10 +4,17 @@ iluminacion.position.y= 40;
 iluminacion.position.x= 40;
 iluminacion.position.z= 50;
 
+var selecccionador= new THREE.PointLight(0xB40100);
+seleccionador.position.y= 5;
+seleccionador.position.x= 5;
+seleccionador.position.z= 20;
 
 
 
-var camara,escena,renderizador;
+
+
+var camara,escena,renderizador, valor;
+
 
 function setup(){
   //Texturas
@@ -507,6 +514,11 @@ function setup(){
         }
     }
   }
+  
+  valor= [10, 8, 6, 20, 50, 6, 8, 10, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -10, -8, -6, -20, -50, -6, -8, -10];
+
+  
+  
   var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), marmolcafe );
   base.position.x=35;
   base.position.y=35;
@@ -541,11 +553,13 @@ function setup(){
   escena.add(peonMalla14);
   escena.add(peonMalla15);
   escena.add(iluminacion);
+  escena.add(seleccionador);
   renderizador = new THREE.WebGLRenderer();
   renderizador.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderizador.domElement);
   renderizador.shadowMapEnabled=true;
   iluminacion.castShadow=true;
+  seleccionador.castShadow=true;
   torreMalla.castShadow=true;
   torreMalla1.castShadow=true;
   torreMalla2.castShadow=true;
@@ -607,6 +621,26 @@ function setup(){
 
 
 function loop(){
+  window.onload=function(){document.onkeydown=desplazar};
+    function desplazar(objeto){
+    var tecla = objeto.which;
+        switch (tecla){
+            case 37 :   
+                torreMalla.translateX(10);
+                break;
+            case 38 : 
+                torreMalla.translateZ(-10);
+                break;
+            case 39 :  
+                torreMalla.translateZ(10);
+              
+                break;
+            case 40 : 
+                torreMalla.translateX(-10);
+                break;
+        default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
+        }
+    }
   requestAnimationFrame(loop);
   renderizador.render(escena,camara);
 }
