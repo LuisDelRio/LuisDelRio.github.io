@@ -19,7 +19,7 @@ seleccionadorMalla.rotateX(Math.PI/2);
 seleccionadorMalla.translateY(30);
 var posicionador= new THREE.MeshBasicMaterial({color: 0x0096D6});
 
-var camara,escena,renderizador, valor, posicionadorMalla;
+var camara,escena,renderizador, valor, posicionadorMalla, auxx, auxy;
 var torreMalla, torreMalla1, torreMalla2, torreMalla3;
 var alfilMalla, alfilMalla1, alfilMalla2, alfilMalla3;
 var reyMalla, reyMalla1;
@@ -684,8 +684,8 @@ function setup(){
 
 function loop(){
   if(cuyo==2){
-      var auxx=seleccionadorMalla.position.x;
-      var auxy=seleccionadorMalla.position.y;
+      auxx=seleccionadorMalla.position.x;
+      auxy=seleccionadorMalla.position.y;
       cuyo=3;
   }
   if(cuyo==4){
