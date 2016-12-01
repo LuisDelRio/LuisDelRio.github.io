@@ -589,34 +589,6 @@ function setup(){
   peonMalla14.castShadow=true;
   peonMalla15.castShadow=true;
   base.receiveShadow=true;
-  torreMalla.receiveShadow=true;
-  torreMalla1.receiveShadow=true;
-  torreMalla2.receiveShadow=true;
-  torreMalla3.receiveShadow=true;
-  reyMalla.receiveShadow=true;
-  reyMalla1.receiveShadow=true;
-  reinaMalla.receiveShadow=true;
-  reinaMalla1.receiveShadow=true;
-  alfilMalla.receiveShadow=true;
-  alfilMalla1.receiveShadow=true;
-  alfilMalla2.receiveShadow=true;
-  alfilMalla3.receiveShadow=true;
-  peonMalla.receiveShadow=true;
-  peonMalla1.receiveShadow=true;
-  peonMalla2.receiveShadow=true;
-  peonMalla3.receiveShadow=true;
-  peonMalla4.receiveShadow=true;
-  peonMalla5.receiveShadow=true;
-  peonMalla6.receiveShadow=true;
-  peonMalla7.receiveShadow=true;
-  peonMalla8.receiveShadow=true;
-  peonMalla9.receiveShadow=true;
-  peonMalla10.receiveShadow=true;
-  peonMalla11.receiveShadow=true;
-  peonMalla12.receiveShadow=true;
-  peonMalla13.receiveShadow=true;
-  peonMalla14.receiveShadow=true;
-  peonMalla15.receiveShadow=true;
 }
 
 
