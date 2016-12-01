@@ -601,6 +601,7 @@ function setup(){
 function loop(){
   if(cuyo==3){
     escena.remove(posicionadorMalla);
+    escena.remove(posicionadorMalla);
     seleccionadorMalla.position.x=0;
     seleccionadorMalla.position.y=0;
     seleccionadorMalla.position.z=30;
