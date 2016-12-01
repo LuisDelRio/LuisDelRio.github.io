@@ -5,8 +5,8 @@ iluminacion.position.x= 40;
 iluminacion.position.z= 50;
 
 var seleccionador= new THREE.PointLight(0xB40100);
-seleccionador.position.y= 5;
-seleccionador.position.x= 5;
+seleccionador.position.y= 10;
+seleccionador.position.x= 10;
 seleccionador.position.z= 5;
 
 
