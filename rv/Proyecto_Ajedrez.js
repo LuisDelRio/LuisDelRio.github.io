@@ -524,7 +524,7 @@ function setup(){
   
   valor = new Array(8)
   valor[0] = new Array(8);
-  valor[0][0] = "torreMalla";
+  valor[0][0] = torreMalla;
   valor[0][1] = "";
   valor[0][2] = "alfilMalla";
   valor[0][3] = "reyMalla";
