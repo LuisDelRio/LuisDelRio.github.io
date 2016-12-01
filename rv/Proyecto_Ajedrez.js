@@ -524,7 +524,7 @@ function setup(){
   
   valor = new Array(8)
   valor[0] = new Array(8);
-  valor[0][0] = torreMalla;
+  valor[0][0] = "torreMalla";
   valor[0][1] = "";
   valor[0][2] = "alfilMalla";
   valor[0][3] = "reyMalla";
@@ -678,17 +678,17 @@ function setup(){
 
 function loop(){
   if(cuyo==3){
-    if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==0){
+    //if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==0){
       valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][0];
       valor[0][0].translateX(seleccionadorMalla.position.x);
       valor[0][0].translateZ(seleccionadorMalla.position.y);
       valor[0][0]="";                 
-    }else if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==1){
+    //}else if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==1){
       valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][1];
       valor[0][1].translateX(seleccionadorMalla.position.x);
       valor[0][1].translateZ(seleccionadorMalla.position.y);
       valor[0][1]="";
-    }
+    //}
     seleccionadorMalla.position.x=0;
     seleccionadorMalla.position.y=0;
     seleccionadorMalla.position.z=30;
