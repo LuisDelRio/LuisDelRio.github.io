@@ -622,7 +622,7 @@ function loop(){
                 posicionadorMalla.position.x=seleccionadorMalla.position.x;
                 posicionadorMalla.position.y=seleccionadorMalla.position.y;
                 posicionadorMalla.position.z=seleccionadorMalla.position.z;
-
+                escena.add(posicionadorMalla);
                 break;
         default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
         }
