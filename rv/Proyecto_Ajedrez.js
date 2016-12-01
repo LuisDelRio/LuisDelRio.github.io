@@ -690,7 +690,7 @@ function loop(){
       cuyo=3;
   }
   if(cuyo==4){
-    if(auxx==0 && auxy==0){
+    if(auxx=!0){
       valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][0];
       valor[0][0].position.x=seleccionadorMalla.position.x;
       valor[0][0].position.y=seleccionadorMalla.position.y;
