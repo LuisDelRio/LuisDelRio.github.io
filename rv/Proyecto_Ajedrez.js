@@ -110,7 +110,7 @@ function setup(){
   torreForma.merge(pico3Malla.geometry, pico3Malla.matrix);
   torreForma.merge(pico4Malla.geometry, pico4Malla.matrix);
   //var material= new THREE.MeshNormalMaterial();
-  var torreMalla = new THREE.Mesh(torreForma, ceramicablanca);
+  torreMalla = new THREE.Mesh(torreForma, ceramicablanca);
   var torreMalla1 = new THREE.Mesh(torreForma, ceramicanegra);
   var torreMalla2 = new THREE.Mesh(torreForma, ceramicanegra);
   var torreMalla3 = new THREE.Mesh(torreForma, ceramicablanca);
