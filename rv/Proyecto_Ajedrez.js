@@ -19,7 +19,7 @@ seleccionadorMalla.rotateX(Math.PI/2);
 seleccionadorMalla.translateY(30);
 var posicionador= new THREE.MeshBasicMaterial({color: 0x0096D6});
 
-var camara,escena,renderizador, valor, posicionadorMalla, val;
+var camara,escena,renderizador, valor, posicionadorMalla, torreMalla;
 var cuyo=1;
 
 
@@ -679,15 +679,15 @@ function setup(){
 function loop(){
   if(cuyo==3){
     //if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==0){
-      valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][0];
-      valor[0][0].translateX(seleccionadorMalla.position.x);
-      valor[0][0].translateZ(seleccionadorMalla.position.y);
-      valor[0][0]="";                 
+      //valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][0];
+      //valor[0][0].translateX(seleccionadorMalla.position.x);
+      //valor[0][0].translateZ(seleccionadorMalla.position.y);
+      //valor[0][0]="";                 
     //}else if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==1){
-      valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][1];
-      valor[0][1].translateX(seleccionadorMalla.position.x);
-      valor[0][1].translateZ(seleccionadorMalla.position.y);
-      valor[0][1]="";
+      //valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][1];
+      //valor[0][1].translateX(seleccionadorMalla.position.x);
+      //valor[0][1].translateZ(seleccionadorMalla.position.y);
+      //valor[0][1]="";
     //}
     seleccionadorMalla.position.x=0;
     seleccionadorMalla.position.y=0;
@@ -705,15 +705,19 @@ function loop(){
           switch (tecla){
               case 37 :   
                   seleccionadorMalla.translateX(10);
+                  valor[0][0].translateX(10);
                   break;
               case 38 : 
                   seleccionadorMalla.translateZ(-10);
+                  valor[0][0].translateZ(-10);
                   break;
               case 39 :  
                   seleccionadorMalla.translateZ(10);
+                  valor[0][0].translateZ(10);
                   break;
               case 40 : 
                   seleccionadorMalla.translateX(-10);
+                  valor[0][0].translateX(-10);
                   break;
               case 13 :
                   escena.remove(posicionadorMalla);
