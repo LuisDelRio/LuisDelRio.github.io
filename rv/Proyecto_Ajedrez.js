@@ -616,7 +616,6 @@ function loop(){
                 seleccionadorMalla.translateX(-10);
                 break;
             case 13 : 
-                escena.remove( seleccionadorMalla );
                 posicionadorMalla = new THREE.Mesh(seleccionadorForma, posicionador);
                 posicionadorMalla.rotateX(Math.PI/2);
                 posicionadorMalla.position.x=seleccionadorMalla.position.x;
