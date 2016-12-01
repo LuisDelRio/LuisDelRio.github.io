@@ -684,9 +684,9 @@ function setup(){
 
 function loop(){
   if(cuyo==2){
-      var auxx=seleccionadorMalla.position.x;
-      var auxy=seleccionadorMalla.position.y;
-      var auxz=seleccionadorMalla.position.z;
+      var auxx=posicionadorMalla.position.x;
+      var auxy=posicionadorMalla.position.y;
+      var auxz=posicionadorMalla.position.z;
   }
   if(cuyo==3){
     if(auxx==0 && auxy==0){
