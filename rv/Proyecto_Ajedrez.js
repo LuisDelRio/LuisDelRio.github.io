@@ -678,9 +678,23 @@ function setup(){
 
 function loop(){
   if(cuyo==3){
+    if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==0){
+      valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][0];
+      valor[0][0].position.x=seleccionadorMalla.position.x;
+      valor[0][0].position.y=seleccionadorMalla.position.y;
+      valor[0][0]="";                 
+    }else if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==1){
+      valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][1];
+      valor[0][1].position.x=seleccionadorMalla.position.x;
+      valor[0][1].position.y=seleccionadorMalla.position.y;
+      valor[0][1]="";
+    }
     seleccionadorMalla.position.x=0;
     seleccionadorMalla.position.y=0;
     seleccionadorMalla.position.z=30;
+    posicionadorMalla.position.x=0;
+    posicionadorMalla.position.y=0;
+    posicionadorMalla.position.z=1000;
     cuyo=1;
     requestAnimationFrame(loop);
     renderizador.render(escena,camara);
@@ -709,17 +723,6 @@ function loop(){
                   posicionadorMalla.position.y=seleccionadorMalla.position.y;
                   posicionadorMalla.position.z=seleccionadorMalla.position.z;
                   escena.add(posicionadorMalla);
-                  if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==0){
-                    valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][0];
-                    valor[0][0].position.x=seleccionadorMalla.position.x;
-                    valor[0][0].position.y=seleccionadorMalla.position.y;
-                    valor[0][0]="";                 
-                  }else if(seleccionadorMalla.position.x==0 && seleccionadorMalla.position.y==1){
-                    valor[seleccionadorMalla.position.x][seleccionadorMalla.position.y]=valor[0][1];
-                    valor[0][1].position.x=seleccionadorMalla.position.x;
-                    valor[0][1].position.y=seleccionadorMalla.position.y;
-                    valor[0][1]="";
-                           }
                   cuyo=cuyo+1;
                   break;
           default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
