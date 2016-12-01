@@ -7,7 +7,7 @@ iluminacion.position.z= 50;
 //Seleccionador
 var base1selec = new THREE.CylinderGeometry(2,2,6,6,6,false);
 var base2selec = new THREE.CylinderGeometry(4,0,4,4,4,false);
-base2Forma.translate(0,-4,0);
+base2selec.translate(0,-4,0);
 var base1selec = new THREE.Mesh(base1selec);
 var base2selec= new THREE.Mesh(base2selec);
 var seleccionadorForma = new THREE.Geometry();
