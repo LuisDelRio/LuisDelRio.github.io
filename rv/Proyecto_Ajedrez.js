@@ -599,10 +599,10 @@ function loop(){
                 seleccionador.translateX(10);
                 break;
             case 38 : 
-                seleccionador.translateZ(-10);
+                seleccionador.translateY(-10);
                 break;
             case 39 :  
-                seleccionador.translateZ(10);
+                seleccionador.translateY(10);
               
                 break;
             case 40 : 
