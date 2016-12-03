@@ -294,17 +294,22 @@ TEXTURA.setup = function() {
 
 TEXTURA.setup2 = function(){
 	setupDone = true;
-  TEXTURA.torre1 = new Torre( TEXTURA.ceramicablanca);
-  TEXTURA.torre1.translateY(25);
-  TEXTURA.entorno.add(TEXTURA.torre1);
+	
+  TEXTURA.torreb1 = new Torre( TEXTURA.ceramicablanca);
+  TEXTURA.torreb1.rotateX(Math.PI/2);
+  TEXTURA.torreb1.translateY(3);	
+  TEXTURA.entorno.add(TEXTURA.torreb1);
+	
   TEXTURA.tablero= new Tablero(TEXTURA.marnolblanco, TEXTURA.marnolnegro);
-  TEXTURA.entorno.add(TEXTURA.tablero);	 
+  TEXTURA.entorno.add(TEXTURA.tablero);
+	
   TEXTURA.camara = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
   TEXTURA.camara.position.z=50;
   TEXTURA.camara.position.x=160;
   TEXTURA.camara.position.y=40;
   TEXTURA.camara.lookAt(new THREE.Vector3(40,40,0));
   TEXTURA.camara.rotateZ(Math.PI/2);
+	
   TEXTURA.renderizador = new THREE.WebGLRenderer();
   TEXTURA.renderizador.setSize(window.innerWidth-100, window.innerHeight-100);
   document.body.appendChild(TEXTURA.renderizador.domElement);
@@ -313,7 +318,7 @@ TEXTURA.setup2 = function(){
 var setupDone = false;
 TEXTURA.loop = function(){
   requestAnimationFrame( TEXTURA.loop );
-	if(TEXTURA.marnolblanco !== undefined && TEXTURA.marnolnegro !== undefined && !setupDone&& TEXTURA.ceramicablanca !== undefined&& TEXTURA.ceramicanegra !== undefined)
+	if(TEXTURA.marnolblanco !== undefined && TEXTURA.marnolnegro !== undefined && setupDone == false && TEXTURA.ceramicablanca !== undefined && TEXTURA.ceramicanegra !== undefined)
 	{
 		TEXTURA.setup2();
     		TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
