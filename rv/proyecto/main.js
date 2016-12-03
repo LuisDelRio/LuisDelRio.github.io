@@ -309,6 +309,8 @@ TEXTURA.retrollamada4 = function( textura ){
  TEXTURA.ceramicanegra = new THREE.MeshBasicMaterial( {map: textura} );
 }
 
+var renderizador;
+
 TEXTURA.setup = function() {
   TEXTURA.entorno = new Enviroment();
   TEXTURA.matrojo = new THREE.MeshBasicMaterial({color: 0xB40100});
@@ -346,23 +348,24 @@ TEXTURA.setup2 = function(){
   TEXTURA.camara.lookAt(new THREE.Vector3(40,40,0));
   TEXTURA.camara.rotateZ(Math.PI/2);
 	
-  TEXTURA.renderizador = new THREE.WebGLRenderer();
-  TEXTURA.renderizador.setSize(window.innerWidth-100, window.innerHeight-100);
-  document.body.appendChild(TEXTURA.renderizador.domElement);
+  renderizador = new THREE.WebGLRenderer();
+  renderizador.setSize(window.innerWidth-100, window.innerHeight-100);
+  document.body.appendChild(renderizador.domElement);
 }
 
 var setupDone = false;
+
 TEXTURA.loop = function(){
   requestAnimationFrame( TEXTURA.loop );
 	if(TEXTURA.matrojo !== undefined && TEXTURA.marnolblanco !== undefined && TEXTURA.marnolnegro !== undefined && setupDone == false && TEXTURA.ceramicablanca !== undefined && TEXTURA.ceramicanegra !== undefined)
 	{
 		TEXTURA.setup2();
-    		TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
+    		renderizador.render( TEXTURA.escena, TEXTURA.camara );
 	}
 	
   TEXTURA.entorno.plan();
   TEXTURA.entorno.act();
-  TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
+  renderizador.render( TEXTURA.entorno, TEXTURA.camara );
     
    
  }
