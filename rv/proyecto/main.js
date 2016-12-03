@@ -43,10 +43,7 @@ Enviroment.prototype.plan = function(){
 }
 Sensor.prototype= new THREE.Raycaster();
 
- 
-var keyboard = new THREEx.KeyboardState();
 var TEXTURA = new Object();
-
 
 function Torrem(material){
   //Torres
@@ -249,62 +246,6 @@ Torre.prototype.sense = function(enviroment){
 }
 
 Torre.prototype.plan = function(enviroment){
- 
-  if(this.sensor.colision == true){}
-  else{
-	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
-	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
-		 if (this.der==0) {
-this.phantom.translateX(60);
-	this.der=1;
-		 }
-}
-	else
-	this.der=0;
-     if (keyboard.pressed("left")||keyboard.pressed("A")) {
-		 if (this.izq==0) {
-this.phantom.translateX(-60);
-	this.izq=1;
-		 }
-}
-	 else
-	this.izq=0;
-     if (keyboard.pressed("up")||keyboard.pressed("W")) {
-		 if (this.arr==0) {
-this.phantom.translateZ(-60);
-	this.arr=1;
-		 }
-}
-	
-	     else
-	this.arr=0;
-     if (keyboard.pressed("down")||keyboard.pressed("S")) {
-		 if (this.aba==0) {
-this.phantom.translateZ(60);
-	this.aba=1;
-		 }
-}
-
-	     else
-	this.aba=0;	
-	}
-	if((this.phantom.position.x != this.actuator.position.x) && this.banderaX===1){
-		this.velocidadx=-(this.actuator.position.x-this.phantom.position.x)/Math.abs(this.actuator.position.x-this.phantom.position.x);
-		this.actuator.translateX(this.velocidadx);
-	}
-	if((this.phantom.position.z != this.actuator.position.z)&&this.banderaZ===1){
-		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
-		this.actuator.translateZ(this.velocidadz);
-	}
-	if(keyboard.pressed("space")){
-		this.banderaX=1;
-		this.banderaZ=1;
-	}
-	if((this.phantom.position.x === this.actuator.position.x))
-		this.banderaX=0;
-	if((this.phantom.position.z === this.actuator.position.z))
-		this.banderaZ=0; 
-  }
 }
 
 Torre.prototype.act = function(enviroment){
@@ -345,66 +286,6 @@ Alfil.prototype.sense = function(enviroment){
 }
 
 Alfil.prototype.plan = function(enviroment){
- 
-  if(this.sensor.colision == true){}
-  else{
-	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
-	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
-		 if (this.der==0) {
-this.phantom.translateX(60);
-this.phantom.translateZ(-60);
-	this.der=1;
-		 }
-}
-	else
-	this.der=0;
-     if (keyboard.pressed("left")||keyboard.pressed("A")) {
-		 if (this.izq==0) {
-this.phantom.translateX(-60);
-this.phantom.translateZ(60);
-	this.izq=1;
-		 }
-}
-	 else
-	this.izq=0;
-     if (keyboard.pressed("up")||keyboard.pressed("W")) {
-		 if (this.arr==0) {
-this.phantom.translateX(-60);
-this.phantom.translateZ(-60);
-	this.arr=1;
-		 }
-}
-	
-	     else
-	this.arr=0;
-     if (keyboard.pressed("down")||keyboard.pressed("S")) {
-		 if (this.aba==0) {
-this.phantom.translateX(60);
-this.phantom.translateZ(60);
-	this.aba=1;
-		 }
-}
-
-	     else
-	this.aba=0;	
-	}
-	if((this.phantom.position.x != this.actuator.position.x) && this.banderaX===1){
-		this.velocidadx=-(this.actuator.position.x-this.phantom.position.x)/Math.abs(this.actuator.position.x-this.phantom.position.x);
-		this.actuator.translateX(this.velocidadx);
-	}
-	if((this.phantom.position.z != this.actuator.position.z)&&this.banderaZ===1){
-		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
-		this.actuator.translateZ(this.velocidadz);
-	}
-	if(keyboard.pressed("space")){
-		this.banderaX=1;
-		this.banderaZ=1;
-	}
-	if((this.phantom.position.x === this.actuator.position.x))
-		this.banderaX=0;
-	if((this.phantom.position.z === this.actuator.position.z))
-		this.banderaZ=0; 
-  }
 }
 
 Alfil.prototype.act = function(enviroment){
