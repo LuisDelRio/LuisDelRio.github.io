@@ -275,7 +275,15 @@ Torre.prototype.act = function(enviroment){
 }
 
 
-function Alfil(material1,material2, x, y){
+function Alfil(material1, x, y){
+  Agent.call(this,x,y);
+  this.der=0;
+  this.izq=0;
+  this.aba=0;
+  this.arr=0;
+  this.sensor= new Sensor();
+  this.actuator = new Alfilm(material1);
+  this.add(this.actuator);
 }
 
 Alfil.prototype = new Agent();
@@ -342,7 +350,7 @@ TEXTURA.setup2 = function(){
   TEXTURA.entorno.add(TEXTURA.alfilb1);
 	
   TEXTURA.seleccionador = new Seleccionador( TEXTURA.matrojo);
-  TEXTURA.seleccionador.translateY(30);	
+  TEXTURA.seleccionador.translateZ(30);	
   TEXTURA.entorno.add(TEXTURA.seleccionador);
 	
   TEXTURA.tablero= new Tablero(TEXTURA.marnolblanco, TEXTURA.marnolnegro);
