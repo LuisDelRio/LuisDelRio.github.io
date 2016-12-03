@@ -368,7 +368,6 @@ TEXTURA.loop = function(){
 	
   TEXTURA.entorno.plan();
   TEXTURA.entorno.act();
-  TEXTURA.Torre.
   TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
     
    
