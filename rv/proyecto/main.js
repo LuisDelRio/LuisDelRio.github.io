@@ -294,7 +294,7 @@ TEXTURA.setup = function() {
 
 TEXTURA.setup2 = function(){
 	setupDone = true;
-  TEXTURA.torre1 = new Torre( TEXTURA.material2);
+  TEXTURA.torre1 = new Torre( TEXTURA.ceramicablanca);
   TEXTURA.torre1.translateY(25);
   TEXTURA.entorno.add(TEXTURA.torre1);
   TEXTURA.tablero= new Tablero(TEXTURA.marnolblanco, TEXTURA.marnolnegro);
