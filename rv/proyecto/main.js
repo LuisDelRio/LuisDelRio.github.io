@@ -214,7 +214,6 @@ var cubo= new Array();
 }
 
 Tablero.prototype = new THREE.Object3D();
-Casilla.prototype = new THREE.Mesh();
 Torrem.prototype = new THREE.Mesh();
 Alfilm.prototype = new THREE.Mesh();
 Peonm.prototype = new THREE.Mesh();
