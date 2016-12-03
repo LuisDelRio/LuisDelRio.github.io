@@ -322,7 +322,7 @@ this.guide.translateZ(-10);
 	
 	     else
 	this.up=0;
-     if (desplazar == "down")) {
+     if (desplazar == "down") {
 		 if (this.down==0) {
 this.guide.translateZ(10);
 	this.down=1;
