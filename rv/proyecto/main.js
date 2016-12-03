@@ -333,10 +333,16 @@ TEXTURA.setup2 = function(){
   TEXTURA.torreb1.rotateX(Math.PI/2);
   TEXTURA.torreb1.translateY(3);	
   TEXTURA.entorno.add(TEXTURA.torreb1);
+
+  TEXTURA.alfilb1 = new Torre( TEXTURA.ceramicablanca);
+  TEXTURA.alfilb1.rotateX(Math.PI/2);
+  TEXTURA.alfilb1.translateY(3);
+  TEXTURA.alfilb1.translateZ(20);
+  TEXTURA.entorno.add(TEXTURA.alfilb1);
 	
-  TEXTURA.seleccionador = new Seleccionador( TEXTURA.matrojo);
-  TEXTURA.seleccionador.translateY(30);	
-  TEXTURA.entorno.add(TEXTURA.seleccionador);
+  //TEXTURA.seleccionador = new Seleccionador( TEXTURA.matrojo);
+  //TEXTURA.seleccionador.translateY(30);	
+  //TEXTURA.entorno.add(TEXTURA.seleccionador);
 	
   TEXTURA.tablero= new Tablero(TEXTURA.marnolblanco, TEXTURA.marnolnegro);
   TEXTURA.entorno.add(TEXTURA.tablero);
@@ -348,9 +354,9 @@ TEXTURA.setup2 = function(){
   TEXTURA.camara.lookAt(new THREE.Vector3(40,40,0));
   TEXTURA.camara.rotateZ(Math.PI/2);
 	
-  renderizador = new THREE.WebGLRenderer();
-  renderizador.setSize(window.innerWidth-100, window.innerHeight-100);
-  document.body.appendChild(renderizador.domElement);
+  TEXTURA.renderizador = new THREE.WebGLRenderer();
+  TEXTURA.renderizador.setSize(window.innerWidth-100, window.innerHeight-100);
+  document.body.appendChild(TEXTURA.renderizador.domElement);
 }
 
 var setupDone = false;
@@ -360,12 +366,12 @@ TEXTURA.loop = function(){
 	if(TEXTURA.matrojo !== undefined && TEXTURA.marnolblanco !== undefined && TEXTURA.marnolnegro !== undefined && setupDone == false && TEXTURA.ceramicablanca !== undefined && TEXTURA.ceramicanegra !== undefined)
 	{
 		TEXTURA.setup2();
-    		renderizador.render( TEXTURA.escena, TEXTURA.camara );
+    		TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
 	}
 	
   TEXTURA.entorno.plan();
   TEXTURA.entorno.act();
-  renderizador.render( TEXTURA.entorno, TEXTURA.camara );
+  TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
     
    
  }
