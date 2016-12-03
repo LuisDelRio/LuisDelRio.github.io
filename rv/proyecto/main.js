@@ -322,7 +322,7 @@ Torre.prototype.plan = function(enviroment){
 	
 	  if(this.sensor.colision == true){}
   else{
-	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
+	 if(this.banderaZ==0&&this.banderaX==0){
 	 if ( right == "right") {
 		 if (this.right==0) {
 this.guide.translateX(10);
