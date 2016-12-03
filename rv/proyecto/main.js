@@ -56,7 +56,7 @@ window.onload=function(){document.onkeydown=desplazar};
 		  right="0";
 		  down="0";
 		  enter="0";
-		  alert(left);
+		  
                   break;
               case 38 : 
                   left="0";
@@ -64,7 +64,7 @@ window.onload=function(){document.onkeydown=desplazar};
 		  right="0";
 		  down="0";
 		  enter="0";
-		  alert(up);
+		  
                   break;
               case 39 :  
                   left="0";
@@ -72,7 +72,7 @@ window.onload=function(){document.onkeydown=desplazar};
 		  right="right";
 		  down="0";
 		  enter="0";
-		  alert(right);
+		
                   break;
               case 40 : 
                   left="0";
@@ -80,7 +80,7 @@ window.onload=function(){document.onkeydown=desplazar};
 		  right="0";
 		  down="down";
 		  enter="0";
-		  alert(down);
+		
                   break;
               case 13 :
 		  left="0";
@@ -88,7 +88,7 @@ window.onload=function(){document.onkeydown=desplazar};
 		  right="0";
 		  down="0";
 		  enter="enter";
-		  alert(down);
+		 
                   break;
           default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
           }
@@ -312,9 +312,9 @@ Torre.prototype.sense = function(enviroment){
   this.selec=0;
   this.banderaX=0;
   this.banderaZ=0;
-  if((obstaculo.length>0 && (obstaculo[0].distance <=60)))
-  this.sensor.colision=true;
-  else
+  //if((obstaculo.length>0 && (obstaculo[0].distance <=60)))
+  //this.sensor.colision=true;
+  //else
   this.sensor.colision = false;
 }
 
