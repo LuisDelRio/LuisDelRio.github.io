@@ -45,28 +45,23 @@ Sensor.prototype= new THREE.Raycaster();
 
 var TEXTURA = new Object();
 
-window.onload=function(){document.onkeydown=desplazar};
-function desplazar(objeto){
-      var tecla = objeto.which;
-          switch (tecla){
-              case 37 : 
-                  return "left";
-                  break;
-              case 38 : 
-		return "up";
-                  break;
-              case 39 :
-		return "right";
-                  break;
-              case 40 : 
-		return "down";
-                  break;
-              case 13 :
-		return "enter";
-                  break;
-          default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
-          }
-      }
+window.addEventListener("keydown", moveSomething, false); 
+function moveSomething(e) {
+    switch(e.keyCode) {
+        case 37:
+            return "left";
+            break;
+        case 38:
+            return "up";
+            break;
+        case 39:
+            return "right";
+            break;
+        case 40:
+            return "down";
+            break;  
+    }   
+}
 
 function Torrem(material){
   //Torres
