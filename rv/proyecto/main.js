@@ -49,6 +49,7 @@ window.addEventListener("keydown", moveSomething, false);
 function moveSomething(e) {
     switch(e) {
         case 37:
+	    alert("left");
             return "left";
             break;
         case 38:
