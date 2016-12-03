@@ -342,14 +342,14 @@ TEXTURA.setup2 = function(){
   TEXTURA.torreb1.rotateX(Math.PI/2);
   TEXTURA.torreb1.position.x=0;
   TEXTURA.torreb1.position.y=0;
-  TEXTURA.torreb1.position.z=0;	
+  TEXTURA.torreb1.position.z=2;	
   TEXTURA.entorno.add(TEXTURA.torreb1);
 
   TEXTURA.alfilb1 = new Alfil( TEXTURA.ceramicablanca);
   TEXTURA.alfilb1.rotateX(Math.PI/2);
   TEXTURA.alfilb1.position.x=20;
   TEXTURA.alfilb1.position.y=0;
-  TEXTURA.alfilb1.position.z=0;
+  TEXTURA.alfilb1.position.z=2;
   TEXTURA.entorno.add(TEXTURA.alfilb1);
 	
   TEXTURA.seleccionador = new Seleccionador( TEXTURA.matrojo);
