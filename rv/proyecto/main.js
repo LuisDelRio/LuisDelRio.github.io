@@ -293,6 +293,7 @@ TEXTURA.setup = function() {
 }
 
 TEXTURA.setup2 = function(){
+	setupDone = true;
   TEXTURA.torre1 = new Torre( TEXTURA.material2);
   TEXTURA.torre1.translateY(25);
   TEXTURA.entorno.add(TEXTURA.torre1);
@@ -309,6 +310,7 @@ TEXTURA.setup2 = function(){
   document.body.appendChild(TEXTURA.renderizador.domElement);
 }
 
+var setupDone = false;
 TEXTURA.loop = function(){
   requestAnimationFrame( TEXTURA.loop );
 	if(TEXTURA.material1 !== undefined && TEXTURA.material2 !== undefined && !setupDone&& TEXTURA.material3 !== undefined&& TEXTURA.material4 !== undefined)
