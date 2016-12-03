@@ -22,6 +22,7 @@ function Agent( x=0, y=0){
       this.children[i].sense(this);
      }
     }
+ 
 Enviroment.prototype.plan = function(){
   for( var i = 0; i < this.children.length; i++){
     if(this.children[i].plan !== undefined)
@@ -35,6 +36,7 @@ Enviroment.prototype.plan = function(){
       this.children[i].act(this);
      }
     }
+ 
  function Sensor(position,direction){
   THREE.Raycaster.call(this, position, direction);
   this.colision=false;
@@ -44,136 +46,174 @@ Sensor.prototype= new THREE.Raycaster();
  
 var keyboard = new THREEx.KeyboardState();
 var TEXTURA = new Object();
+
+
 function Torrem(material){
-  var figura = new THREE.Shape();
-  var figura1 = new THREE.Shape();
-var figura2 = new THREE.Shape();
-var figura3 = new THREE.Shape();
-var troncoForma = new THREE.CylinderGeometry(10, 20, 40);
-var basee = new THREE.CylinderGeometry(24,24,8);
-basee.translate(0,-20,0);
-var esferaForma = new THREE.BoxGeometry( 35, 35, 35);
-esferaForma.translate(0,40,0);
-var baseabajo = new THREE.CylinderGeometry(32,32,8);
-baseabajo.translate(0,-24,0);
-figura.moveTo(0, 0);
-figura.lineTo(2, 0);
-figura.lineTo(2, 2);
-figura.lineTo(0, 2);
-figura.lineTo(0, 0);
-figura1.moveTo(20, 20);
-figura1.lineTo(20, 22);
-figura1.lineTo(22, 22);
-figura1.lineTo(22, 20);
-figura1.lineTo(20, 20);
-figura2.moveTo(0, 20);
-figura2.lineTo(0, 22);
-figura2.lineTo(2, 22);
-figura2.lineTo(2, 20);
-figura2.lineTo(0, 20);
-figura3.moveTo(20, 0);
-figura3.lineTo(20, 2);
-figura3.lineTo(22, 2);
-figura3.lineTo(22, 0);
-figura3.lineTo(20, 0);
-var forma1 = new THREE.ExtrudeGeometry(figura, {amount: 1} );
-var forma2 = new THREE.ExtrudeGeometry(figura1, {amount: 1} );
-var forma3 = new THREE.ExtrudeGeometry(figura2, {amount: 1} );
-var forma4 = new THREE.ExtrudeGeometry(figura3, {amount: 1} );
-forma1.rotateX( Math.PI/2 );
-forma2.rotateX( Math.PI/2 );
-forma3.rotateX( Math.PI/2 );
-forma4.rotateX( Math.PI/2 );
-forma1.translate(-11,60,-13);
-forma2.translate(-11,60,-13);
-forma3.translate(-11,60,-13);
-forma4.translate(-11,60,-13);
-var malla = new THREE.Mesh(forma1);
-var malla1 = new THREE.Mesh(forma2);
-var malla2 = new THREE.Mesh(forma3);
-var malla3 = new THREE.Mesh(forma4);
-var baseeMalla = new THREE.Mesh(basee);
-var baseAbajomalla = new THREE.Mesh(baseabajo);
-var troncoMalla = new THREE.Mesh(troncoForma);
-var esferaMalla = new THREE.Mesh(esferaForma);
-var arbolForma = new THREE.Geometry();
-arbolForma.merge(malla.geometry, malla.matrix);
-arbolForma.merge(malla1.geometry, malla1.matrix);
-arbolForma.merge(malla2.geometry, malla2.matrix);
-arbolForma.merge(malla3.geometry, malla3.matrix);
-arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
-arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
-arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
-arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-THREE.Mesh.call(this, arbolForma, material);
+  //Torres
+  var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
+  var base2Forma = new THREE.CylinderGeometry(4,4,1,20,1,false);
+  var base3Forma = new THREE.CylinderGeometry(3,4,2,20,2,false);
+  var troncoForma = new THREE.CylinderGeometry(3,3,6,20,6,false);
+  var cubierta1Forma = new THREE.CylinderGeometry(4,3,2,20,2,false);
+  var cubierta2Forma = new THREE.CylinderGeometry(4,4,2,20,3,false);
+
+  var arco1 = new THREE.Shape();
+  arco1.moveTo(0, 0);
+  arco1.arc(0, 0, 4, .52, -.52, true);
+  arco1.lineTo(3.46, -2);
+  var pico1 = new THREE.ExtrudeGeometry( arco1, {amount: 1, bevelEnabled: false});
+  pico1.rotateX(Math.PI/2);
+
+  var arco2 = new THREE.Shape();
+  arco2.moveTo(0, 0);
+  arco2.arc(0, 0, 4, .52, -.52, true);
+  arco2.lineTo(3.46, -2);
+  var pico2 = new THREE.ExtrudeGeometry( arco2, {amount: 1, bevelEnabled: false});
+  pico2.rotateX(Math.PI/2);
+  pico2.rotateY(Math.PI/2);
+
+  var arco3 = new THREE.Shape();
+  arco3.moveTo(0, 0);
+  arco3.arc(0, 0, 4, .52, -.52, true);
+  arco3.lineTo(3.46, -2);
+  var pico3 = new THREE.ExtrudeGeometry( arco3, {amount: 1, bevelEnabled: false});
+  pico3.rotateX(Math.PI/2);
+  pico3.rotateY(Math.PI);
+
+  var arco4 = new THREE.Shape();
+  arco4.moveTo(0, 0);
+  arco4.arc(0, 0, 4, .52, -.52, true);
+  arco4.lineTo(3.46, -2);
+  var pico4 = new THREE.ExtrudeGeometry( arco4, {amount: 1, bevelEnabled: false});
+  pico4.rotateX(Math.PI/2);
+  pico4.rotateY(Math.PI*3/2);
+
+  base2Forma.translate(0,1,0);
+  base3Forma.translate(0,2,0);
+  troncoForma.translate(0,4,0);
+  cubierta1Forma.translate(0,8,0);
+  cubierta2Forma.translate(0,10,0);
+  pico1.translate(0,12,0);
+  pico2.translate(0,12,0);
+  pico3.translate(0,12,0);
+  pico4.translate(0,12,0);
+  
+  var base1Malla = new THREE.Mesh(base1Forma);
+  var base2Malla= new THREE.Mesh(base2Forma);
+  var base3Malla= new THREE.Mesh(base3Forma);
+  var toncoMalla= new THREE.Mesh(troncoForma);
+  var cubierta1Malla= new THREE.Mesh(cubierta1Forma);
+  var cubierta2Malla= new THREE.Mesh(cubierta2Forma);
+  var pico1Malla= new THREE.Mesh(pico1);
+  var pico2Malla= new THREE.Mesh(pico2);
+  var pico3Malla= new THREE.Mesh(pico3);
+  var pico4Malla= new THREE.Mesh(pico4);
+  
+  var torreForma = new THREE.Geometry();
+  torreForma.merge(base1Malla.geometry, base1Malla.matrix);
+  torreForma.merge(base2Malla.geometry, base2Malla.matrix);
+  torreForma.merge(base3Malla.geometry, base3Malla.matrix);
+  torreForma.merge(toncoMalla.geometry, toncoMalla.matrix);
+  torreForma.merge(cubierta1Malla.geometry, cubierta1Malla.matrix);
+  torreForma.merge(cubierta2Malla.geometry, cubierta2Malla.matrix);
+  torreForma.merge(pico1Malla.geometry, pico1Malla.matrix);
+  torreForma.merge(pico2Malla.geometry, pico2Malla.matrix);
+  torreForma.merge(pico3Malla.geometry, pico3Malla.matrix);
+  torreForma.merge(pico4Malla.geometry, pico4Malla.matrix);
+  //var material= new THREE.MeshNormalMaterial();
+  THREE.Mesh.call(this, torreForma, material);
 
 }
 
 function Alfilm(material){
-var troncoForma = new THREE.CylinderGeometry(10, 20, 50);
-var basee = new THREE.CylinderGeometry(24,24,8);
-basee.translate(0,-20,0);
-var esferaForma = new THREE.SphereGeometry(20);
-esferaForma.translate(0,50,0);
-var baseabajo = new THREE.CylinderGeometry(32,32,8);
-baseabajo.translate(0,-24,0);
-var baseeMalla = new THREE.Mesh(basee);
-var baseAbajomalla = new THREE.Mesh(baseabajo);
-var troncoMalla = new THREE.Mesh(troncoForma);
-var esferaMalla = new THREE.Mesh(esferaForma);
-var arbolForma = new THREE.Geometry();
-arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
-arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
-arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
-arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-THREE.Mesh.call(this, arbolForma, material);
+  var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
+  var base2Forma = new THREE.CylinderGeometry(4,4,1,20,1,false);
+  var troncoForma = new THREE.CylinderGeometry(1.5,3,12,12,12,false);
+  var detalle1Forma = new THREE.CylinderGeometry(3.5,3.5,.5,20,.5,false);
+  var detalle2Forma = new THREE.CylinderGeometry(2.5,2.5,.3,20,.3,false);
+  var detalle3Forma = new THREE.CylinderGeometry(2.5,2.5,.3,20,.3,false);
+  var cabeza1Forma = new THREE.SphereGeometry(2);
+  var cabeza2Forma = new THREE.SphereGeometry(.5);
+
+  base1Forma.translate(0,1,0);
+  base2Forma.translate(0,2,0);
+  troncoForma.translate(0,8,0);
+  cabeza1Forma.translate(0,15,0);
+  cabeza2Forma.translate(0,17,0);
+  detalle1Forma.translate(0,11,0);
+  detalle2Forma.translate(0,10.7,0);
+  detalle3Forma.translate(0,11.5,0);
+
+  var base1Malla = new THREE.Mesh(base1Forma);
+  var base2Malla= new THREE.Mesh(base2Forma);
+  var troncoMalla= new THREE.Mesh(troncoForma);
+  var cabeza1Malla= new THREE.Mesh(cabeza1Forma);
+  var cabeza2Malla= new THREE.Mesh(cabeza2Forma);
+  var detalle1Malla= new THREE.Mesh(detalle1Forma);
+  var detalle2Malla= new THREE.Mesh(detalle2Forma);
+  var detalle3Malla= new THREE.Mesh(detalle3Forma);
+
+  var alfilForma = new THREE.Geometry();
+  alfilForma.merge(base1Malla.geometry, base1Malla.matrix);
+  alfilForma.merge(base2Malla.geometry, base2Malla.matrix);
+  alfilForma.merge(troncoMalla.geometry, troncoMalla.matrix);
+  alfilForma.merge(cabeza1Malla.geometry, cabeza1Malla.matrix);
+  alfilForma.merge(cabeza2Malla.geometry, cabeza2Malla.matrix);
+  alfilForma.merge(detalle1Malla.geometry, detalle1Malla.matrix);
+  alfilForma.merge(detalle2Malla.geometry, detalle2Malla.matrix);
+  alfilForma.merge(detalle3Malla.geometry, detalle3Malla.matrix);
+  //var material= new THREE.MeshNormalMaterial();
+  THREE.Mesh.call(this, alfilForma, material);
 }
 
 function Peonm(material){
-	var troncoForma = new THREE.CylinderGeometry(10, 20, 50);
-var basee = new THREE.CylinderGeometry(24,24,8);
-basee.translate(0,-20,0);
-var esferaForma = new THREE.SphereGeometry(20);
-esferaForma.translate(0,50,0);
-var baseabajo = new THREE.CylinderGeometry(32,32,8);
-baseabajo.translate(0,-24,0);
-var baseeMalla = new THREE.Mesh(basee);
-var baseAbajomalla = new THREE.Mesh(baseabajo);
-var troncoMalla = new THREE.Mesh(troncoForma);
-var esferaMalla = new THREE.Mesh(esferaForma);
-var arbolForma = new THREE.Geometry();
-arbolForma.merge(baseAbajomalla.geometry, baseAbajomalla.matrix);
-arbolForma.merge(baseeMalla.geometry, baseeMalla.matrix);
-arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
-arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-THREE.Mesh.call(this, arbolForma, material);
-this.scale.set(.7, .7, .7);
+  var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
+  var base2Forma = new THREE.CylinderGeometry(4,4,1,20,1,false);
+  var troncoForma = new THREE.CylinderGeometry(1.5,3,7,7,7,false);
+  var cabezaForma = new THREE.SphereGeometry(2);
+
+  base2Forma.translate(0,1,0);
+  troncoForma.translate(0,5,0);
+  cabezaForma.translate(0,9.5,0);
+
+  var base1Malla = new THREE.Mesh(base1Forma);
+  var base2Malla= new THREE.Mesh(base2Forma);
+  var troncoMalla= new THREE.Mesh(troncoForma);
+  var cabezaMalla= new THREE.Mesh(cabezaForma);
+
+  var peonForma = new THREE.Geometry();
+  peonForma.merge(base1Malla.geometry, base1Malla.matrix);
+  peonForma.merge(base2Malla.geometry, base2Malla.matrix);
+  peonForma.merge(troncoMalla.geometry, troncoMalla.matrix);
+  peonForma.merge(cabezaMalla.geometry, cabezaMalla.matrix);
+  THREE.Mesh.call(this, peonForma, material);
 }
 
-function Casilla(material)
-{
-	cuadro = new THREE.BoxGeometry( 60, 1, 60);
-	THREE.Mesh.call(this, cuadro, material);
-}
-
-function Tablero(material1, material2)
-{
-	THREE.Object3D(this);
-	var tablero = new Array(); 
-	for ( var XX = 0; XX < 8; XX ++ ){
-	for ( var ZZ = 0; ZZ < 8; ZZ ++ ){
-	if(((XX%2)&&(!(ZZ%2)))||((!(XX%2))&&(ZZ%2))){
-	tablero[(XX*8)+ZZ]= new Casilla( TEXTURA.material1 );
-	tablero[(XX*8)+ZZ].translateX(XX*60);
-	tablero[(XX*8)+ZZ].translateZ(ZZ * 60);
-	}
-	else{
-		tablero[(XX*8)+ZZ]= new Casilla(TEXTURA.material2 );
-		tablero[(XX*8)+ZZ].translateX(XX*60);
-		tablero[(XX*8)+ZZ].translateZ(ZZ * 60);
-	}
-	this.add(  tablero [(XX*8)+ZZ] );
-}}
+function Tablero(material1, material2){
+var cubo= new Array();
+  var a=2;
+  for(var k=0; k<64; k++){
+    for(var i=0; i<8; i++){
+      for(var j=0; j<8; j++){
+        if(a==2){
+          cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), marmolblanco );
+          a=1;
+        }else{
+          cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), marmolnegro );
+          a=2;
+        }
+       cubo[k].position.x=j*10;
+       cubo[k].position.y=i*10;
+       this.add(cubo[k]);
+       cubo[k].receiveShadow=true;
+     }
+     if(a==2){
+          a=1;
+        }else{
+          a=2;
+        }
+    }
+  }
 }
 
 Tablero.prototype = new THREE.Object3D();
@@ -190,9 +230,7 @@ function Torre(material1,material2, x, y){
   this.arr=0;
   this.sensor= new Sensor();
   this.actuator = new Torrem(material1);
-  this.phantom = new Torrem(material2);
   this.add(this.actuator);
-  this.add(this.phantom);
 }
 
 Torre.prototype = new Agent();
@@ -381,24 +419,30 @@ Alfil.prototype.act = function(enviroment){
 
 TEXTURA.retrollamada = function( textura ){
   TEXTURA.material3 = new THREE.MeshBasicMaterial( {map: textura} );
-TEXTURA.material7 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
+  TEXTURA.material7 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
+
+}
+
+TEXTURA.retrollamada1 = function( textura ){
+ TEXTURA.material4 = new THREE.MeshBasicMaterial( {map: textura} );
+ TEXTURA.material8 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
 
 }
 
 TEXTURA.retrollamada2 = function( textura ){
- TEXTURA.material4 = new THREE.MeshBasicMaterial( {map: textura} );
-TEXTURA.material8 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
+ TEXTURA.material1 = new THREE.MeshBasicMaterial( {map: textura} );
+ TEXTURA.material5 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
 
 }
 
 TEXTURA.retrollamada3 = function( textura ){
- TEXTURA.material1 = new THREE.MeshBasicMaterial( {map: textura} );
-TEXTURA.material5 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
+ TEXTURA.material2 = new THREE.MeshBasicMaterial( {map: textura} );
+ TEXTURA.material6 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
 }
 
 TEXTURA.retrollamada4 = function( textura ){
- TEXTURA.material2 = new THREE.MeshBasicMaterial( {map: textura} );
-TEXTURA.material6 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
+ TEXTURA.material9 = new THREE.MeshBasicMaterial( {map: textura} );
+ TEXTURA.material10 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
 }
 
 
@@ -406,13 +450,15 @@ TEXTURA.setup = function() {
   TEXTURA.entorno = new Enviroment();
   
   var cargador = new THREE.TextureLoader();
-  cargador.load("marmolblanco.jpg",TEXTURA.retrollamada);
+  cargador.load("marnol_blanco.jpg",TEXTURA.retrollamada);
+  var cargador1 = new THREE.TextureLoader();
+  cargador1.load("marnol_cafe.jpg",TEXTURA.retrollamada1);
   var cargador2 = new THREE.TextureLoader();
-  cargador2.load("marmolnegro.jpg",TEXTURA.retrollamada2);
+  cargador2.load("marnol_negro.jpg",TEXTURA.retrollamada2);
   var cargador3 = new THREE.TextureLoader();
-  cargador3.load("maderablanca.jpg",TEXTURA.retrollamada3);
+  cargador3.load("ceramica_blanca.jpg",TEXTURA.retrollamada3);
   var cargador4 = new THREE.TextureLoader();
-  cargador4.load("maderanegra.jpg",TEXTURA.retrollamada4);
+  cargador4.load("ceramica_negra.jpg",TEXTURA.retrollamada4);
 }
 
 TEXTURA.setup2 = function(){
