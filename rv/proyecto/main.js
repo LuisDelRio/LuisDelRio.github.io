@@ -186,6 +186,18 @@ function Peonm(material){
   THREE.Mesh.call(this, peonForma, material);
 }
 
+function Seleccionadorm(material){
+  var base1selec = new THREE.CylinderGeometry(2,2,6,6,6,false);
+  var base2selec = new THREE.CylinderGeometry(4,0,4,4,4,false);
+  base2selec.translate(0,-4,0);
+  var base1selec = new THREE.Mesh(base1selec);
+  var base2selec= new THREE.Mesh(base2selec);
+  var seleccionadorForma = new THREE.Geometry();
+  seleccionadorForma.merge(base1selec.geometry, base1selec.matrix);
+  seleccionadorForma.merge(base2selec.geometry, base2selec.matrix);
+  THREE.Mesh.call(this, seleccionadorForma, material);
+}
+
 function Tablero(material1, material2){
 var cubo= new Array();
   var a=2;
@@ -217,18 +229,7 @@ Tablero.prototype = new THREE.Object3D();
 Torrem.prototype = new THREE.Mesh();
 Alfilm.prototype = new THREE.Mesh();
 Peonm.prototype = new THREE.Mesh();
-
-function Seleccionadorm(material){
-  var base1selec = new THREE.CylinderGeometry(2,2,6,6,6,false);
-  var base2selec = new THREE.CylinderGeometry(4,0,4,4,4,false);
-  base2selec.translate(0,-4,0);
-  var base1selec = new THREE.Mesh(base1selec);
-  var base2selec= new THREE.Mesh(base2selec);
-  var seleccionadorForma = new THREE.Geometry();
-  seleccionadorForma.merge(base1selec.geometry, base1selec.matrix);
-  seleccionadorForma.merge(base2selec.geometry, base2selec.matrix);
-  THREE.Mesh.call(this, seleccionadorForma, material);
-}
+Seleccionadorm.prototype = new THREE.Mesh();
 
 function Seleccionador(material, x, y){
   Agent.call(this,x,y);
@@ -334,15 +335,15 @@ TEXTURA.setup2 = function(){
   TEXTURA.torreb1.translateY(3);	
   TEXTURA.entorno.add(TEXTURA.torreb1);
 
-  TEXTURA.alfilb1 = new Torre( TEXTURA.ceramicablanca);
+  TEXTURA.alfilb1 = new Alfil( TEXTURA.ceramicablanca);
   TEXTURA.alfilb1.rotateX(Math.PI/2);
   TEXTURA.alfilb1.translateY(3);
-  TEXTURA.alfilb1.translateZ(20);
+  TEXTURA.alfilb1.translateX(20);
   TEXTURA.entorno.add(TEXTURA.alfilb1);
 	
-  //TEXTURA.seleccionador = new Seleccionador( TEXTURA.matrojo);
-  //TEXTURA.seleccionador.translateY(30);	
-  //TEXTURA.entorno.add(TEXTURA.seleccionador);
+  TEXTURA.seleccionador = new Seleccionador( TEXTURA.matrojo);
+  TEXTURA.seleccionador.translateY(30);	
+  TEXTURA.entorno.add(TEXTURA.seleccionador);
 	
   TEXTURA.tablero= new Tablero(TEXTURA.marnolblanco, TEXTURA.marnolnegro);
   TEXTURA.entorno.add(TEXTURA.tablero);
