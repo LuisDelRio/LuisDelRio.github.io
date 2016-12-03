@@ -295,10 +295,10 @@ Torre.prototype.plan = function(enviroment){
 	if(this.sensor.colision == true){}
   else{
 	 if(this.banderaZ==0 && this.banderaX==0 && this.selec==1){
-		 if ( desplazar() == "der" ) {
-			 if (this.der==0) {
+		 if ( desplazar() == "right" ) {
+			 if (this.right==0) {
 				this.actuator.translateX(10);
-				this.der=1;
+				this.right=1;
 			 }
 		 }
       	 }
