@@ -45,6 +45,29 @@ Sensor.prototype= new THREE.Raycaster();
 
 var TEXTURA = new Object();
 
+window.onload=function(){document.onkeydown=desplazar};
+function desplazar(objeto){
+      var tecla = objeto.which;
+          switch (tecla){
+              case 37 : 
+                  return "left";
+                  break;
+              case 38 : 
+		return "up";
+                  break;
+              case 39 :
+		return "right";
+                  break;
+              case 40 : 
+		return "down";
+                  break;
+              case 13 :
+		return "enter";
+                  break;
+          default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
+          }
+      }
+
 function Torrem(material){
   //Torres
   var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
@@ -245,10 +268,10 @@ Seleccionador.prototype = new Agent();
 
 function Torre(material1, x, y){
   Agent.call(this,x,y);
-  this.der=0;
-  this.izq=0;
-  this.aba=0;
-  this.arr=0;
+  this.right=0;
+  this.left=0;
+  this.down=0;
+  this.up=0;
   this.sensor= new Sensor();
   this.actuator = new Torrem(material1);
   this.add(this.actuator);
@@ -269,6 +292,17 @@ Torre.prototype.sense = function(enviroment){
 }
 
 Torre.prototype.plan = function(enviroment){
+	if(this.sensor.colision == true){}
+  else{
+	 if(this.banderaZ==0 && this.banderaX==0 && this.selec==1){
+		 if ( desplazar() == "der" ) {
+			 if (this.der==0) {
+				this.actuator.translateX(10);
+				this.der=1;
+			 }
+		 }
+      	 }
+   }
 }
 
 Torre.prototype.act = function(enviroment){
@@ -394,6 +428,7 @@ TEXTURA.loop = function(){
     		TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
 	}
 	
+  TEXTURA.torreb1.selec=1;
   TEXTURA.entorno.plan();
   TEXTURA.entorno.act();
   TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
