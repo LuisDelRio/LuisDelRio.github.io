@@ -218,6 +218,29 @@ Torrem.prototype = new THREE.Mesh();
 Alfilm.prototype = new THREE.Mesh();
 Peonm.prototype = new THREE.Mesh();
 
+function Seleccionadorm(material){
+  var base1selec = new THREE.CylinderGeometry(2,2,6,6,6,false);
+  var base2selec = new THREE.CylinderGeometry(4,0,4,4,4,false);
+  base2selec.translate(0,-4,0);
+  var base1selec = new THREE.Mesh(base1selec);
+  var base2selec= new THREE.Mesh(base2selec);
+  var seleccionadorForma = new THREE.Geometry();
+  seleccionadorForma.merge(base1selec.geometry, base1selec.matrix);
+  seleccionadorForma.merge(base2selec.geometry, base2selec.matrix);
+  THREE.Mesh.call(this, seleccionadorForma, material);
+}
+
+function Seleccionador(material, x, y){
+  Agent.call(this,x,y);
+  this.der=0;
+  this.izq=0;
+  this.aba=0;
+  this.arr=0;
+  this.sensor= new Sensor();
+  this.actuator = new Seleccionadorm(material);
+  this.add(this.actuator);
+}
+
 function Torre(material1, x, y){
   Agent.call(this,x,y);
   this.der=0;
@@ -232,12 +255,80 @@ function Torre(material1, x, y){
 Torre.prototype = new Agent();
 
 Torre.prototype.sense = function(enviroment){
+  this.sensor.set( this.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
+  var obstaculo = this.sensor.intersectObjects(enviroment.children,true);
+  this.selec=0;
+  this.banderaX=0;
+  this.banderaZ=0;
+  if((obstaculo.length>0 && (obstaculo[0].distance <=60)))
+  this.sensor.colision=true;
+  else
+  this.sensor.colision = false;
 }
 
 Torre.prototype.plan = function(enviroment){
+	if(this.sensor.colision == true){}
+  else{
+	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
+	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
+		 if (this.der==0) {
+this.phantom.translateX(60);
+	this.der=1;
+		 }
+}
+	else
+	this.der=0;
+     if (keyboard.pressed("left")||keyboard.pressed("A")) {
+		 if (this.izq==0) {
+this.phantom.translateX(-60);
+	this.izq=1;
+		 }
+}
+	 else
+	this.izq=0;
+     if (keyboard.pressed("up")||keyboard.pressed("W")) {
+		 if (this.arr==0) {
+this.phantom.translateZ(-60);
+	this.arr=1;
+		 }
+}
+	
+	     else
+	this.arr=0;
+     if (keyboard.pressed("down")||keyboard.pressed("S")) {
+		 if (this.aba==0) {
+this.phantom.translateZ(60);
+	this.aba=1;
+		 }
+}
+
+	     else
+	this.aba=0;	
+	}
+	if((this.phantom.position.x != this.actuator.position.x) && this.banderaX===1){
+		this.velocidadx=-(this.actuator.position.x-this.phantom.position.x)/Math.abs(this.actuator.position.x-this.phantom.position.x);
+		this.actuator.translateX(this.velocidadx);
+	}
+	if((this.phantom.position.z != this.actuator.position.z)&&this.banderaZ===1){
+		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
+		this.actuator.translateZ(this.velocidadz);
+	}
+	if(keyboard.pressed("space")){
+		this.banderaX=1;
+		this.banderaZ=1;
+	}
+	if((this.phantom.position.x === this.actuator.position.x))
+		this.banderaX=0;
+	if((this.phantom.position.z === this.actuator.position.z))
+		this.banderaZ=0; 
+  }
 }
 
 Torre.prototype.act = function(enviroment){
+  if(this.phantom.position.x!=this.actuator.position.x)
+  this.phantom.position.z=this.actuator.position.z;
+  else if (this.phantom.position.z!=this.actuator.position.z)
+  this.phantom.position.x=this.actuator.position.x;
 }
 
 
@@ -276,6 +367,10 @@ TEXTURA.retrollamada4 = function( textura ){
  TEXTURA.ceramicanegra = new THREE.MeshBasicMaterial( {map: textura} );
 }
 
+TEXTURA.retrollamada5 = function( textura ){
+ TEXTURA.matrojo = new THREE.MeshBasicMaterial({color: 0xB40100});
+}
+
 
 TEXTURA.setup = function() {
   TEXTURA.entorno = new Enviroment();
@@ -299,6 +394,12 @@ TEXTURA.setup2 = function(){
   TEXTURA.torreb1.rotateX(Math.PI/2);
   TEXTURA.torreb1.translateY(3);	
   TEXTURA.entorno.add(TEXTURA.torreb1);
+	
+  TEXTURA.seleccionador = new Seleccionador( TEXTURA.matrojo);
+  TEXTURA.seleccionador.position.x=0;
+  TEXTURA.seleccionador.position.y=0;
+  TEXTURA.seleccionador.position.z=30;	
+  TEXTURA.entorno.add(TEXTURA.seleccionador);
 	
   TEXTURA.tablero= new Tablero(TEXTURA.marnolblanco, TEXTURA.marnolnegro);
   TEXTURA.entorno.add(TEXTURA.tablero);
@@ -326,6 +427,7 @@ TEXTURA.loop = function(){
 	
   TEXTURA.entorno.plan();
   TEXTURA.entorno.act();
+  TEXTURA.Torre.
   TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
     
    
