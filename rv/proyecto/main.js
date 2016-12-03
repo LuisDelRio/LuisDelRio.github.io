@@ -371,7 +371,7 @@ TEXTURA.setup2 = function(){
   TEXTURA.camara.position.x=40;
   TEXTURA.camara.position.y=-40;
   TEXTURA.camara.lookAt(new THREE.Vector3(40,40,0));
-  TEXTURA.camara.rotateZ(Math.PI/2);
+  //TEXTURA.camara.rotateZ(Math.PI/2);
 	
   TEXTURA.renderizador = new THREE.WebGLRenderer();
   TEXTURA.renderizador.setSize(window.innerWidth-100, window.innerHeight-100);
