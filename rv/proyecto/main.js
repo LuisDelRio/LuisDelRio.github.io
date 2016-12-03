@@ -240,6 +240,7 @@ function Seleccionador(material, x, y){
   this.actuator = new Seleccionadorm(material);
   this.add(this.actuator);
 }
+Seleccionador.prototype = new Agent();
 
 function Torre(material1, x, y){
   Agent.call(this,x,y);
@@ -363,12 +364,12 @@ TEXTURA.loop = function(){
 	if(TEXTURA.matrojo !== undefined && TEXTURA.marnolblanco !== undefined && TEXTURA.marnolnegro !== undefined && setupDone == false && TEXTURA.ceramicablanca !== undefined && TEXTURA.ceramicanegra !== undefined)
 	{
 		TEXTURA.setup2();
-    		TEXTURA.setup2.renderizador.render( TEXTURA.escena, TEXTURA.camara );
+    		TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
 	}
 	
   TEXTURA.entorno.plan();
   TEXTURA.entorno.act();
-  TEXTURA.setup2.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
+  TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
     
    
  }
