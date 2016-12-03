@@ -274,6 +274,7 @@ function Torre(material1, x, y){
   this.up=0;
   this.sensor= new Sensor();
   this.actuator = new Torrem(material1);
+  this.guide = new Seleccionadorm(material1);
   this.add(this.actuator);
 }
 
@@ -292,20 +293,73 @@ Torre.prototype.sense = function(enviroment){
 }
 
 Torre.prototype.plan = function(enviroment){
-	if(this.sensor.colision == true){}
+	
+	  if(this.sensor.colision == true){}
   else{
-	 if(this.banderaZ==0 && this.banderaX==0 && this.selec==1){
-		 if ( desplazar() == "right" ) {
-			 if (this.right==0) {
-				this.actuator.translateX(10);
-				this.right=1;
-			 }
+	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
+	 if (desplazar == "right") {
+		 if (this.right==0) {
+this.guide.translateX(10);
+	this.right=1;
 		 }
-      	 }
-   }
+}
+	else
+	this.right=0;
+     if (desplazar == "left") {
+		 if (this.left==0) {
+this.guide.translateX(-10);
+	this.left=1;
+		 }
+}
+	 else
+	this.left=0;
+     if (desplazar == "up") {
+		 if (this.up==0) {
+this.guide.translateZ(-10);
+	this.up=1;
+		 }
+}
+	
+	     else
+	this.up=0;
+     if (desplazar == "down")) {
+		 if (this.down==0) {
+this.guide.translateZ(10);
+	this.down=1;
+		 }
+}
+
+	     else
+	this.down=0;	
+	}
+	if((this.guide.position.x != this.actuator.position.x) && this.banderaX===1){
+		this.velocidadx=-(this.actuator.position.x-this.guide.position.x)/Math.abs(this.actuator.position.x-this.guide.position.x);
+		this.actuator.translateX(this.velocidadx);
+	}
+	if((this.guide.position.z != this.actuator.position.z)&&this.banderaZ===1){
+		this.velocidadz=-(this.actuator.position.z-this.guide.position.z)/Math.abs(this.actuator.position.z-this.guide.position.z);
+		this.actuator.translateZ(this.velocidadz);
+	}
+	if(desplazar == "enter"){
+		this.banderaX=1;
+		this.banderaZ=1;
+	}
+	if((this.guide.position.x === this.actuator.position.x))
+		this.banderaX=0;
+	if((this.guide.position.z === this.actuator.position.z))
+		this.banderaZ=0; 
+  }
+	
+	
 }
 
 Torre.prototype.act = function(enviroment){
+	
+	if(Math.abs(this.guide.position.x-this.actuator.position.x)!=Math.abs(this.guide.position.z-this.actuator.position.z)){
+  this.guide.position.z=this.actuator.position.z;
+  this.guide.position.x=this.actuator.position.x;
+  }
+	
 }
 
 
