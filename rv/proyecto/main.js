@@ -352,6 +352,13 @@ TEXTURA.setup2 = function(){
   TEXTURA.alfilb1.position.z=2;
   TEXTURA.entorno.add(TEXTURA.alfilb1);
 	
+  TEXTURA.alfilb2 = new Alfil( TEXTURA.ceramicablanca);
+  TEXTURA.alfilb2.rotateX(Math.PI/2);
+  TEXTURA.alfilb2.position.x=50;
+  TEXTURA.alfilb2.position.y=0;
+  TEXTURA.alfilb2.position.z=2;
+  TEXTURA.entorno.add(TEXTURA.alfilb2);
+	
   TEXTURA.seleccionador = new Seleccionador( TEXTURA.matrojo);
   TEXTURA.seleccionador.rotateX(Math.PI/2);
   TEXTURA.seleccionador.position.x=0;
