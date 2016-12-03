@@ -309,7 +309,7 @@ TEXTURA.retrollamada4 = function( textura ){
  TEXTURA.ceramicanegra = new THREE.MeshBasicMaterial( {map: textura} );
 }
 
-var renderizador;
+var TEXTURA.renderizador;
 
 TEXTURA.setup = function() {
   TEXTURA.entorno = new Enviroment();
