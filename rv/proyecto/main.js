@@ -44,8 +44,7 @@ Enviroment.prototype.plan = function(){
 Sensor.prototype= new THREE.Raycaster();
 
 var TEXTURA = new Object();
-
-window.onload=function(){document.onkeydown=desplazar};
+var window.onload=function(){document.onkeydown=desplazar};
 function desplazar(objeto){
       var tecla = objeto.which;
           switch (tecla){
