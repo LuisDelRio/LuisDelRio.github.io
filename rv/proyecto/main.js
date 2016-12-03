@@ -296,7 +296,6 @@ TEXTURA.setup = function() {
   TEXTURA.entorno.add(TEXTURA.torre1);
   TEXTURA.tablero= new Tablero(TEXTURA.material3, TEXTURA.material1);
   TEXTURA.entorno.add(TEXTURA.tablero);	 
-  TEXTURA.camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
   TEXTURA.camara = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
   TEXTURA.camara.position.z=50;
   TEXTURA.camara.position.x=160;
