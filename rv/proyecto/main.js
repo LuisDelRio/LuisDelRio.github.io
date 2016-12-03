@@ -350,7 +350,8 @@ TEXTURA.setup2 = function(){
   TEXTURA.entorno.add(TEXTURA.alfilb1);
 	
   TEXTURA.seleccionador = new Seleccionador( TEXTURA.matrojo);
-  TEXTURA.seleccionador.translateZ(30);	
+  TEXTURA.seleccionador.rotateX(Math.PI/2);
+  TEXTURA.seleccionador.translateY(30);	
   TEXTURA.entorno.add(TEXTURA.seleccionador);
 	
   TEXTURA.tablero= new Tablero(TEXTURA.marnolblanco, TEXTURA.marnolnegro);
