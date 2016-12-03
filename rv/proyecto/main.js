@@ -332,11 +332,9 @@ TEXTURA.setup2 = function(){
   TEXTURA.torreb1.translateY(3);	
   TEXTURA.entorno.add(TEXTURA.torreb1);
 	
-  //TEXTURA.seleccionador = new Seleccionador( TEXTURA.matrojo);
-  //TEXTURA.seleccionador.position.x=0;
-  //TEXTURA.seleccionador.position.y=0;
-  //TEXTURA.seleccionador.position.z=30;	
-  //TEXTURA.entorno.add(TEXTURA.seleccionador);
+  TEXTURA.seleccionador = new Seleccionador( TEXTURA.matrojo);
+  TEXTURA.seleccionador.translateY(30);	
+  TEXTURA.entorno.add(TEXTURA.seleccionador);
 	
   TEXTURA.tablero= new Tablero(TEXTURA.marnolblanco, TEXTURA.marnolnegro);
   TEXTURA.entorno.add(TEXTURA.tablero);
