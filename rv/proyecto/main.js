@@ -218,7 +218,7 @@ Torrem.prototype = new THREE.Mesh();
 Alfilm.prototype = new THREE.Mesh();
 Peonm.prototype = new THREE.Mesh();
 
-function Torre(material1,material2, x, y){
+function Torre(material1, x, y){
   Agent.call(this,x,y);
   this.der=0;
   this.izq=0;
@@ -232,97 +232,48 @@ function Torre(material1,material2, x, y){
 Torre.prototype = new Agent();
 
 Torre.prototype.sense = function(enviroment){
-  this.sensor.set( this.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
-  var obstaculo = this.sensor.intersectObjects(enviroment.children,true);
-  this.selec=0;
-  this.banderaX=0;
-  this.banderaZ=0;
-  if((obstaculo.length>0 && (obstaculo[0].distance <=60)))
-  this.sensor.colision=true;
-  else
-  this.sensor.colision = false;
-  
 }
 
 Torre.prototype.plan = function(enviroment){
 }
 
 Torre.prototype.act = function(enviroment){
-  
-  if(this.phantom.position.x!=this.actuator.position.x)
-  this.phantom.position.z=this.actuator.position.z;
-  else if (this.phantom.position.z!=this.actuator.position.z)
-  this.phantom.position.x=this.actuator.position.x;
-  
 }
 
+
 function Alfil(material1,material2, x, y){
-  Agent.call(this,x,y);
-  this.der=0;
-  this.izq=0;
-  this.aba=0;
-  this.arr=0;
-  this.sensor= new Sensor();
-  this.actuator = new Torrem(material1);
-  this.phantom = new Torrem(material2);
-  this.add(this.actuator);
-  this.add(this.phantom);
 }
 
 Alfil.prototype = new Agent();
 
 Alfil.prototype.sense = function(enviroment){
-  this.sensor.set( this.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
-  var obstaculo = this.sensor.intersectObjects(enviroment.children,true);
-  this.selec=0;
-  this.banderaX=0;
-  this.banderaZ=0;
-  if((obstaculo.length>0 && (obstaculo[0].distance <=60)))
-  this.sensor.colision=true;
-  else
-  this.sensor.colision = false;
-  
 }
 
 Alfil.prototype.plan = function(enviroment){
 }
 
 Alfil.prototype.act = function(enviroment){
-  
-  if(Math.abs(this.phantom.position.x-this.actuator.position.x)!=Math.abs(this.phantom.position.z-this.actuator.position.z)){
-  this.phantom.position.z=this.actuator.position.z;
-  this.phantom.position.x=this.actuator.position.x;
-  }
-  
 }
 
 
 TEXTURA.retrollamada = function( textura ){
   TEXTURA.material3 = new THREE.MeshBasicMaterial( {map: textura} );
-  TEXTURA.material7 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
-
 }
 
 TEXTURA.retrollamada1 = function( textura ){
  TEXTURA.material4 = new THREE.MeshBasicMaterial( {map: textura} );
- TEXTURA.material8 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
-
 }
 
 TEXTURA.retrollamada2 = function( textura ){
  TEXTURA.material1 = new THREE.MeshBasicMaterial( {map: textura} );
- TEXTURA.material5 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
-
 }
 
 TEXTURA.retrollamada3 = function( textura ){
  TEXTURA.material2 = new THREE.MeshBasicMaterial( {map: textura} );
- TEXTURA.material6 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
 }
 
 TEXTURA.retrollamada4 = function( textura ){
  TEXTURA.material9 = new THREE.MeshBasicMaterial( {map: textura} );
- TEXTURA.material10 = new THREE.MeshBasicMaterial( { map:textura, transparent: true, opacity: .5 } );
 }
 
 
@@ -339,35 +290,26 @@ TEXTURA.setup = function() {
   cargador3.load("ceramica_blanca.jpg",TEXTURA.retrollamada3);
   var cargador4 = new THREE.TextureLoader();
   cargador4.load("ceramica_negra.jpg",TEXTURA.retrollamada4);
-}
-
-TEXTURA.setup2 = function(){
-	setupDone = true;
-TEXTURA.torre1 = new Alfil( TEXTURA.material3,TEXTURA.material7);
-	TEXTURA.torre1.translateY(25);
+	
+  TEXTURA.torre1 = new Torre( TEXTURA.material2);
+  TEXTURA.torre1.translateY(25);
   TEXTURA.entorno.add(TEXTURA.torre1);
-  TEXTURA.tablero= new Tablero(TEXTURA.material1, TEXTURA.material2);
+  TEXTURA.tablero= new Tablero(TEXTURA.material3, TEXTURA.material1);
   TEXTURA.entorno.add(TEXTURA.tablero);	 
   TEXTURA.camara = new THREE.PerspectiveCamera();
   TEXTURA.camara.position.z= 1500;
   TEXTURA.camara.position.x= 35*4;
   TEXTURA.entorno.rotateX(Math.PI/4);
   TEXTURA.renderizador = new THREE.WebGLRenderer();
- TEXTURA.renderizador.setSize(800, 800);
- document.body.appendChild(TEXTURA.renderizador.domElement);
+  TEXTURA.renderizador.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(TEXTURA.renderizador.domElement);
 }
-var setupDone = false;
+
 TEXTURA.loop = function(){
   requestAnimationFrame( TEXTURA.loop );
-	if(TEXTURA.material1 !== undefined && TEXTURA.material2 !== undefined && !setupDone&& TEXTURA.material3 !== undefined&& TEXTURA.material4 !== undefined)
-	{TEXTURA.setup2();
-    
-    TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );}
-	
-	TEXTURA.torre1.selec=1;
-	TEXTURA.entorno.plan();
-	TEXTURA.entorno.act();
-	TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
+  TEXTURA.entorno.plan();
+  TEXTURA.entorno.act();
+  TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
     
    
  }
