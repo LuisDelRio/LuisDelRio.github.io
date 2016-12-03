@@ -45,24 +45,54 @@ Sensor.prototype= new THREE.Raycaster();
 
 var TEXTURA = new Object();
 
-window.addEventListener("keydown", moveSomething, false); 
-function moveSomething(e) {
-    switch(e) {
-        case 37:
-	    alert("left");
-            return "left";
-            break;
-        case 38:
-            return "up";
-            break;
-        case 39:
-            return "right";
-            break;
-        case 40:
-            return "down";
-            break;  
-    }   
-}
+var right, left, up, down, enter;
+window.onload=function(){document.onkeydown=desplazar};
+      function desplazar(objeto){
+      var tecla = objeto.which;
+          switch (tecla){
+              case 37 : 
+                  left="left";
+		  up="0";
+		  right="0";
+		  down="0";
+		  enter="0";
+		  alert(left);
+                  break;
+              case 38 : 
+                  left="0";
+		  up="up";
+		  right="0";
+		  down="0";
+		  enter="0";
+		  alert(up);
+                  break;
+              case 39 :  
+                  left="0";
+		  up="0";
+		  right="right";
+		  down="0";
+		  enter="0";
+		  alert(right);
+                  break;
+              case 40 : 
+                  left="0";
+		  up="0";
+		  right="0";
+		  down="down";
+		  enter="0";
+		  alert(down);
+                  break;
+              case 13 :
+		  left="0";
+		  up="0";
+		  right="0";
+		  down="0";
+		  enter="enter";
+		  alert(down);
+                  break;
+          default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
+          }
+      }
 
 function Torrem(material){
   //Torres
@@ -293,7 +323,7 @@ Torre.prototype.plan = function(enviroment){
 	  if(this.sensor.colision == true){}
   else{
 	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
-	 if (moveSomething() == "right") {
+	 if ( right == "right") {
 		 if (this.right==0) {
 this.guide.translateX(10);
 	this.right=1;
@@ -301,7 +331,7 @@ this.guide.translateX(10);
 }
 	else
 	this.right=0;
-     if (moveSomething() == "left") {
+     if ( left == "left") {
 		 if (this.left==0) {
 this.guide.translateX(-10);
 	this.left=1;
@@ -309,7 +339,7 @@ this.guide.translateX(-10);
 }
 	 else
 	this.left=0;
-     if (moveSomething() == "up") {
+     if (up == "up") {
 		 if (this.up==0) {
 this.guide.translateZ(-10);
 	this.up=1;
@@ -318,7 +348,7 @@ this.guide.translateZ(-10);
 	
 	     else
 	this.up=0;
-     if (moveSomething() == "down") {
+     if (down == "down") {
 		 if (this.down==0) {
 this.guide.translateZ(10);
 	this.down=1;
@@ -336,7 +366,7 @@ this.guide.translateZ(10);
 		this.velocidadz=-(this.actuator.position.z-this.guide.position.z)/Math.abs(this.actuator.position.z-this.guide.position.z);
 		this.actuator.translateZ(this.velocidadz);
 	}
-	if(moveSomething() == "enter"){
+	if(enter == "enter"){
 		this.banderaX=1;
 		this.banderaZ=1;
 	}
