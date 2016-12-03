@@ -290,7 +290,9 @@ TEXTURA.setup = function() {
   cargador3.load("ceramica_blanca.jpg",TEXTURA.retrollamada3);
   var cargador4 = new THREE.TextureLoader();
   cargador4.load("ceramica_negra.jpg",TEXTURA.retrollamada4);
-	
+}
+
+TEXTURA.setup2 = function(){
   TEXTURA.torre1 = new Torre( TEXTURA.material2);
   TEXTURA.torre1.translateY(25);
   TEXTURA.entorno.add(TEXTURA.torre1);
@@ -309,6 +311,12 @@ TEXTURA.setup = function() {
 
 TEXTURA.loop = function(){
   requestAnimationFrame( TEXTURA.loop );
+	if(TEXTURA.material1 !== undefined && TEXTURA.material2 !== undefined && !setupDone&& TEXTURA.material3 !== undefined&& TEXTURA.material4 !== undefined)
+	{
+		TEXTURA.setup2();
+    		TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
+	}
+	
   TEXTURA.entorno.plan();
   TEXTURA.entorno.act();
   TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
