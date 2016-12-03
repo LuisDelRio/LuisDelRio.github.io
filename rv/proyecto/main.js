@@ -349,7 +349,7 @@ TEXTURA.setup2 = function(){
   TEXTURA.alfilb1.rotateX(Math.PI/2);
   TEXTURA.alfilb1.position.x=20;
   TEXTURA.alfilb1.position.y=0;
-  TEXTURA.alfilb1.position.z=3;
+  TEXTURA.alfilb1.position.z=2;
   TEXTURA.entorno.add(TEXTURA.alfilb1);
 	
   TEXTURA.seleccionador = new Seleccionador( TEXTURA.matrojo);
@@ -369,7 +369,7 @@ TEXTURA.setup2 = function(){
   //TEXTURA.camara.position.y=40;
   TEXTURA.camara.position.z=0;
   TEXTURA.camara.position.x=40;
-  TEXTURA.camara.position.y=-40;
+  TEXTURA.camara.position.y=-160;
   TEXTURA.camara.lookAt(new THREE.Vector3(40,40,0));
   //TEXTURA.camara.rotateZ(Math.PI/2);
 	
