@@ -370,15 +370,14 @@ TEXTURA.setup2 = function(){
   TEXTURA.entorno.add(TEXTURA.tablero);
 	
   TEXTURA.camara = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
-  //TEXTURA.camara.position.z=50;
-  //TEXTURA.camara.position.z=10;
-  //TEXTURA.camara.position.x=160;
-  //TEXTURA.camara.position.y=40;
-  TEXTURA.camara.position.z=0;
-  TEXTURA.camara.position.x=40;
-  TEXTURA.camara.position.y=-160;
-  TEXTURA.camara.lookAt(new THREE.Vector3(40,40,0));
-  //TEXTURA.camara.rotateZ(Math.PI/2);
+  TEXTURA.camara.position.z=70;
+  TEXTURA.camara.position.x=160;
+  TEXTURA.camara.position.y=40;
+  //TEXTURA.camara.position.z=0;
+  //TEXTURA.camara.position.x=40;
+  //TEXTURA.camara.position.y=-160;
+  //TEXTURA.camara.lookAt(new THREE.Vector3(40,40,0));
+  TEXTURA.camara.rotateZ(Math.PI/2);
 	
   TEXTURA.renderizador = new THREE.WebGLRenderer();
   TEXTURA.renderizador.setSize(window.innerWidth-100, window.innerHeight-100);
