@@ -44,8 +44,9 @@ Enviroment.prototype.plan = function(){
 Sensor.prototype= new THREE.Raycaster();
 
 var TEXTURA = new Object();
+var keyboard = new THREEx.KeyboardState();
 
-var right, left, up, down, enter;
+/*var right, left, up, down, enter;
 window.onload=function(){document.onkeydown=desplazar};
       function desplazar(objeto){
       var tecla = objeto.which;
@@ -92,7 +93,7 @@ window.onload=function(){document.onkeydown=desplazar};
                   break;
           default :alert("Se ha equivocado, debe pulsar las flechas del teclado");
           }
-      }
+      }*/
 
 function Torrem(material){
   //Torres
@@ -323,7 +324,7 @@ Torre.prototype.plan = function(enviroment){
 	  if(this.sensor.colision == true){}
   else{
 	 if(this.banderaZ==0&&this.banderaX==0){
-	 if ( right == "right") {
+	 if ( keyboard.pressed("right")) {
 		 if (this.right==0) {
 this.guide.translateX(10);
 	this.right=1;
@@ -331,7 +332,7 @@ this.guide.translateX(10);
 }
 	else
 	this.right=0;
-     if ( left == "left") {
+     if ( keyboard.pressed("left")) {
 		 if (this.left==0) {
 this.guide.translateX(-10);
 	this.left=1;
@@ -339,7 +340,7 @@ this.guide.translateX(-10);
 }
 	 else
 	this.left=0;
-     if (up == "up") {
+     if (keyboard.pressed("up")) {
 		 if (this.up==0) {
 this.guide.translateZ(-10);
 	this.up=1;
@@ -348,7 +349,7 @@ this.guide.translateZ(-10);
 	
 	     else
 	this.up=0;
-     if (down == "down") {
+     if (keyboard.pressed("down")) {
 		 if (this.down==0) {
 this.guide.translateZ(10);
 	this.down=1;
@@ -366,7 +367,7 @@ this.guide.translateZ(10);
 		this.velocidadz=-(this.actuator.position.z-this.guide.position.z)/Math.abs(this.actuator.position.z-this.guide.position.z);
 		this.actuator.translateZ(this.velocidadz);
 	}
-	if(enter == "enter"){
+	if(keyboard.pressed("enter")){
 		this.banderaX=1;
 		this.banderaZ=1;
 	}
