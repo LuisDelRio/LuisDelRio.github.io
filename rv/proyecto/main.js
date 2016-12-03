@@ -360,7 +360,7 @@ TEXTURA.setup2 = function(){
 var setupDone = false;
 TEXTURA.loop = function(){
   requestAnimationFrame( TEXTURA.loop );
-	if(TEXTURA.marnolblanco !== undefined && TEXTURA.marnolnegro !== undefined && setupDone == false && TEXTURA.ceramicablanca !== undefined && TEXTURA.ceramicanegra !== undefined)
+	if(TEXTURA.matrojo !== undefined && TEXTURA.marnolblanco !== undefined && TEXTURA.marnolnegro !== undefined && setupDone == false && TEXTURA.ceramicablanca !== undefined && TEXTURA.ceramicanegra !== undefined)
 	{
 		TEXTURA.setup2();
     		TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
