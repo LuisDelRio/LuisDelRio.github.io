@@ -257,23 +257,23 @@ Alfil.prototype.act = function(enviroment){
 
 
 TEXTURA.retrollamada = function( textura ){
-  TEXTURA.material3 = new THREE.MeshBasicMaterial( {map: textura} );
+  TEXTURA.marnolblanco = new THREE.MeshBasicMaterial( {map: textura} );
 }
 
 TEXTURA.retrollamada1 = function( textura ){
- TEXTURA.material4 = new THREE.MeshBasicMaterial( {map: textura} );
+ TEXTURA.marnolcafe = new THREE.MeshBasicMaterial( {map: textura} );
 }
 
 TEXTURA.retrollamada2 = function( textura ){
- TEXTURA.material1 = new THREE.MeshBasicMaterial( {map: textura} );
+ TEXTURA.marnolnegro = new THREE.MeshBasicMaterial( {map: textura} );
 }
 
 TEXTURA.retrollamada3 = function( textura ){
- TEXTURA.material2 = new THREE.MeshBasicMaterial( {map: textura} );
+ TEXTURA.ceramicablanca = new THREE.MeshBasicMaterial( {map: textura} );
 }
 
 TEXTURA.retrollamada4 = function( textura ){
- TEXTURA.material9 = new THREE.MeshBasicMaterial( {map: textura} );
+ TEXTURA.ceramicanegra = new THREE.MeshBasicMaterial( {map: textura} );
 }
 
 
@@ -294,7 +294,7 @@ TEXTURA.setup = function() {
   TEXTURA.torre1 = new Torre( TEXTURA.material2);
   TEXTURA.torre1.translateY(25);
   TEXTURA.entorno.add(TEXTURA.torre1);
-  TEXTURA.tablero= new Tablero(TEXTURA.material3, TEXTURA.material1);
+  TEXTURA.tablero= new Tablero(TEXTURA.marnolblanco, TEXTURA.marnolnegro);
   TEXTURA.entorno.add(TEXTURA.tablero);	 
   TEXTURA.camara = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
   TEXTURA.camara.position.z=50;
@@ -303,7 +303,7 @@ TEXTURA.setup = function() {
   TEXTURA.camara.lookAt(new THREE.Vector3(40,40,0));
   TEXTURA.camara.rotateZ(Math.PI/2);
   TEXTURA.renderizador = new THREE.WebGLRenderer();
-  TEXTURA.renderizador.setSize(window.innerWidth, window.innerHeight);
+  TEXTURA.renderizador.setSize(window.innerWidth-100, window.innerHeight-100);
   document.body.appendChild(TEXTURA.renderizador.domElement);
 }
 
