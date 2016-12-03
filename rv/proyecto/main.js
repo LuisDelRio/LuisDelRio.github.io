@@ -296,10 +296,13 @@ TEXTURA.setup = function() {
   TEXTURA.entorno.add(TEXTURA.torre1);
   TEXTURA.tablero= new Tablero(TEXTURA.material3, TEXTURA.material1);
   TEXTURA.entorno.add(TEXTURA.tablero);	 
-  TEXTURA.camara = new THREE.PerspectiveCamera();
-  TEXTURA.camara.position.z= 1500;
-  TEXTURA.camara.position.x= 35*4;
-  TEXTURA.entorno.rotateX(Math.PI/4);
+  TEXTURA.camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
+  TEXTURA.camara = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+  TEXTURA.camara.position.z=50;
+  TEXTURA.camara.position.x=160;
+  TEXTURA.camara.position.y=40;
+  TEXTURA.camara.lookAt(new THREE.Vector3(40,40,0));
+  camara.rotateZ(Math.PI/2);
   TEXTURA.renderizador = new THREE.WebGLRenderer();
   TEXTURA.renderizador.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(TEXTURA.renderizador.domElement);
