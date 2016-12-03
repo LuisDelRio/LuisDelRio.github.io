@@ -309,14 +309,11 @@ TEXTURA.retrollamada4 = function( textura ){
  TEXTURA.ceramicanegra = new THREE.MeshBasicMaterial( {map: textura} );
 }
 
-TEXTURA.retrollamada5 = function( textura ){
- TEXTURA.matrojo = new THREE.MeshBasicMaterial({color: 0xB40100});
-}
-
+var renderizador;
 
 TEXTURA.setup = function() {
   TEXTURA.entorno = new Enviroment();
-  
+  TEXTURA.matrojo = new THREE.MeshBasicMaterial({color: 0xB40100});
   var cargador = new THREE.TextureLoader();
   cargador.load("marnol_blanco.jpg",TEXTURA.retrollamada);
   var cargador1 = new THREE.TextureLoader();
