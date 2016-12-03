@@ -313,7 +313,7 @@ TEXTURA.setup2 = function(){
 var setupDone = false;
 TEXTURA.loop = function(){
   requestAnimationFrame( TEXTURA.loop );
-	if(TEXTURA.material1 !== undefined && TEXTURA.material2 !== undefined && !setupDone&& TEXTURA.material3 !== undefined&& TEXTURA.material4 !== undefined)
+	if(TEXTURA.marnolblanco !== undefined && TEXTURA.marnolnegro !== undefined && !setupDone&& TEXTURA.ceramicablanca !== undefined&& TEXTURA.ceramicanegra !== undefined)
 	{
 		TEXTURA.setup2();
     		TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
