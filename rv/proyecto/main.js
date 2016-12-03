@@ -353,7 +353,7 @@ TEXTURA.setup2 = function(){
   TEXTURA.seleccionador.rotateX(Math.PI/2);
   TEXTURA.seleccionador.position.x=0;
   TEXTURA.seleccionador.position.y=0;
-  TEXTURA.seleccionador.position.x=30;	
+  TEXTURA.seleccionador.position.z=30;	
   TEXTURA.entorno.add(TEXTURA.seleccionador);
 	
   TEXTURA.tablero= new Tablero(TEXTURA.marnolblanco, TEXTURA.marnolnegro);
