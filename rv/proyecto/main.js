@@ -363,12 +363,12 @@ TEXTURA.loop = function(){
 	if(TEXTURA.matrojo !== undefined && TEXTURA.marnolblanco !== undefined && TEXTURA.marnolnegro !== undefined && setupDone == false && TEXTURA.ceramicablanca !== undefined && TEXTURA.ceramicanegra !== undefined)
 	{
 		TEXTURA.setup2();
-    		TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
+    		TEXTURA.setup2.renderizador.render( TEXTURA.escena, TEXTURA.camara );
 	}
 	
   TEXTURA.entorno.plan();
   TEXTURA.entorno.act();
-  TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
+  TEXTURA.setup2.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
     
    
  }
