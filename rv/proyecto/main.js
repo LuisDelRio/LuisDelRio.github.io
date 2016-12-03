@@ -47,7 +47,7 @@ var TEXTURA = new Object();
 
 window.addEventListener("keydown", moveSomething, false); 
 function moveSomething(e) {
-    switch(e.keyCode) {
+    switch(e) {
         case 37:
             return "left";
             break;
