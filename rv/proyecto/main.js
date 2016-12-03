@@ -193,10 +193,10 @@ var cubo= new Array();
     for(var i=0; i<8; i++){
       for(var j=0; j<8; j++){
         if(a==2){
-          cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), marmolblanco );
+          cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), material1 );
           a=1;
         }else{
-          cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), marmolnegro );
+          cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), material2 );
           a=2;
         }
        cubo[k].position.x=j*10;
