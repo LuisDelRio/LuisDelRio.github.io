@@ -292,7 +292,7 @@ Torre.prototype.plan = function(enviroment){
 	  if(this.sensor.colision == true){}
   else{
 	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
-	 if (desplazar() == "right") {
+	 if (moveSomething() == "right") {
 		 if (this.right==0) {
 this.guide.translateX(10);
 	this.right=1;
@@ -300,7 +300,7 @@ this.guide.translateX(10);
 }
 	else
 	this.right=0;
-     if (desplazar() == "left") {
+     if (moveSomething() == "left") {
 		 if (this.left==0) {
 this.guide.translateX(-10);
 	this.left=1;
@@ -308,7 +308,7 @@ this.guide.translateX(-10);
 }
 	 else
 	this.left=0;
-     if (desplazar() == "up") {
+     if (moveSomething() == "up") {
 		 if (this.up==0) {
 this.guide.translateZ(-10);
 	this.up=1;
@@ -317,7 +317,7 @@ this.guide.translateZ(-10);
 	
 	     else
 	this.up=0;
-     if (desplazar() == "down") {
+     if (moveSomething() == "down") {
 		 if (this.down==0) {
 this.guide.translateZ(10);
 	this.down=1;
@@ -335,7 +335,7 @@ this.guide.translateZ(10);
 		this.velocidadz=-(this.actuator.position.z-this.guide.position.z)/Math.abs(this.actuator.position.z-this.guide.position.z);
 		this.actuator.translateZ(this.velocidadz);
 	}
-	if(desplazar() == "enter"){
+	if(moveSomething() == "enter"){
 		this.banderaX=1;
 		this.banderaZ=1;
 	}
