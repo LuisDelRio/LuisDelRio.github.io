@@ -540,8 +540,18 @@ function AlfilPlan(x,y,team){
 
 function Planos(){
 	Agent.call(this);
-	this.add(new THREE.Mesh( new THREE.PlaneGeometry( 10, 10, 32 ), 
-						 new THREE.MeshBasicMaterial( {color: 0x00ffff, side: THREE.DoubleSide} )));
+	var base1selec = new THREE.CylinderGeometry(2,2,6,6,6,false);
+	var base2selec = new THREE.CylinderGeometry(4,0,4,4,4,false);
+	base2selec.translate(0,-4,0);
+	var base1selec = new THREE.Mesh(base1selec);
+	var base2selec= new THREE.Mesh(base2selec);
+	var seleccionadorForma = new THREE.Geometry();
+	seleccionadorForma.merge(base1selec.geometry, base1selec.matrix);
+	seleccionadorForma.merge(base2selec.geometry, base2selec.matrix);
+	var material= new THREE.MeshBasicMaterial({color: 0xB40100});
+	var seleccionador = new THREE.Mesh(seleccionadorForma, material);
+	this.add(seleccionador);
+
 }
 
 Planos.prototype=new Agent();
