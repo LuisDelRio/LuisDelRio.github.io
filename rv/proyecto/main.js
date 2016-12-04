@@ -295,10 +295,10 @@ Seleccionador.prototype = new Agent();
 
 function Torre(material1, x, y){
   Agent.call(this,x,y);
-  this.right=0;
-  this.left=0;
-  this.down=0;
-  this.up=0;
+  this.der=0;
+  this.izq=0;
+  this.aba=0;
+  this.arr=0;
   this.sensor= new Sensor();
   this.actuator = new Torrem(material1);
   this.guide = new Seleccionadorm(material1);
@@ -326,39 +326,39 @@ Torre.prototype.plan = function(enviroment){
   else{
 	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
 	 if ( keyboard.pressed("right")) {
-		 if (this.right==0) {
+		 if (this.der==0) {
 this.guide.translateX(10);
-	this.right=1;
+	this.der=1;
 		 }
 }
 	else
-	this.right=0;
+	this.der=0;
      if ( keyboard.pressed("left")) {
-		 if (this.left==0) {
+		 if (this.izq==0) {
 this.guide.translateX(-10);
-	this.left=1;
+	this.izq=1;
 		 }
 }
 	 else
-	this.left=0;
+	this.izq=0;
      if (keyboard.pressed("up")) {
-		 if (this.up==0) {
+		 if (this.arr==0) {
 this.guide.translateZ(-10);
-	this.up=1;
+	this.arr=1;
 		 }
 }
 	
 	     else
-	this.up=0;
+	this.arr=0;
      if (keyboard.pressed("down")) {
-		 if (this.down==0) {
+		 if (this.aba==0) {
 this.guide.translateZ(10);
-	this.down=1;
+	this.aba=1;
 		 }
 }
 
 	     else
-	this.down=0;	
+	this.aba=0;	
 	}
 	if((this.guide.position.x != this.actuator.position.x) && this.banderaX===1){
 		this.velocidadx=-(this.actuator.position.x-this.guide.position.x)/Math.abs(this.actuator.position.x-this.guide.position.x);
