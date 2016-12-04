@@ -293,7 +293,7 @@ function Seleccionador(material, x, y){
 }
 Seleccionador.prototype = new Agent();
 
-function Torre(material1, x, y){
+function Torre(material1, material2, x, y){
   Agent.call(this,x,y);
   this.der=0;
   this.izq=0;
@@ -301,7 +301,7 @@ function Torre(material1, x, y){
   this.arr=0;
   this.sensor= new Sensor();
   this.actuator = new Torrem(material1);
-  this.phantom = new Seleccionadorm(material1);
+  this.phantom = new Seleccionadorm(material2);
   this.add(this.actuator);
   this.add(this.phantom);
 }
@@ -453,7 +453,7 @@ TEXTURA.setup = function() {
 TEXTURA.setup2 = function(){
 	setupDone = true;
 	
-  TEXTURA.torreb1 = new Torre( TEXTURA.ceramicablanca);
+  TEXTURA.torreb1 = new Torre( TEXTURA.ceramicablanca, TEXTURA.matrojo);
   TEXTURA.torreb1.rotateX(Math.PI/2);
   TEXTURA.torreb1.position.x=0;
   TEXTURA.torreb1.position.y=0;
