@@ -418,6 +418,7 @@ function Tablero (texturaBlanco, texturaNegro, texturaMadera){
       }
   }
   var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), new THREE.MeshLambertMaterial({map: texturaMadera}) );
+  escena.add(base);
   base.position.x=35;
   base.position.y=35;
   base.position.z=-2;
@@ -934,7 +935,7 @@ function setup(){
   escena.add(vacio35);
   escena.add(vacio36);
   escena.add(iluminacion);
-  Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
+  Tablero(TEXTURAS.marmolnegro, TEXTURAS.marmolblanco, TEXTURAS.madera);
 
   iluminacion.castShadow=true;
   torreMalla.castShadow=true;
