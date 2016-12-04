@@ -419,6 +419,7 @@ function Tablero (texturaBlanco, texturaNegro, texturaMadera){
   }
   var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), new THREE.MeshLambertMaterial({map: texturaMadera}) );
   escena.add(base);
+  base.receiveShadow=true;
   base.position.x=35;
   base.position.y=35;
   base.position.z=-2;
@@ -937,6 +938,7 @@ function setup(){
   escena.add(iluminacion);
   Tablero(TEXTURAS.marmolnegro, TEXTURAS.marmolblanco, TEXTURAS.madera);
 
+  renderizador.shadowMapEnabled=true;
   iluminacion.castShadow=true;
   torreMalla.castShadow=true;
   torreMalla1.castShadow=true;
@@ -966,9 +968,8 @@ function setup(){
   peonMalla13.castShadow=true;
   peonMalla14.castShadow=true;
   peonMalla15.castShadow=true;
-  renderizador.setSize(window.innerWidth-100, window.innerHeight)-100;
+  renderizador.setSize(window.innerWidth-100, window.innerHeight-100);
   document.body.appendChild(renderizador.domElement);
-  renderizador.shadowMapEnabled=true;
 }
 
 var setupDone=false;
