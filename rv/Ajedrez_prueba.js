@@ -559,7 +559,7 @@ Planos.prototype=new Agent();
 
 //------------ TABLERO------
 function Tablero (texturaBlanco, texturaNegro,texturaMadera){
-    var color=0;
+    /*var color=0;
     for(var i=0;i<8;i++){
       for(var j=0;j<8;j++){
         var cuboForma=  new THREE.BoxGeometry(10,5,10);
@@ -575,7 +575,7 @@ function Tablero (texturaBlanco, texturaNegro,texturaMadera){
         escena.add(cuboMalla);
       }
       color=color+1;
-    }
+    }*/
 
     var bordeForma = new THREE.BoxGeometry(100,100,5);
     bordeForma.translate(0,0,-5);
@@ -584,6 +584,34 @@ function Tablero (texturaBlanco, texturaNegro,texturaMadera){
     bordeMalla.rotateX(-Math.PI/2);
     bordeMalla.receiveShadow=true;
     escena.add(bordeMalla);
+	
+	
+	var cubo= new Array();
+  var a=2;
+  for(var k=0; k<64; k++){
+    for(var i=0; i<8; i++){
+      for(var j=0; j<8; j++){
+        if(a==2){
+          cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), new THREE.MeshLambertMaterial({map: texturaBlanco}) );
+          a=1;
+        }else{
+          cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), new THREE.MeshLambertMaterial({map:texturaNegro}) );
+          a=2;
+        }
+       cubo[k].position.x=j*10;
+       cubo[k].position.y=i*10;
+       escena.add(cubo[k]);
+       cubo[k].receiveShadow=true;
+     }
+     if(a==2){
+          a=1;
+        }else{
+          a=2;
+        }
+    }
+  }
+
+	
 }
 
 //------------ FUNCION CAMBIO VENTANA-----
