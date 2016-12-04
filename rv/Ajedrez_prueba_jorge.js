@@ -417,7 +417,7 @@ function Tablero (texturaBlanco, texturaNegro, texturaMadera){
           }
       }
   }
-  var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), new THREE.LambertMaterial({map: texturaMadera}) );
+  var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), new THREE.MeshLambertMaterial({map: texturaMadera}) );
   base.position.x=35;
   base.position.y=35;
   base.position.z=-2;
