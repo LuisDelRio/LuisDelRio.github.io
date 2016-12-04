@@ -399,10 +399,10 @@ function Tablero (texturaBlanco, texturaNegro, texturaMadera){
       for(var i=0; i<8; i++){
         for(var j=0; j<8; j++){
           if(a==2){
-            cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), new THREE.LambertMaterial({map: texturaBlanco}) );
+            cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), new THREE.MeshLambertMaterial({map: texturaBlanco}) );
             a=1;
           }else{
-            cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), new THREE.LambertMaterial({map: texturaNegro}) );
+            cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), new THREE.MeshLambertMaterial({map: texturaNegro}) );
             a=2;
           }
          cubo[k].position.x=j*10;
