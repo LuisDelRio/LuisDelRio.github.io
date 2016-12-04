@@ -326,7 +326,7 @@ function Reina(textura){
   reinaForma.merge(cubierta1Malla.geometry, cubierta1Malla.matrix);
   reinaForma.merge(cubierta2Malla.geometry, cubierta2Malla.matrix);
   reinaForma.merge(cabeza1Malla.geometry, cabeza1Malla.matrix);
-  this.add(new THREE.Mesh(reyForma, new THREE.MeshLambertMaterial({map:textura})));
+  this.add(new THREE.Mesh(reinaForma, new THREE.MeshLambertMaterial({map:textura})));
   this.castShadow=true;
   this.receiveShadow=true;  
 }
@@ -869,7 +869,6 @@ function setup(){
   valor[70][60] = peonMalla15;
   valor[70][70] = torreMalla2;  
   
-  escena.add(base);
   escena.add(torreMalla);
   escena.add(torreMalla1);
   escena.add(torreMalla2);
@@ -976,7 +975,7 @@ var setupDone=false;
 
 function loop(){
   requestAnimationFrame(loop);
-  if(TEXTURAS.madera!==undefined && TEXTURAS.torreBlanca!==undefined && TEXTURAS.marmolBlanco!==undefined && TEXTURAS.marmolNegro!==undefined && !setupDone){
+  if(TEXTURAS.madera!==undefined && TEXTURAS.ceramicablanca!==undefined && TEXTURAS.ceramicanegra!==undefined && TEXTURAS.marmolblanco!==undefined && TEXTURAS.marmolnegro!==undefined && !setupDone){
       setup();
       renderizador.render(escena, camara);
   }
