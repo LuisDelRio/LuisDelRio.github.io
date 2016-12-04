@@ -39,937 +39,696 @@ Environment.prototype.act = function(){
   }
 };
 
-//----------------------------------------TORRE-------------------------------------------------
-
 function Torre(textura){ 
-  Agent.call(this);
-  var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
-  var base2Forma = new THREE.CylinderGeometry(4,4,1,20,1,false);
-  var base3Forma = new THREE.CylinderGeometry(3,4,2,20,2,false);
-  var troncoForma = new THREE.CylinderGeometry(3,3,6,20,6,false);
-  var cubierta1Forma = new THREE.CylinderGeometry(4,3,2,20,2,false);
-  var cubierta2Forma = new THREE.CylinderGeometry(4,4,2,20,3,false);
+    Agent.call(this);
+    var puntos=[];
+    
+    puntos.push(new THREE.Vector2(0,0));
+    puntos.push(new THREE.Vector2(20,0));
+    puntos.push(new THREE.Vector2(20,10));
+    puntos.push(new THREE.Vector2(15,10));
+    puntos.push(new THREE.Vector2(15,15));
+    puntos.push(new THREE.Vector2(10,15));
+    puntos.push(new THREE.Vector2(10,40));
+    puntos.push(new THREE.Vector2(20,40));
+    puntos.push(new THREE.Vector2(20,45));
+    puntos.push(new THREE.Vector2(10,45));
+    puntos.push(new THREE.Vector2(10,50));
+    puntos.push(new THREE.Vector2(15,50));
+    puntos.push(new THREE.Vector2(15,60));
+    puntos.push(new THREE.Vector2(0,60));
+    
+    var baseForma= new THREE.LatheGeometry(puntos);
+    var baseMalla = new THREE.Mesh(baseForma);
 
-  var arco1 = new THREE.Shape();
-  arco1.moveTo(0, 0);
-  arco1.arc(0, 0, 4, .52, -.52, true);
-  arco1.lineTo(3.46, -2);
-  var pico1 = new THREE.ExtrudeGeometry( arco1, {amount: 1, bevelEnabled: false});
-  pico1.rotateX(Math.PI/2);
+    var torreForma= new THREE.Geometry();
 
-  var arco2 = new THREE.Shape();
-  arco2.moveTo(0, 0);
-  arco2.arc(0, 0, 4, .52, -.52, true);
-  arco2.lineTo(3.46, -2);
-  var pico2 = new THREE.ExtrudeGeometry( arco2, {amount: 1, bevelEnabled: false});
-  pico2.rotateX(Math.PI/2);
-  pico2.rotateY(Math.PI/2);
+    torreForma.merge(baseMalla.geometry, baseMalla.matrix);
 
-  var arco3 = new THREE.Shape();
-  arco3.moveTo(0, 0);
-  arco3.arc(0, 0, 4, .52, -.52, true);
-  arco3.lineTo(3.46, -2);
-  var pico3 = new THREE.ExtrudeGeometry( arco3, {amount: 1, bevelEnabled: false});
-  pico3.rotateX(Math.PI/2);
-  pico3.rotateY(Math.PI);
+    for(var i=0; i<=6; i++){
+    var picoForma = new THREE.CylinderGeometry( 4, 2, 15, 32 );
+      picoForma.translate(13*(Math.sin(Math.PI*2/6*i)),60,13*(Math.cos(Math.PI*2/6*i)));
+    var picoMalla =new THREE.Mesh(picoForma); 
+      torreForma.merge(picoMalla.geometry, picoMalla.matrix);
+    }
+    
+    //THREE.Mesh.call(this, torreForma, new THREE.MeshLambertMaterial({map:textura}));
+    this.add(new THREE.Mesh(torreForma, new THREE.MeshLambertMaterial({map:textura})));
+    this.castShadow=true;
+    this.receiveShadow=true;
+    
+    this.step = 0.1;
+    this.colision = 0;
+    this.radius = 4;
+    this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0)); //vector para detectar colisiones
+    this.pie1= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie2= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie1.position.x=15;
+    this.pie2.position.x=-15;
 
-  var arco4 = new THREE.Shape();
-  arco4.moveTo(0, 0);
-  arco4.arc(0, 0, 4, .52, -.52, true);
-  arco4.lineTo(3.46, -2);
-  var pico4 = new THREE.ExtrudeGeometry( arco4, {amount: 1, bevelEnabled: false});
-  pico4.rotateX(Math.PI/2);
-  pico4.rotateY(Math.PI*3/2);
-
-  base2Forma.translate(0,1,0);
-  base3Forma.translate(0,2,0);
-  troncoForma.translate(0,4,0);
-  cubierta1Forma.translate(0,8,0);
-  cubierta2Forma.translate(0,10,0);
-  pico1.translate(0,12,0);
-  pico2.translate(0,12,0);
-  pico3.translate(0,12,0);
-  pico4.translate(0,12,0);
-  
-
-  var base1Malla = new THREE.Mesh(base1Forma);
-  var base2Malla= new THREE.Mesh(base2Forma);
-  var base3Malla= new THREE.Mesh(base3Forma);
-  var toncoMalla= new THREE.Mesh(troncoForma);
-  var cubierta1Malla= new THREE.Mesh(cubierta1Forma);
-  var cubierta2Malla= new THREE.Mesh(cubierta2Forma);
-  var pico1Malla= new THREE.Mesh(pico1);
-  var pico2Malla= new THREE.Mesh(pico2);
-  var pico3Malla= new THREE.Mesh(pico3);
-  var pico4Malla= new THREE.Mesh(pico4);
-  
-  var torreForma = new THREE.Geometry();
-  torreForma.merge(base1Malla.geometry, base1Malla.matrix);
-  torreForma.merge(base2Malla.geometry, base2Malla.matrix);
-  torreForma.merge(base3Malla.geometry, base3Malla.matrix);
-  torreForma.merge(toncoMalla.geometry, toncoMalla.matrix);
-  torreForma.merge(cubierta1Malla.geometry, cubierta1Malla.matrix);
-  torreForma.merge(cubierta2Malla.geometry, cubierta2Malla.matrix);
-  torreForma.merge(pico1Malla.geometry, pico1Malla.matrix);
-  torreForma.merge(pico2Malla.geometry, pico2Malla.matrix);
-  torreForma.merge(pico3Malla.geometry, pico3Malla.matrix);
-  torreForma.merge(pico4Malla.geometry, pico4Malla.matrix);
-  this.add(new THREE.Mesh(torreForma, new THREE.MeshLambertMaterial({map:textura})));
-  this.castShadow=true;
-  this.receiveShadow=true;  
-  this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0));
+    this.add(this.pie1,this.pie2);
+    if(textura===TEXTURAS.torreBlanca){
+	    this.team=1;
+	    this.pie1.position.z=10;
+	    this.pie2.position.z=10;
+    }
+    else if(textura===TEXTURAS.torreNegra){
+	    this.team=0;
+	    this.pie1.position.z=-10;
+	    this.pie2.position.z=-10;
+    }
 }
 Torre.prototype=new Agent();
+var movimiento=0;
 
-//---------------------------------------------Alfil----------------------------------------------------------
-
-function Alfil(textura){
-  Agent.call(this);
-  var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
-  var base2Forma = new THREE.CylinderGeometry(4,4,1,20,1,false);
-  var troncoForma = new THREE.CylinderGeometry(1.5,3,12,12,12,false);
-  var detalle1Forma = new THREE.CylinderGeometry(3.5,3.5,.5,20,.5,false);
-  var detalle2Forma = new THREE.CylinderGeometry(2.5,2.5,.3,20,.3,false);
-  var detalle3Forma = new THREE.CylinderGeometry(2.5,2.5,.3,20,.3,false);
-  var cabeza1Forma = new THREE.SphereGeometry(2);
-  var cabeza2Forma = new THREE.SphereGeometry(.5);
-
-  base1Forma.translate(0,1,0);
-  base2Forma.translate(0,2,0);
-  troncoForma.translate(0,8,0);
-  cabeza1Forma.translate(0,15,0);
-  cabeza2Forma.translate(0,17,0);
-  detalle1Forma.translate(0,11,0);
-  detalle2Forma.translate(0,10.7,0);
-  detalle3Forma.translate(0,11.5,0);
-
-  var base1Malla = new THREE.Mesh(base1Forma);
-  var base2Malla= new THREE.Mesh(base2Forma);
-  var troncoMalla= new THREE.Mesh(troncoForma);
-  var cabeza1Malla= new THREE.Mesh(cabeza1Forma);
-  var cabeza2Malla= new THREE.Mesh(cabeza2Forma);
-  var detalle1Malla= new THREE.Mesh(detalle1Forma);
-  var detalle2Malla= new THREE.Mesh(detalle2Forma);
-  var detalle3Malla= new THREE.Mesh(detalle3Forma);
-
-  var alfilForma = new THREE.Geometry();
-  alfilForma.merge(base1Malla.geometry, base1Malla.matrix);
-  alfilForma.merge(base2Malla.geometry, base2Malla.matrix);
-  alfilForma.merge(troncoMalla.geometry, troncoMalla.matrix);
-  alfilForma.merge(cabeza1Malla.geometry, cabeza1Malla.matrix);
-  alfilForma.merge(cabeza2Malla.geometry, cabeza2Malla.matrix);
-  alfilForma.merge(detalle1Malla.geometry, detalle1Malla.matrix);
-  alfilForma.merge(detalle2Malla.geometry, detalle2Malla.matrix);
-  alfilForma.merge(detalle3Malla.geometry, detalle3Malla.matrix);
-  this.add(new THREE.Mesh(alfilForma, new THREE.MeshLambertMaterial({map:textura})));
-  this.castShadow=true;
-  this.receiveShadow=true;  
+var tableroMovimientos=[];
+for(var i=0; i<=7; i++){
+	tableroMovimientos[i]=[];
+	for(var j=0; j<=7; j++){
+		tableroMovimientos[i][j]=0;
+	}
 }
-Alfil.prototype=new Agent();
 
-//---------------------------------------------------Rey---------------------------------------------------
-
-function Rey(textura){
-  Agent.call(this);
-  var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
-  var base2Forma = new THREE.CylinderGeometry(4,4,1,20,1,false);
-  var base3Forma = new THREE.CylinderGeometry(2,4,10,20,10,false);
-  var troncoForma = new THREE.CylinderGeometry(2,2,4,20,4,false);
-  var detalle1Forma = new THREE.CylinderGeometry(4,4,.5,20,.5,false);
-  var detalle2Forma = new THREE.CylinderGeometry(3,3,.3,20,.3,false);
-  var detalle3Forma = new THREE.CylinderGeometry(3,3,.3,20,.3,false);
-  var cubierta1Forma = new THREE.CylinderGeometry(2.5,2.5,1.9,20,1.9,false);
-  var cubierta2Forma = new THREE.CylinderGeometry(4,2.5,3,20,3,false);
-  var cabeza1Forma = new THREE.BoxGeometry(1,1,1)
-  var cabeza2Forma = new THREE.BoxGeometry(1,1,1)
-  var cabeza3Forma = new THREE.BoxGeometry(1,1,1)
-  var cabeza4Forma = new THREE.BoxGeometry(1,1,1)
-  var cabeza5Forma = new THREE.BoxGeometry(1,1,1)
-
-  base2Forma.translate(0,1,0);
-  base3Forma.translate(0,6,0);
-  troncoForma.translate(0,12,0);
-  detalle2Forma.translate(0,14,0);
-  detalle1Forma.translate(0,14.3,0);
-  detalle3Forma.translate(0,14.8,0);
-  cubierta1Forma.translate(0,15.1,0);
-  cubierta2Forma.translate(0,17,0);
-  cabeza1Forma.translate(0,19.5,0);
-  cabeza2Forma.translate(0,20.5,0);
-  cabeza3Forma.translate(0,21.5,0);
-  cabeza4Forma.translate(-1,20.5,0);
-  cabeza5Forma.translate(1,20.5,0);
-
-  var base1Malla = new THREE.Mesh(base1Forma);
-  var base2Malla= new THREE.Mesh(base2Forma);
-  var base3Malla= new THREE.Mesh(base3Forma);
-  var toncoMalla= new THREE.Mesh(troncoForma);
-  var detalle1Malla= new THREE.Mesh(detalle1Forma);
-  var detalle2Malla= new THREE.Mesh(detalle2Forma);
-  var detalle3Malla= new THREE.Mesh(detalle3Forma);
-  var cubierta1Malla= new THREE.Mesh(cubierta1Forma);
-  var cubierta2Malla= new THREE.Mesh(cubierta2Forma);
-  var cabeza1Malla= new THREE.Mesh(cabeza1Forma);
-  var cabeza2Malla= new THREE.Mesh(cabeza2Forma);
-  var cabeza3Malla= new THREE.Mesh(cabeza3Forma);
-  var cabeza4Malla= new THREE.Mesh(cabeza4Forma);
-  var cabeza5Malla= new THREE.Mesh(cabeza5Forma);
-
-  var reyForma = new THREE.Geometry();
-  reyForma.merge(base1Malla.geometry, base1Malla.matrix);
-  reyForma.merge(base2Malla.geometry, base2Malla.matrix);
-  reyForma.merge(base3Malla.geometry, base3Malla.matrix);
-  reyForma.merge(toncoMalla.geometry, toncoMalla.matrix);
-  reyForma.merge(detalle1Malla.geometry, detalle1Malla.matrix);
-  reyForma.merge(detalle2Malla.geometry, detalle2Malla.matrix);
-  reyForma.merge(detalle3Malla.geometry, detalle3Malla.matrix);
-  reyForma.merge(cubierta1Malla.geometry, cubierta1Malla.matrix);
-  reyForma.merge(cubierta2Malla.geometry, cubierta2Malla.matrix);
-  reyForma.merge(cabeza1Malla.geometry, cabeza1Malla.matrix);
-  reyForma.merge(cabeza2Malla.geometry, cabeza2Malla.matrix);
-  reyForma.merge(cabeza3Malla.geometry, cabeza3Malla.matrix);
-  reyForma.merge(cabeza4Malla.geometry, cabeza4Malla.matrix);
-  reyForma.merge(cabeza5Malla.geometry, cabeza5Malla.matrix);
-  this.add(new THREE.Mesh(reyForma, new THREE.MeshLambertMaterial({map:textura})));
-  this.castShadow=true;
-  this.receiveShadow=true;  
+function TorrePlan(x,y,team){
+	x=(x+35)/10;
+	y=(y+35)/10;
+	
+	console.log("x",x,"y",y);
+	var i=x+1;
+	while(i<=7){
+		if(tablero[i][y]===null)
+			tableroMovimientos[i][y]=1;
+		else if(tablero[i][y]!==null && team!==tablero[i][y].team){
+			tableroMovimientos[i][y]=1;
+			i+=10;
+		}else if(tablero[i][y]!==null && team===tablero[i][y].team){
+			tableroMovimientos[i][y]=0;
+			i+=10;
+		}
+		i++;
+	}
+	i=x-1;
+	while(i>=0){
+		if(tablero[i][y]===null)
+			tableroMovimientos[i][y]=1;
+		else if(tablero[i][y]!==null && team!==tablero[i][y].team){
+			tableroMovimientos[i][y]=1;
+			i-=10;
+		}else if(tablero[i][y]!==null && team===tablero[i][y].team){
+			tableroMovimientos[i][y]=0;
+			i-=10;
+		}
+		i--;
+	}
+	var j=y+1;
+	while(j<=7){
+		if(tablero[x][j]===null)
+			tableroMovimientos[x][j]=1;
+		else if(tablero[x][j]!==null && team!==tablero[x][j].team){
+			tableroMovimientos[x][j]=1;
+			j+=10;
+		}else if(tablero[x][j]!==null && team===tablero[x][j].team){
+			tableroMovimientos[x][j]=0;
+			j+=10;
+		}
+		j++;
+	}
+	j=y-1;
+	while(j>=0){
+		if(tablero[x][j]===null)
+			tableroMovimientos[x][j]=1;
+		else if(tablero[x][j]!==null && team!==tablero[x][j].team){
+			tableroMovimientos[x][j]=1;
+			j-=10;
+		}else if(tablero[x][j]!==null && team===tablero[x][j].team){
+			tableroMovimientos[x][j]=0;
+			j-=10;
+		}
+		j--;
+	}
+					
 }
-Rey.prototype=new Agent();
+	
 
-//-------------------------------------------------Reina-------------------------------------------------
+//------------PEON----------
+var Peon=function(textura){    
+    Agent.call(this);
+    var puntospeon=[];
+    
+    puntospeon.push( new THREE.Vector2(0,0));
+    puntospeon.push( new THREE.Vector2(20,0));
+    puntospeon.push( new THREE.Vector2(20,10));
+    puntospeon.push( new THREE.Vector2(15,10));
+    puntospeon.push( new THREE.Vector2(15,15));
+    puntospeon.push( new THREE.Vector2(10,15));
+    puntospeon.push( new THREE.Vector2(5,25));
+    puntospeon.push( new THREE.Vector2(5,35));
+    puntospeon.push( new THREE.Vector2(15,35));
+    puntospeon.push( new THREE.Vector2(0,40));
 
-function Reina(textura){
-  Agent.call(this);
-  var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
-  var base2Forma = new THREE.CylinderGeometry(4,4,1,20,1,false);
-  var base3Forma = new THREE.CylinderGeometry(2,4,10,20,10,false);
-  var troncoForma = new THREE.CylinderGeometry(2,2,4,20,4,false);
-  var detalle1Forma = new THREE.CylinderGeometry(4,4,.5,20,.5,false);
-  var detalle2Forma = new THREE.CylinderGeometry(3,3,.3,20,.3,false);
-  var detalle3Forma = new THREE.CylinderGeometry(3,3,.3,20,.3,false);
-  var cubierta1Forma = new THREE.CylinderGeometry(2.5,2.5,1.9,20,1.9,false);
-  var cubierta2Forma = new THREE.CylinderGeometry(4,2.5,3,20,3,false);
-  var cabeza1Forma = new THREE.SphereGeometry(1);
+    var basePeonForma= new THREE.LatheGeometry(puntospeon);
+    var basePeonMalla = new THREE.Mesh(basePeonForma);
 
-  var arco1 = new THREE.Shape();
-  arco1.moveTo(0, 0);
-  arco1.arc(0, 0, 4, .52, -.52, true);
-  arco1.lineTo(3.46, -2);
-  var pico1 = new THREE.ExtrudeGeometry( arco1, {amount: 1, bevelEnabled: false});
-  pico1.rotateX(Math.PI/2);
+    var peonForma= new THREE.Geometry();
 
-  var arco2 = new THREE.Shape();
-  arco2.moveTo(0, 0);
-  arco2.arc(0, 0, 4, .52, -.52, true);
-  arco2.lineTo(3.46, -2);
-  var pico2 = new THREE.ExtrudeGeometry( arco2, {amount: 1, bevelEnabled: false});
-  pico2.rotateX(Math.PI/2);
-  pico2.rotateY(Math.PI/2);
+    peonForma.merge(basePeonMalla.geometry, basePeonMalla.matrix);
 
-  var arco3 = new THREE.Shape();
-  arco3.moveTo(0, 0);
-  arco3.arc(0, 0, 4, .52, -.52, true);
-  arco3.lineTo(3.46, -2);
-  var pico3 = new THREE.ExtrudeGeometry( arco3, {amount: 1, bevelEnabled: false});
-  pico3.rotateX(Math.PI/2);
-  pico3.rotateY(Math.PI);
+    var puntaPeonForma = new THREE.SphereGeometry(10);
+    puntaPeonForma.translate(0,45,0);
+    var puntaPeonMalla =new THREE.Mesh(puntaPeonForma); 
+    peonForma.merge(puntaPeonMalla.geometry, puntaPeonMalla.matrix);
+        
+    //THREE.Mesh.call(this, peonForma, new THREE.MeshLambertMaterial({map:textura}));
+    this.add(new THREE.Mesh(peonForma, new THREE.MeshLambertMaterial({map:textura})));
+    this.castShadow=true;
+	this.receiveShadow=true;
+    this.pie1= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie2= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie1.position.x=15;
+    this.pie2.position.x=-15;
 
-  var arco4 = new THREE.Shape();
-  arco4.moveTo(0, 0);
-  arco4.arc(0, 0, 4, .52, -.52, true);
-  arco4.lineTo(3.46, -2);
-  var pico4 = new THREE.ExtrudeGeometry( arco4, {amount: 1, bevelEnabled: false});
-  pico4.rotateX(Math.PI/2);
-  pico4.rotateY(Math.PI*3/2);
-
-  base2Forma.translate(0,1,0);
-  base3Forma.translate(0,6,0);
-  troncoForma.translate(0,12,0);
-  detalle2Forma.translate(0,14,0);
-  detalle1Forma.translate(0,14.3,0);
-  detalle3Forma.translate(0,14.8,0);
-  cubierta1Forma.translate(0,15.1,0);
-  cubierta2Forma.translate(0,17,0);
-  pico1.translate(0,19.5,0);
-  pico2.translate(0,19.5,0);
-  pico3.translate(0,19.5,0);
-  pico4.translate(0,19.5,0);
-  cabeza1Forma.translate(0,19.5,0);
-
-  var base1Malla = new THREE.Mesh(base1Forma);
-  var base2Malla= new THREE.Mesh(base2Forma);
-  var base3Malla= new THREE.Mesh(base3Forma);
-  var toncoMalla= new THREE.Mesh(troncoForma);
-  var detalle1Malla= new THREE.Mesh(detalle1Forma);
-  var detalle2Malla= new THREE.Mesh(detalle2Forma);
-  var detalle3Malla= new THREE.Mesh(detalle3Forma);
-  var cubierta1Malla= new THREE.Mesh(cubierta1Forma);
-  var cubierta2Malla= new THREE.Mesh(cubierta2Forma);
-  var pico1Malla= new THREE.Mesh(pico1);
-  var pico2Malla= new THREE.Mesh(pico2);
-  var pico3Malla= new THREE.Mesh(pico3);
-  var pico4Malla= new THREE.Mesh(pico4);
-  var cabeza1Malla= new THREE.Mesh(cabeza1Forma);
-
-  var reinaForma = new THREE.Geometry();
-  reinaForma.merge(base1Malla.geometry, base1Malla.matrix);
-  reinaForma.merge(base2Malla.geometry, base2Malla.matrix);
-  reinaForma.merge(base3Malla.geometry, base3Malla.matrix);
-  reinaForma.merge(toncoMalla.geometry, toncoMalla.matrix);
-  reinaForma.merge(pico1Malla.geometry, pico1Malla.matrix);
-  reinaForma.merge(pico2Malla.geometry, pico2Malla.matrix);
-  reinaForma.merge(pico3Malla.geometry, pico3Malla.matrix);
-  reinaForma.merge(pico4Malla.geometry, pico4Malla.matrix);
-  reinaForma.merge(detalle1Malla.geometry, detalle1Malla.matrix);
-  reinaForma.merge(detalle2Malla.geometry, detalle2Malla.matrix);
-  reinaForma.merge(detalle3Malla.geometry, detalle3Malla.matrix);
-  reinaForma.merge(cubierta1Malla.geometry, cubierta1Malla.matrix);
-  reinaForma.merge(cubierta2Malla.geometry, cubierta2Malla.matrix);
-  reinaForma.merge(cabeza1Malla.geometry, cabeza1Malla.matrix);
-  this.add(new THREE.Mesh(reyForma, new THREE.MeshLambertMaterial({map:textura})));
-  this.castShadow=true;
-  this.receiveShadow=true;  
-}
-Reina.prototype=new Agent();
-
-//-------------------------------------------------Peon-----------------------------------------------------------
-
-function Peon(textura){
-  Agent.call(this);
-  var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
-  var base2Forma = new THREE.CylinderGeometry(4,4,1,20,1,false);
-  var troncoForma = new THREE.CylinderGeometry(1.5,3,7,7,7,false);
-  var cabezaForma = new THREE.SphereGeometry(2);
-
-  base2Forma.translate(0,1,0);
-  troncoForma.translate(0,5,0);
-  cabezaForma.translate(0,9.5,0);
-
-  var base1Malla = new THREE.Mesh(base1Forma);
-  var base2Malla= new THREE.Mesh(base2Forma);
-  var troncoMalla= new THREE.Mesh(troncoForma);
-  var cabezaMalla= new THREE.Mesh(cabezaForma);
-
-  var peonForma = new THREE.Geometry();
-  peonForma.merge(base1Malla.geometry, base1Malla.matrix);
-  peonForma.merge(base2Malla.geometry, base2Malla.matrix);
-  peonForma.merge(troncoMalla.geometry, troncoMalla.matrix);
-  peonForma.merge(cabezaMalla.geometry, cabezaMalla.matrix);
-  this.add(new THREE.Mesh(peonForma, new THREE.MeshLambertMaterial({map:textura})));
-  this.castShadow=true;
-  this.receiveShadow=true;  
+    this.add(this.pie1,this.pie2);
+    if(textura===TEXTURAS.torreBlanca){
+	    this.team=1;
+	    this.pie1.position.z=10;
+	    this.pie2.position.z=10;
+    }
+    else if(textura===TEXTURAS.torreNegra){
+	    this.team=0;
+	    this.pie1.position.z=-10;
+	    this.pie2.position.z=-10;
+    }
+    this.primer=1;
+    
 }
 Peon.prototype=new Agent();
 
-//---------------------------------------------Vacio-----------------------------------------------------------------
-
-function Vacio(textura){
-  Agent.call(this);
-  var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
-  var base2Forma = new THREE.CylinderGeometry(4,4,1,20,1,false);
-  var troncoForma = new THREE.CylinderGeometry(1.5,3,7,7,7,false);
-  var cabezaForma = new THREE.SphereGeometry(2);
-
-  base2Forma.translate(0,1,0);
-  troncoForma.translate(0,5,0);
-  cabezaForma.translate(0,9.5,0);
-
-  var base1Malla = new THREE.Mesh(base1Forma);
-  var base2Malla= new THREE.Mesh(base2Forma);
-  var troncoMalla= new THREE.Mesh(troncoForma);
-  var cabezaMalla= new THREE.Mesh(cabezaForma);
-
-  var peonForma = new THREE.Geometry();
-  peonForma.merge(base1Malla.geometry, base1Malla.matrix);
-  peonForma.merge(base2Malla.geometry, base2Malla.matrix);
-  peonForma.merge(troncoMalla.geometry, troncoMalla.matrix);
-  peonForma.merge(cabezaMalla.geometry, cabezaMalla.matrix);
-  this.add(new THREE.Mesh(peonForma, new THREE.MeshLambertMaterial({map:textura, transparent: true, opacity: 0})));
-  this.castShadow=true;
-  this.receiveShadow=true;  
+function PeonPlan(x,y,team,primer){
+	x=(x+35)/10;
+	y=(y+35)/10;
+	var primero=primer.primer;
+	if(team===0){
+		if(tablero[x][y-1]===null){
+			tableroMovimientos[x][y-1]=1;
+			if(primero===1){
+				tableroMovimientos[x][y-2]=1;
+				primer.primer=0;
+			}
+		}
+		if( x-1>=0 && tablero[x-1][y-1]!==null && tablero[x-1][y-1].team!==team)
+			tableroMovimientos[x-1][y-1]=1;
+		if( x+1<=7 && tablero[x+1][y-1]!==null && tablero[x+1][y-1].team!==team)
+			tableroMovimientos[x+1][y-1]=1;
+	}else if(team===1){
+		if(tablero[x][y+1]===null){
+			if(primero===1){
+				tableroMovimientos[x][y+2]=1;
+				primer.primer=0;
+			}
+			tableroMovimientos[x][y+1]=1;
+		}
+		if( x-1>=0 && tablero[x-1][y+1]!==null && tablero[x-1][y+1].team!==team)
+			tableroMovimientos[x-1][y+1]=1;
+		if( x+1<=7 && tablero[x+1][y+1]!==null && tablero[x+1][y+1].team!==team)
+			tableroMovimientos[x+1][y+1]=1;
+	}
 }
-Vacio.prototype=new Agent();
+		
 
-//-----------------------------------------------Tablero----------------------------------------------------
 
-function Tablero (texturaBlanco, texturaNegro, texturaMadera){
-  var cubo= new Array();
-  var a=2;
-  for(var k=0; k<64; k++){
-      for(var i=0; i<8; i++){
-        for(var j=0; j<8; j++){
-          if(a==2){
-            cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), new THREE.LambertMaterial({map: texturaBlanco}) );
-            a=1;
-          }else{
-            cubo[k] = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 4), new THREE.LambertMaterial({map: texturaNegro}) );
-            a=2;
-          }
-         cubo[k].position.x=j*10;
-         cubo[k].position.y=i*10;
-         escena.add(cubo[k]);
-         cubo[k].receiveShadow=true;
-       }
-       if(a==2){
-            a=1;
-          }else{
-            a=2;
-          }
+//------------REY-----------
+var Rey=function(textura){ 
+    Agent.call(this);
+    var puntosrey=[];
+    
+    puntosrey.push( new THREE.Vector2(0,0));
+    puntosrey.push( new THREE.Vector2(20,0));
+    puntosrey.push( new THREE.Vector2(20,10));
+    puntosrey.push( new THREE.Vector2(15,10));
+    puntosrey.push( new THREE.Vector2(15,15));
+    puntosrey.push( new THREE.Vector2(10,15));
+    puntosrey.push( new THREE.Vector2(5,60));
+    puntosrey.push( new THREE.Vector2(20,60));
+    puntosrey.push( new THREE.Vector2(20,65));
+    puntosrey.push( new THREE.Vector2(10,65));
+    puntosrey.push( new THREE.Vector2(10,70));
+    puntosrey.push( new THREE.Vector2(15,70));
+    puntosrey.push( new THREE.Vector2(15,80));
+    puntosrey.push( new THREE.Vector2(10,80));
+    puntosrey.push( new THREE.Vector2(20,100));
+    puntosrey.push( new THREE.Vector2(0,100));
+    
+    var baseRey= new THREE.LatheGeometry(puntosrey);
+    var baseReyMalla= new THREE.Mesh( baseRey);
+    
+    var reyForma= new THREE.Geometry();
+
+    reyForma.merge(baseReyMalla.geometry, baseReyMalla.matrix);
+    
+    var vertical= new THREE.BoxGeometry(10,20,10);
+    vertical.translate(0,110,0);
+    var verticalMalla= new THREE.Mesh(vertical);
+    reyForma.merge(verticalMalla.geometry, verticalMalla.matrix);
+    
+    var horizontal= new THREE.BoxGeometry(20,10,10);
+    horizontal.translate(0,110,0);
+    var horizontalMalla= new THREE.Mesh(horizontal);
+    reyForma.merge(horizontalMalla.geometry, horizontalMalla.matrix);
+    
+    //THREE.Mesh.call(this, reyForma, new THREE.MeshLambertMaterial({map:textura}));
+    this.add(new THREE.Mesh(reyForma, new THREE.MeshLambertMaterial({map:textura})));
+    this.castShadow=true;
+    this.receiveShadow=true;
+    this.pie1= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie2= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie1.position.x=15;
+    this.pie2.position.x=-15;
+
+    this.add(this.pie1,this.pie2);
+    if(textura===TEXTURAS.torreBlanca){
+	    this.team=1;
+	    this.pie1.position.z=10;
+	    this.pie2.position.z=10;
+    }
+    else if(textura===TEXTURAS.torreNegra){
+	    this.team=0;
+	    this.pie1.position.z=-10;
+	    this.pie2.position.z=-10;
+    }
+}
+
+Rey.prototype=new Agent();
+
+function ReyPlan(x,y,team){
+	x=(x+35)/10;
+	y=(y+35)/10;
+	
+	if((y-1>=0 && x-1>=0)&& (tablero[x-1][y-1]===null || tablero[x-1][y-1].team!==team))
+		tableroMovimientos[x-1][y-1]=1;
+	if((y-1>=0 )&& (tablero[x][y-1]===null || tablero[x][y-1].team!==team))
+		tableroMovimientos[x][y-1]=1;
+	if((y-1>=0 && x+1<=7)&& (tablero[x+1][y-1]===null || tablero[x+1][y-1].team!==team))
+		tableroMovimientos[x+1][y-1]=1;
+	if((x+1<=7)&& (tablero[x+1][y]===null || tablero[x+1][y].team!==team))
+		tableroMovimientos[x+1][y]=1;
+	if((y+1<=7 && x+1<=7)&& (tablero[x+1][y+1]===null || tablero[x+1][y+1].team!==team))
+		tableroMovimientos[x+1][y+1]=1;
+	if((y+1<=7 )&& (tablero[x][y+1]===null || tablero[x][y+1].team!==team))
+		tableroMovimientos[x][y+1]=1;
+	if((y+1<=7 && x-1>=0)&& (tablero[x-1][y+1]===null || tablero[x-1][y+1].team!==team))
+		tableroMovimientos[x-1][y+1]=1;
+	if((x-1>=0)&& (tablero[x-1][y]===null || tablero[x-1][y].team!==team))
+		tableroMovimientos[x-1][y]=1;
+	
+	
+	console.log("rey",tableroMovimientos);
+}
+
+
+//---------------------ALFIL
+
+function Alfil(textura){
+	Agent.call(this);
+	var puntos= [];
+	puntos.push( new THREE.Vector2(0,0));
+	puntos.push( new THREE.Vector2(20,0));
+	puntos.push( new THREE.Vector2(20,10));
+	puntos.push( new THREE.Vector2(15,10));
+	puntos.push( new THREE.Vector2(15,15));
+	puntos.push( new THREE.Vector2(10,15));
+	puntos.push( new THREE.Vector2(5,60));
+	puntos.push( new THREE.Vector2(20,60));
+	puntos.push( new THREE.Vector2(25,65));
+	puntos.push( new THREE.Vector2(5,65));
+	puntos.push( new THREE.Vector2(5,70));
+	puntos.push( new THREE.Vector2(15,70));
+	puntos.push( new THREE.Vector2(15,77));
+	puntos.push( new THREE.Vector2(25,80));
+	puntos.push( new THREE.Vector2(0,80));
+
+	var puntos2=[];
+
+	for ( var i = 0; i < 47; i ++ ) {	
+		puntos2.push( new THREE.Vector2( Math.sin(i*0.05 -40) * 25, i));	
+	}
+	var baseAlfil= new THREE.LatheGeometry(puntos);
+	var baseAlfilMalla= new THREE.Mesh(baseAlfil);
+	var gorroAlfil= new THREE.LatheGeometry(puntos2);
+	gorroAlfil.translate(0,80,0);
+	var gorroAlfilMalla= new THREE.Mesh(gorroAlfil);
+
+	var puntitaAlfil = new THREE.SphereGeometry( 5 );
+	puntitaAlfil.translate(0,130,0);
+	var puntitaAlfilMalla= new THREE.Mesh(puntitaAlfil);
+	var Alfil= new THREE.Geometry();
+
+	Alfil.merge(baseAlfilMalla.geometry, baseAlfilMalla.matrix);
+	Alfil.merge(gorroAlfilMalla.geometry, gorroAlfilMalla.matrix);
+	Alfil.merge(puntitaAlfilMalla.geometry, puntitaAlfilMalla.matrix);
+	var material= new THREE.MeshLambertMaterial({map:textura});
+	this.add( new THREE.Mesh(Alfil, material));
+    this.pie1= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie2= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie1.position.x=15;
+    this.pie2.position.x=-15;
+
+    this.add(this.pie1,this.pie2);
+    if(textura===TEXTURAS.torreBlanca){
+	    this.team=1;
+	    this.pie1.position.z=10;
+	    this.pie2.position.z=10;
+    }
+    else if(textura===TEXTURAS.torreNegra){
+	    this.team=0;
+	    this.pie1.position.z=-10;
+	    this.pie2.position.z=-10;
+    }
+	
+}
+Alfil.prototype=new Agent();
+
+function AlfilPlan(x,y,team){
+	x=(x+35)/10;
+	y=(y+35)/10;
+	
+	var i=x-1;
+	var j=y-1;
+	while(i>=0 && j>=0){
+		if(tablero[i][j]===null)
+			tableroMovimientos[i][j]=1;
+		else if(tablero[i][j].team!==team){
+			tableroMovimientos[i][j]=1;
+			i-=10;
+			j-=10;
+		}else if(tablero[i][j].team===team){
+			i-=10;
+			j-=10;
+		}
+		i--;
+		j--;
+	}
+	
+	i=x+1;
+	j=y-1;
+	while(i<=7 && j>=0){
+		if(tablero[i][j]===null)
+			tableroMovimientos[i][j]=1;
+		else if(tablero[i][j].team!==team){
+			tableroMovimientos[i][j]=1;
+			i+=10;
+			j-=10;
+		}else if(tablero[i][j].team===team){
+			i+=10;
+			j-=10;
+		}
+		i++;
+		j--;
+	}
+		
+	i=x+1;
+	j=y+1;
+	while(i<=7 && j<=7){
+		if(tablero[i][j]===null)
+			tableroMovimientos[i][j]=1;
+		else if(tablero[i][j].team!==team){
+			tableroMovimientos[i][j]=1;
+			i+=10;
+			j+=10;
+		}else if(tablero[i][j].team===team){
+			i+=10;
+			j+=10;
+		}
+		i++;
+		j++;
+	}
+	
+	i=x-1;
+	j=y+1;
+	while(i>=0 && j<=7){
+		if(tablero[i][j]===null)
+			tableroMovimientos[i][j]=1;
+		else if(tablero[i][j].team!==team){
+			tableroMovimientos[i][j]=1;
+			i-=10;
+			j+=10;
+		}else if(tablero[i][j].team===team){
+			i-=10;
+			j+=10;
+		}
+		i--;
+		j++;
+	}
+}
+
+function Planos(){
+	Agent.call(this);
+	this.add(new THREE.Mesh( new THREE.PlaneGeometry( 10, 10, 32 ), 
+						 new THREE.MeshBasicMaterial( {color: 0x00ffff, side: THREE.DoubleSide} )));
+}
+
+Planos.prototype=new Agent();
+
+
+//------------ TABLERO------
+function Tablero (texturaBlanco, texturaNegro,texturaMadera){
+    var color=0;
+    for(var i=0;i<8;i++){
+      for(var j=0;j<8;j++){
+        var cuboForma=  new THREE.BoxGeometry(10,5,10);
+        cuboForma.translate(-35+i*10,0,35-j*10);
+        if(color%2!==0){
+          var material = new THREE.MeshLambertMaterial({map:texturaNegro});
+        }else{
+          var material = new THREE.MeshLambertMaterial({map: texturaBlanco});
+        }
+        var cuboMalla = new THREE.Mesh(cuboForma,material);
+        color=color+1;
+          cuboMalla.receiveShadow=true;
+        escena.add(cuboMalla);
       }
-  }
-  var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), new THREE.LambertMaterial({map: texturaMadera}) );
-  base.position.x=35;
-  base.position.y=35;
-  base.position.z=-2;
+      color=color+1;
+    }
+
+    var bordeForma = new THREE.BoxGeometry(100,100,5);
+    bordeForma.translate(0,0,-5);
+    var bordeMaterial = new THREE.MeshLambertMaterial({map:texturaMadera});
+    var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
+    bordeMalla.rotateX(-Math.PI/2);
+    bordeMalla.receiveShadow=true;
+    escena.add(bordeMalla);
 }
 
-//----------------------------------------------Setup--------------------------------------------------
+//------------ FUNCION CAMBIO VENTANA-----
+function listener(){
+  camara.aspect = window.innerWidth / window.innerHeight;
+  camara.updateProjectionMatrix();
+  renderizador.setSize( window.innerWidth, window.innerHeight );
+}
 
+//-----------------------------------------------------------------------------------------ANIMACION
+var animar=0;
+var aniX;
+var aniY;
+var angulo=0,incre=0.1;
+function Animar(pieza){
+	if(pieza.position.x!==aniX || pieza.position.z!==aniY){
+		if(Math.abs(pieza.position.x-aniX)<=0.1)
+			pieza.position.x=aniX;
+		else
+			if(pieza.position.x-aniX>0)
+				pieza.position.x-=0.1;
+			else 
+				pieza.position.x+=0.1;
+
+		if(Math.abs(pieza.position.z-aniY)<=0.1)
+			pieza.position.z=aniY;
+		else
+			if(pieza.position.z-aniY>0)
+				pieza.position.z-=0.1;
+			else
+				pieza.position.z+=0.1;
+		if(Math.abs(angulo)>1)
+			incre=-incre;
+		pieza.pie1.rotateX(incre);
+		pieza.pie2.rotateX(-incre);
+		angulo+=incre;
+		console.log("posicion",pieza.position.x, pieza.position.z);
+	}else 
+		animar=0;
+}
+	
+var torreN1,reyB;
+var tablero=[];
+var tabCol=[];
+var turno=true;
+//---------- SET UP--------
 function setup(){
-  var campoVision = 45;
-  var relacionAspecto = window.innerWidth / window.innerHeight;
-  var planoCercano = 1;
-  var planoLejano = 1000;
-  camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
-  camara.position.z=50;
-  camara.position.x=160;
-  camara.position.y=40;
-  camara.lookAt(new THREE.Vector3(40,40,0));
-  camara.rotateZ(Math.PI/2);
-  setupDone=true;
-  var iluminacion= new THREE.PointLight(0xFFFFFF);
-  iluminacion.position.y= 40;
-  iluminacion.position.x= 40;
-  iluminacion.position.z= 50;
-  
-  torreMalla = new Torre(TEXTURAS.ceramicablanca);
-  torreMalla1 = new Torre(TEXTURAS.ceramicanegra);
-  torreMalla2 = new Torre(TEXTURAS.ceramicanegra);
-  torreMalla3 = new Torre(TEXTURAS.ceramicablanca);
-  
-  torreMalla.rotateX(Math.PI/2);
-  torreMalla.translateY(3);
+    var tipo_evento = 'resize';
+    var cambioVentana = false;
 
-  torreMalla1.rotateX(Math.PI/2);
-  torreMalla1.translateY(3);
-  torreMalla1.translateZ(-70);
+    window.addEventListener( tipo_evento, listener, cambioVentana);
+    
+    camara.position.x = 100;    
+    camara.position.y = 200;
+    camara.position.z = 100;
+    camara.lookAt(new THREE.Vector3(0,0,0));
+    
+    setupDone=true;
+    
+    var luz=new THREE.PointLight(0xCCCCCC);
+    luz.position.y=50;
+    luz.position.z=100;
+    
+    for(var i=0;  i<=7; i++){
+	    tablero[i]=[];
+	    for(var j=0; j<=7; j++){
+		    tablero[i][j]=null;
+	    }
+    }
+	
+	for(var i=0; i<=7; i++){
+		tabCol[i]=[];
+		for(var j=0; j<=7; j++){
+			var plane= new Planos();
+			plane.position.x=i*10-35;
+			plane.position.z=j*10-35;
+			plane.position.y=500;
+			plane.rotateX(Math.PI/2);
+			tabCol[i][j]=plane;
+			escena.add(plane);
+		}
+	}
+    	torreN1 =new Torre(TEXTURAS.torreNegra);
+	torreN1.scale.x=0.15;
+	torreN1.scale.y=0.15;
+	torreN1.scale.z=0.15;
+	torreN1.position.y=5;
+	torreN1.position.x=35;
+	torreN1.position.z=35;
+	torreN1.castShadow=true;
+	torreN1.receiveShadow=true;
+	tablero[7][7]=torreN1;
 
-  torreMalla2.rotateX(Math.PI/2);
-  torreMalla2.translateY(3);
-  torreMalla2.translateZ(-70);
-  torreMalla2.translateX(70);
-  
-  torreMalla3.rotateX(Math.PI/2);
-  torreMalla3.translateY(3);
-  torreMalla3.translateX(70);
-  
-  reyMalla = new Rey(TEXTURAS.ceramicablanca);
-  reyMalla1 = new Rey(TEXTURAS.ceramicanegra);
 
-  reyMalla.rotateX(Math.PI/2);
-  reyMalla.translateY(3);
-  reyMalla.translateX(30);
-  
-  reyMalla1.rotateX(Math.PI/2);
-  reyMalla1.translateY(3);
-  reyMalla1.translateZ(-70);
-  reyMalla1.translateX(30);  
-  
-  reinaMalla = new Reina(TEXTURAS.ceramicablanca);
-  reinaMalla1 = new Reina(TEXTURAS.ceramicanegra);
+	var torreN2 = new Torre(TEXTURAS.torreNegra);
+	torreN2.scale.x=0.15;
+	torreN2.scale.y=0.15;
+	torreN2.scale.z=0.15;
+	torreN2.position.y=5;
+	torreN2.position.x=-35;
+	torreN2.position.z=35;	
+	tablero[0][7]=torreN2;
 
-  reinaMalla.rotateX(Math.PI/2);
-  reinaMalla.translateY(3);
-  reinaMalla.translateX(40);
-  
-  reinaMalla1.rotateX(Math.PI/2);
-  reinaMalla1.translateY(3);
-  reinaMalla1.translateX(40);
-  reinaMalla1.translateZ(-70);
+	var torreB1 = new Torre(TEXTURAS.torreBlanca);
+	torreB1.scale.x=0.15;
+	torreB1.scale.y=0.15;
+	torreB1.scale.z=0.15;
+	torreB1.position.y=5;
+	torreB1.position.x=-35;
+	torreB1.position.z=-35;	
+	tablero[0][0]=torreB1;
 
-  alfilMalla = new Alfil(TEXTURAS.ceramicablanca);
-  alfilMalla1 = new Alfil(TEXTURAS.ceramicanegra);
-  alfilMalla2 = new Alfil(TEXTURAS.ceramicablanca);
-  alfilMalla3 = new Alfil(TEXTURAS.ceramicanegra);
-  
-  alfilMalla.rotateX(Math.PI/2);
-  alfilMalla.translateY(3);
-  alfilMalla.translateX(20);
-  
-  alfilMalla1.rotateX(Math.PI/2);
-  alfilMalla1.translateY(3);
-  alfilMalla1.translateX(20);
-  alfilMalla1.translateZ(-70);
-  
-  alfilMalla2.rotateX(Math.PI/2);
-  alfilMalla2.translateY(3);
-  alfilMalla2.translateX(50);
-  
-  alfilMalla3.rotateX(Math.PI/2);
-  alfilMalla3.translateY(3);
-  alfilMalla3.translateX(50);
-  alfilMalla3.translateZ(-70);
-  
-  peonMalla = new Peon(TEXTURAS.ceramicablanca);
-  peonMalla1 = new Peon(TEXTURAS.ceramicablanca);
-  peonMalla2 = new Peon(TEXTURAS.ceramicablanca);
-  peonMalla3 = new Peon(TEXTURAS.ceramicablanca);
-  peonMalla4 = new Peon(TEXTURAS.ceramicablanca);
-  peonMalla5 = new Peon(TEXTURAS.ceramicablanca);
-  peonMalla6 = new Peon(TEXTURAS.ceramicablanca);
-  peonMalla7 = new Peon(TEXTURAS.ceramicablanca);
-  peonMalla8 = new Peon(TEXTURAS.ceramicanegra);
-  peonMalla9 = new Peon(TEXTURAS.ceramicanegra);
-  peonMalla10 = new Peon(TEXTURAS.ceramicanegra);
-  peonMalla11 = new Peon(TEXTURAS.ceramicanegra);
-  peonMalla12 = new Peon(TEXTURAS.ceramicanegra);
-  peonMalla13 = new Peon(TEXTURAS.ceramicanegra);
-  peonMalla14 = new Peon(TEXTURAS.ceramicanegra);
-  peonMalla15 = new Peon(TEXTURAS.ceramicanegra);
-  
-  peonMalla.rotateX(Math.PI/2);
-  peonMalla.translateY(3);
-  peonMalla.translateZ(-10);
-  
-  peonMalla1.rotateX(Math.PI/2);
-  peonMalla1.translateY(3);
-  peonMalla1.translateZ(-10);
-  peonMalla1.translateX(10);
-  
-  peonMalla2.rotateX(Math.PI/2);
-  peonMalla2.translateY(3);
-  peonMalla2.translateZ(-10);
-  peonMalla2.translateX(20);
-  
-  peonMalla3.rotateX(Math.PI/2);
-  peonMalla3.translateY(3);
-  peonMalla3.translateZ(-10);
-  peonMalla3.translateX(30);
-  
-  peonMalla4.rotateX(Math.PI/2);
-  peonMalla4.translateY(3);
-  peonMalla4.translateZ(-10);
-  peonMalla4.translateX(40);
-  
-  peonMalla5.rotateX(Math.PI/2);
-  peonMalla5.translateY(3);
-  peonMalla5.translateZ(-10);
-  peonMalla5.translateX(50);
-  
-  peonMalla6.rotateX(Math.PI/2);
-  peonMalla6.translateY(3);
-  peonMalla6.translateZ(-10);
-  peonMalla6.translateX(60);
-  
-  peonMalla7.rotateX(Math.PI/2);
-  peonMalla7.translateY(3);
-  peonMalla7.translateZ(-10);
-  peonMalla7.translateX(70);
-  
-  peonMalla8.rotateX(Math.PI/2);
-  peonMalla8.translateY(3);
-  peonMalla8.translateZ(-60);
-  
-  peonMalla9.rotateX(Math.PI/2);
-  peonMalla9.translateY(3);
-  peonMalla9.translateZ(-60);
-  peonMalla9.translateX(10);
-  
-  peonMalla10.rotateX(Math.PI/2);
-  peonMalla10.translateY(3);
-  peonMalla10.translateZ(-60);
-  peonMalla10.translateX(20);
-  
-  peonMalla11.rotateX(Math.PI/2);
-  peonMalla11.translateY(3);
-  peonMalla11.translateZ(-60);
-  peonMalla11.translateX(30);
-  
-  peonMalla12.rotateX(Math.PI/2);
-  peonMalla12.translateY(3);
-  peonMalla12.translateZ(-60);
-  peonMalla12.translateX(40);
-  
-  peonMalla13.rotateX(Math.PI/2);
-  peonMalla13.translateY(3);
-  peonMalla13.translateZ(-60);
-  peonMalla13.translateX(50);
-  
-  peonMalla14.rotateX(Math.PI/2);
-  peonMalla14.translateY(3);
-  peonMalla14.translateZ(-60);
-  peonMalla14.translateX(60);
-  
-  peonMalla15.rotateX(Math.PI/2);
-  peonMalla15.translateY(3);
-  peonMalla15.translateZ(-60);
-  peonMalla15.translateX(70);
-  
-  vacio1 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio2 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio3 = new Vacio(TEXTURAS.ceramicanegra); 
-  vacio4 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio5 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio6 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio7 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio8 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio9 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio10 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio11 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio12 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio13 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio14 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio15 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio16 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio17 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio18 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio19 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio20 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio21 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio22 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio23 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio24 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio25 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio26 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio27 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio28 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio29 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio30 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio31 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio32 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio33 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio34 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio35 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio36 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio37 = new Vacio(TEXTURAS.ceramicanegra);
-  vacio38 = new Vacio(TEXTURAS.ceramicanegra);
-  
-  vacio1.translateY(3);
-  vacio1.translateZ(-20);
-  vacio1.translateX(0);  
-  
-  vacio9.translateY(3);
-  vacio9.translateZ(-30);
-  vacio9.translateX(0);
-  
-  vacio17.translateY(3);
-  vacio17.translateZ(-40);
-  vacio17.translateX(0); 
-  
-  vacio25.translateY(3);
-  vacio25.translateZ(-50);
-  vacio25.translateX(0); 
-  
-  vacio2.translateY(3);
-  vacio2.translateZ(-20);
-  vacio2.translateX(10);
-  
-  vacio10.translateY(3);
-  vacio10.translateZ(-30);
-  vacio10.translateX(10);
-  
-  vacio18.translateY(3);
-  vacio18.translateZ(-40);
-  vacio18.translateX(10);
-  
-  vacio26.translateY(3);
-  vacio26.translateZ(-50);
-  vacio26.translateX(10);
-  
-  vacio3.translateY(3);
-  vacio3.translateZ(-20);
-  vacio3.translateX(20);
-  
-  vacio11.translateY(3);
-  vacio11.translateZ(-30);
-  vacio11.translateX(20);
-  
-  vacio19.translateY(3);
-  vacio19.translateZ(-40);
-  vacio19.translateX(20);
-  
-  vacio27.translateY(3);
-  vacio27.translateZ(-50);
-  vacio27.translateX(20);
-  
-  vacio4.translateY(3);
-  vacio4.translateZ(-20);
-  vacio4.translateX(30);
-  
-  vacio12.translateY(3);
-  vacio12.translateZ(-30);
-  vacio12.translateX(30);
-  
-  vacio20.translateY(3);
-  vacio20.translateZ(-40);
-  vacio20.translateX(30);
-  
-  vacio28.translateY(3);
-  vacio28.translateZ(-50);
-  vacio28.translateX(30);
-  
-  vacio5.translateY(3);
-  vacio5.translateZ(-20);
-  vacio5.translateX(40);
-  
-  vacio13.translateY(3);
-  vacio13.translateZ(-30);
-  vacio13.translateX(40);
-  
-  vacio21.translateY(3);
-  vacio21.translateZ(-40);
-  vacio21.translateX(40);
-  
-  vacio29.translateY(3);
-  vacio29.translateZ(-50);
-  vacio29.translateX(40);
+	var torreB2 = new Torre(TEXTURAS.torreBlanca);
+	torreB2.scale.x=0.15;
+	torreB2.scale.y=0.15;
+	torreB2.scale.z=0.15;
+	torreB2.position.y=5;
+	torreB2.position.x=35;
+	torreB2.position.z=-35;		
+	tablero[7][0]=torreB2;
 
-  vacio6.translateY(3);
-  vacio6.translateZ(-20);
-  vacio6.translateX(50);
-  
-  vacio14.translateY(3);
-  vacio14.translateZ(-30);
-  vacio14.translateX(50);
-  
-  vacio22.translateY(3);
-  vacio22.translateZ(-40);
-  vacio22.translateX(50);
-  
-  vacio30.translateY(3);
-  vacio30.translateZ(-50);
-  vacio30.translateX(50);
-  
-  vacio7.translateY(3);
-  vacio7.translateZ(-20);
-  vacio7.translateX(60);
-  
-  vacio15.translateY(3);
-  vacio15.translateZ(-30);
-  vacio15.translateX(60);
-  
-  vacio23.translateY(3);
-  vacio23.translateZ(-40);
-  vacio23.translateX(60);
-  
-  vacio31.translateY(3);
-  vacio31.translateZ(-50);
-  vacio31.translateX(60);
-  
-  vacio8.translateY(3);
-  vacio8.translateZ(-20);
-  vacio8.translateX(70);
-  
-  vacio16.translateY(3);
-  vacio16.translateZ(-30);
-  vacio16.translateX(70);
-  
-  vacio24.translateY(3);
-  vacio24.translateZ(-40);
-  vacio24.translateX(70);
-  
-  vacio32.translateY(3);
-  vacio32.translateZ(-50);
-  vacio32.translateX(70);
-  
-  vacio33.translateY(3);
-  vacio33.translateZ(0);
-  vacio33.translateX(10);
-  
-  vacio34.translateY(3);
-  vacio34.translateZ(-70);
-  vacio34.translateX(10);
-  
-  vacio35.translateY(3);
-  vacio35.translateZ(-70);
-  vacio35.translateX(60);
-  
-  vacio36.translateY(3);
-  vacio36.translateZ(0);
-  vacio36.translateX(60);
-  
-  valor = new Array(80)
-  valor[0] = new Array(80);
-  valor[0][0] = torreMalla;
-  valor[0][10] = peonMalla;
-  valor[0][20] = vacio1;
-  valor[0][30] = vacio9;
-  valor[0][40] = vacio17;
-  valor[0][50] = vacio25;
-  valor[0][60] = peonMalla8;
-  valor[0][70] = torreMalla1;
+	reyB=new Rey(TEXTURAS.torreBlanca);
+	reyB.scale.x=0.2;
+	reyB.scale.y=0.2;
+	reyB.scale.z=0.2;
+	reyB.position.y=5;
+	reyB.position.x=5;
+	reyB.position.z=-35;	
+	tablero[3][0]=reyB;
 
-  valor[10] = new Array(8);
-  valor[10][0] = vacio33;
-  valor[10][10] = peonMalla1;
-  valor[10][20] = vacio2;
-  valor[10][30] = vacio10;
-  valor[10][40] = vacio18;
-  valor[10][50] = vacio26;
-  valor[10][60] = peonMalla9;
-  valor[10][70] = vacio34;
+	var reyN=new Rey(TEXTURAS.torreNegra);
+	reyN.scale.x=0.2;
+	reyN.scale.y=0.2;
+	reyN.scale.z=0.2;
+	reyN.position.y=5;
+	reyN.position.x=5;
+	reyN.position.z=35;	
+	tablero[3][7]=reyN;
 
-  valor[20] = new Array(8);
-  valor[20][0] = alfilMalla;
-  valor[20][10] = peonMalla2;
-  valor[20][20] = vacio3;
-  valor[20][30] = vacio11;
-  valor[20][40] = vacio19;
-  valor[20][50] = vacio27;
-  valor[20][60] = peonMalla10;
-  valor[20][70] = alfilMalla1;
+	    for(var i=0; i<=7; i++){
+		    var peon=new Peon(TEXTURAS.torreBlanca);
+		    peon.position.x=i*10-35;
+		    peon.position.z=-25;
+		    peon.position.y=5;
+		    peon.scale.x=0.15;
+		    peon.scale.y=0.15;
+		    peon.scale.z=0.15;
+		    escena.add(peon);
+		    tablero[i][1]=peon;
+	    }
+	    for(var i=0; i<=7; i++){
+		    var peon=new Peon(TEXTURAS.torreNegra);
+		    peon.position.x=i*10-35;
+		    peon.position.z=25;
+		    peon.position.y=5;
+		    peon.scale.x=0.15;
+		    peon.scale.y=0.15;
+		    peon.scale.z=0.15;
+		    escena.add(peon);
+		    tablero[i][6]=peon;
+	    }
+	
+	var alfilB1=new Alfil(TEXTURAS.torreBlanca);
+	alfilB1.scale.x=0.10;
+	alfilB1.scale.y=0.15;
+	alfilB1.scale.z=0.10;
+	alfilB1.position.x=-15;
+	alfilB1.position.z=-35;
+	alfilB1.position.y=5;
+	tablero[2][0]=alfilB1;
+	
+	var alfilB2=new Alfil(TEXTURAS.torreBlanca);
+	alfilB2.scale.x=0.10;
+	alfilB2.scale.y=0.15;
+	alfilB2.scale.z=0.10;
+	alfilB2.position.x=15;
+	alfilB2.position.z=-35;
+	alfilB2.position.y=5;
+	tablero[5][0]=alfilB2;
+	
+	var alfilN1=new Alfil(TEXTURAS.torreNegra);
+	alfilN1.scale.x=0.10;
+	alfilN1.scale.y=0.15;
+	alfilN1.scale.z=0.10;
+	alfilN1.position.x=-15;
+	alfilN1.position.z=35;
+	alfilN1.position.y=5;
+	tablero[2][7]=alfilN1;
+	
+	var alfilN2=new Alfil(TEXTURAS.torreNegra);
+	alfilN2.scale.x=0.10;
+	alfilN2.scale.y=0.15;
+	alfilN2.scale.z=0.10;
+	alfilN2.position.x=15;
+	alfilN2.position.z=35;
+	alfilN2.position.y=5;
+	tablero[5][7]=alfilN2;
+	
+	escena.add(alfilB1);
+	escena.add(alfilB2);
+	escena.add(alfilN1);
+	escena.add(alfilN2);
+	escena.add(torreN1);
+	escena.add(torreN2);
+	escena.add(torreB1);
+	escena.add(torreB2);
+	escena.add(reyB);
+	escena.add(reyN);
+	escena.add(luz);
+	Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
 
-  valor[30] = new Array(80);
-  valor[30][0] = reyMalla;
-  valor[30][10] = peonMalla3;
-  valor[30][20] = vacio4;
-  valor[30][30] = vacio12;
-  valor[30][40] = vacio20;
-  valor[30][50] = vacio28;
-  valor[30][60] = peonMalla11;
-  valor[30][70] = reyMalla1;
-
-  valor[40] = new Array(80);
-  valor[40][0] = reinaMalla;
-  valor[40][10] = peonMalla4;
-  valor[40][20] = vacio5;
-  valor[40][30] = vacio13;
-  valor[40][40] = vacio21;
-  valor[40][50] = vacio29;
-  valor[40][60] = peonMalla12;
-  valor[40][70] = reinaMalla1;
-
-  valor[50] = new Array(80);
-  valor[50][0] = alfilMalla2;
-  valor[50][10] = peonMalla5;
-  valor[50][20] = vacio6;
-  valor[50][30] = vacio14;
-  valor[50][40] = vacio22;
-  valor[50][50] = vacio30;
-  valor[50][60] = peonMalla13;
-  valor[50][70] = alfilMalla3;
-
-  valor[60] = new Array(80);
-  valor[60][0] = vacio35;
-  valor[60][10] = peonMalla6;
-  valor[60][20] = vacio7;
-  valor[60][30] = vacio15;
-  valor[60][40] = vacio23;
-  valor[60][50] = vacio31;
-  valor[60][60] = peonMalla14;
-  valor[60][70] = vacio36;
-
-  valor[70] = new Array(8);
-  valor[70][0] = torreMalla3;
-  valor[70][10] = peonMalla7;
-  valor[70][20] = vacio8;
-  valor[70][30] = vacio16;
-  valor[70][40] = vacio24;
-  valor[70][50] = vacio32;
-  valor[70][60] = peonMalla15;
-  valor[70][70] = torreMalla2;  
-  
-  escena.add(base);
-  escena.add(torreMalla);
-  escena.add(torreMalla1);
-  escena.add(torreMalla2);
-  escena.add(torreMalla3);
-  escena.add(reyMalla);
-  escena.add(reyMalla1);
-  escena.add(reinaMalla);
-  escena.add(reinaMalla1);
-  escena.add(alfilMalla);
-  escena.add(alfilMalla1);
-  escena.add(alfilMalla2);
-  escena.add(alfilMalla3);
-  escena.add(peonMalla);
-  escena.add(peonMalla1);
-  escena.add(peonMalla2);
-  escena.add(peonMalla3);
-  escena.add(peonMalla4);
-  escena.add(peonMalla5);
-  escena.add(peonMalla6);
-  escena.add(peonMalla7);
-  escena.add(peonMalla8);
-  escena.add(peonMalla9);
-  escena.add(peonMalla10);
-  escena.add(peonMalla11);
-  escena.add(peonMalla12);
-  escena.add(peonMalla13);
-  escena.add(peonMalla14);
-  escena.add(peonMalla15);
-  escena.add(vacio1);
-  escena.add(vacio2);
-  escena.add(vacio3);
-  escena.add(vacio4);
-  escena.add(vacio5);
-  escena.add(vacio6);
-  escena.add(vacio7);
-  escena.add(vacio8);
-  escena.add(vacio9);
-  escena.add(vacio10);
-  escena.add(vacio11);
-  escena.add(vacio12);
-  escena.add(vacio13);
-  escena.add(vacio14);
-  escena.add(vacio15);
-  escena.add(vacio16);
-  escena.add(vacio17);
-  escena.add(vacio18);
-  escena.add(vacio19);
-  escena.add(vacio20);
-  escena.add(vacio21);
-  escena.add(vacio22);
-  escena.add(vacio23);
-  escena.add(vacio24);
-  escena.add(vacio25);
-  escena.add(vacio26);
-  escena.add(vacio27);
-  escena.add(vacio28);
-  escena.add(vacio29);
-  escena.add(vacio30);
-  escena.add(vacio31);
-  escena.add(vacio32);
-  escena.add(vacio33);
-  escena.add(vacio34);
-  escena.add(vacio35);
-  escena.add(vacio36);
-  escena.add(iluminacion);
-  Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
-
-  iluminacion.castShadow=true;
-  torreMalla.castShadow=true;
-  torreMalla1.castShadow=true;
-  torreMalla2.castShadow=true;
-  torreMalla3.castShadow=true;
-  reyMalla.castShadow=true;
-  reyMalla1.castShadow=true;
-  reinaMalla.castShadow=true;
-  reinaMalla1.castShadow=true;
-  alfilMalla.castShadow=true;
-  alfilMalla1.castShadow=true;
-  alfilMalla2.castShadow=true;
-  alfilMalla3.castShadow=true;
-  peonMalla.castShadow=true;
-  peonMalla1.castShadow=true;
-  peonMalla2.castShadow=true;
-  peonMalla3.castShadow=true;
-  peonMalla4.castShadow=true;
-  peonMalla5.castShadow=true;
-  peonMalla6.castShadow=true;
-  peonMalla7.castShadow=true;
-  peonMalla8.castShadow=true;
-  peonMalla9.castShadow=true;
-  peonMalla10.castShadow=true;
-  peonMalla11.castShadow=true;
-  peonMalla12.castShadow=true;
-  peonMalla13.castShadow=true;
-  peonMalla14.castShadow=true;
-  peonMalla15.castShadow=true;
-  base.receiveShadow=true;
-  renderizador.setSize(window.innerWidth, window.innerHeight);
-  document.body.appendChild(renderizador.domElement);
-  renderizador.shadowMapEnabled=true;
+	renderizador.setSize( window.innerWidth , window.innerHeight );
+	document.body.appendChild( renderizador.domElement );
 }
 
 var setupDone=false;
@@ -978,29 +737,179 @@ function loop(){
   requestAnimationFrame(loop);
   if(TEXTURAS.madera!==undefined && TEXTURAS.torreBlanca!==undefined && TEXTURAS.marmolBlanco!==undefined && TEXTURAS.marmolNegro!==undefined && !setupDone){
       setup();
-      renderizador.render(escena, camara);
   }
     escena.sense();
     escena.plan();
     escena.act();
+    if(animar===1)
+	    Animar(piezaTocada);
     renderizador.render(escena, camara);
 }
 
 var cargador = new THREE.TextureLoader();
 function TexturaSetup(){
-    cargador.load("ceramica_negra.jpg",
-                  function(textura){ TEXTURAS.ceramicanegra = textura;});
-    cargador.load("ceramica_blanca.jpg",
-                  function(textura){ TEXTURAS.ceramicablanca = textura;});
-    cargador.load("marnol_blanco.jpg",
-                  function(textura){ TEXTURAS.marmolblanco = textura;});
-    cargador.load("marnol_negro.jpg",
-                  function(textura){ TEXTURAS.marmolnegro = textura;});
-    cargador.load("marnol_cafe.jpg",
+    cargador.load("texturaMarmolNegro.jpg",
+                  function(textura){ TEXTURAS.torreNegra = textura;});
+    cargador.load("texturaMarmolBlanco.jpg",
+                  function(textura){ TEXTURAS.torreBlanca = textura;});
+    cargador.load("texturaMarmolBlanco.jpg",
+                  function(textura){ TEXTURAS.marmolBlanco = textura;});
+    cargador.load("texturaMarmolNegro.jpg",
+                  function(textura){ TEXTURAS.marmolNegro = textura;});
+    cargador.load("texturaMadera.jpg",
                   function(textura){ TEXTURAS.madera = textura;});
+    
+}
+var piezaTocada=new THREE.Object3D;
+var m,xBef,zBef;
+var banderaEvento=0;
+
+
+
+//-----------------------------------------------------------------------------------------------------------------RAY
+var raycaster = new THREE.Raycaster();
+var mouse = new THREE.Vector2();
+var cubo=new THREE.Object3D();
+function onMouseClick( event ) {
+
+	// calculate mouse position in normalized device coordinates
+	// (-1 to +1) for both components
+	var piezaX, piezaZ,tableX,tableZ;
+	mouse.x = ( event.clientX / window.innerWidth ) *2 - 1;
+	mouse.y = - ( event.clientY / window.innerHeight ) *2 + 1;	
+	//mouse.z = - ( event.clientZ / window.innerHeight ) * 2 + 1;
+	raycaster.setFromCamera( mouse, camara );	
+	var intersects = raycaster.intersectObjects( escena.children,true );
+	if(intersects[0].point.y>=5 && !(intersects[0].object.parent instanceof Planos)){
+		ResetMoves();
+		Descoloreo();
+		//intersects[ 0 ].object.material.color.set( 0xff0000 );
+		piezaX=Redondeo(intersects[0].point.x);
+		piezaZ=Redondeo(intersects[0].point.z);
+		piezaTocada=tablero[(piezaX+35)/10][(piezaZ+35)/10];
+		if((turno===true && piezaTocada.team===1) || (turno===false && piezaTocada.team===0)){
+			movimiento=1;
+			if(piezaTocada instanceof Torre)
+				TorrePlan(piezaX,piezaZ,piezaTocada.team);		
+			else if(piezaTocada instanceof Rey)
+				ReyPlan(piezaX,piezaZ,piezaTocada.team);
+			else if(piezaTocada instanceof Peon)
+				PeonPlan(piezaX,piezaZ,piezaTocada.team,piezaTocada);
+			else if(piezaTocada instanceof Alfil)
+				AlfilPlan(piezaX,piezaZ,piezaTocada.team);
+			Coloreo();
+
+			console.log(piezaX,piezaZ);
+		}
+	}else if( (intersects[0].object.parent instanceof Planos || intersects[1].object.parent instanceof Planos) && movimiento==1){
+		movimiento=0;			
+		tableX=Redondeo(intersects[0].point.x);
+		tableZ=Redondeo(intersects[0].point.z);
+		console.log("plano",tableX,tableZ);
+		Mueve(tableX,tableZ,piezaTocada);
+	}
+	
+	
+	console.log('wubba lubba dub dub');	
+	console.log( intersects[0].object);
+}
+ 
+function Redondeo(coor){
+	if(coor>=-40 && coor<-30)
+		coor=-35;
+	else if(coor>=-30 && coor<-20)
+		coor=-25;
+	else if(coor>=-20 && coor<-10)
+		coor=-15;
+	else if(coor>=-10 && coor<0)
+		coor=-5;
+	else if(coor>=0 && coor<10)
+		coor=5;
+	else if(coor>=10 && coor<20)
+		coor=15;
+	else if(coor>=20 && coor<30)
+		coor=25;
+	else if(coor>=30 && coor<40)
+		coor=35;
+	return coor;
 }
 
-var raycaster = new THREE.Raycaster();
+
+window.addEventListener( 'mousedown', onMouseClick, false );
+
+function Coloreo(){
+	for(var i=0; i<=7; i++){
+		for(var j=0; j<=7; j++){
+			if(tableroMovimientos[i][j]===1){
+				tabCol[i][j].position.y=5.1;
+			}
+		}
+	}
+}
+
+function Descoloreo(){
+	for(var i=0; i<=7; i++){
+		for(var j=0; j<=7; j++){
+			tabCol[i][j].position.y=500;
+		}
+	}
+}
+							 
+function ResetMoves(){
+	for(var i=0; i<=7;i++){
+		for(var j=0; j<=7; j++){
+			tableroMovimientos[i][j]=0;
+		}
+	}
+}
+
+function Mueve(x,y,pieza){
+	Descoloreo();
+	var m=0;
+	if(tableroMovimientos[(x+35)/10][(y+35)/10]===1){
+		tablero[(pieza.position.x+35)/10][(pieza.position.z+35)/10]=null;
+		//pieza.position.x=1*x;
+		//pieza.position.z=1*y;
+		if(tablero[(x+35)/10][(y+35)/10]!==null ){
+			var lugarOcu=new THREE.Object3D();
+			lugarOcu=tablero[(x+35)/10][(y+35)/10];
+			lugarOcu.position.y=5000;
+			tablero[(x+35)/10][(y+35)/10]=null;
+		}
+		tablero[(x+35)/10][(y+35)/10]=pieza;
+	}
+	for(var i=0; i<=7; i++){
+		for(var j=0; j<=7; j++){
+			tableroMovimientos[i][j]=0;
+		}
+	}
+	turno=!turno;
+	animar=1;
+	aniX=x;
+	aniY=y;
+	//delete pieza;
+	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
+		if((pieza.position.x-x)!=0){
+			m=(pieza.position.z-y)/(pieza.position.x-x);
+			if(Math.abs(pieza.position.x-x)>0.1 && (pieza.position.x-x)>=0)
+				pieza.position.x-=0.01;
+			if(Math.abs(pieza.position.x-x)>0.1 && (pieza.position.x-x)<=0)
+				pieza.position.x+=0.01;
+			pieza.position.z=m*pieza.position.x;
+		}else{
+			if(Math.abs(pieza.position.z-y)>0.1 && (pieza.position.z-y)>=0)
+				pieza.position.z-=0.1;
+			else if(Math.abs(pieza.position.z-y)>0.1 && (pieza.position.z-y)<=0)
+				pieza.position.z+=0.1;
+		}
+		console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
+		console.log("casillaX:",x,"casillaZ:",y);
+	}*/
+	
+	
+}
+	
+
 var TEXTURAS= new THREE.Object3D();
 var escena = new Environment();
 var camara = new THREE.PerspectiveCamera();
