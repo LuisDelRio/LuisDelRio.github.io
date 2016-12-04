@@ -391,9 +391,9 @@ function Vacio(textura){
 Vacio.prototype=new Agent();
 
 //-----------------------------------------------Tablero----------------------------------------------------
-
+var cubo, base;
 function Tablero (texturaBlanco, texturaNegro, texturaMadera){
-  var cubo= new Array();
+  cubo= new Array();
   var a=2;
   for(var k=0; k<64; k++){
       for(var i=0; i<8; i++){
@@ -417,7 +417,7 @@ function Tablero (texturaBlanco, texturaNegro, texturaMadera){
           }
       }
   }
-  var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), new THREE.MeshLambertMaterial({map: texturaMadera}) );
+  base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), new THREE.MeshLambertMaterial({map: texturaMadera}) );
   escena.add(base);
   base.receiveShadow=true;
   base.position.x=35;
@@ -968,7 +968,7 @@ function setup(){
   peonMalla13.castShadow=true;
   peonMalla14.castShadow=true;
   peonMalla15.castShadow=true;
-  Tablero.base.receiveShadow=true;
+  base.receiveShadow=true;
   renderizador.setSize(window.innerWidth-100, window.innerHeight-100);
   document.body.appendChild(renderizador.domElement);
 }
