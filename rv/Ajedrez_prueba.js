@@ -293,41 +293,65 @@ function PeonPlan(x,y,team,primer){
 //------------REY-----------
 var Rey=function(textura){ 
     Agent.call(this);
-    var puntosrey=[];
-    
-    puntosrey.push( new THREE.Vector2(0,0));
-    puntosrey.push( new THREE.Vector2(20,0));
-    puntosrey.push( new THREE.Vector2(20,10));
-    puntosrey.push( new THREE.Vector2(15,10));
-    puntosrey.push( new THREE.Vector2(15,15));
-    puntosrey.push( new THREE.Vector2(10,15));
-    puntosrey.push( new THREE.Vector2(5,60));
-    puntosrey.push( new THREE.Vector2(20,60));
-    puntosrey.push( new THREE.Vector2(20,65));
-    puntosrey.push( new THREE.Vector2(10,65));
-    puntosrey.push( new THREE.Vector2(10,70));
-    puntosrey.push( new THREE.Vector2(15,70));
-    puntosrey.push( new THREE.Vector2(15,80));
-    puntosrey.push( new THREE.Vector2(10,80));
-    puntosrey.push( new THREE.Vector2(20,100));
-    puntosrey.push( new THREE.Vector2(0,100));
-    
-    var baseRey= new THREE.LatheGeometry(puntosrey);
-    var baseReyMalla= new THREE.Mesh( baseRey);
-    
-    var reyForma= new THREE.Geometry();
+     var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
+  var base2Forma = new THREE.CylinderGeometry(4,4,1,20,1,false);
+  var base3Forma = new THREE.CylinderGeometry(2,4,10,20,10,false);
+  var troncoForma = new THREE.CylinderGeometry(2,2,4,20,4,false);
+  var detalle1Forma = new THREE.CylinderGeometry(4,4,.5,20,.5,false);
+  var detalle2Forma = new THREE.CylinderGeometry(3,3,.3,20,.3,false);
+  var detalle3Forma = new THREE.CylinderGeometry(3,3,.3,20,.3,false);
+  var cubierta1Forma = new THREE.CylinderGeometry(2.5,2.5,1.9,20,1.9,false);
+  var cubierta2Forma = new THREE.CylinderGeometry(4,2.5,3,20,3,false);
+  var cabeza1Forma = new THREE.BoxGeometry(1,1,1)
+  var cabeza2Forma = new THREE.BoxGeometry(1,1,1)
+  var cabeza3Forma = new THREE.BoxGeometry(1,1,1)
+  var cabeza4Forma = new THREE.BoxGeometry(1,1,1)
+  var cabeza5Forma = new THREE.BoxGeometry(1,1,1)
 
-    reyForma.merge(baseReyMalla.geometry, baseReyMalla.matrix);
-    
-    var vertical= new THREE.BoxGeometry(10,20,10);
-    vertical.translate(0,110,0);
-    var verticalMalla= new THREE.Mesh(vertical);
-    reyForma.merge(verticalMalla.geometry, verticalMalla.matrix);
-    
-    var horizontal= new THREE.BoxGeometry(20,10,10);
-    horizontal.translate(0,110,0);
-    var horizontalMalla= new THREE.Mesh(horizontal);
-    reyForma.merge(horizontalMalla.geometry, horizontalMalla.matrix);
+  base2Forma.translate(0,1,0);
+  base3Forma.translate(0,6,0);
+  troncoForma.translate(0,12,0);
+  detalle2Forma.translate(0,14,0);
+  detalle1Forma.translate(0,14.3,0);
+  detalle3Forma.translate(0,14.8,0);
+  cubierta1Forma.translate(0,15.1,0);
+  cubierta2Forma.translate(0,17,0);
+  cabeza1Forma.translate(0,19.5,0);
+  cabeza2Forma.translate(0,20.5,0);
+  cabeza3Forma.translate(0,21.5,0);
+  cabeza4Forma.translate(-1,20.5,0);
+  cabeza5Forma.translate(1,20.5,0);
+
+  var base1Malla = new THREE.Mesh(base1Forma);
+  var base2Malla= new THREE.Mesh(base2Forma);
+  var base3Malla= new THREE.Mesh(base3Forma);
+  var toncoMalla= new THREE.Mesh(troncoForma);
+  var detalle1Malla= new THREE.Mesh(detalle1Forma);
+  var detalle2Malla= new THREE.Mesh(detalle2Forma);
+  var detalle3Malla= new THREE.Mesh(detalle3Forma);
+  var cubierta1Malla= new THREE.Mesh(cubierta1Forma);
+  var cubierta2Malla= new THREE.Mesh(cubierta2Forma);
+  var cabeza1Malla= new THREE.Mesh(cabeza1Forma);
+  var cabeza2Malla= new THREE.Mesh(cabeza2Forma);
+  var cabeza3Malla= new THREE.Mesh(cabeza3Forma);
+  var cabeza4Malla= new THREE.Mesh(cabeza4Forma);
+  var cabeza5Malla= new THREE.Mesh(cabeza5Forma);
+
+  var reyForma = new THREE.Geometry();
+  reyForma.merge(base1Malla.geometry, base1Malla.matrix);
+  reyForma.merge(base2Malla.geometry, base2Malla.matrix);
+  reyForma.merge(base3Malla.geometry, base3Malla.matrix);
+  reyForma.merge(toncoMalla.geometry, toncoMalla.matrix);
+  reyForma.merge(detalle1Malla.geometry, detalle1Malla.matrix);
+  reyForma.merge(detalle2Malla.geometry, detalle2Malla.matrix);
+  reyForma.merge(detalle3Malla.geometry, detalle3Malla.matrix);
+  reyForma.merge(cubierta1Malla.geometry, cubierta1Malla.matrix);
+  reyForma.merge(cubierta2Malla.geometry, cubierta2Malla.matrix);
+  reyForma.merge(cabeza1Malla.geometry, cabeza1Malla.matrix);
+  reyForma.merge(cabeza2Malla.geometry, cabeza2Malla.matrix);
+  reyForma.merge(cabeza3Malla.geometry, cabeza3Malla.matrix);
+  reyForma.merge(cabeza4Malla.geometry, cabeza4Malla.matrix);
+  reyForma.merge(cabeza5Malla.geometry, cabeza5Malla.matrix);
     
     //THREE.Mesh.call(this, reyForma, new THREE.MeshLambertMaterial({map:textura}));
     this.add(new THREE.Mesh(reyForma, new THREE.MeshLambertMaterial({map:textura})));
@@ -383,42 +407,42 @@ function ReyPlan(x,y,team){
 
 function Alfil(textura){
 	Agent.call(this);
-	var puntos= [];
-	puntos.push( new THREE.Vector2(0,0));
-	puntos.push( new THREE.Vector2(20,0));
-	puntos.push( new THREE.Vector2(20,10));
-	puntos.push( new THREE.Vector2(15,10));
-	puntos.push( new THREE.Vector2(15,15));
-	puntos.push( new THREE.Vector2(10,15));
-	puntos.push( new THREE.Vector2(5,60));
-	puntos.push( new THREE.Vector2(20,60));
-	puntos.push( new THREE.Vector2(25,65));
-	puntos.push( new THREE.Vector2(5,65));
-	puntos.push( new THREE.Vector2(5,70));
-	puntos.push( new THREE.Vector2(15,70));
-	puntos.push( new THREE.Vector2(15,77));
-	puntos.push( new THREE.Vector2(25,80));
-	puntos.push( new THREE.Vector2(0,80));
+	var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
+  var base2Forma = new THREE.CylinderGeometry(4,4,1,20,1,false);
+  var troncoForma = new THREE.CylinderGeometry(1.5,3,12,12,12,false);
+  var detalle1Forma = new THREE.CylinderGeometry(3.5,3.5,.5,20,.5,false);
+  var detalle2Forma = new THREE.CylinderGeometry(2.5,2.5,.3,20,.3,false);
+  var detalle3Forma = new THREE.CylinderGeometry(2.5,2.5,.3,20,.3,false);
+  var cabeza1Forma = new THREE.SphereGeometry(2);
+  var cabeza2Forma = new THREE.SphereGeometry(.5);
 
-	var puntos2=[];
+  base1Forma.translate(0,1,0);
+  base2Forma.translate(0,2,0);
+  troncoForma.translate(0,8,0);
+  cabeza1Forma.translate(0,15,0);
+  cabeza2Forma.translate(0,17,0);
+  detalle1Forma.translate(0,11,0);
+  detalle2Forma.translate(0,10.7,0);
+  detalle3Forma.translate(0,11.5,0);
 
-	for ( var i = 0; i < 47; i ++ ) {	
-		puntos2.push( new THREE.Vector2( Math.sin(i*0.05 -40) * 25, i));	
-	}
-	var baseAlfil= new THREE.LatheGeometry(puntos);
-	var baseAlfilMalla= new THREE.Mesh(baseAlfil);
-	var gorroAlfil= new THREE.LatheGeometry(puntos2);
-	gorroAlfil.translate(0,80,0);
-	var gorroAlfilMalla= new THREE.Mesh(gorroAlfil);
+  var base1Malla = new THREE.Mesh(base1Forma);
+  var base2Malla= new THREE.Mesh(base2Forma);
+  var troncoMalla= new THREE.Mesh(troncoForma);
+  var cabeza1Malla= new THREE.Mesh(cabeza1Forma);
+  var cabeza2Malla= new THREE.Mesh(cabeza2Forma);
+  var detalle1Malla= new THREE.Mesh(detalle1Forma);
+  var detalle2Malla= new THREE.Mesh(detalle2Forma);
+  var detalle3Malla= new THREE.Mesh(detalle3Forma);
 
-	var puntitaAlfil = new THREE.SphereGeometry( 5 );
-	puntitaAlfil.translate(0,130,0);
-	var puntitaAlfilMalla= new THREE.Mesh(puntitaAlfil);
-	var Alfil= new THREE.Geometry();
-
-	Alfil.merge(baseAlfilMalla.geometry, baseAlfilMalla.matrix);
-	Alfil.merge(gorroAlfilMalla.geometry, gorroAlfilMalla.matrix);
-	Alfil.merge(puntitaAlfilMalla.geometry, puntitaAlfilMalla.matrix);
+  var alfilForma = new THREE.Geometry();
+  alfilForma.merge(base1Malla.geometry, base1Malla.matrix);
+  alfilForma.merge(base2Malla.geometry, base2Malla.matrix);
+  alfilForma.merge(troncoMalla.geometry, troncoMalla.matrix);
+  alfilForma.merge(cabeza1Malla.geometry, cabeza1Malla.matrix);
+  alfilForma.merge(cabeza2Malla.geometry, cabeza2Malla.matrix);
+  alfilForma.merge(detalle1Malla.geometry, detalle1Malla.matrix);
+  alfilForma.merge(detalle2Malla.geometry, detalle2Malla.matrix);
+  alfilForma.merge(detalle3Malla.geometry, detalle3Malla.matrix);
 	var material= new THREE.MeshLambertMaterial({map:textura});
 	this.add( new THREE.Mesh(Alfil, material));
     this.pie1= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
