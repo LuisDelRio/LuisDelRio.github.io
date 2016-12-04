@@ -311,7 +311,7 @@ Torre.prototype = new Agent();
 Torre.prototype.sense = function(enviroment){
   this.sensor.set( this.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
   var obstaculo = this.sensor.intersectObjects(enviroment.children,true);
-  this.selec=0;
+  this.selec=1;
   this.banderaX=0;
   this.banderaZ=0;
   if((obstaculo.length>0 && (obstaculo[0].distance <=10)))
@@ -510,7 +510,7 @@ TEXTURA.loop = function(){
     		TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
 	}
 	
-  TEXTURA.torreb1.selec=1;
+  //TEXTURA.torreb1.selec=1;
   TEXTURA.entorno.plan();
   TEXTURA.entorno.act();
   TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
