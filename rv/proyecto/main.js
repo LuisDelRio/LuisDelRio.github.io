@@ -301,7 +301,7 @@ function Torre(material1, x, y){
   this.arr=0;
   this.sensor= new Sensor();
   this.actuator = new Torrem(material1);
-  this.guide = new Seleccionadorm(material1);
+  this.phantom = new Seleccionadorm(material1);
   this.add(this.actuator);
   this.add(this.guide);
 }
@@ -311,10 +311,10 @@ Torre.prototype = new Agent();
 Torre.prototype.sense = function(enviroment){
   this.sensor.set( this.position, new THREE.Vector3(Math.cos(this.rotation.y),Math.sin(this.rotation.y),0));
   var obstaculo = this.sensor.intersectObjects(enviroment.children,true);
-  this.selec=1;
+  this.selec=0;
   this.banderaX=0;
   this.banderaZ=0;
-  if((obstaculo.length>0 && (obstaculo[0].distance <=10)))
+  if((obstaculo.length>0 && (obstaculo[0].distance <=60)))
   this.sensor.colision=true;
   else
   this.sensor.colision = false;
@@ -322,37 +322,41 @@ Torre.prototype.sense = function(enviroment){
 
 Torre.prototype.plan = function(enviroment){
 	
-	  if(this.sensor.colision == true){}
+  if(this.sensor.colision == true){}
   else{
 	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
-	 if ( keyboard.pressed("right")) {
+	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
 		 if (this.der==0) {
-this.guide.translateX(10);
+this.phantom.translateX(60);
+this.phantom.translateZ(-60);
 	this.der=1;
 		 }
 }
 	else
 	this.der=0;
-     if ( keyboard.pressed("left")) {
+     if (keyboard.pressed("left")||keyboard.pressed("A")) {
 		 if (this.izq==0) {
-this.guide.translateX(-10);
+this.phantom.translateX(-60);
+this.phantom.translateZ(60);
 	this.izq=1;
 		 }
 }
 	 else
 	this.izq=0;
-     if (keyboard.pressed("up")) {
+     if (keyboard.pressed("up")||keyboard.pressed("W")) {
 		 if (this.arr==0) {
-this.guide.translateZ(-10);
+this.phantom.translateX(-60);
+this.phantom.translateZ(-60);
 	this.arr=1;
 		 }
 }
 	
 	     else
 	this.arr=0;
-     if (keyboard.pressed("down")) {
+     if (keyboard.pressed("down")||keyboard.pressed("S")) {
 		 if (this.aba==0) {
-this.guide.translateZ(10);
+this.phantom.translateX(60);
+this.phantom.translateZ(60);
 	this.aba=1;
 		 }
 }
@@ -360,32 +364,31 @@ this.guide.translateZ(10);
 	     else
 	this.aba=0;	
 	}
-	if((this.guide.position.x != this.actuator.position.x) && this.banderaX===1){
-		this.velocidadx=-(this.actuator.position.x-this.guide.position.x)/Math.abs(this.actuator.position.x-this.guide.position.x);
+	if((this.phantom.position.x != this.actuator.position.x) && this.banderaX===1){
+		this.velocidadx=-(this.actuator.position.x-this.phantom.position.x)/Math.abs(this.actuator.position.x-this.phantom.position.x);
 		this.actuator.translateX(this.velocidadx);
 	}
-	if((this.guide.position.z != this.actuator.position.z)&&this.banderaZ===1){
-		this.velocidadz=-(this.actuator.position.z-this.guide.position.z)/Math.abs(this.actuator.position.z-this.guide.position.z);
+	if((this.phantom.position.z != this.actuator.position.z)&&this.banderaZ===1){
+		this.velocidadz=-(this.actuator.position.z-this.phantom.position.z)/Math.abs(this.actuator.position.z-this.phantom.position.z);
 		this.actuator.translateZ(this.velocidadz);
 	}
 	if(keyboard.pressed("space")){
 		this.banderaX=1;
 		this.banderaZ=1;
 	}
-	if((this.guide.position.x === this.actuator.position.x))
+	if((this.phantom.position.x === this.actuator.position.x))
 		this.banderaX=0;
-	if((this.guide.position.z === this.actuator.position.z))
+	if((this.phantom.position.z === this.actuator.position.z))
 		this.banderaZ=0; 
   }
-	
 	
 }
 
 Torre.prototype.act = function(enviroment){
 	
-	if(Math.abs(this.guide.position.x-this.actuator.position.x)!=Math.abs(this.guide.position.z-this.actuator.position.z)){
-  this.guide.position.z=this.actuator.position.z;
-  this.guide.position.x=this.actuator.position.x;
+	if(Math.abs(this.phantom.position.x-this.actuator.position.x)!=Math.abs(this.phantom.position.z-this.actuator.position.z)){
+  this.phantom.position.z=this.actuator.position.z;
+  this.phantom.position.x=this.actuator.position.x;
   }
 	
 }
@@ -510,7 +513,7 @@ TEXTURA.loop = function(){
     		TEXTURA.renderizador.render( TEXTURA.escena, TEXTURA.camara );
 	}
 	
-  //TEXTURA.torreb1.selec=1;
+  TEXTURA.torreb1.selec=1;
   TEXTURA.entorno.plan();
   TEXTURA.entorno.act();
   TEXTURA.renderizador.render( TEXTURA.entorno, TEXTURA.camara );
