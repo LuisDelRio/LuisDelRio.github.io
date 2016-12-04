@@ -968,6 +968,7 @@ function setup(){
   peonMalla13.castShadow=true;
   peonMalla14.castShadow=true;
   peonMalla15.castShadow=true;
+  Tablero.base.receiveShadow=true;
   renderizador.setSize(window.innerWidth-100, window.innerHeight-100);
   document.body.appendChild(renderizador.domElement);
 }
