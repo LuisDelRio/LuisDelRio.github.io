@@ -314,7 +314,7 @@ Torre.prototype.sense = function(enviroment){
   this.selec=0;
   this.banderaX=0;
   this.banderaZ=0;
-  if((obstaculo.length>0 && (obstaculo[0].distance <=60)))
+  if((obstaculo.length>0 && (obstaculo[0].distance <=10)))
   this.sensor.colision=true;
   else
   this.sensor.colision = false;
@@ -327,8 +327,8 @@ Torre.prototype.plan = function(enviroment){
 	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
 	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
 		 if (this.der==0) {
-this.phantom.translateX(60);
-this.phantom.translateZ(-60);
+this.phantom.translateX(10);
+this.phantom.translateZ(-10);
 	this.der=1;
 		 }
 }
@@ -336,8 +336,8 @@ this.phantom.translateZ(-60);
 	this.der=0;
      if (keyboard.pressed("left")||keyboard.pressed("A")) {
 		 if (this.izq==0) {
-this.phantom.translateX(-60);
-this.phantom.translateZ(60);
+this.phantom.translateX(-10);
+this.phantom.translateZ(10);
 	this.izq=1;
 		 }
 }
@@ -345,8 +345,8 @@ this.phantom.translateZ(60);
 	this.izq=0;
      if (keyboard.pressed("up")||keyboard.pressed("W")) {
 		 if (this.arr==0) {
-this.phantom.translateX(-60);
-this.phantom.translateZ(-60);
+this.phantom.translateX(-10);
+this.phantom.translateZ(-10);
 	this.arr=1;
 		 }
 }
@@ -355,8 +355,8 @@ this.phantom.translateZ(-60);
 	this.arr=0;
      if (keyboard.pressed("down")||keyboard.pressed("S")) {
 		 if (this.aba==0) {
-this.phantom.translateX(60);
-this.phantom.translateZ(60);
+this.phantom.translateX(10);
+this.phantom.translateZ(10);
 	this.aba=1;
 		 }
 }
