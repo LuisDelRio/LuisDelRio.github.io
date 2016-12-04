@@ -748,15 +748,15 @@ function loop(){
 
 var cargador = new THREE.TextureLoader();
 function TexturaSetup(){
-    cargador.load("texturaMarmolNegro.jpg",
+    cargador.load("marnol_negro.jpg",
                   function(textura){ TEXTURAS.torreNegra = textura;});
-    cargador.load("texturaMarmolBlanco.jpg",
+    cargador.load("marnol_blanco.jpg",
                   function(textura){ TEXTURAS.torreBlanca = textura;});
-    cargador.load("texturaMarmolBlanco.jpg",
+    cargador.load("marnol_blanco.jpg",
                   function(textura){ TEXTURAS.marmolBlanco = textura;});
-    cargador.load("texturaMarmolNegro.jpg",
+    cargador.load("marnol_negro.jpg",
                   function(textura){ TEXTURAS.marmolNegro = textura;});
-    cargador.load("texturaMadera.jpg",
+    cargador.load("marnol_cafe.jpg",
                   function(textura){ TEXTURAS.madera = textura;});
     
 }
