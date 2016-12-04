@@ -303,7 +303,7 @@ function Torre(material1, x, y){
   this.actuator = new Torrem(material1);
   this.phantom = new Seleccionadorm(material1);
   this.add(this.actuator);
-  this.add(this.guide);
+  this.add(this.phantom);
 }
 
 Torre.prototype = new Agent();
@@ -327,7 +327,6 @@ Torre.prototype.plan = function(enviroment){
 	 if(this.banderaZ==0&&this.banderaX==0&&this.selec==1){
 	 if (keyboard.pressed("right")||keyboard.pressed("D")) {
 		 if (this.der==0) {
-this.phantom.translateX(10);
 this.phantom.translateZ(-10);
 	this.der=1;
 		 }
@@ -336,7 +335,6 @@ this.phantom.translateZ(-10);
 	this.der=0;
      if (keyboard.pressed("left")||keyboard.pressed("A")) {
 		 if (this.izq==0) {
-this.phantom.translateX(-10);
 this.phantom.translateZ(10);
 	this.izq=1;
 		 }
@@ -346,7 +344,6 @@ this.phantom.translateZ(10);
      if (keyboard.pressed("up")||keyboard.pressed("W")) {
 		 if (this.arr==0) {
 this.phantom.translateX(-10);
-this.phantom.translateZ(-10);
 	this.arr=1;
 		 }
 }
@@ -356,7 +353,6 @@ this.phantom.translateZ(-10);
      if (keyboard.pressed("down")||keyboard.pressed("S")) {
 		 if (this.aba==0) {
 this.phantom.translateX(10);
-this.phantom.translateZ(10);
 	this.aba=1;
 		 }
 }
