@@ -460,7 +460,7 @@ TEXTURA.setup2 = function(){
   TEXTURA.torreb1.position.z=3;	
   TEXTURA.entorno.add(TEXTURA.torreb1);
 
-  TEXTURA.alfilb1 = new Alfil( TEXTURA.ceramicablanca);
+  /*TEXTURA.alfilb1 = new Alfil( TEXTURA.ceramicablanca);
   TEXTURA.alfilb1.rotateX(Math.PI/2);
   TEXTURA.alfilb1.position.x=20;
   TEXTURA.alfilb1.position.y=0;
@@ -479,7 +479,7 @@ TEXTURA.setup2 = function(){
   TEXTURA.seleccionador.position.x=0;
   TEXTURA.seleccionador.position.y=0;
   TEXTURA.seleccionador.position.z=30;	
-  TEXTURA.entorno.add(TEXTURA.seleccionador);
+  TEXTURA.entorno.add(TEXTURA.seleccionador);*/
 	
   TEXTURA.tablero= new Tablero(TEXTURA.marnolblanco, TEXTURA.marnolnegro);
   TEXTURA.entorno.add(TEXTURA.tablero);
