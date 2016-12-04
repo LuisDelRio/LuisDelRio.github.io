@@ -965,7 +965,6 @@ function setup(){
   peonMalla13.castShadow=true;
   peonMalla14.castShadow=true;
   peonMalla15.castShadow=true;
-  base.receiveShadow=true;
   renderizador.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderizador.domElement);
   renderizador.shadowMapEnabled=true;
