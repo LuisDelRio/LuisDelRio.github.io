@@ -1025,7 +1025,71 @@ function loop(){
       guardarPosicion();
   }
   else if(cuyo==4){
-    cuyo=1;
+    planGeneral();
+    select.position.x=0;
+    select.position.y=0;
+    select.position.z=30;
+    //posicionadorMalla.position.x=0;
+    //posicionadorMalla.position.y=0;
+    //posicionadorMalla.position.z=1000;
+    requestAnimationFrame(loop);
+    renderizador.render(escena,camara);
+  }
+  else{
+    window.onload=function(){document.onkeydown=desplazar};
+      function desplazar(objeto){
+      var tecla = objeto.which;
+          switch (tecla){
+              case 37 : 
+                  select.translateZ(10);
+                  break;
+              case 38 : 
+                  select.translateX(-10);
+                  break;
+              case 39 :  
+                  select.translateZ(-10);
+                  break;
+              case 40 : 
+                  select.translateX(10);
+                  break;
+	      case 13 :
+		  cuyo=cuyo+1;
+		}
+    }
+  }
+    escena.sense();
+    escena.plan();
+    escena.act();
+    requestAnimationFrame(loop);
+    renderizador.render(escena, camara);
+}
+
+var cargador = new THREE.TextureLoader();
+function TexturaSetup(){
+    cargador.load("ceramica_negra.jpg",
+                  function(textura){ TEXTURAS.ceramicanegra = textura;});
+    cargador.load("ceramica_blanca.jpg",
+                  function(textura){ TEXTURAS.ceramicablanca = textura;});
+    cargador.load("marnol_blanco.jpg",
+                  function(textura){ TEXTURAS.marmolblanco = textura;});
+    cargador.load("marnol_negro.jpg",
+                  function(textura){ TEXTURAS.marmolnegro = textura;});
+    cargador.load("marnol_cafe.jpg",
+                  function(textura){ TEXTURAS.madera = textura;});
+}
+
+//--------------------------------------------Movimiento--------------------------------------------------
+
+function guardarPosicion(){
+    auxx=parseInt(select.position.x);
+    auxy=parseInt(select.position.y);
+    cuyo=cuyo+1;
+    requestAnimationFrame(loop);
+    renderizador.render(escena, camara);
+}
+
+function planGeneral(){
+cuyo=1;
     if(auxx==0 && auxy==0){
 	      valor[select.position.x][select.position.y].position.x=valor[0][0].position.x
 	      valor[select.position.x][select.position.y].position.y=valor[0][0].position.y
@@ -1610,67 +1674,6 @@ function loop(){
 	      valor[select.position.x][select.position.y]= h15;
 	      valor[70][70]= h14;
 	    }
-    select.position.x=0;
-    select.position.y=0;
-    select.position.z=30;
-    //posicionadorMalla.position.x=0;
-    //posicionadorMalla.position.y=0;
-    //posicionadorMalla.position.z=1000;
-    requestAnimationFrame(loop);
-    renderizador.render(escena,camara);
-  }
-  else{
-    window.onload=function(){document.onkeydown=desplazar};
-      function desplazar(objeto){
-      var tecla = objeto.which;
-          switch (tecla){
-              case 37 : 
-                  select.translateZ(10);
-                  break;
-              case 38 : 
-                  select.translateX(-10);
-                  break;
-              case 39 :  
-                  select.translateZ(-10);
-                  break;
-              case 40 : 
-                  select.translateX(10);
-                  break;
-	      case 13 :
-			  alert(cuyo);
-		  cuyo=cuyo+1;
-		}
-    }
-  }
-    escena.sense();
-    escena.plan();
-    escena.act();
-    requestAnimationFrame(loop);
-    renderizador.render(escena, camara);
-}
-
-var cargador = new THREE.TextureLoader();
-function TexturaSetup(){
-    cargador.load("ceramica_negra.jpg",
-                  function(textura){ TEXTURAS.ceramicanegra = textura;});
-    cargador.load("ceramica_blanca.jpg",
-                  function(textura){ TEXTURAS.ceramicablanca = textura;});
-    cargador.load("marnol_blanco.jpg",
-                  function(textura){ TEXTURAS.marmolblanco = textura;});
-    cargador.load("marnol_negro.jpg",
-                  function(textura){ TEXTURAS.marmolnegro = textura;});
-    cargador.load("marnol_cafe.jpg",
-                  function(textura){ TEXTURAS.madera = textura;});
-}
-
-//--------------------------------------------Movimiento--------------------------------------------------
-
-function guardarPosicion(){
-    auxx=parseInt(select.position.x);
-    auxy=parseInt(select.position.y);
-    cuyo=cuyo+1;
-    requestAnimationFrame(loop);
-    renderizador.render(escena, camara);
 }
 
 var raycaster = new THREE.Raycaster();
