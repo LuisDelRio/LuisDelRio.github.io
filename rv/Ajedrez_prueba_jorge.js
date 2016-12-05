@@ -1111,8 +1111,8 @@ function teclado(){
 
 
 function guardarPosicion(){
-    auxx=select.position.x;
-    auxy=select.position.y;
+    auxx=parseInt(select.position.x);
+    auxy=parseInt(select.position.y);
     cuyo=cuyo+1;
     requestAnimationFrame(loop);
     renderizador.render(escena, camara);
@@ -1120,8 +1120,6 @@ function guardarPosicion(){
 
 var nombre = new THREE.Object3D;
 function planGeneral(){
-	nombre = valor[auxx][auxy];
-	alert("SoyPendejoYNoPuedoHacerUnaComparacion");
 	if(valor[auxx][auxy] instanceof Torre){
 		alert("1");
 	}else if(valor[select.position.x][select.position.y] instanceof Alfil){
