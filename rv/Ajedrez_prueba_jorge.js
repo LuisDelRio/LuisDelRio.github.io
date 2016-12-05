@@ -1,3 +1,4 @@
+//------------------------------------------------------------------------------------------------AGENTES - ENVIRONMENT
 function Agent(x=0,y=0){
   THREE.Object3D.call(this);
   this.position.x = x;
@@ -9,8 +10,6 @@ Agent.prototype = new THREE.Object3D();
 Agent.prototype.sense = function(environment){};
 Agent.prototype.plan = function(environment) {};
 Agent.prototype.act = function(environment) {};
-
-//-----El agente opera sobre un entorno, el cual está definido por el constructor Environment()
 
 function Environment(){
   THREE.Scene.call(this);
@@ -39,6 +38,8 @@ Environment.prototype.act = function(){
   }
 };
 
+
+//------------------------------------------------------------------------------------------------------VARIABLES GLOBALES
 var torreMalla, torreMalla1, torreMalla2, torreMalla3;
 var alfilMalla, alfilMalla1, alfilMalla2, alfilMalla3;
 var reyMalla, reyMalla1;
@@ -54,8 +55,8 @@ var valor, xselect, yselect;
 var auxx;
 var auxy;
 
-//----------------------------------------TORRE-------------------------------------------------
 
+//--------------------------------------------------------------------------------------------------------TORRE
 function Torre(textura){ 
   Agent.call(this);
   var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
@@ -106,7 +107,6 @@ function Torre(textura){
   pico3.translate(0,12,0);
   pico4.translate(0,12,0);
   
-
   var base1Malla = new THREE.Mesh(base1Forma);
   var base2Malla= new THREE.Mesh(base2Forma);
   var base3Malla= new THREE.Mesh(base3Forma);
@@ -140,8 +140,8 @@ function Torreplan(x, y){
   
 }
 
-//---------------------------------------------Alfil----------------------------------------------------------
 
+//----------------------------------------------------------------------------------------------------ALFIL
 function Alfil(textura){
   Agent.call(this);
   var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
@@ -186,8 +186,8 @@ function Alfil(textura){
 }
 Alfil.prototype=new Agent();
 
-//---------------------------------------------------Rey---------------------------------------------------
 
+//----------------------------------------------------------------------------------------------------------MIRREY
 function Rey(textura){
   Agent.call(this);
   var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
@@ -255,8 +255,8 @@ function Rey(textura){
 }
 Rey.prototype=new Agent();
 
-//-------------------------------------------------Reina-------------------------------------------------
 
+//--------------------------------------------------------------------------------------------------------------REINA
 function Reina(textura){
   Agent.call(this);
   var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
