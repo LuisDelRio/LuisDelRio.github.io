@@ -1025,6 +1025,7 @@ function loop(){
   }
   if(cuyo==2){
       guardarPosicion(select.position.x, select.position.x);
+      cuyo=cuyo+1;
   }
   else if(cuyo==4){
     alert(auxx)
@@ -1114,7 +1115,6 @@ function TexturaSetup(){
 function guardarPosicion(x, y){
     auxx=parseInt(x);
     auxy=parseInt(y);
-    cuyo=cuyo+1;
     requestAnimationFrame(loop);
     renderizador.render(escena,camara);
 }
