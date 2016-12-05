@@ -1091,6 +1091,7 @@ function guardarPosicion(){
 function planGeneral(){
 cuyo=1;
     if(auxx==0 && auxy==0){
+	    if(valor[select.position.x][select.position.y]==torreMalla || valor[select.position.x][select.position.y]==torreMalla3 || valor[select.position.x][select.position.y]==reyMalla || valor[select.position.x][select.position.y]==reinaMalla || valor[select.position.x][select.position.y]==alfilMalla || valor[select.position.x][select.position.y]==alfilMalla3){
 	      valor[select.position.x][select.position.y].position.x=valor[0][0].position.x
 	      valor[select.position.x][select.position.y].position.y=valor[0][0].position.y
 	      valor[0][0].position.x=select.position.x;
@@ -1099,6 +1100,7 @@ cuyo=1;
 	      var a1 = valor[0][0];
 	      valor[select.position.x][select.position.y]= a1;
 	      valor[0][0]= a;
+	     }
 	    }else if(auxx==10 && auxy==0){
 	      valor[select.position.x][select.position.y].position.x=valor[10][0].position.x
 	      valor[select.position.x][select.position.y].position.y=valor[10][0].position.y
