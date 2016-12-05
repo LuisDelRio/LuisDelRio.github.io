@@ -1023,8 +1023,53 @@ function loop(){
       setup();
       renderizador.render(escena, camara);
   }
-  if (cuyo == 2){ 
-	  guardarPosicion(xselect, yselect);
+  if(cuyo==2){
+      auxx=parseInt(select.position.x);
+      auxy=parseInt(select.position.y);
+      cuyo=cuyo+1;
+      requestAnimationFrame(loop);
+      renderizador.render(escena,camara);
+  }
+  else if(cuyo==4){
+    alert(auxx)
+    if(auxx==0 && auxy==0){
+      valor[0][0].position.x=select.position.x;
+      valor[0][0].position.y=select.position.y;
+      var a = valor[select.position.x][select.position.y];
+      var b = valor[0][0];
+      valor[select.position.x][select.position.y]= b;
+      valor[0][0]= a;
+    }else if(auxx==10 && auxy==0){
+      valor[10][0].position.x=select.position.x;
+      valor[10][0].position.y=select.position.y;      
+      var c = valor[select.position.x][select.position.y];
+      var d = valor[10][0];
+      valor[select.position.x][select.position.y]= c;
+      valor[10][0]= d;
+    }else if(auxx==0 && auxy==10){
+      valor[0][10].position.x=select.position.x;
+      valor[0][10].position.y=select.position.y;
+      var e = valor[select.position.x][select.position.y];
+      var f = valor[0][10];
+      valor[select.position.x][select.position.y]= e;
+      valor[0][10]= f;
+    }else if(auxx==0 && auxy==20){
+      valor[0][20].position.x=select.position.x;
+      valor[0][20].position.y=select.position.y;
+      var g = valor[select.position.x][select.position.y];
+      var h = valor[0][20];
+      valor[select.position.x][select.position.y]= g;
+      valor[0][20]= h;
+    }
+    select.position.x=0;
+    select.position.y=0;
+    select.position.z=30;
+    //posicionadorMalla.position.x=0;
+    //posicionadorMalla.position.y=0;
+    //posicionadorMalla.position.z=1000;
+    cuyo=1;
+    requestAnimationFrame(loop);
+    renderizador.render(escena,camara);
   }
   else{
     window.onload=function(){document.onkeydown=desplazar};
@@ -1044,8 +1089,6 @@ function loop(){
                   select.translateX(10);
                   break;
 	      case 13 :
-		  xselect = select.position.x
-		  yselect = select.position.y
 		  cuyo=cuyo+1;
 		}
     }
