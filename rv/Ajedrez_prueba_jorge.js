@@ -6,7 +6,7 @@ function Agent(x=0,y=0){
 
 Agent.prototype = new THREE.Object3D();
 
-Agent.prototype.sense = function(enviroment){};
+Agent.prototype.sense = function(environment){};
 Agent.prototype.plan = function(environment) {};
 Agent.prototype.act = function(environment) {};
 
@@ -458,7 +458,7 @@ function Seleccionador(){
   seleccionadorForma.merge(base2selec.geometry, base2selec.matrix);
   var material= new THREE.MeshBasicMaterial({color: 0xB40100});
   var seleccionador = new THREE.Mesh(seleccionadorForma, material);
-	this.add(seleccionador);
+  this.add(seleccionador);
 }
 Seleccionador.prototype=new Agent();
 
@@ -1036,26 +1036,7 @@ function loop(){
     renderizador.render(escena,camara);
   }
   else{
-    window.onload=function(){document.onkeydown=desplazar};
-      function desplazar(objeto){
-      var tecla = objeto.which;
-          switch (tecla){
-              case 37 : 
-                  select.translateZ(10);
-                  break;
-              case 38 : 
-                  select.translateX(-10);
-                  break;
-              case 39 :  
-                  select.translateZ(-10);
-                  break;
-              case 40 : 
-                  select.translateX(10);
-                  break;
-	      case 13 :
-		  cuyo=cuyo+1;
-		}
-    }
+    teclado();
   }
     escena.sense();
     escena.plan();
@@ -1079,6 +1060,29 @@ function TexturaSetup(){
 }
 
 //--------------------------------------------Movimiento--------------------------------------------------
+function teclado{
+	window.onload=function(){document.onkeydown=desplazar};
+      function desplazar(objeto){
+      var tecla = objeto.which;
+          switch (tecla){
+              case 37 : 
+                  select.translateZ(10);
+                  break;
+              case 38 : 
+                  select.translateX(-10);
+                  break;
+              case 39 :  
+                  select.translateZ(-10);
+                  break;
+              case 40 : 
+                  select.translateX(10);
+                  break;
+	      case 13 :
+		  cuyo=cuyo+1;
+		}
+      }
+}
+
 
 function guardarPosicion(){
     auxx=parseInt(select.position.x);
