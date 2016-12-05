@@ -1025,7 +1025,6 @@ function loop(){
       guardarPosicion(select.position.x, select.position.x);
   }
   else if(cuyo==4){
-    alert(cuyo);
     cuyo=1;
     if(auxx==0 && auxy==0){
       valor[0][0].position.x=select.position.x;
@@ -1083,6 +1082,7 @@ function loop(){
                   select.translateX(10);
                   break;
 	      case 13 :
+			  alert(cuyo);
 		  cuyo=cuyo+1;
 		}
     }
