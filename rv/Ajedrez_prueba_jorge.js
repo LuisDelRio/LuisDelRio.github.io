@@ -1115,8 +1115,6 @@ function TexturaSetup(){
 function guardarPosicion(x, y){
     auxx=parseInt(x);
     auxy=parseInt(y);
-    requestAnimationFrame(loop);
-    renderizador.render(escena,camara);
 }
 
 var raycaster = new THREE.Raycaster();
