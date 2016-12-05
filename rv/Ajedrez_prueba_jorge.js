@@ -1120,6 +1120,7 @@ function guardarPosicion(){
 
 
 function planGeneral(){
+  if(aux==0 && auxy==0){
 	var a = valor[select.position.x][select.position.y];
 	      if(a instanceof Torre){
 		alert("1");
@@ -1134,6 +1135,7 @@ function planGeneral(){
 	}else if(a instanceof Vacio){
 		alert("6");
 	}
+  }
 	cuyo=1;
 }
 
