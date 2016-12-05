@@ -149,7 +149,8 @@ function Torreplan(x0, y0, xf, yf, side){
   var xf = parseInt(xf);
   var yf = parseInt(yf);
   var side = parseInt(side);
-  if(xf===x0 && y0<=yf){
+  if(xf==x0 && y0<=yf){
+	  alert("primerif");
      for(var i=0; i==yf; i++){
         if(yf!=y0){
 	  piezaActual.position.y+=1;
