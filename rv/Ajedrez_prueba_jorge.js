@@ -1169,7 +1169,7 @@ cuyo=1;
 	      valor[select.position.x][select.position.y]= a1;
 	      valor[0][0]= a;
 //}
-	    else if(auxx==10 && auxy==0){
+	    if(auxx==10 && auxy==0){
 	      valor[select.position.x][select.position.y].position.x=valor[10][0].position.x
 	      valor[select.position.x][select.position.y].position.y=valor[10][0].position.y
 	      valor[10][0].position.x=select.position.x;
