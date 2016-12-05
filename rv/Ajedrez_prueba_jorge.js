@@ -143,8 +143,49 @@ function Torre(textura){
 }
 Torre.prototype=new Agent();
 
-function Torreplan(x, y, side){
-  alert(side);
+function Torreplan(x0, y0, xf, yf, side){
+  var x0 = parseInt(x0);
+  var y0 = parseInt(y0);
+  var xf = parseInt(xf);
+  var yf = parseInt(yf);
+  var side = parseInt(side);
+  if(xf===x0 && y0<=yf){
+     for(var i=0; i==yf; i++){
+        if(yf!=y0){
+	  piezaActual.position.y+=1;
+  	}else if(yf==y0){break;}
+        y0+=1;
+     }
+   }else if(xf===x0 && y0>=yf){
+	for(var i=0; i==yf; i++){
+	     if(yf==y0){
+	        piezaActual.position.y-=1;
+  	     }
+	     y0-=1;
+         }
+     }
+     else if(xf<=x0 && y0===yf){
+     for(var i=0; i==xf; i++){
+        if(xf!=x0){
+	  piezaActual.position.x+=1;
+  	}else if(xf==x0){break;}
+        x0+=1;
+     }
+   }else if(xf>=x0 && y0===yf){
+	for(var i=0; i==xf; i++){
+	     if(xf==x0){
+	        piezaActual.position.x-=1;
+  	     }
+	     x0-=1;
+         }
+     }
+     else if(xf===x0 && y0===yf){
+	     valor[toString(xf)][toString(yf)]= piezaActual;
+	     valor[toString(x0)][toString(x0)]= piezaPosterior;
+	     alert("Terminó tu turno prro");
+     }else{alert("nosepuede");}
+	
+	
 }
 
 
@@ -864,8 +905,8 @@ function setup(){
   select.rotateX(Math.PI/2);
   select.translateY(30);
   	//VALOR (CADA POSICION TABLERO)
-  valor = new Array(80)
-  valor[0] = new Array(80);
+  valor = new Array(8)
+  valor[0] = new Array(8);
   valor[0][0] = torreMalla;
   valor[0][10] = peonMalla;
   valor[0][20] = vacio1;
@@ -875,7 +916,7 @@ function setup(){
   valor[0][60] = peonMalla8;
   valor[0][70] = torreMalla1;
 
-  valor[10] = new Array(80);
+  valor[10] = new Array(8);
   valor[10][0] = vacio33;
   valor[10][10] = peonMalla1;
   valor[10][20] = vacio2;
@@ -885,7 +926,7 @@ function setup(){
   valor[10][60] = peonMalla9;
   valor[10][70] = vacio34;
 
-  valor[20] = new Array(80);
+  valor[20] = new Array(8);
   valor[20][0] = alfilMalla;
   valor[20][10] = peonMalla2;
   valor[20][20] = vacio3;
@@ -895,7 +936,7 @@ function setup(){
   valor[20][60] = peonMalla10;
   valor[20][70] = alfilMalla1;
 
-  valor[30] = new Array(80);
+  valor[30] = new Array(8);
   valor[30][0] = reyMalla;
   valor[30][10] = peonMalla3;
   valor[30][20] = vacio4;
@@ -905,7 +946,7 @@ function setup(){
   valor[30][60] = peonMalla11;
   valor[30][70] = reyMalla1;
 
-  valor[40] = new Array(80);
+  valor[40] = new Array(8);
   valor[40][0] = reinaMalla;
   valor[40][10] = peonMalla4;
   valor[40][20] = vacio5;
@@ -915,7 +956,7 @@ function setup(){
   valor[40][60] = peonMalla12;
   valor[40][70] = reinaMalla1;
 
-  valor[50] = new Array(80);
+  valor[50] = new Array(8);
   valor[50][0] = alfilMalla2;
   valor[50][10] = peonMalla5;
   valor[50][20] = vacio6;
@@ -925,7 +966,7 @@ function setup(){
   valor[50][60] = peonMalla13;
   valor[50][70] = alfilMalla3;
 
-  valor[60] = new Array(80);
+  valor[60] = new Array(8);
   valor[60][0] = vacio35;
   valor[60][10] = peonMalla6;
   valor[60][20] = vacio7;
@@ -935,7 +976,7 @@ function setup(){
   valor[60][60] = peonMalla14;
   valor[60][70] = vacio36;
 
-  valor[70] = new Array(80);
+  valor[70] = new Array(8);
   valor[70][0] = torreMalla3;
   valor[70][10] = peonMalla7;
   valor[70][20] = vacio8;
@@ -1119,10 +1160,13 @@ function guardarPosicion(){
 }
 
 var nombre=new THREE.Object3D;
+var piezaActual, piezaPosterior;
 function planGeneral(){
 	nombre = valor[auxx][auxy];
+	piezaActual = nombre;
+	piezaPosterior = valor[select.position.x][select.position.y];
 	      if(nombre instanceof Torre){
-		Torreplan(select.position.x, select.position.y, nombre.side);
+		Torreplan(auxx, auxy, select.position.x, select.position.y, nombre.side);
 	}else if(nombre instanceof Alfil){
 		
 	}else if(nombre instanceof Rey){
