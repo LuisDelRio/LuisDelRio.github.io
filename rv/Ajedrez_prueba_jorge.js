@@ -39,6 +39,22 @@ Environment.prototype.act = function(){
   }
 };
 
+var torreMalla, torreMalla1, torreMalla2, torreMalla3;
+var alfilMalla, alfilMalla1, alfilMalla2, alfilMalla3;
+var reyMalla, reyMalla1;
+var reinaMalla, reinaMalla1;
+var peonMalla, peonMalla1, peonMalla2, peonMalla3, peonMalla4, peonMalla5, peonMalla6, peonMalla7, peonMalla8, peonMalla9;
+var peonMalla10, peonMalla11, peonMalla12, peonMalla13, peonMalla14, peonMalla15;
+var cuyo=1;
+var vacio1, vacio2, vacio3, vacio4, vacio5, vacio6, vacio7, vacio8, vacio9, vacio10;
+var vacio12, vacio13, vacio14, vacio15, vacio16, vacio17, vacio18, vacio19, vacio11, vacio20;
+var vacio21, vacio22, vacio23, vacio24, vacio25, vacio26, vacio27, vacio28, vacio29, vacio30;
+var vacio31, vacio32, vacio33, vacio34, vacio35, vacio36;
+var valor, xselect, yselect;
+var auxx;
+var auxy;
+var cuyo = 1;
+
 //----------------------------------------TORRE-------------------------------------------------
 
 function Torre(textura){ 
@@ -120,6 +136,10 @@ function Torre(textura){
   this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0));
 }
 Torre.prototype=new Agent();
+
+function Torreplan(x, y){
+  
+}
 
 //---------------------------------------------Alfil----------------------------------------------------------
 
@@ -391,9 +411,9 @@ function Vacio(textura){
 Vacio.prototype=new Agent();
 
 //-----------------------------------------------Tablero----------------------------------------------------
-var cubo, base;
+
 function Tablero (texturaBlanco, texturaNegro, texturaMadera){
-  cubo= new Array();
+  var cubo= new Array();
   var a=2;
   for(var k=0; k<64; k++){
       for(var i=0; i<8; i++){
@@ -417,13 +437,31 @@ function Tablero (texturaBlanco, texturaNegro, texturaMadera){
           }
       }
   }
-  base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), new THREE.MeshLambertMaterial({map: texturaMadera}) );
-  escena.add(base);
-  base.receiveShadow=true;
+  var base = new THREE.Mesh( new THREE.BoxGeometry(90, 90, 2), new THREE.MeshLambertMaterial({map: texturaMadera}) );
   base.position.x=35;
   base.position.y=35;
   base.position.z=-2;
+  base.receiveShadow=true;
+  escena.add(base);
 }
+
+//----------------------------------------------Seleccionador------------------------------------------
+
+function Seleccionador(){
+  Agent.call(this);
+  var base1selec = new THREE.CylinderGeometry(2,2,6,6,6,false);
+  var base2selec = new THREE.CylinderGeometry(4,0,4,4,4,false);
+  base2selec.translate(0,-4,0);
+  var base1selec = new THREE.Mesh(base1selec);
+  var base2selec= new THREE.Mesh(base2selec);
+  var seleccionadorForma = new THREE.Geometry();
+  seleccionadorForma.merge(base1selec.geometry, base1selec.matrix);
+  seleccionadorForma.merge(base2selec.geometry, base2selec.matrix);
+  var material= new THREE.MeshBasicMaterial({color: 0xB40100});
+  var seleccionador = new THREE.Mesh(seleccionadorForma, material);
+	this.add(seleccionador);
+}
+Seleccionador.prototype=new Agent();
 
 //----------------------------------------------Setup--------------------------------------------------
 
@@ -790,6 +828,10 @@ function setup(){
   vacio36.translateZ(0);
   vacio36.translateX(60);
   
+  select = new Seleccionador();
+  select.rotateX(Math.PI/2);
+  select.translateY(30);
+  
   valor = new Array(80)
   valor[0] = new Array(80);
   valor[0][0] = torreMalla;
@@ -801,7 +843,7 @@ function setup(){
   valor[0][60] = peonMalla8;
   valor[0][70] = torreMalla1;
 
-  valor[10] = new Array(8);
+  valor[10] = new Array(80);
   valor[10][0] = vacio33;
   valor[10][10] = peonMalla1;
   valor[10][20] = vacio2;
@@ -811,7 +853,7 @@ function setup(){
   valor[10][60] = peonMalla9;
   valor[10][70] = vacio34;
 
-  valor[20] = new Array(8);
+  valor[20] = new Array(80);
   valor[20][0] = alfilMalla;
   valor[20][10] = peonMalla2;
   valor[20][20] = vacio3;
@@ -861,7 +903,7 @@ function setup(){
   valor[60][60] = peonMalla14;
   valor[60][70] = vacio36;
 
-  valor[70] = new Array(8);
+  valor[70] = new Array(80);
   valor[70][0] = torreMalla3;
   valor[70][10] = peonMalla7;
   valor[70][20] = vacio8;
@@ -936,9 +978,9 @@ function setup(){
   escena.add(vacio35);
   escena.add(vacio36);
   escena.add(iluminacion);
+  escena.add(select);
   Tablero(TEXTURAS.marmolnegro, TEXTURAS.marmolblanco, TEXTURAS.madera);
 
-  renderizador.shadowMapEnabled=true;
   iluminacion.castShadow=true;
   torreMalla.castShadow=true;
   torreMalla1.castShadow=true;
@@ -968,9 +1010,9 @@ function setup(){
   peonMalla13.castShadow=true;
   peonMalla14.castShadow=true;
   peonMalla15.castShadow=true;
-  base.receiveShadow=true;
   renderizador.setSize(window.innerWidth-100, window.innerHeight-100);
   document.body.appendChild(renderizador.domElement);
+  renderizador.shadowMapEnabled=true;
 }
 
 var setupDone=false;
@@ -980,6 +1022,33 @@ function loop(){
   if(TEXTURAS.madera!==undefined && TEXTURAS.ceramicablanca!==undefined && TEXTURAS.ceramicanegra!==undefined && TEXTURAS.marmolblanco!==undefined && TEXTURAS.marmolnegro!==undefined && !setupDone){
       setup();
       renderizador.render(escena, camara);
+  }
+  if (cuyo == 2){ 
+	  guardarPosicion(xselect, yselect);
+  }
+  else{
+    window.onload=function(){document.onkeydown=desplazar};
+      function desplazar(objeto){
+      var tecla = objeto.which;
+          switch (tecla){
+              case 37 : 
+                  select.translateZ(10);
+                  break;
+              case 38 : 
+                  select.translateX(-10);
+                  break;
+              case 39 :  
+                  select.translateZ(-10);
+                  break;
+              case 40 : 
+                  select.translateX(10);
+                  break;
+	      case 13 :
+		  xselect = select.position.x
+		  yselect = select.position.y
+		  cuyo=cuyo+1;
+		}
+    }
   }
     escena.sense();
     escena.plan();
@@ -999,6 +1068,16 @@ function TexturaSetup(){
                   function(textura){ TEXTURAS.marmolnegro = textura;});
     cargador.load("marnol_cafe.jpg",
                   function(textura){ TEXTURAS.madera = textura;});
+}
+
+//--------------------------------------------Movimiento--------------------------------------------------
+
+function guardarPosicion(x, y){
+    cuyo = cuyo + 1
+    auxx=parseInt(x);
+    auxy=parseInt(y);
+    var a = valor[auxx][auxy];
+    alert(a);
 }
 
 var raycaster = new THREE.Raycaster();
