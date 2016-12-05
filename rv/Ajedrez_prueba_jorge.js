@@ -150,7 +150,7 @@ function Torreplan(x0, y0, xf, yf, side){
   var yf = parseInt(yf);
   var side = parseInt(side);
   if(xf==x0 && y0<=yf){
-	  alert("primerif");
+	  //alert("primerif");
      for(var i=0; i==yf; i++){
 	   alert("primerfor");  
         if(yf!=y0){
