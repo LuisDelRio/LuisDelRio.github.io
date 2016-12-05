@@ -1132,6 +1132,8 @@ function planGeneral(){
 		alert(nombre);
 	}else if(nombre instanceof Peon){
 		alert(nombre);
+	}else if(nombre instanceof Vacio){
+		alert(nombre);
 	}
 }
 
