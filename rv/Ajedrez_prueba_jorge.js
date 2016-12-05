@@ -1031,34 +1031,589 @@ function loop(){
   else if(cuyo==4){
     cuyo=1;
     if(auxx==0 && auxy==0){
-      valor[0][0].position.x=select.position.x;
-      valor[0][0].position.y=select.position.y;
-      var a = valor[select.position.x][select.position.y];
-      var b = valor[0][0];
-      valor[select.position.x][select.position.y]= b;
-      valor[0][0]= a;
-    }else if(auxx==10 && auxy==0){
-      valor[10][0].position.x=select.position.x;
-      valor[10][0].position.y=select.position.y;      
-      var c = valor[select.position.x][select.position.y];
-      var d = valor[10][0];
-      valor[select.position.x][select.position.y]= c;
-      valor[10][0]= d;
-    }else if(auxx==0 && auxy==10){
-      valor[0][10].position.x=select.position.x;
-      valor[0][10].position.y=select.position.y;
-      var e = valor[select.position.x][select.position.y];
-      var f = valor[0][10];
-      valor[select.position.x][select.position.y]= e;
-      valor[0][10]= f;
-    }else if(auxx==0 && auxy==20){
-      valor[0][20].position.x=select.position.x;
-      valor[0][20].position.y=select.position.y;
-      var g = valor[select.position.x][select.position.y];
-      var h = valor[0][20];
-      valor[select.position.x][select.position.y]= g;
-      valor[0][20]= h;
-    }
+	      valor[select.position.x][select.position.y].position.x=valor[0][0].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[0][0].position.y
+	      valor[0][0].position.x=select.position.x;
+	      valor[0][0].position.y=select.position.y;
+	      var a = valor[select.position.x][select.position.y];
+	      var a1 = valor[0][0];
+	      valor[select.position.x][select.position.y]= a1;
+	      valor[0][0]= a;
+	    }else if(auxx==10 && auxy==0){
+	      valor[select.position.x][select.position.y].position.x=valor[10][0].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[10][0].position.y
+	      valor[10][0].position.x=select.position.x;
+	      valor[10][0].position.y=select.position.y;      
+	      var b = valor[select.position.x][select.position.y];
+	      var b1 = valor[10][0];
+	      valor[select.position.x][select.position.y]= b1;
+	      valor[10][0]= b;
+	    }else if(auxx==20 && auxy==0){
+	      valor[select.position.x][select.position.y].position.x=valor[20][0].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[20][0].position.y
+	      valor[20][0].position.x=select.position.x;
+	      valor[20][0].position.y=select.position.y;      
+	      var c = valor[select.position.x][select.position.y];
+	      var c1 = valor[20][0];
+	      valor[select.position.x][select.position.y]= c1;
+	      valor[20][0]= c; 
+	    }else if(auxx==30 && auxy==0){
+	      valor[select.position.x][select.position.y].position.x=valor[30][0].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[30][0].position.y
+	      valor[30][0].position.x=select.position.x;
+	      valor[30][0].position.y=select.position.y;      
+	      var d = valor[select.position.x][select.position.y];
+	      var d1 = valor[30][0];
+	      valor[select.position.x][select.position.y]= d1;
+	      valor[30][0]= d;
+	    }else if(auxx==40 && auxy==0){
+	      valor[select.position.x][select.position.y].position.x=valor[40][0].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[40][0].position.y
+	      valor[40][0].position.x=select.position.x;
+	      valor[40][0].position.y=select.position.y;      
+	      var e = valor[select.position.x][select.position.y];
+	      var e1 = valor[40][0];
+	      valor[select.position.x][select.position.y]= e1;
+	      valor[40][0]= e;
+	    }else if(auxx==50 && auxy==0){
+	      valor[select.position.x][select.position.y].position.x=valor[50][0].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[50][0].position.y
+	      valor[50][0].position.x=select.position.x;
+	      valor[50][0].position.y=select.position.y;      
+	      var f = valor[select.position.x][select.position.y];
+	      var f1 = valor[50][0];
+	      valor[select.position.x][select.position.y]= f1;
+	      valor[50][0]= f;
+	    }else if(auxx==60 && auxy==0){
+	      valor[select.position.x][select.position.y].position.x=valor[60][0].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[60][0].position.y
+	      valor[60][0].position.x=select.position.x;
+	      valor[60][0].position.y=select.position.y;      
+	      var g = valor[select.position.x][select.position.y];
+	      var g1 = valor[60][0];
+	      valor[select.position.x][select.position.y]= g1;
+	      valor[60][0]= g;
+	    }else if(auxx==70 && auxy==0){
+	      valor[select.position.x][select.position.y].position.x=valor[70][0].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[70][0].position.y
+	      valor[70][0].position.x=select.position.x;
+	      valor[70][0].position.y=select.position.y;      
+	      var h = valor[select.position.x][select.position.y];
+	      var h1 = valor[70][0];
+	      valor[select.position.x][select.position.y]= h1;
+	      valor[70][0]= h;
+	      
+	    }else if(auxx==0 && auxy==10){
+	      valor[select.position.x][select.position.y].position.x=valor[0][10].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[0][10].position.y
+	      valor[0][10].position.x=select.position.x;
+	      valor[0][10].position.y=select.position.y;
+	      var a2 = valor[select.position.x][select.position.y];
+	      var a3 = valor[0][10];
+	      valor[select.position.x][select.position.y]= a3;
+	      valor[0][10]= a2;
+	    }else if(auxx==10 && auxy==10){
+	      valor[select.position.x][select.position.y].position.x=valor[10][10].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[10][10].position.y
+	      valor[10][10].position.x=select.position.x;
+	      valor[10][10].position.y=select.position.y;      
+	      var b2 = valor[select.position.x][select.position.y];
+	      var b3 = valor[10][10];
+	      valor[select.position.x][select.position.y]= b3;
+	      valor[10][10]= b2;
+	    }else if(auxx==20 && auxy==10){
+	      valor[select.position.x][select.position.y].position.x=valor[20][10].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[20][10].position.y
+	      valor[20][10].position.x=select.position.x;
+	      valor[20][10].position.y=select.position.y;      
+	      var c2 = valor[select.position.x][select.position.y];
+	      var c3 = valor[20][10];
+	      valor[select.position.x][select.position.y]= c3;
+	      valor[20][10]= c2; 
+	    }else if(auxx==30 && auxy==10){
+	      valor[select.position.x][select.position.y].position.x=valor[30][10].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[30][10].position.y
+	      valor[30][10].position.x=select.position.x;
+	      valor[30][10].position.y=select.position.y;      
+	      var d2 = valor[select.position.x][select.position.y];
+	      var d3 = valor[30][10];
+	      valor[select.position.x][select.position.y]= d3;
+	      valor[30][10]= d2;
+	    }else if(auxx==40 && auxy==10){
+	      valor[select.position.x][select.position.y].position.x=valor[40][10].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[40][10].position.y
+	      valor[40][10].position.x=select.position.x;
+	      valor[40][10].position.y=select.position.y;      
+	      var e2 = valor[select.position.x][select.position.y];
+	      var e3 = valor[40][10];
+	      valor[select.position.x][select.position.y]= e3;
+	      valor[40][10]= e2;
+	    }else if(auxx==50 && auxy==10){
+	      valor[select.position.x][select.position.y].position.x=valor[50][10].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[50][10].position.y
+	      valor[50][10].position.x=select.position.x;
+	      valor[50][10].position.y=select.position.y;      
+	      var f2 = valor[select.position.x][select.position.y];
+	      var f3 = valor[50][10];
+	      valor[select.position.x][select.position.y]= f3;
+	      valor[50][10]= f2;
+	    }else if(auxx==60 && auxy==10){
+	      valor[select.position.x][select.position.y].position.x=valor[60][10].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[60][10].position.y
+	      valor[60][10].position.x=select.position.x;
+	      valor[60][10].position.y=select.position.y;      
+	      var g2 = valor[select.position.x][select.position.y];
+	      var g3 = valor[60][10];
+	      valor[select.position.x][select.position.y]= g3;
+	      valor[60][10]= g2;
+	    }else if(auxx==70 && auxy==10){
+	      valor[select.position.x][select.position.y].position.x=valor[70][10].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[70][10].position.y
+	      valor[70][10].position.x=select.position.x;
+	      valor[70][10].position.y=select.position.y;      
+	      var h2 = valor[select.position.x][select.position.y];
+	      var h3 = valor[70][10];
+	      valor[select.position.x][select.position.y]= h3;
+	      valor[70][10]= h2;
+	      
+	    }else if(auxx==0 && auxy==20){
+	      valor[select.position.x][select.position.y].position.x=valor[0][20].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[0][20].position.y
+	      valor[0][20].position.x=select.position.x;
+	      valor[0][20].position.y=select.position.y;
+	      var a4 = valor[select.position.x][select.position.y];
+	      var a5 = valor[0][20];
+	      valor[select.position.x][select.position.y]= a5;
+	      valor[0][20]= a4;
+	    }else if(auxx==10 && auxy==20){
+	      valor[select.position.x][select.position.y].position.x=valor[10][20].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[10][20].position.y
+	      valor[10][20].position.x=select.position.x;
+	      valor[10][20].position.y=select.position.y;      
+	      var b4 = valor[select.position.x][select.position.y];
+	      var b5 = valor[10][20];
+	      valor[select.position.x][select.position.y]= b5;
+	      valor[10][20]= b4;
+	    }else if(auxx==20 && auxy==20){
+	      valor[select.position.x][select.position.y].position.x=valor[20][20].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[20][20].position.y
+	      valor[20][20].position.x=select.position.x;
+	      valor[20][20].position.y=select.position.y;      
+	      var c4 = valor[select.position.x][select.position.y];
+	      var c5 = valor[20][20];
+	      valor[select.position.x][select.position.y]= c5;
+	      valor[20][20]= c4; 
+	    }else if(auxx==30 && auxy==20){
+	      valor[select.position.x][select.position.y].position.x=valor[30][20].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[30][20].position.y
+	      valor[30][20].position.x=select.position.x;
+	      valor[30][20].position.y=select.position.y;      
+	      var d4 = valor[select.position.x][select.position.y];
+	      var d5 = valor[30][20];
+	      valor[select.position.x][select.position.y]= d5;
+	      valor[30][20]= d4;
+	    }else if(auxx==40 && auxy==20){
+	      valor[select.position.x][select.position.y].position.x=valor[40][20].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[40][20].position.y
+	      valor[40][20].position.x=select.position.x;
+	      valor[40][20].position.y=select.position.y;      
+	      var e4 = valor[select.position.x][select.position.y];
+	      var e5 = valor[40][20];
+	      valor[select.position.x][select.position.y]= e5;
+	      valor[40][20]= e4;
+	    }else if(auxx==50 && auxy==20){
+	      valor[select.position.x][select.position.y].position.x=valor[50][20].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[50][20].position.y
+	      valor[50][20].position.x=select.position.x;
+	      valor[50][20].position.y=select.position.y;      
+	      var f4 = valor[select.position.x][select.position.y];
+	      var f5 = valor[50][20];
+	      valor[select.position.x][select.position.y]= f5;
+	      valor[50][20]= f4;
+	    }else if(auxx==60 && auxy==20){
+	      valor[select.position.x][select.position.y].position.x=valor[60][20].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[60][20].position.y
+	      valor[60][20].position.x=select.position.x;
+	      valor[60][20].position.y=select.position.y;      
+	      var g4 = valor[select.position.x][select.position.y];
+	      var g5 = valor[60][20];
+	      valor[select.position.x][select.position.y]= g5;
+	      valor[60][20]= g4;
+	    }else if(auxx==70 && auxy==20){
+	      valor[select.position.x][select.position.y].position.x=valor[70][20].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[70][20].position.y
+	      valor[70][20].position.x=select.position.x;
+	      valor[70][20].position.y=select.position.y;      
+	      var h4 = valor[select.position.x][select.position.y];
+	      var h5 = valor[70][20];
+	      valor[select.position.x][select.position.y]= h5;
+	      valor[70][20]= h4;
+	    
+	     }else if(auxx==0 && auxy==30){
+	      valor[select.position.x][select.position.y].position.x=valor[0][30].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[0][30].position.y
+	      valor[0][30].position.x=select.position.x;
+	      valor[0][30].position.y=select.position.y;
+	      var a6 = valor[select.position.x][select.position.y];
+	      var a7 = valor[0][30];
+	      valor[select.position.x][select.position.y]= a7;
+	      valor[0][30]= a6;
+	    }else if(auxx==10 && auxy==30){
+	      valor[select.position.x][select.position.y].position.x=valor[10][30].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[10][30].position.y
+	      valor[10][30].position.x=select.position.x;
+	      valor[10][30].position.y=select.position.y;      
+	      var b6 = valor[select.position.x][select.position.y];
+	      var b7 = valor[10][30];
+	      valor[select.position.x][select.position.y]= b7;
+	      valor[10][30]= b6;
+	    }else if(auxx==20 && auxy==30){
+	      valor[select.position.x][select.position.y].position.x=valor[20][30].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[20][30].position.y
+	      valor[20][30].position.x=select.position.x;
+	      valor[20][30].position.y=select.position.y;      
+	      var c6 = valor[select.position.x][select.position.y];
+	      var c7 = valor[20][30];
+	      valor[select.position.x][select.position.y]= c7;
+	      valor[20][30]= c6; 
+	    }else if(auxx==30 && auxy==30){
+	      valor[select.position.x][select.position.y].position.x=valor[30][30].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[30][30].position.y
+	      valor[30][30].position.x=select.position.x;
+	      valor[30][30].position.y=select.position.y;      
+	      var d6 = valor[select.position.x][select.position.y];
+	      var d7 = valor[30][30];
+	      valor[select.position.x][select.position.y]= d7;
+	      valor[30][30]= d6;
+	    }else if(auxx==40 && auxy==30){
+	      valor[select.position.x][select.position.y].position.x=valor[40][30].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[40][30].position.y
+	      valor[40][30].position.x=select.position.x;
+	      valor[40][30].position.y=select.position.y;      
+	      var e6 = valor[select.position.x][select.position.y];
+	      var e7 = valor[40][30];
+	      valor[select.position.x][select.position.y]= e7;
+	      valor[40][30]= e6;
+	    }else if(auxx==50 && auxy==30){
+	      valor[select.position.x][select.position.y].position.x=valor[50][30].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[50][30].position.y
+	      valor[50][30].position.x=select.position.x;
+	      valor[50][30].position.y=select.position.y;      
+	      var f6 = valor[select.position.x][select.position.y];
+	      var f7 = valor[50][30];
+	      valor[select.position.x][select.position.y]= f7;
+	      valor[50][30]= f6;
+	    }else if(auxx==60 && auxy==30){
+	      valor[select.position.x][select.position.y].position.x=valor[60][30].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[60][30].position.y
+	      valor[60][30].position.x=select.position.x;
+	      valor[60][30].position.y=select.position.y;      
+	      var g6 = valor[select.position.x][select.position.y];
+	      var g7 = valor[60][30];
+	      valor[select.position.x][select.position.y]= g7;
+	      valor[60][30]= g6;
+	    }else if(auxx==70 && auxy==30){
+	      valor[select.position.x][select.position.y].position.x=valor[70][30].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[70][30].position.y
+	      valor[70][30].position.x=select.position.x;
+	      valor[70][30].position.y=select.position.y;      
+	      var h6 = valor[select.position.x][select.position.y];
+	      var h7 = valor[70][30];
+	      valor[select.position.x][select.position.y]= h7;
+	      valor[70][30]= h6;
+	    
+	    }else if(auxx==0 && auxy==40){
+	      valor[select.position.x][select.position.y].position.x=valor[0][40].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[0][40].position.y
+	      valor[0][40].position.x=select.position.x;
+	      valor[0][40].position.y=select.position.y;
+	      var a8 = valor[select.position.x][select.position.y];
+	      var a9 = valor[0][40];
+	      valor[select.position.x][select.position.y]= a8;
+	      valor[0][40]= a9;
+	    }else if(auxx==10 && auxy==40){
+	      valor[select.position.x][select.position.y].position.x=valor[10][40].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[10][40].position.y
+	      valor[10][40].position.x=select.position.x;
+	      valor[10][40].position.y=select.position.y;      
+	      var b8 = valor[select.position.x][select.position.y];
+	      var b9 = valor[10][40];
+	      valor[select.position.x][select.position.y]= b9;
+	      valor[10][40]= b8;
+	    }else if(auxx==20 && auxy==40){
+	      valor[select.position.x][select.position.y].position.x=valor[20][40].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[20][40].position.y
+	      valor[20][40].position.x=select.position.x;
+	      valor[20][40].position.y=select.position.y;      
+	      var c8 = valor[select.position.x][select.position.y];
+	      var c9 = valor[20][40];
+	      valor[select.position.x][select.position.y]= c9;
+	      valor[20][40]= c8; 
+	    }else if(auxx==30 && auxy==40){
+	      valor[select.position.x][select.position.y].position.x=valor[30][40].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[30][40].position.y
+	      valor[30][40].position.x=select.position.x;
+	      valor[30][40].position.y=select.position.y;      
+	      var d8 = valor[select.position.x][select.position.y];
+	      var d9 = valor[30][40];
+	      valor[select.position.x][select.position.y]= d9;
+	      valor[30][40]= d8;
+	    }else if(auxx==40 && auxy==40){
+	      valor[select.position.x][select.position.y].position.x=valor[40][40].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[40][40].position.y
+	      valor[40][40].position.x=select.position.x;
+	      valor[40][40].position.y=select.position.y;      
+	      var e8 = valor[select.position.x][select.position.y];
+	      var e9 = valor[40][40];
+	      valor[select.position.x][select.position.y]= e9;
+	      valor[40][40]= e8;
+	    }else if(auxx==50 && auxy==40){
+	      valor[select.position.x][select.position.y].position.x=valor[50][40].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[50][40].position.y
+	      valor[50][40].position.x=select.position.x;
+	      valor[50][40].position.y=select.position.y;      
+	      var f8 = valor[select.position.x][select.position.y];
+	      var f9 = valor[50][40];
+	      valor[select.position.x][select.position.y]= f9;
+	      valor[50][40]= f8;
+	    }else if(auxx==60 && auxy==40){
+	      valor[select.position.x][select.position.y].position.x=valor[60][40].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[60][40].position.y
+	      valor[60][40].position.x=select.position.x;
+	      valor[60][40].position.y=select.position.y;      
+	      var g8 = valor[select.position.x][select.position.y];
+	      var g9 = valor[60][40];
+	      valor[select.position.x][select.position.y]= g9;
+	      valor[60][40]= g8;
+	    }else if(auxx==70 && auxy==40){
+	      valor[select.position.x][select.position.y].position.x=valor[70][40].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[70][40].position.y
+	      valor[70][40].position.x=select.position.x;
+	      valor[70][40].position.y=select.position.y;      
+	      var h8 = valor[select.position.x][select.position.y];
+	      var h9 = valor[70][40];
+	      valor[select.position.x][select.position.y]= h9;
+	      valor[70][40]= h8;
+	    
+	    }else if(auxx==0 && auxy==50){
+	      valor[select.position.x][select.position.y].position.x=valor[0][50].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[0][50].position.y
+	      valor[0][50].position.x=select.position.x;
+	      valor[0][50].position.y=select.position.y;
+	      var a10 = valor[select.position.x][select.position.y];
+	      var a11 = valor[0][50];
+	      valor[select.position.x][select.position.y]= a11;
+	      valor[0][50]= a10;
+	    }else if(auxx==10 && auxy==50){
+	      valor[select.position.x][select.position.y].position.x=valor[10][50].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[10][50].position.y
+	      valor[10][50].position.x=select.position.x;
+	      valor[10][50].position.y=select.position.y;      
+	      var b10 = valor[select.position.x][select.position.y];
+	      var b11 = valor[10][50];
+	      valor[select.position.x][select.position.y]= b11;
+	      valor[10][50]= b10;
+	    }else if(auxx==20 && auxy==50){
+	      valor[select.position.x][select.position.y].position.x=valor[20][50].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[20][50].position.y
+	      valor[20][50].position.x=select.position.x;
+	      valor[20][50].position.y=select.position.y;      
+	      var c10 = valor[select.position.x][select.position.y];
+	      var c11 = valor[20][50];
+	      valor[select.position.x][select.position.y]= c11;
+	      valor[20][50]= c10; 
+	    }else if(auxx==30 && auxy==50){
+	      valor[select.position.x][select.position.y].position.x=valor[30][50].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[30][50].position.y
+	      valor[30][50].position.x=select.position.x;
+	      valor[30][50].position.y=select.position.y;      
+	      var d10 = valor[select.position.x][select.position.y];
+	      var d11 = valor[30][50];
+	      valor[select.position.x][select.position.y]= d11;
+	      valor[30][50]= d10;
+	    }else if(auxx==40 && auxy==50){
+	      valor[select.position.x][select.position.y].position.x=valor[40][50].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[40][50].position.y
+	      valor[40][50].position.x=select.position.x;
+	      valor[40][50].position.y=select.position.y;      
+	      var e10 = valor[select.position.x][select.position.y];
+	      var e11 = valor[40][50];
+	      valor[select.position.x][select.position.y]= e11;
+	      valor[40][50]= e10;
+	    }else if(auxx==50 && auxy==50){
+	      valor[select.position.x][select.position.y].position.x=valor[50][50].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[50][50].position.y
+	      valor[50][50].position.x=select.position.x;
+	      valor[50][50].position.y=select.position.y;      
+	      var f10 = valor[select.position.x][select.position.y];
+	      var f11 = valor[50][50];
+	      valor[select.position.x][select.position.y]= f11;
+	      valor[50][50]= f10;
+	    }else if(auxx==60 && auxy==50){
+	      valor[select.position.x][select.position.y].position.x=valor[60][50].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[60][50].position.y
+	      valor[60][50].position.x=select.position.x;
+	      valor[60][50].position.y=select.position.y;      
+	      var g10 = valor[select.position.x][select.position.y];
+	      var g11 = valor[60][50];
+	      valor[select.position.x][select.position.y]= g11;
+	      valor[60][50]= g10;
+	    }else if(auxx==70 && auxy==50){
+	      valor[select.position.x][select.position.y].position.x=valor[70][50].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[70][50].position.y
+	      valor[70][50].position.x=select.position.x;
+	      valor[70][50].position.y=select.position.y;      
+	      var h10 = valor[select.position.x][select.position.y];
+	      var h11 = valor[70][50];
+	      valor[select.position.x][select.position.y]= h11;
+	      valor[70][50]= h10;
+	    
+	    }else if(auxx==0 && auxy==60){
+	      valor[select.position.x][select.position.y].position.x=valor[0][60].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[0][60].position.y
+	      valor[0][60].position.x=select.position.x;
+	      valor[0][60].position.y=select.position.y;
+	      var a12 = valor[select.position.x][select.position.y];
+	      var a13 = valor[0][60];
+	      valor[select.position.x][select.position.y]= a13;
+	      valor[0][60]= a12;
+	    }else if(auxx==10 && auxy==60){
+	      valor[select.position.x][select.position.y].position.x=valor[10][60].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[10][60].position.y
+	      valor[10][60].position.x=select.position.x;
+	      valor[10][60].position.y=select.position.y;      
+	      var b12 = valor[select.position.x][select.position.y];
+	      var b13 = valor[10][60];
+	      valor[select.position.x][select.position.y]= b13;
+	      valor[10][60]= b12;
+	    }else if(auxx==20 && auxy==60){
+	      valor[select.position.x][select.position.y].position.x=valor[20][60].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[20][60].position.y
+	      valor[20][60].position.x=select.position.x;
+	      valor[20][60].position.y=select.position.y;      
+	      var c12 = valor[select.position.x][select.position.y];
+	      var c13 = valor[20][60];
+	      valor[select.position.x][select.position.y]= c13;
+	      valor[20][60]= c12; 
+	    }else if(auxx==30 && auxy==60){
+	      valor[select.position.x][select.position.y].position.x=valor[30][60].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[30][60].position.y
+	      valor[30][60].position.x=select.position.x;
+	      valor[30][60].position.y=select.position.y;      
+	      var d12 = valor[select.position.x][select.position.y];
+	      var d13 = valor[30][60];
+	      valor[select.position.x][select.position.y]= d13;
+	      valor[30][60]= d12;
+	    }else if(auxx==40 && auxy==60){
+	      valor[select.position.x][select.position.y].position.x=valor[40][60].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[40][60].position.y
+	      valor[40][60].position.x=select.position.x;
+	      valor[40][60].position.y=select.position.y;      
+	      var e12 = valor[select.position.x][select.position.y];
+	      var e13 = valor[40][60];
+	      valor[select.position.x][select.position.y]= e13;
+	      valor[40][60]= e12;
+	    }else if(auxx==50 && auxy==60){
+	      valor[select.position.x][select.position.y].position.x=valor[50][60].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[50][60].position.y
+	      valor[50][60].position.x=select.position.x;
+	      valor[50][60].position.y=select.position.y;      
+	      var f12 = valor[select.position.x][select.position.y];
+	      var f13 = valor[50][60];
+	      valor[select.position.x][select.position.y]= f13;
+	      valor[50][60]= f12;
+	    }else if(auxx==60 && auxy==60){
+	      valor[select.position.x][select.position.y].position.x=valor[60][60].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[60][60].position.y
+	      valor[60][60].position.x=select.position.x;
+	      valor[60][60].position.y=select.position.y;      
+	      var g12 = valor[select.position.x][select.position.y];
+	      var g13 = valor[60][60];
+	      valor[select.position.x][select.position.y]= g13;
+	      valor[60][60]= g12;
+	    }else if(auxx==70 && auxy==60){
+	      valor[select.position.x][select.position.y].position.x=valor[70][60].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[70][60].position.y
+	      valor[70][60].position.x=select.position.x;
+	      valor[70][60].position.y=select.position.y;      
+	      var h12 = valor[select.position.x][select.position.y];
+	      var h13 = valor[70][60];
+	      valor[select.position.x][select.position.y]= h13;
+	      valor[70][60]= h12;
+	    
+	    }else if(auxx==0 && auxy==70){
+	      valor[select.position.x][select.position.y].position.x=valor[0][70].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[0][70].position.y
+	      valor[0][70].position.x=select.position.x;
+	      valor[0][70].position.y=select.position.y;
+	      var a14 = valor[select.position.x][select.position.y];
+	      var a15 = valor[0][70];
+	      valor[select.position.x][select.position.y]= a15;
+	      valor[0][70]= a14;
+	    }else if(auxx==10 && auxy==70){
+	      valor[select.position.x][select.position.y].position.x=valor[10][70].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[10][70].position.y
+	      valor[10][70].position.x=select.position.x;
+	      valor[10][70].position.y=select.position.y;      
+	      var b14 = valor[select.position.x][select.position.y];
+	      var b15 = valor[10][70];
+	      valor[select.position.x][select.position.y]= b15;
+	      valor[10][70]= b14;
+	    }else if(auxx==20 && auxy==70){
+	      valor[select.position.x][select.position.y].position.x=valor[20][70].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[20][70].position.y
+	      valor[20][70].position.x=select.position.x;
+	      valor[20][70].position.y=select.position.y;      
+	      var c14 = valor[select.position.x][select.position.y];
+	      var c15 = valor[20][70];
+	      valor[select.position.x][select.position.y]= c15;
+	      valor[20][70]= c14; 
+	    }else if(auxx==30 && auxy==70){
+	      valor[select.position.x][select.position.y].position.x=valor[30][70].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[30][70].position.y
+	      valor[30][70].position.x=select.position.x;
+	      valor[30][70].position.y=select.position.y;      
+	      var d14 = valor[select.position.x][select.position.y];
+	      var d15 = valor[30][70];
+	      valor[select.position.x][select.position.y]= d15;
+	      valor[30][70]= d14;
+	    }else if(auxx==40 && auxy==70){
+	      valor[select.position.x][select.position.y].position.x=valor[40][70].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[40][70].position.y
+	      valor[40][70].position.x=select.position.x;
+	      valor[40][70].position.y=select.position.y;      
+	      var e14 = valor[select.position.x][select.position.y];
+	      var e15 = valor[40][70];
+	      valor[select.position.x][select.position.y]= e15;
+	      valor[40][70]= e14;
+	    }else if(auxx==50 && auxy==70){
+	      valor[select.position.x][select.position.y].position.x=valor[50][70].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[50][70].position.y
+	      valor[50][70].position.x=select.position.x;
+	      valor[50][70].position.y=select.position.y;      
+	      var f14 = valor[select.position.x][select.position.y];
+	      var f15 = valor[50][70];
+	      valor[select.position.x][select.position.y]= f15;
+	      valor[50][70]= f14;
+	    }else if(auxx==60 && auxy==70){
+	      valor[select.position.x][select.position.y].position.x=valor[60][70].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[60][70].position.y
+	      valor[60][70].position.x=select.position.x;
+	      valor[60][70].position.y=select.position.y;      
+	      var g14 = valor[select.position.x][select.position.y];
+	      var g15 = valor[60][70];
+	      valor[select.position.x][select.position.y]= g15;
+	      valor[60][70]= g14;
+	    }else if(auxx==70 && auxy==70){
+	      valor[select.position.x][select.position.y].position.x=valor[70][70].position.x
+	      valor[select.position.x][select.position.y].position.y=valor[70][70].position.y
+	      valor[70][70].position.x=select.position.x;
+	      valor[70][70].position.y=select.position.y;      
+	      var h14 = valor[select.position.x][select.position.y];
+	      var h15 = valor[70][70];
+	      valor[select.position.x][select.position.y]= h15;
+	      valor[70][70]= h14;
+	    }
     select.position.x=0;
     select.position.y=0;
     select.position.z=30;
