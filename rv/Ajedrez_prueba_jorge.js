@@ -1148,6 +1148,19 @@ cuyo=1;
 	      valor[0][0].position.y=select.position.y;
 	      var a = valor[select.position.x][select.position.y];
 	      var a1 = valor[0][0];
+	      if(a instanceof Torre){
+		alert("1");
+	}else if(a instanceof Alfil){
+		alert("2");
+	}else if(a instanceof Rey){
+		alert("3");
+	}else if(a instanceof Reina){
+		alert("4");
+	}else if(a instanceof Peon){
+		alert("5");
+	}else if(a instanceof Vacio){
+		alert("6");
+	}
 	      valor[select.position.x][select.position.y]= a1;
 	      valor[0][0]= a;
 	    }else if(auxx==10 && auxy==0){
