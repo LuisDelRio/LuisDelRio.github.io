@@ -1111,8 +1111,8 @@ function teclado(){
 
 
 function guardarPosicion(){
-    auxx=parseInt(select.position.x);
-    auxy=parseInt(select.position.y);
+    auxx=select.position.x;
+    auxy=select.position.y;
     cuyo=cuyo+1;
     requestAnimationFrame(loop);
     renderizador.render(escena, camara);
@@ -1120,11 +1120,8 @@ function guardarPosicion(){
 
 var nombre = new THREE.Object3D;
 function planGeneral(){
-	a=toString(auxx);
-	alert(a);
-	b=toString(auxy);
-	nombre = valor[a][b];
-	if(valor[a][b] instanceof Torre){
+	nombre = valor[auxx][auxy];
+	if(valor[auxx][auxy] instanceof Torre){
 		alert("1");
 	}else if(valor[select.position.x][select.position.y] instanceof Alfil){
 		alert("2");
