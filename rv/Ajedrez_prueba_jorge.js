@@ -1135,6 +1135,7 @@ function planGeneral(){
 	}else if(nombre instanceof Vacio){
 		alert(nombre);
 	}
+	cuyo=1;
 }
 
 
