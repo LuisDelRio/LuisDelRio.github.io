@@ -1022,7 +1022,11 @@ function loop(){
       renderizador.render(escena, camara);
   }
   if(cuyo==2){
-      guardarPosicion(select.position.x, select.position.x);
+      auxx=parseInt(select.position.x);
+      auxy=parseInt(select.position.y);
+      cuyo=cuyo+1;
+      requestAnimationFrame(loop);
+      renderizador.render(escena,camara);
   }
   else if(cuyo==4){
     cuyo=1;
