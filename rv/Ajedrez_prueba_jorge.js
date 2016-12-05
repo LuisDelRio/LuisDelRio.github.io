@@ -1028,14 +1028,6 @@ function loop(){
   }
   else if(cuyo==4){
     planGeneral();
-    select.position.x=0;
-    select.position.y=0;
-    select.position.z=30;
-    //posicionadorMalla.position.x=0;
-    //posicionadorMalla.position.y=0;
-    //posicionadorMalla.position.z=1000;
-    requestAnimationFrame(loop);
-    renderizador.render(escena,camara);
   }
   else{
     teclado();
@@ -1682,6 +1674,14 @@ cuyo=1;
 	      valor[select.position.x][select.position.y]= h15;
 	      valor[70][70]= h14;
 	    }
+    select.position.x=0;
+    select.position.y=0;
+    select.position.z=30;
+    //posicionadorMalla.position.x=0;
+    //posicionadorMalla.position.y=0;
+    //posicionadorMalla.position.z=1000;
+    requestAnimationFrame(loop);
+    renderizador.render(escena,camara);
 }
 
 
