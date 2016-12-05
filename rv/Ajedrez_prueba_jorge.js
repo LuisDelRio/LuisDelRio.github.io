@@ -1022,11 +1022,7 @@ function loop(){
       renderizador.render(escena, camara);
   }
   if(cuyo==2){
-      auxx=parseInt(select.position.x);
-      auxy=parseInt(select.position.y);
-      cuyo=cuyo+1;
-      requestAnimationFrame(loop);
-      renderizador.render(escena,camara);
+      guardarPosicion();
   }
   else if(cuyo==4){
     cuyo=1;
@@ -1669,12 +1665,12 @@ function TexturaSetup(){
 
 //--------------------------------------------Movimiento--------------------------------------------------
 
-function guardarPosicion(x, y){
-    auxx=parseInt(x);
-    auxy=parseInt(y);
+function guardarPosicion(){
+    auxx=parseInt(select.position.x);
+    auxy=parseInt(select.position.y);
     cuyo=cuyo+1;
     requestAnimationFrame(loop);
-    renderizador.render(escena,camara);
+    renderizador.render(escena, camara);
 }
 
 var raycaster = new THREE.Raycaster();
