@@ -1122,17 +1122,17 @@ var nombre = new THREE.Object3D;
 function planGeneral(){
 	nombre = valor[select.position.x][select.position.y];
 	alert(nombre);
-	if(nombre instanceof Torre){
+	if(valor[select.position.x][select.position.y] instanceof Torre){
 		alert(nombre);
-	}else if(nombre instanceof Alfil){
+	}else if(valor[select.position.x][select.position.y] instanceof Alfil){
 		alert(nombre);
-	}else if(nombre instanceof Rey){
+	}else if(valor[select.position.x][select.position.y] instanceof Rey){
 		alert(nombre);
-	}else if(nombre instanceof Reina){
+	}else if(valor[select.position.x][select.position.y] instanceof Reina){
 		alert(nombre);
-	}else if(nombre instanceof Peon){
+	}else if(valor[select.position.x][select.position.y] instanceof Peon){
 		alert(nombre);
-	}else if(nombre instanceof Vacio){
+	}else if(valor[select.position.x][select.position.y] instanceof Vacio){
 		alert(nombre);
 	}
 	cuyo=1;
