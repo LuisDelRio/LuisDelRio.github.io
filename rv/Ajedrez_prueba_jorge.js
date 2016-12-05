@@ -1120,7 +1120,7 @@ function guardarPosicion(){
 
 var nombre = new THREE.Object3D;
 function planGeneral(){
-	nombre = valor[auxx][auxy];
+	nombre = valor[select.position.x][select.position.y];
 	alert(nombre);
 	if(nombre instanceof Torre){
 		alert(nombre);
