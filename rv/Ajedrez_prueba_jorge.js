@@ -133,6 +133,13 @@ function Torre(textura){
   this.castShadow=true;
   this.receiveShadow=true;  
   this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0));
+
+  if(textura===TEXTURAS.ceramicablanca){
+	    this.side=1;
+    }
+    else if(textura===TEXTURAS.ceramicanegra){
+	    this.side=0;
+    }
 }
 Torre.prototype=new Agent();
 
@@ -183,6 +190,12 @@ function Alfil(textura){
   this.add(new THREE.Mesh(alfilForma, new THREE.MeshLambertMaterial({map:textura})));
   this.castShadow=true;
   this.receiveShadow=true;  
+  if(textura===TEXTURAS.ceramicablanca){
+	    this.side=1;
+    }
+    else if(textura===TEXTURAS.ceramicanegra){
+	    this.side=0;
+    }
 }
 Alfil.prototype=new Agent();
 
@@ -251,7 +264,13 @@ function Rey(textura){
   reyForma.merge(cabeza5Malla.geometry, cabeza5Malla.matrix);
   this.add(new THREE.Mesh(reyForma, new THREE.MeshLambertMaterial({map:textura})));
   this.castShadow=true;
-  this.receiveShadow=true;  
+  this.receiveShadow=true;
+  if(textura===TEXTURAS.ceramicablanca){
+	    this.side=1;
+    }
+    else if(textura===TEXTURAS.ceramicanegra){
+	    this.side=0;
+    }
 }
 Rey.prototype=new Agent();
 
@@ -347,7 +366,13 @@ function Reina(textura){
   reinaForma.merge(cabeza1Malla.geometry, cabeza1Malla.matrix);
   this.add(new THREE.Mesh(reinaForma, new THREE.MeshLambertMaterial({map:textura})));
   this.castShadow=true;
-  this.receiveShadow=true;  
+  this.receiveShadow=true;
+  if(textura===TEXTURAS.ceramicablanca){
+	    this.side=1;
+    }
+    else if(textura===TEXTURAS.ceramicanegra){
+	    this.side=0;
+    }
 }
 Reina.prototype=new Agent();
 
@@ -377,6 +402,12 @@ function Peon(textura){
   this.add(new THREE.Mesh(peonForma, new THREE.MeshLambertMaterial({map:textura})));
   this.castShadow=true;
   this.receiveShadow=true;  
+  if(textura===TEXTURAS.ceramicablanca){
+	    this.side=1;
+    }
+    else if(textura===TEXTURAS.ceramicanegra){
+	    this.side=0;
+    }
 }
 Peon.prototype=new Agent();
 
@@ -1091,7 +1122,6 @@ function guardarPosicion(){
 function planGeneral(){
 cuyo=1;
     if(auxx==0 && auxy==0){
-	    if(valor[select.position.x][select.position.y]==torreMalla || valor[select.position.x][select.position.y]==torreMalla3 || valor[select.position.x][select.position.y]==reyMalla || valor[select.position.x][select.position.y]==reinaMalla || valor[select.position.x][select.position.y]==alfilMalla || valor[select.position.x][select.position.y]==alfilMalla3){
 	      valor[select.position.x][select.position.y].position.x=valor[0][0].position.x
 	      valor[select.position.x][select.position.y].position.y=valor[0][0].position.y
 	      valor[0][0].position.x=select.position.x;
@@ -1100,7 +1130,6 @@ cuyo=1;
 	      var a1 = valor[0][0];
 	      valor[select.position.x][select.position.y]= a1;
 	      valor[0][0]= a;
-	     }
 	    }else if(auxx==10 && auxy==0){
 	      valor[select.position.x][select.position.y].position.x=valor[10][0].position.x
 	      valor[select.position.x][select.position.y].position.y=valor[10][0].position.y
