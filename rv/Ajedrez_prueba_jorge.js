@@ -1121,7 +1121,7 @@ function guardarPosicion(){
 var nombre = new THREE.Object3D;
 function planGeneral(){
 	nombre = valor[auxx][auxy];
-	
+	alert(nombre);
 	if(nombre instanceof Torre){
 		alert(nombre);
 	}else if(nombre instanceof Alfil){
