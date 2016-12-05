@@ -1118,9 +1118,9 @@ function guardarPosicion(){
     renderizador.render(escena, camara);
 }
 
-var nombre;
+
 function planGeneral(){
-	nombre = valor[select.position.x][select.position.y];
+	var nombre = valor[select.position.x][select.position.y];
 	alert(nombre);
 	if(nombre instanceof Torre){
 		alert("1");
