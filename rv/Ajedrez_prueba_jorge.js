@@ -152,12 +152,14 @@ function Torreplan(x0, y0, xf, yf, side){
   if(xf==x0 && y0<=yf){
 	  alert("primerif");
      for(var i=0; i==yf; i++){
+	   alert("primerfor");  
         if(yf!=y0){
+	  alert("segundoif");	
 	  piezaActual.position.y+=1;
   	}else if(yf==y0){break;}
         y0+=1;
      }
-   }else if(xf===x0 && y0>=yf){
+   }else if(xf==x0 && y0>=yf){
 	for(var i=0; i==yf; i++){
 	     if(yf==y0){
 	        piezaActual.position.y-=1;
@@ -165,14 +167,14 @@ function Torreplan(x0, y0, xf, yf, side){
 	     y0-=1;
          }
      }
-     else if(xf<=x0 && y0===yf){
+     else if(xf<=x0 && y0==yf){
      for(var i=0; i==xf; i++){
         if(xf!=x0){
 	  piezaActual.position.x+=1;
   	}else if(xf==x0){break;}
         x0+=1;
      }
-   }else if(xf>=x0 && y0===yf){
+   }else if(xf>=x0 && y0==yf){
 	for(var i=0; i==xf; i++){
 	     if(xf==x0){
 	        piezaActual.position.x-=1;
