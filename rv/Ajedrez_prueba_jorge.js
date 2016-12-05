@@ -1120,9 +1120,9 @@ function guardarPosicion(){
 
 var nombre = new THREE.Object3D;
 function planGeneral(){
-	nombre = valor[select.position.x][select.position.y];
-	alert("noPutito");
-	if(valor[select.position.x][select.position.y] instanceof Torre){
+	nombre = valor[0][0];
+	alert(nombre);
+	if(valor[0][0] instanceof Torre){
 		alert("1");
 	}else if(valor[select.position.x][select.position.y] instanceof Alfil){
 		alert("2");
