@@ -1031,29 +1031,37 @@ function loop(){
       valor[0][0].position.y=select.position.y;
       valor[parseInt(select.position.x)][parseInt(select.position.y)].position.x=0;
       valor[parseInt(select.position.x)][parseInt(select.position.y)].position.y=0;
-      valor[0][0] = valor[parseInt(select.position.x)][parseInt(select.position.y)];
-      valor[parseInt(select.position.x)][parseInt(select.position.y)] = valor[0][0];
+      var a = valor[parseInt(select.position.x)][parseInt(select.position.y)];
+      var b = valor[0][0];
+      valor[parseInt(select.position.x)][parseInt(select.position.y)]= b;
+      valor[0][0]= a;
     }else if(auxx==10 && auxy==0){
       valor[10][0].position.x=select.position.x;
       valor[10][0].position.y=select.position.y;
       valor[parseInt(select.position.x)][parseInt(select.position.y)].position.x=10;
       valor[parseInt(select.position.x)][parseInt(select.position.y)].position.y=0;
-      valor[10][0] = valor[parseInt(select.position.x)][parseInt(select.position.y)];
-      valor[parseInt(select.position.x)][parseInt(select.position.y)] = valor[10][0];
+      var c = valor[parseInt(select.position.x)][parseInt(select.position.y)];
+      var d = valor[0][0];
+      valor[parseInt(select.position.x)][parseInt(select.position.y)]= d;
+      valor[0][0]= c;
     }else if(auxx==0 && auxy==10){
       valor[0][10].position.x=select.position.x;
       valor[0][10].position.y=select.position.y;
       valor[parseInt(select.position.x)][parseInt(select.position.y)].position.x=0;
       valor[parseInt(select.position.x)][parseInt(select.position.y)].position.y=10;
-      valor[0][10] = valor[parseInt(select.position.x)][parseInt(select.position.y)];
-      valor[parseInt(select.position.x)][parseInt(select.position.y)] = valor[0][10];
+      var e = valor[parseInt(select.position.x)][parseInt(select.position.y)];
+      var f = valor[0][0];
+      valor[parseInt(select.position.x)][parseInt(select.position.y)]= f;
+      valor[0][0]= e;
     }else if(auxx==0 && auxy==20){
       valor[0][20].position.x=select.position.x;
       valor[0][20].position.y=select.position.y;
       valor[parseInt(select.position.x)][select.position.y].position.x=0;
       valor[parseInt(select.position.x)][select.position.y].position.y=20;
-      valor[0][20] = valor[parseInt(select.position.x)][parseInt(select.position.y)];
-      valor[parseInt(select.position.x)][select.position.y] = valor[0][20];
+      var g = valor[parseInt(select.position.x)][parseInt(select.position.y)];
+      var h = valor[0][0];
+      valor[parseInt(select.position.x)][parseInt(select.position.y)]= h;
+      valor[0][0]= g;
     }
     select.position.x=0;
     select.position.y=0;
