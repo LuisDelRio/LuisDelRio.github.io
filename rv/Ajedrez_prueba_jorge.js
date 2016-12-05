@@ -141,7 +141,7 @@ function Torreplan(x, y){
 }
 
 
-//----------------------------------------------------------------------------------------------------ALFIL
+//--------------------------------------------------------------------------------------------------------ALFIL
 function Alfil(textura){
   Agent.call(this);
   var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
@@ -351,8 +351,8 @@ function Reina(textura){
 }
 Reina.prototype=new Agent();
 
-//-------------------------------------------------Peon-----------------------------------------------------------
 
+//-------------------------------------------------------------------------------------------------------PEON
 function Peon(textura){
   Agent.call(this);
   var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
@@ -380,8 +380,8 @@ function Peon(textura){
 }
 Peon.prototype=new Agent();
 
-//---------------------------------------------Vacio-----------------------------------------------------------------
 
+//-----------------------------------------------------------------------------------------------------------VACIO
 function Vacio(textura){
   Agent.call(this);
   var base1Forma = new THREE.CylinderGeometry(5,5,1,20,1,false);
@@ -409,8 +409,8 @@ function Vacio(textura){
 }
 Vacio.prototype=new Agent();
 
-//-----------------------------------------------Tablero----------------------------------------------------
 
+//-----------------------------------------------------------------------------------------------------------TABLERO
 function Tablero (texturaBlanco, texturaNegro, texturaMadera){
   var cubo= new Array();
   var a=2;
@@ -444,8 +444,8 @@ function Tablero (texturaBlanco, texturaNegro, texturaMadera){
   escena.add(base);
 }
 
-//----------------------------------------------Seleccionador------------------------------------------
 
+//-------------------------------------------------------------------------------------------------------SELECCIONADOR
 function Seleccionador(){
   Agent.call(this);
   var base1selec = new THREE.CylinderGeometry(2,2,6,6,6,false);
@@ -462,9 +462,10 @@ function Seleccionador(){
 }
 Seleccionador.prototype=new Agent();
 
-//----------------------------------------------Setup--------------------------------------------------
 
+//---------------------------------------------------------------------------------------------------------SETUP
 function setup(){
+	//CAMARA
   var campoVision = 45;
   var relacionAspecto = window.innerWidth / window.innerHeight;
   var planoCercano = 1;
@@ -476,11 +477,12 @@ function setup(){
   camara.lookAt(new THREE.Vector3(40,40,0));
   camara.rotateZ(Math.PI/2);
   setupDone=true;
+	//ILUMINACION
   var iluminacion= new THREE.PointLight(0xFFFFFF);
   iluminacion.position.y= 40;
   iluminacion.position.x= 40;
   iluminacion.position.z= 50;
-  
+  	//TORRES
   torreMalla = new Torre(TEXTURAS.ceramicablanca);
   torreMalla1 = new Torre(TEXTURAS.ceramicanegra);
   torreMalla2 = new Torre(TEXTURAS.ceramicanegra);
@@ -501,7 +503,7 @@ function setup(){
   torreMalla3.rotateX(Math.PI/2);
   torreMalla3.translateY(3);
   torreMalla3.translateX(70);
-  
+  	//REYES
   reyMalla = new Rey(TEXTURAS.ceramicablanca);
   reyMalla1 = new Rey(TEXTURAS.ceramicanegra);
 
@@ -513,7 +515,7 @@ function setup(){
   reyMalla1.translateY(3);
   reyMalla1.translateZ(-70);
   reyMalla1.translateX(30);  
-  
+  	//REINAS
   reinaMalla = new Reina(TEXTURAS.ceramicablanca);
   reinaMalla1 = new Reina(TEXTURAS.ceramicanegra);
 
@@ -525,7 +527,7 @@ function setup(){
   reinaMalla1.translateY(3);
   reinaMalla1.translateX(40);
   reinaMalla1.translateZ(-70);
-
+	//ALFIL
   alfilMalla = new Alfil(TEXTURAS.ceramicablanca);
   alfilMalla1 = new Alfil(TEXTURAS.ceramicanegra);
   alfilMalla2 = new Alfil(TEXTURAS.ceramicablanca);
@@ -548,7 +550,7 @@ function setup(){
   alfilMalla3.translateY(3);
   alfilMalla3.translateX(50);
   alfilMalla3.translateZ(-70);
-  
+  	//PEON
   peonMalla = new Peon(TEXTURAS.ceramicablanca);
   peonMalla1 = new Peon(TEXTURAS.ceramicablanca);
   peonMalla2 = new Peon(TEXTURAS.ceramicablanca);
@@ -643,7 +645,7 @@ function setup(){
   peonMalla15.translateY(3);
   peonMalla15.translateZ(-60);
   peonMalla15.translateX(70);
-  
+  	//VACIO
   vacio1 = new Vacio(TEXTURAS.ceramicanegra);
   vacio2 = new Vacio(TEXTURAS.ceramicanegra);
   vacio3 = new Vacio(TEXTURAS.ceramicanegra); 
@@ -826,11 +828,11 @@ function setup(){
   vacio36.translateY(3);
   vacio36.translateZ(0);
   vacio36.translateX(60);
-  
+  	//SELECTOR
   select = new Seleccionador();
   select.rotateX(Math.PI/2);
   select.translateY(30);
-  
+  	//VALOR (CADA POSICION TABLERO)
   valor = new Array(80)
   valor[0] = new Array(80);
   valor[0][0] = torreMalla;
@@ -911,7 +913,7 @@ function setup(){
   valor[70][50] = vacio32;
   valor[70][60] = peonMalla15;
   valor[70][70] = torreMalla2;  
-  
+  	//ESCENA
   escena.add(torreMalla);
   escena.add(torreMalla1);
   escena.add(torreMalla2);
@@ -979,7 +981,7 @@ function setup(){
   escena.add(iluminacion);
   escena.add(select);
   Tablero(TEXTURAS.marmolnegro, TEXTURAS.marmolblanco, TEXTURAS.madera);
-
+	//SOMBRAS
   iluminacion.castShadow=true;
   torreMalla.castShadow=true;
   torreMalla1.castShadow=true;
@@ -1014,8 +1016,8 @@ function setup(){
   renderizador.shadowMapEnabled=true;
 }
 
+//-----------------------------------------------------------------------------------------------------------------LOOP
 var setupDone=false;
-
 function loop(){
   if(TEXTURAS.madera!==undefined && TEXTURAS.ceramicablanca!==undefined && TEXTURAS.ceramicanegra!==undefined && TEXTURAS.marmolblanco!==undefined && TEXTURAS.marmolnegro!==undefined && !setupDone){
       setup();
@@ -1045,6 +1047,7 @@ function loop(){
     renderizador.render(escena, camara);
 }
 
+//---------------------------------------------------------------------------------------------------LOADER DE TEXTURAS
 var cargador = new THREE.TextureLoader();
 function TexturaSetup(){
     cargador.load("ceramica_negra.jpg",
@@ -1059,7 +1062,7 @@ function TexturaSetup(){
                   function(textura){ TEXTURAS.madera = textura;});
 }
 
-//--------------------------------------------Movimiento--------------------------------------------------
+//------------------------------------------------------------------------------------------------------MOVIMIENTO
 function teclado(){
 	window.onload=function(){document.onkeydown=desplazar};
       function desplazar(objeto){
@@ -1091,6 +1094,7 @@ function guardarPosicion(){
     requestAnimationFrame(loop);
     renderizador.render(escena, camara);
 }
+
 
 function planGeneral(){
 cuyo=1;
@@ -1680,10 +1684,13 @@ cuyo=1;
 	    }
 }
 
+
 var raycaster = new THREE.Raycaster();
 var TEXTURAS= new THREE.Object3D();
 var escena = new Environment();
 var camara = new THREE.PerspectiveCamera();
 var renderizador = new THREE.WebGLRenderer();
+
+//-------------------------------------------------------------------------------------------------------------PROGRAMA
 TexturaSetup();
 loop();
