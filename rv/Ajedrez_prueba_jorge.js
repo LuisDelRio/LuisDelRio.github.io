@@ -1060,7 +1060,7 @@ function TexturaSetup(){
 }
 
 //--------------------------------------------Movimiento--------------------------------------------------
-function teclado{
+function teclado(){
 	window.onload=function(){document.onkeydown=desplazar};
       function desplazar(objeto){
       var tecla = objeto.which;
