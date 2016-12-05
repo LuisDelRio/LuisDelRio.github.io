@@ -1119,27 +1119,26 @@ function guardarPosicion(){
 }
 
 
-function planGeneral2(){
-	var nombre = valor[select.position.x][select.position.y];
-	alert(nombre);
-	if(nombre instanceof Torre){
+function planGeneral(){
+	var a = valor[select.position.x][select.position.y];
+	      if(a instanceof Torre){
 		alert("1");
-	}else if(nombre instanceof Alfil){
+	}else if(a instanceof Alfil){
 		alert("2");
-	}else if(nombre instanceof Rey){
+	}else if(a instanceof Rey){
 		alert("3");
-	}else if(nombre instanceof Reina){
+	}else if(a instanceof Reina){
 		alert("4");
-	}else if(nombre instanceof Peon){
+	}else if(a instanceof Peon){
 		alert("5");
-	}else if(nombre instanceof Vacio){
+	}else if(a instanceof Vacio){
 		alert("6");
 	}
 	cuyo=1;
 }
 
 
-function planGeneral(){
+function planGeneral2(){
 cuyo=1;
     if(auxx==0 && auxy==0){
 	      valor[select.position.x][select.position.y].position.x=valor[0][0].position.x
