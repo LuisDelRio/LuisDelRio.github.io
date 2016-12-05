@@ -1120,6 +1120,26 @@ function guardarPosicion(){
 
 
 function planGeneral(){
+	if(valor[auxx][auxy] instanceof Torre){
+		valor[auxx][auxy].position.x=40;
+		valor[auxx][auxy].position.y=40;
+	}else if(valor[auxx][auxy] instanceof Alfil){
+		valor[auxx][auxy].position.x=40;
+		valor[auxx][auxy].position.y=40;
+	}else if(valor[auxx][auxy] instanceof Rey){
+		valor[auxx][auxy].position.x=40;
+		valor[auxx][auxy].position.y=40;
+	}else if(valor[auxx][auxy] instanceof Reina){
+		valor[auxx][auxy].position.x=40;
+		valor[auxx][auxy].position.y=40;
+	}else if(valor[auxx][auxy] instanceof Peon){
+		valor[auxx][auxy].position.x=40;
+		valor[auxx][auxy].position.y=40;
+	}
+}
+
+
+function planGeneral2(){
 cuyo=1;
     if(auxx==0 && auxy==0){
 	      valor[select.position.x][select.position.y].position.x=valor[0][0].position.x
