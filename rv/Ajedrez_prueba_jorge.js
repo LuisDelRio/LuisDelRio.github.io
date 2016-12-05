@@ -53,7 +53,6 @@ var vacio31, vacio32, vacio33, vacio34, vacio35, vacio36;
 var valor, xselect, yselect;
 var auxx;
 var auxy;
-var cuyo = 1;
 
 //----------------------------------------TORRE-------------------------------------------------
 
@@ -1018,17 +1017,16 @@ function setup(){
 var setupDone=false;
 
 function loop(){
-  requestAnimationFrame(loop);
   if(TEXTURAS.madera!==undefined && TEXTURAS.ceramicablanca!==undefined && TEXTURAS.ceramicanegra!==undefined && TEXTURAS.marmolblanco!==undefined && TEXTURAS.marmolnegro!==undefined && !setupDone){
       setup();
       renderizador.render(escena, camara);
   }
   if(cuyo==2){
       guardarPosicion(select.position.x, select.position.x);
-      cuyo=cuyo+1;
   }
   else if(cuyo==4){
-    alert(auxx)
+    alert(cuyo);
+    cuyo=1;
     if(auxx==0 && auxy==0){
       valor[0][0].position.x=select.position.x;
       valor[0][0].position.y=select.position.y;
@@ -1064,7 +1062,6 @@ function loop(){
     //posicionadorMalla.position.x=0;
     //posicionadorMalla.position.y=0;
     //posicionadorMalla.position.z=1000;
-    cuyo=1;
     requestAnimationFrame(loop);
     renderizador.render(escena,camara);
   }
@@ -1093,6 +1090,7 @@ function loop(){
     escena.sense();
     escena.plan();
     escena.act();
+    requestAnimationFrame(loop);
     renderizador.render(escena, camara);
 }
 
@@ -1115,6 +1113,9 @@ function TexturaSetup(){
 function guardarPosicion(x, y){
     auxx=parseInt(x);
     auxy=parseInt(y);
+    cuyo=cuyo+1;
+    requestAnimationFrame(loop);
+    renderizador.render(escena,camara);
 }
 
 var raycaster = new THREE.Raycaster();
