@@ -1121,6 +1121,7 @@ function guardarPosicion(){
 var nombre = new THREE.Object3D;
 function planGeneral(){
 	nombre = valor[auxx][auxy];
+	alert("SoyPendejoYNoPuedoHacerUnaComparacion");
 	if(valor[auxx][auxy] instanceof Torre){
 		alert("1");
 	}else if(valor[select.position.x][select.position.y] instanceof Alfil){
