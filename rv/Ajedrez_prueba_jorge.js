@@ -156,7 +156,9 @@ function Torreplan(x0, y0, xf, yf, side){
         if(yf!=y0){
 	  alert("segundoif");	
 	  piezaActual.position.y+=1;
-  	}else if(yf==y0){break;}
+  	}else if(yf==y0){
+		alert("HoliPutito");
+		break;}
         y0+=1;
      }
    }else if(xf==x0 && y0>=yf){
