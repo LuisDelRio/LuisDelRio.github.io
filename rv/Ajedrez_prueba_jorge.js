@@ -1076,7 +1076,7 @@ function guardarPosicion(x, y){
     cuyo = cuyo + 1
     auxx=parseInt(x);
     auxy=parseInt(y);
-    var a = valor[auxx][auxy];
+    var a = valor[0][0];
     alert(a);
 }
 
