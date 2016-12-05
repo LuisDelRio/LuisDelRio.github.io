@@ -144,7 +144,7 @@ function Torre(textura){
 Torre.prototype=new Agent();
 
 function Torreplan(x, y, side){
-  alert("Torreplan");
+  alert(side);
 }
 
 
@@ -1122,7 +1122,7 @@ var nombre=new THREE.Object3D;
 function planGeneral(){
 	nombre = valor[auxx][auxy];
 	      if(nombre instanceof Torre){
-		Torreplan();
+		Torreplan(select.position.x, select.position.y, nombre.side);
 	}else if(nombre instanceof Alfil){
 		
 	}else if(nombre instanceof Rey){
