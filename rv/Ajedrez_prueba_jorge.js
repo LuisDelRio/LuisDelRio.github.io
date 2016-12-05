@@ -1119,7 +1119,7 @@ function guardarPosicion(){
 }
 
 
-function planGeneral(){
+function planGeneral2(){
 	var nombre = valor[select.position.x][select.position.y];
 	alert(nombre);
 	if(nombre instanceof Torre){
@@ -1139,7 +1139,7 @@ function planGeneral(){
 }
 
 
-function planGeneral2(){
+function planGeneral(){
 cuyo=1;
     if(auxx==0 && auxy==0){
 	      valor[select.position.x][select.position.y].position.x=valor[0][0].position.x
