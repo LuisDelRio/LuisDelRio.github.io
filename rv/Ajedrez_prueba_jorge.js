@@ -1118,23 +1118,20 @@ function guardarPosicion(){
     renderizador.render(escena, camara);
 }
 
-
+var nombre = new THREE.Object3D;
 function planGeneral(){
-	if(valor[auxx][auxy] instanceof Torre){
-		valor[auxx][auxy].position.x=40;
-		valor[auxx][auxy].position.y=40;
-	}else if(valor[auxx][auxy] instanceof Alfil){
-		valor[auxx][auxy].position.x=40;
-		valor[auxx][auxy].position.y=40;
-	}else if(valor[auxx][auxy] instanceof Rey){
-		valor[auxx][auxy].position.x=40;
-		valor[auxx][auxy].position.y=40;
-	}else if(valor[auxx][auxy] instanceof Reina){
-		valor[auxx][auxy].position.x=40;
-		valor[auxx][auxy].position.y=40;
-	}else if(valor[auxx][auxy] instanceof Peon){
-		valor[auxx][auxy].position.x=40;
-		valor[auxx][auxy].position.y=40;
+	nombre = valor[auxx][auxy];
+	
+	if(nombre instanceof Torre){
+		alert(nombre);
+	}else if(nombre instanceof Alfil){
+		alert(nombre);
+	}else if(nombre instanceof Rey){
+		alert(nombre);
+	}else if(nombre instanceof Reina){
+		alert(nombre);
+	}else if(nombre instanceof Peon){
+		alert(nombre);
 	}
 }
 
