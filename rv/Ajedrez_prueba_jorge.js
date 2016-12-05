@@ -1121,19 +1121,19 @@ function guardarPosicion(){
 var nombre = new THREE.Object3D;
 function planGeneral(){
 	nombre = valor[select.position.x][select.position.y];
-	alert(nombre);
+	alert("noPutito");
 	if(valor[select.position.x][select.position.y] instanceof Torre){
-		alert(nombre);
+		alert("1");
 	}else if(valor[select.position.x][select.position.y] instanceof Alfil){
-		alert(nombre);
+		alert("2");
 	}else if(valor[select.position.x][select.position.y] instanceof Rey){
-		alert(nombre);
+		alert("3");
 	}else if(valor[select.position.x][select.position.y] instanceof Reina){
-		alert(nombre);
+		alert("4");
 	}else if(valor[select.position.x][select.position.y] instanceof Peon){
-		alert(nombre);
+		alert("5");
 	}else if(valor[select.position.x][select.position.y] instanceof Vacio){
-		alert(nombre);
+		alert("6");
 	}
 	cuyo=1;
 }
