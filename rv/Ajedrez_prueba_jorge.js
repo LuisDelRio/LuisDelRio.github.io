@@ -1119,12 +1119,7 @@ function guardarPosicion(){
 }
 
 
-function planGeneral2(){
-  if(auxx==0 && auxy==0){
-	  valor[select.position.x][select.position.y].position.x=valor[0][0].position.x
-	      valor[select.position.x][select.position.y].position.y=valor[0][0].position.y
-	      valor[0][0].position.x=select.position.x;
-	      valor[0][0].position.y=select.position.y;
+function planGeneral(){
 	var a = valor[select.position.x][select.position.y];
 	      if(a instanceof Torre){
 		alert("1");
@@ -1139,12 +1134,19 @@ function planGeneral2(){
 	}else if(a instanceof Vacio){
 		alert("6");
 	}
-  }
+	select.position.x=0;
+    select.position.y=0;
+    select.position.z=30;
+    //posicionadorMalla.position.x=0;
+    //posicionadorMalla.position.y=0;
+    //posicionadorMalla.position.z=1000;
+    requestAnimationFrame(loop);
+    renderizador.render(escena,camara);
 	cuyo=1;
 }
 
 
-function planGeneral(){
+function planGeneral2(){
 cuyo=1;
     if(auxx==0 && auxy==0){
 	      valor[select.position.x][select.position.y].position.x=valor[0][0].position.x
