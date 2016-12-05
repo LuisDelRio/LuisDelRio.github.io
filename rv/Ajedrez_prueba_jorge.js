@@ -143,8 +143,8 @@ function Torre(textura){
 }
 Torre.prototype=new Agent();
 
-function Torreplan(x, y){
-  
+function Torreplan(x, y, side){
+  alert("Torreplan");
 }
 
 
@@ -1111,28 +1111,28 @@ function teclado(){
 
 
 function guardarPosicion(){
-    auxx=parseInt(select.position.x);
-    auxy=parseInt(select.position.y);
+    auxx=select.position.x;
+    auxy=select.position.y;
     cuyo=cuyo+1;
     requestAnimationFrame(loop);
     renderizador.render(escena, camara);
 }
 
-
+var nombre=new THREE.Object3D;
 function planGeneral(){
-	var a = valor[select.position.x][select.position.y];
-	      if(a instanceof Torre){
-		alert("1");
-	}else if(a instanceof Alfil){
-		alert("2");
-	}else if(a instanceof Rey){
-		alert("3");
-	}else if(a instanceof Reina){
-		alert("4");
-	}else if(a instanceof Peon){
-		alert("5");
-	}else if(a instanceof Vacio){
-		alert("6");
+	nombre = valor[auxx][auxy];
+	      if(nombre instanceof Torre){
+		Torreplan();
+	}else if(nombre instanceof Alfil){
+		
+	}else if(nombre instanceof Rey){
+		
+	}else if(nombre instanceof Reina){
+		
+	}else if(nombre instanceof Peon){
+		
+	}else if(nombre instanceof Vacio){
+		
 	}
 	select.position.x=0;
     select.position.y=0;
