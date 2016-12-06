@@ -1172,6 +1172,7 @@ var flag = 1;
 function guardarPosicion(){
     auxx=select.position.x;
     auxy=select.position.y;
+	console.log(auxx, auxy);
     if(valor[auxx][auxy].side==1 && flag%2!=0){
 	cuyo=cuyo+1;
 	flag=flag+1;
