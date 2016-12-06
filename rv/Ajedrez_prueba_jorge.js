@@ -151,11 +151,11 @@ function Torreplan(x0, y0, xf, yf, side){
   var side = parseInt(side);
   if(xf==x0 && y0<=yf){
 	  //alert("primerif");
+	  requestAnimationFrame(loop);
+	renderizador.render(escena, camara);
      for(var i=0; i<=yf; i++){  
         if(yf!=y0){	
 	  piezaActual.position.y+=1;
-	requestAnimationFrame(loop);
-	renderizador.render(escena, camara);
   	}else if(yf==y0){
 		alert("HoliPutito");
 		break;}
