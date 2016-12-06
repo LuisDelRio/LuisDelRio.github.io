@@ -145,6 +145,10 @@ Torre.prototype=new Agent();
 
 var i, j, k, l;
 function Torreplan(x0, y0, xf, yf, side){
+  var x0s = x0;
+  var y0s = y0;
+  var xfs = xf;
+  var yfs = yf;
   var x0 = parseInt(x0);
   var y0 = parseInt(y0);
   var xf = parseInt(xf);
@@ -156,8 +160,8 @@ function Torreplan(x0, y0, xf, yf, side){
         if(yf!=y0){	
 	  piezaActual.position.y+=1;
   	}else if(yf==y0){
-		valor[xf][yf]= piezaActual;
-	        valor[x0][y0]= piezaPosterior;
+		valor[xfs][yfs]= piezaActual;
+	        valor[x0s][y0s]= piezaPosterior;
 	        alert("Terminó tu turno prro");
 		break;}
         y0+=1;
