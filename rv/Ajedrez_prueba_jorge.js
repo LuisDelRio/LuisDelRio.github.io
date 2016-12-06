@@ -1168,11 +1168,21 @@ function teclado(){
       }
 }
 
-
+var flag = 1;
 function guardarPosicion(){
     auxx=select.position.x;
     auxy=select.position.y;
-    cuyo=cuyo+1;
+    if(valor[auxx][auxy].side==1 && flag%2!=0){
+	cuyo=cuyo+1;
+	flag=flag+1;
+    }else if(valor[auxx][auxy].side==0 && flag%2==0){
+	    cuyo=cuyo+1;
+	    flag=flag+1;
+	     }
+	else{
+	alert("no es tu turno");
+	cuyo=1;
+	}
     requestAnimationFrame(loop);
     renderizador.render(escena, camara);
 }
