@@ -171,8 +171,8 @@ function Torreplan(x0, y0, xf, yf, side){
 	     if(yf!=y0){
 	        piezaActual.position.y-=1;
   	     }else if(yf==y0){
-		valor[xf][yf]= piezaActual;
-	        valor[x0][y0]= piezaPosterior;
+		valor[xfs][yfs]= piezaActual;
+	        valor[x0s][y0s]= piezaPosterior;
 	        alert("Terminó tu turno prro");
 		break;}
 	  y0-=1;
@@ -183,8 +183,8 @@ function Torreplan(x0, y0, xf, yf, side){
         	if(xf!=x0){
 	  		piezaActual.position.x+=1;
   		}else if(xf==x0){
-			valor[xf][yf]= piezaActual;
-	        	valor[x0][y0]= piezaPosterior;
+			valor[xfs][yfs]= piezaActual;
+	        	valor[x0s][y0s]= piezaPosterior;
 	        	alert("Terminó tu turno prro");
 			break;}
         x0+=1;
@@ -194,8 +194,8 @@ function Torreplan(x0, y0, xf, yf, side){
 	     if(xf!=x0){
 	        piezaActual.position.x-=1;
   	     }else if(xf==x0){
-			valor[xf][yf]= piezaActual;
-	        	valor[x0][y0]= piezaPosterior;
+			valor[xfs][yfs]= piezaActual;
+	        	valor[x0s][y0s]= piezaPosterior;
 	        	alert("Terminó tu turno prro");
 			break;}
 	  x0-=1;
