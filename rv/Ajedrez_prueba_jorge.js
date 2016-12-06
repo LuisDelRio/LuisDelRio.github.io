@@ -156,10 +156,10 @@ function Torreplan(x0, y0, xf, yf, side){
   var side = parseInt(side);
   if(x0==xf && y0<=yf){
 	  //alert("primerif");
-     for(i=0; i<=yf; i++){  
+     for(i=0; i<=yf; i++){
+	     requestAnimationFrame(Torreplan);
         if(yf!=y0){	
 	  piezaActual.position.y+=1;
-		requestAnimationFrame(Torreplan);
   	}else if(yf==y0){
 		valor[xfs][yfs]= piezaActual;
 	        valor[x0s][y0s]= piezaPosterior;
