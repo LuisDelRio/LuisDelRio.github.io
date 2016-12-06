@@ -156,6 +156,10 @@ function Torreplan(x0, y0, xf, yf, side){
 	  piezaActual.position.y+=1;
   	}else if(yf==y0){
 		alert("HoliPutito");
+		alert(x0);
+		alert(y0);
+		alert(xf);
+		alert(yf);
 		break;}
         y0+=1;
      }
@@ -182,7 +186,7 @@ function Torreplan(x0, y0, xf, yf, side){
 	     x0-=1;
          }
      }
-     else{
+     else if(xf==x0 && yf==y0){
 	     valor[toString(xf)][toString(yf)]= piezaActual;
 	     valor[toString(x0)][toString(x0)]= piezaPosterior;
 	     alert("Terminó tu turno prro");
