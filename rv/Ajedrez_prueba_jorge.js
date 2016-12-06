@@ -154,6 +154,7 @@ function Torreplan(x0, y0, xf, yf, side){
      for(var i=0; i<=yf; i++){  
         if(yf!=y0){	
 	  piezaActual.position.y+=1;
+	requestAnimationFrame(Torreplan);
 	renderizador.render(escena, camara);
   	}else if(yf==y0){
 		alert("HoliPutito");
