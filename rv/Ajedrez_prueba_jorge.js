@@ -206,7 +206,7 @@ function Torreplan(x0, y0, xf, yf, side){
 	     flag=flag+1;
 	  }
 	
-  requestAnimationFrame(loop);
+  requestAnimationFrame(Torreplan);
   renderizador.render(escena,camara);
 }
 
