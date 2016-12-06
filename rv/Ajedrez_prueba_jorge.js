@@ -156,6 +156,7 @@ function Torreplan(x0, y0, xf, yf, side){
         if(yf!=y0){
 	  alert("segundoif");	
 	  piezaActual.position.y+=1;
+	renderizador.render(escena, camara);
   	}else if(yf==y0){
 		alert("HoliPutito");
 		break;}
