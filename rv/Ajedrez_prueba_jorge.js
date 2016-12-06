@@ -198,7 +198,8 @@ function Torreplan(x0, y0, xf, yf, side){
          }
      }else{alert("nosepuede");}
 	
-	
+  requestAnimationFrame(loop);
+  renderizador.render(escena,camara);
 }
 
 
