@@ -157,7 +157,7 @@ function Torreplan(x0, y0, xf, yf, side){
   if(x0==xf && y0<=yf){
 	  //alert("primerif");
      for(i=0; i<=yf; i++){
-	     requestAnimationFrame(Torreplan);
+	     requestAnimationFrame(loop);
         if(yf!=y0){	
 	  piezaActual.position.y+=1;
   	}else if(yf==y0){
