@@ -143,6 +143,7 @@ function Torre(textura){
 }
 Torre.prototype=new Agent();
 
+var i, j, k, l;
 function Torreplan(x0, y0, xf, yf, side){
   var x0 = parseInt(x0);
   var y0 = parseInt(y0);
@@ -151,7 +152,7 @@ function Torreplan(x0, y0, xf, yf, side){
   var side = parseInt(side);
   if(x0==xf && y0<=yf){
 	  //alert("primerif");
-     for(var i=0; i<=yf; i++){  
+     for(i=0; i<=yf; i++){  
         if(yf!=y0){	
 	  piezaActual.position.y+=1;
   	}else if(yf==y0){
@@ -162,7 +163,7 @@ function Torreplan(x0, y0, xf, yf, side){
         y0+=1;
      }
    }else if(x0==xf && y0>=yf){
-	for(var i=0; i<=yf; i++){
+	for(j=0; j<=yf; j++){
 	     if(yf!=y0){
 	        piezaActual.position.y-=1;
   	     }else if(yf==y0){
@@ -174,7 +175,7 @@ function Torreplan(x0, y0, xf, yf, side){
          }
      }
      else if(x0<=xf && y0==yf){
-     	for(var i=0; i<=xf; i++){
+     	for(k=0; k<=xf; k++){
         	if(xf!=x0){
 	  		piezaActual.position.x+=1;
   		}else if(xf==x0){
@@ -185,7 +186,7 @@ function Torreplan(x0, y0, xf, yf, side){
         x0+=1;
      	}
      }else if(x0>=xf && y0==yf){
-	for(var i=0; i<=xf; i++){
+	for(l=0; l<=xf; l++){
 	     if(xf!=x0){
 	        piezaActual.position.x-=1;
   	     }else if(xf==x0){
