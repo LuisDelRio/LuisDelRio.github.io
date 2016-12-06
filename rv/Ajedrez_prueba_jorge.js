@@ -155,8 +155,8 @@ function Torreplan(x0, y0, xf, yf, side){
         if(yf!=y0){	
 	  piezaActual.position.y+=1;
   	}else if(yf==y0){
-		valor[toString(xf)][toString(yf)]= piezaActual;
-	        valor[toString(x0)][toString(x0)]= piezaPosterior;
+		valor[xf][yf]= piezaActual;
+	        valor[x0][x0]= piezaPosterior;
 	        alert("Terminó tu turno prro");
 		break;}
         y0+=1;
