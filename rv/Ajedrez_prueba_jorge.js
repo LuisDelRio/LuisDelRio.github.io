@@ -200,7 +200,10 @@ function Torreplan(x0, y0, xf, yf, side){
 			break;}
 	  x0-=1;
          }
-     }else{alert("nosepuede");}
+     }else{
+	     alert("nosepuede");
+	     flag=flag+1;
+	  }
 	
   requestAnimationFrame(loop);
   renderizador.render(escena,camara);
