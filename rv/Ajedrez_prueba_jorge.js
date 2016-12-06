@@ -155,41 +155,46 @@ function Torreplan(x0, y0, xf, yf, side){
         if(yf!=y0){	
 	  piezaActual.position.y+=1;
   	}else if(yf==y0){
-		alert("HoliPutito");
-		alert(x0);
-		alert(y0);
-		alert(xf);
-		alert(yf);
+		valor[toString(xf)][toString(yf)]= piezaActual;
+	        valor[toString(x0)][toString(x0)]= piezaPosterior;
+	        alert("Terminó tu turno prro");
 		break;}
         y0+=1;
      }
    }else if(xf==x0 && y0>=yf){
 	for(var i=0; i<=yf; i++){
-	     if(yf==y0){
+	     if(yf!=y0){
 	        piezaActual.position.y-=1;
-  	     }
+  	     }else if(yf==y0){
+		valor[toString(xf)][toString(yf)]= piezaActual;
+	        valor[toString(x0)][toString(x0)]= piezaPosterior;
+	        alert("Terminó tu turno prro");
+		break;}
 	     y0-=1;
          }
      }
      else if(xf<=x0 && y0==yf){
-     for(var i=0; i<=xf; i++){
-        if(xf!=x0){
-	  piezaActual.position.x+=1;
-  	}else if(xf==x0){break;}
+     	for(var i=0; i<=xf; i++){
+        	if(xf!=x0){
+	  		piezaActual.position.x+=1;
+  		}else if(xf==x0){
+			valor[toString(xf)][toString(yf)]= piezaActual;
+	        	valor[toString(x0)][toString(x0)]= piezaPosterior;
+	        	alert("Terminó tu turno prro");
+			break;}
         x0+=1;
-     }
-   }else if(xf>=x0 && y0==yf){
+     	}
+     }else if(xf>=x0 && y0==yf){
 	for(var i=0; i<=xf; i++){
-	     if(xf==x0){
+	     if(xf!=x0){
 	        piezaActual.position.x-=1;
-  	     }
+  	     }else if(xf==x0){
+			valor[toString(xf)][toString(yf)]= piezaActual;
+	        	valor[toString(x0)][toString(x0)]= piezaPosterior;
+	        	alert("Terminó tu turno prro");
+			break;}
 	     x0-=1;
          }
-     }
-     else if(xf==x0 && yf==y0){
-	     valor[toString(xf)][toString(yf)]= piezaActual;
-	     valor[toString(x0)][toString(x0)]= piezaPosterior;
-	     alert("Terminó tu turno prro");
      }else{alert("nosepuede");}
 	
 	
