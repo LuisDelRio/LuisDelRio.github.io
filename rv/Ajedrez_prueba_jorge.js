@@ -160,7 +160,7 @@ function Torreplan(x0, y0, xf, yf, side){
         y0+=1;
      }
    }else if(xf==x0 && y0>=yf){
-	for(var i=0; i==yf; i++){
+	for(var i=0; i<=yf; i++){
 	     if(yf==y0){
 	        piezaActual.position.y-=1;
   	     }
@@ -168,21 +168,21 @@ function Torreplan(x0, y0, xf, yf, side){
          }
      }
      else if(xf<=x0 && y0==yf){
-     for(var i=0; i==xf; i++){
+     for(var i=0; i<=xf; i++){
         if(xf!=x0){
 	  piezaActual.position.x+=1;
   	}else if(xf==x0){break;}
         x0+=1;
      }
    }else if(xf>=x0 && y0==yf){
-	for(var i=0; i==xf; i++){
+	for(var i=0; i<=xf; i++){
 	     if(xf==x0){
 	        piezaActual.position.x-=1;
   	     }
 	     x0-=1;
          }
      }
-     else if(xf===x0 && y0===yf){
+     else if(xf==x0 && y0==yf){
 	     valor[toString(xf)][toString(yf)]= piezaActual;
 	     valor[toString(x0)][toString(x0)]= piezaPosterior;
 	     alert("Terminó tu turno prro");
