@@ -1129,8 +1129,6 @@ function loop(){
     escena.sense();
     escena.plan();
     escena.act();
-    if(animar===1)
-	Animar(piezaTocada);
     renderizador.render(escena, camara);
 }
 
