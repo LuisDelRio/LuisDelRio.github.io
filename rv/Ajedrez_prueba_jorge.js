@@ -1191,13 +1191,17 @@ function guardarPosicion(){
 
 var nombre=new THREE.Object3D;
 var piezaActual, piezaPosterior;
-var f;
+var f, g;
 function planGeneral(){
 	nombre = valor[auxx][auxy];
 	piezaActual = nombre;
 	piezaPosterior = valor[select.position.x][select.position.y];
-	      if(nombre instanceof Torre){
-		Torreplan(auxx, auxy, select.position.x, select.position.y, nombre.side);
+	if(nombre instanceof Torre){
+		for(f=0; f<=Math.abs(select.position.x); f++){
+			for(g=0; g<=Math.abs(select.position.y); g++){
+				Torreplan(auxx, auxy, select.position.x, select.position.y, nombre.side);
+			}
+		}
 	}else if(nombre instanceof Alfil){
 		
 	}else if(nombre instanceof Rey){
