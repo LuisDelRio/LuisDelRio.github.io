@@ -911,6 +911,8 @@ function loop(){
   if(cuyo==2){
       auxx=parseInt(seleccionadorMalla.position.x);
       auxy=parseInt(seleccionadorMalla.position.y);
+      requestAnimationFrame(loop);
+      renderizador.render(escena,camara);
       cuyo=cuyo+1;
   }
   else if(cuyo==4){
@@ -947,9 +949,8 @@ function loop(){
     seleccionadorMalla.position.x=0;
     seleccionadorMalla.position.y=0;
     seleccionadorMalla.position.z=30;
-    //posicionadorMalla.position.x=0;
-    //posicionadorMalla.position.y=0;
-    //posicionadorMalla.position.z=1000;
+    requestAnimationFrame(loop);
+    renderizador.render(escena,camara);
     cuyo=1;
   }else{
     window.onload=function(){document.onkeydown=desplazar};
