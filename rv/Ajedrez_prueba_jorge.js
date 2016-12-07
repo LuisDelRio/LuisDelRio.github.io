@@ -162,7 +162,6 @@ function Torreplan(x0, y0, xf, yf, side){
      for(i=0; i<=yf; i++){
         if(yf!=y0){	
 	  piezaActual.position.y+=1;
-	  break;
   	}else if(yf==y0){
 		valor[xfs][yfs]= piezaActual;
 	        valor[x0s][y0s]= piezaPosterior;
@@ -208,7 +207,7 @@ function Torreplan(x0, y0, xf, yf, side){
 	     alert("nosepuede");
 	     flag=flag+1;
 	  }
-	
+	requestAnimationFrame(Torreplan);
 }
 
 
@@ -1197,11 +1196,7 @@ function planGeneral(){
 	piezaActual = nombre;
 	piezaPosterior = valor[select.position.x][select.position.y];
 	if(nombre instanceof Torre){
-		for(f=0; f<=Math.abs(select.position.x); f++){
-			for(g=0; g<=Math.abs(select.position.y); g++){
-				Torreplan(auxx, auxy, select.position.x, select.position.y, nombre.side);
-			}
-		}
+	  Torreplan(auxx, auxy, select.position.x, select.position.y, nombre.side);
 	}else if(nombre instanceof Alfil){
 		
 	}else if(nombre instanceof Rey){
@@ -1219,7 +1214,7 @@ function planGeneral(){
     //posicionadorMalla.position.x=0;
     //posicionadorMalla.position.y=0;
     //posicionadorMalla.position.z=1000;
-	cuyo=1;
+    cuyo=cuyo+1;
 }
 
 
