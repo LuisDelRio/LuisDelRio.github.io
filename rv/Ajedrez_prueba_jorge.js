@@ -148,16 +148,22 @@ var x0s;
 var y0s;
 var xfs;
 var yfs;
+var x0;
+var y0;
+var xf;
+var yf;
+var side;
 function Torreplan(x0, y0, xf, yf, side){
   x0s = x0;
   y0s = y0;
   xfs = xf;
   yfs = yf;
-  var x0 = parseInt(x0);
-  var y0 = parseInt(y0);
-  var xf = parseInt(xf);
-  var yf = parseInt(yf);
-  var side = parseInt(side);
+  x0 = parseInt(x0);
+  y0 = parseInt(y0);
+  xf = parseInt(xf);
+  yf = parseInt(yf);
+  side = parseInt(side);
+ function Animar(){
   if(x0==xf && y0<=yf){
      for(i=0; i<=yf; i++){
         if(yf!=y0){	
@@ -207,9 +213,9 @@ function Torreplan(x0, y0, xf, yf, side){
 	     alert("nosepuede");
 	     flag=flag+1;
 	  }
-	requestAnimationFrame(Torreplan);
+	requestAnimationFrame(Animar);
+ }
 }
-
 
 //--------------------------------------------------------------------------------------------------------ALFIL
 function Alfil(textura){
