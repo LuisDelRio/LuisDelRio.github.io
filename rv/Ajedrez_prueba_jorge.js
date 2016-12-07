@@ -161,7 +161,8 @@ function Torreplan(x0, y0, xf, yf, side){
   if(x0==xf && y0<=yf){
      for(i=0; i<=yf; i++){
         if(yf!=y0){	
-	  piezaActual.translateZ(1);
+	  piezaActual.position.y+=1;
+	  renderizador.render(escena, camara);
   	}else if(yf==y0){
 		valor[xfs][yfs]= piezaActual;
 	        valor[x0s][y0s]= piezaPosterior;
