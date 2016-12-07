@@ -168,6 +168,7 @@ function Torreplan(x0, y0, xf, yf, side){
      for(i=0; i<=yf; i++){
         if(yf!=y0){	
 	  piezaActual.position.y+=1;
+	  requestAnimationFrame(Animar);
   	}else if(yf==y0){
 		valor[xfs][yfs]= piezaActual;
 	        valor[x0s][y0s]= piezaPosterior;
@@ -179,7 +180,6 @@ function Torreplan(x0, y0, xf, yf, side){
 	for(j=0; j<=yf; j++){
 	     if(yf!=y0){
 	        piezaActual.position.y-=1;
-		requestAnimationFrame(Animar);
   	     }else if(yf==y0){
 		valor[xfs][yfs]= piezaActual;
 	        valor[x0s][y0s]= piezaPosterior;
