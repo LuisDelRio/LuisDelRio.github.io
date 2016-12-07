@@ -144,21 +144,24 @@ function Torre(textura){
 Torre.prototype=new Agent();
 
 var i, j, k, l;
+var x0s;
+var y0s;
+var xfs;
+var yfs;
 function Torreplan(x0, y0, xf, yf, side){
-  var x0s = x0;
-  var y0s = y0;
-  var xfs = xf;
-  var yfs = yf;
+  x0s = x0;
+  y0s = y0;
+  xfs = xf;
+  yfs = yf;
   var x0 = parseInt(x0);
   var y0 = parseInt(y0);
   var xf = parseInt(xf);
   var yf = parseInt(yf);
   var side = parseInt(side);
   if(x0==xf && y0<=yf){
-	  //alert("primerif");
      for(i=0; i<=yf; i++){
         if(yf!=y0){	
-	  piezaActual.position.y+=1;
+	  piezaActual.translateZ(1);
   	}else if(yf==y0){
 		valor[xfs][yfs]= piezaActual;
 	        valor[x0s][y0s]= piezaPosterior;
@@ -1110,6 +1113,7 @@ function setup(){
 //-----------------------------------------------------------------------------------------------------------------LOOP
 var setupDone=false;
 function loop(){
+  requestAnimationFrame(loop);
   if(TEXTURAS.madera!==undefined && TEXTURAS.ceramicablanca!==undefined && TEXTURAS.ceramicanegra!==undefined && TEXTURAS.marmolblanco!==undefined && TEXTURAS.marmolnegro!==undefined && !setupDone){
       setup();
   }
@@ -1125,7 +1129,8 @@ function loop(){
     escena.sense();
     escena.plan();
     escena.act();
-    requestAnimationFrame(loop);
+    if(animar===1)
+	Animar(piezaTocada);
     renderizador.render(escena, camara);
 }
 
@@ -1187,6 +1192,7 @@ function guardarPosicion(){
 
 var nombre=new THREE.Object3D;
 var piezaActual, piezaPosterior;
+var f;
 function planGeneral(){
 	nombre = valor[auxx][auxy];
 	piezaActual = nombre;
