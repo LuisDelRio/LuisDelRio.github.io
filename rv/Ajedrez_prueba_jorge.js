@@ -169,6 +169,7 @@ function Torreplan(x0, y0, xf, yf, side){
         if(yf!=y0){	
 	  piezaActual.position.y+=1;
 	  requestAnimationFrame(Animar);
+	  renderizador.render(escena, camara);	
   	}else if(yf==y0){
 		valor[xfs][yfs]= piezaActual;
 	        valor[x0s][y0s]= piezaPosterior;
