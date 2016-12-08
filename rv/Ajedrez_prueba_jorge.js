@@ -164,7 +164,6 @@ function Torreplan(x0, y0, xf, yf, side){
   yf = parseInt(yf);
   side = parseInt(side);
   if(x0==xf && y0<=yf){
-     for(i=0; i<=yf; i++){
         if(yf!=y0){	
 	  piezaActual.position.y+=1;
   	}else if(yf==y0){
@@ -173,7 +172,6 @@ function Torreplan(x0, y0, xf, yf, side){
 	        alert("Terminó tu turno prro");
 		break;}
         y0+=1;
-     }
    }else if(x0==xf && y0>=yf){
 	for(j=0; j<=yf; j++){
 	     if(yf!=y0){
