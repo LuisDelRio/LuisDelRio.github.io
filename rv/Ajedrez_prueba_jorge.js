@@ -172,7 +172,7 @@ function Torreplan(x0, y0, xf, yf, side){
 	        alert("Terminó tu turno prro");
 		cuyo=1;
 		}
-        y0+=1;
+        y0=y0+1;
 	  alert(yf);
 	alert(y0);
    }else if(x0==xf && y0>=yf){
