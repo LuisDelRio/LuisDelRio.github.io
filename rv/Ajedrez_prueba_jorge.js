@@ -173,6 +173,8 @@ function Torreplan(x0, y0, xf, yf, side){
 		cuyo=1;
 		}
         y0+=1;
+	  alert(yf);
+	alert(y0);
    }else if(x0==xf && y0>=yf){
 	for(j=0; j<=yf; j++){
 	     if(yf!=y0){
