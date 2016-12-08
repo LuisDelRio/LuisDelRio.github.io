@@ -170,6 +170,7 @@ function Torreplan(x0, y0, xf, yf, side){
 		valor[xfs][yfs]= piezaActual;
 	        valor[x0s][y0s]= piezaPosterior;
 	        alert("Terminó tu turno prro");
+		animar=0;
 		break;}
         y0+=1;
    }else if(x0==xf && y0>=yf){
@@ -1122,6 +1123,7 @@ function loop(){
       guardarPosicion();
   }
   else if(cuyo==4){
+    animar=1;
     planGeneral();
   }
   else{
@@ -1191,12 +1193,13 @@ function guardarPosicion(){
 
 var nombre=new THREE.Object3D;
 var piezaActual, piezaPosterior;
-var f, g;
+var animar=0;
 function planGeneral(){
 	nombre = valor[auxx][auxy];
 	piezaActual = nombre;
 	piezaPosterior = valor[select.position.x][select.position.y];
-	if(nombre instanceof Torre){
+	if(nombre instanceof Torre && animar != 0){
+	  cuyo=4;
 	  Torreplan(auxx, auxy, select.position.x, select.position.y, nombre.side);
 	}else if(nombre instanceof Alfil){
 		
@@ -1208,7 +1211,7 @@ function planGeneral(){
 		
 	}else if(nombre instanceof Vacio){
 		
-	}
+	}else if(animar==0){
 	select.position.x=0;
     select.position.y=0;
     select.position.z=30;
@@ -1216,6 +1219,7 @@ function planGeneral(){
     //posicionadorMalla.position.y=0;
     //posicionadorMalla.position.z=1000;
     cuyo=cuyo+1;
+	}
 }
 
 
