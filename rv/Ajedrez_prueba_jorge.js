@@ -277,17 +277,17 @@ function Caballo(textura){
 
   if(textura===TEXTURAS.ceramicablanca){
 	    this.side=1;
-	    this.pieizq.rotateY(Math.PI/2);
-	    this.pieder.rotateY(Math.PI/2);
 	    this.pieizq.position.x=4;
 	    this.pieder.position.x=-4;
+	    this.pieizq.rotateY(Math.PI/2);
+	    this.pieder.rotateY(Math.PI/2);
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
-	    this.pieizq.rotateY(Math.PI/2);
-	    this.pieder.rotateY(Math.PI/2);
 	    this.pieizq.position.x=-4;
-	    this.pieder.position.x=4;   
+	    this.pieder.position.x=4;
+	    this.pieizq.rotateY(Math.PI/2);
+	    this.pieder.rotateY(Math.PI/2);   
     }
 }
 Caballo.prototype=new Agent();
