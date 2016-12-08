@@ -5,12 +5,12 @@ var troncoForma = new THREE.CylinderGeometry(3,3,6,20,6,false);
 var cubierta1Forma = new THREE.CylinderGeometry(4,3,2,20,2,false);
 var cubierta2Forma = new THREE.CylinderGeometry(4,4,2,20,3,false);
 
-var arco1 = new THREE.Shape();
+/*var arco1 = new THREE.Shape();
 arco1.moveTo(0, 0);
 arco1.arc(0, 0, 4, .52, -.52, true);
 arco1.lineTo(3.46, -2);
 var pico1 = new THREE.ExtrudeGeometry( arco1, {amount: 1, bevelEnabled: false});
-pico1.rotateX(Math.PI/2);
+pico1.rotateX(Math.PI/2);*/
 
 var arco2 = new THREE.Shape();
 arco2.moveTo(0, 0);
