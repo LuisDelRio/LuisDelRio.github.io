@@ -8,7 +8,7 @@ var arco3 = new THREE.Shape();
 arco3.moveTo(0, 0);
 arco3.arc(0, 0, 4, .52, -.52, true);
 arco3.lineTo(3.46, -2);
-var pico3 = new THREE.ExtrudeGeometry( arco3, {amount: 5, bevelEnabled: false});
+var pico3 = new THREE.ExtrudeGeometry( arco3, {amount: 8, bevelEnabled: false});
 pico3.rotateX(Math.PI/2);
 pico3.rotateY(Math.PI);
 
