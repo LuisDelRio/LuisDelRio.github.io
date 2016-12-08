@@ -105,7 +105,7 @@ function Caballo(textura){
 	    this.side=0;
     }
 }
-Torre.prototype=new Agent();
+Caballo.prototype=new Agent();
 
 function Caballoplan(x0, y0, xf, yf, side){
   x0s = x0;
