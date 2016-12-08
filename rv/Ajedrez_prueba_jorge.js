@@ -714,26 +714,26 @@ function setup(){
   caballoMalla1 = new Caballo(TEXTURAS.ceramicanegra);
   caballoMalla2 = new Caballo(TEXTURAS.ceramicanegra);
   caballoMalla3 = new Caballo(TEXTURAS.ceramicablanca);
-	
+
+  caballoMalla.rotateY(-Math.PI/2);
   caballoMalla.rotateX(Math.PI/2);
-  caballoMalla.rotateZ(-Math.PI/2);
   caballoMalla.translateY(3);
   caballoMalla.translateX(10);
 
+  caballoMalla1.rotateY(Math.PI/2);
   caballoMalla1.rotateX(Math.PI/2);
-  caballoMalla1.rotateZ(Math.PI/2);
   caballoMalla1.translateY(3);
   caballoMalla1.translateZ(-70);
   caballoMalla1.translateX(10);
 
+  caballoMalla2.rotateY(Math.PI/2);
   caballoMalla2.rotateX(Math.PI/2);
-  caballoMalla2.rotateZ(Math.PI/2);
   caballoMalla2.translateY(3);
   caballoMalla2.translateZ(-70);
   caballoMalla2.translateX(60);
   
+  caballoMalla3.rotateY(-Math.PI/2);
   caballoMalla3.rotateX(Math.PI/2);
-  caballoMalla3.rotateZ(-Math.PI/2);
   caballoMalla3.translateY(3);
   caballoMalla3.translateX(60);
   	//TORRES
