@@ -289,8 +289,8 @@ function Caballo(textura){
 	    this.side=1;
 	    this.pieizq.position.z=4;
 	    this.pieder.position.z=-4;
-	    this.pieizq.position.x=-2;
-	    this.pieder.position.x=-2;
+	    this.pieizq.position.x=2;
+	    this.pieder.position.x=2;
 	    this.pieizq.rotateY(Math.PI/2);
 	    this.pieder.rotateY(Math.PI/2);
     }
