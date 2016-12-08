@@ -168,8 +168,8 @@ function Torreplan(x0, y0, xf, yf, side){
 	y0=parseInt(piezaActual.position.y);
 	if(yf!=y0){	
 		piezaActual.position.y+=1;
-		piezaActual.pieizq.rotateX((Math.sin(piezaActual.position.y))/2);
-  		piezaActual.pieder.rotateX((Math.cos(piezaActual.position.y))/2);
+		piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  		piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 	}else if(yf==y0){
 		valor[xfs][yfs]= piezaActual;
 		valor[x0s][y0s]= piezaPosterior;
