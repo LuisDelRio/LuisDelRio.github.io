@@ -75,7 +75,7 @@ function Caballo(textura){
   cubierta1Forma.translate(0,8,0);
   cubierta2Forma.translate(0,10,0);
   cabezaForma.rotateZ(-Math.PI/2);
-  cabezaForma.translate(5,13,0);
+  cabezaForma.translate(5,12,0);
 
   var base1Malla = new THREE.Mesh(base1Forma);
   var base2Malla= new THREE.Mesh(base2Forma);
