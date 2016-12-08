@@ -281,13 +281,13 @@ function Caballo(textura){
 
   if(textura===TEXTURAS.ceramicablanca){
 	    this.side=1;
-	    this.pieizq.position.y=4;
-	    this.pieder.position.y=-4;
+	    this.pieizq.position.z=4;
+	    this.pieder.position.z=-4;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
-	    this.pieizq.position.y=-4;
-	    this.pieder.position.y=4;   
+	    this.pieizq.position.z=-4;
+	    this.pieder.position.z=4;   
     }
 }
 Caballo.prototype=new Agent();
