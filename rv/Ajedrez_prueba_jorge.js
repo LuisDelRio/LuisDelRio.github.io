@@ -186,6 +186,8 @@ function Torreplan(x0, y0, xf, yf, side){
 	y0=parseInt(piezaActual.position.y);
 	if(yf!=y0){
 		piezaActual.position.y-=1;
+		piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  		piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 	}else if(yf==y0){
 		valor[xfs][yfs]= piezaActual;
 		valor[x0s][y0s]= piezaPosterior;
@@ -198,6 +200,8 @@ function Torreplan(x0, y0, xf, yf, side){
 	x0=parseInt(piezaActual.position.x);
 	if(xf!=x0){
 		piezaActual.position.x+=1;
+		piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.x));
+  		piezaActual.pieder.rotateX(Math.cos(piezaActual.position.x));
 	}else if(xf==x0){
 		valor[xfs][yfs]= piezaActual;
 		valor[x0s][y0s]= piezaPosterior;
@@ -210,6 +214,8 @@ function Torreplan(x0, y0, xf, yf, side){
 	x0=parseInt(piezaActual.position.x);
 	if(xf!=x0){
 		piezaActual.position.x-=1;
+		piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.x));
+  		piezaActual.pieder.rotateX(Math.cos(piezaActual.position.x));
 	}else if(xf==x0){
 		valor[xfs][yfs]= piezaActual;
 		valor[x0s][y0s]= piezaPosterior;
@@ -318,11 +324,15 @@ function Caballoplan(x0, y0, xf, yf, side){
 		x0=parseInt(piezaActual.position.x);
 			if(xf!=x0){
 				piezaActual.position.x+=1;
+				piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.x));
+  				piezaActual.pieder.rotateX(Math.cos(piezaActual.position.x));
 			}else if(xf==x0){
 				y0=parseInt(piezaActual.position.y);
 				if(yf!=y0)
 				{
-					piezaActual.position.y+=1;	
+					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -338,11 +348,15 @@ function Caballoplan(x0, y0, xf, yf, side){
 		x0=parseInt(piezaActual.position.x);
 			if(xf!=x0){
 				piezaActual.position.x-=1;
+				piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.x));
+  				piezaActual.pieder.rotateX(Math.cos(piezaActual.position.x));
 			}else if(xf==x0){
 				y0=parseInt(piezaActual.position.y);
 				if(yf!=y0)
 				{
-					piezaActual.position.y+=1;	
+					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -358,11 +372,15 @@ function Caballoplan(x0, y0, xf, yf, side){
 		x0=parseInt(piezaActual.position.x);
 			if(xf!=x0){
 				piezaActual.position.x+=1;
+				piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.x));
+  				piezaActual.pieder.rotateX(Math.cos(piezaActual.position.x));
 			}else if(xf==x0){
 				y0=parseInt(piezaActual.position.y);
 				if(yf!=y0)
 				{
-					piezaActual.position.y-=1;	
+					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -378,11 +396,15 @@ function Caballoplan(x0, y0, xf, yf, side){
 		x0=parseInt(piezaActual.position.x);
 			if(xf!=x0){
 				piezaActual.position.x-=1;
+				piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.x));
+  				piezaActual.pieder.rotateX(Math.cos(piezaActual.position.x));
 			}else if(xf==x0){
 				y0=parseInt(piezaActual.position.y);
 				if(yf!=y0)
 				{
-					piezaActual.position.y-=1;	
+					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -398,11 +420,15 @@ function Caballoplan(x0, y0, xf, yf, side){
 		x0=parseInt(piezaActual.position.x);
 			if(xf!=x0){
 				piezaActual.position.x+=1;
+				piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.x));
+  				piezaActual.pieder.rotateX(Math.cos(piezaActual.position.x));
 			}else if(xf==x0){
 				y0=parseInt(piezaActual.position.y);
 				if(yf!=y0)
 				{
-					piezaActual.position.y+=1;	
+					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -418,11 +444,15 @@ function Caballoplan(x0, y0, xf, yf, side){
 		x0=parseInt(piezaActual.position.x);
 			if(xf!=x0){
 				piezaActual.position.x-=1;
+				piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.x));
+  				piezaActual.pieder.rotateX(Math.cos(piezaActual.position.x));
 			}else if(xf==x0){
 				y0=parseInt(piezaActual.position.y);
 				if(yf!=y0)
 				{
-					piezaActual.position.y+=1;	
+					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -438,11 +468,15 @@ function Caballoplan(x0, y0, xf, yf, side){
 		x0=parseInt(piezaActual.position.x);
 			if(xf!=x0){
 				piezaActual.position.x+=1;
+				piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.x));
+  				piezaActual.pieder.rotateX(Math.cos(piezaActual.position.x));
 			}else if(xf==x0){
 				y0=parseInt(piezaActual.position.y);
 				if(yf!=y0)
 				{
-					piezaActual.position.y-=1;	
+					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -458,11 +492,15 @@ function Caballoplan(x0, y0, xf, yf, side){
 		x0=parseInt(piezaActual.position.x);
 			if(xf!=x0){
 				piezaActual.position.x-=1;
+				piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.x));
+  				piezaActual.pieder.rotateX(Math.cos(piezaActual.position.x));
 			}else if(xf==x0){
 				y0=parseInt(piezaActual.position.y);
 				if(yf!=y0)
 				{
-					piezaActual.position.y-=1;	
+					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -579,6 +617,8 @@ function Alfilplan(x0, y0, xf, yf, side){
 		if(xf!=x0){
 			piezaActual.position.x+=1;
 			piezaActual.position.y+=1;
+			piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  			piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 		}else if(xf==x0){
 			valor[xfs][yfs]= piezaActual;
 			valor[x0s][y0s]= piezaPosterior;
@@ -603,6 +643,8 @@ function Alfilplan(x0, y0, xf, yf, side){
 		if(xf!=x0){
 			piezaActual.position.x+=1;
 			piezaActual.position.y-=1;
+			piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  			piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 		}else if(xf==x0){
 			valor[xfs][yfs]= piezaActual;
 			valor[x0s][y0s]= piezaPosterior;
@@ -626,6 +668,8 @@ function Alfilplan(x0, y0, xf, yf, side){
 		if(xf!=x0){
 			piezaActual.position.x-=1;
 			piezaActual.position.y+=1;
+			piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  			piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 		}else if(xf==x0){
 			valor[xfs][yfs]= piezaActual;
 			valor[x0s][y0s]= piezaPosterior;
@@ -649,6 +693,8 @@ function Alfilplan(x0, y0, xf, yf, side){
 		if(xf!=x0){
 			piezaActual.position.x-=1;
 			piezaActual.position.y-=1;
+			piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  			piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 		}else if(xf==x0){
 			valor[xfs][yfs]= piezaActual;
 			valor[x0s][y0s]= piezaPosterior;
@@ -799,6 +845,8 @@ function Reyplan(x0, y0, xf, yf, side){
 		     y0=parseInt(piezaActual.position.y); 
 			if(yf!=y0){	
 			  piezaActual.position.y+=1;
+			  piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  			  piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 			}else if(yf==y0){
 				valor[xfs][yfs]= piezaActual;
 				valor[x0s][y0s]= piezaPosterior;
@@ -812,6 +860,8 @@ function Reyplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 			     if(yf!=y0){
 				piezaActual.position.y-=1;
+				piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  				piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 			     }else if(yf==y0){
 				valor[xfs][yfs]= piezaActual;
 				valor[x0s][y0s]= piezaPosterior;
@@ -825,6 +875,8 @@ function Reyplan(x0, y0, xf, yf, side){
 			x0=parseInt(piezaActual.position.x);
 				if(xf!=x0){
 					piezaActual.position.x+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.x));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.x));
 				}else if(xf==x0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -838,6 +890,8 @@ function Reyplan(x0, y0, xf, yf, side){
 			x0=parseInt(piezaActual.position.x);
 			     if(xf!=x0){
 				piezaActual.position.x-=1;
+				piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.x));
+  				piezaActual.pieder.rotateX(Math.cos(piezaActual.position.x));
 			     }else if(xf==x0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -854,6 +908,8 @@ function Reyplan(x0, y0, xf, yf, side){
 					if(xf!=x0){
 						piezaActual.position.x+=1;
 						piezaActual.position.y+=1;
+						piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  						piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
@@ -877,6 +933,8 @@ function Reyplan(x0, y0, xf, yf, side){
 					if(xf!=x0){
 						piezaActual.position.x+=1;
 						piezaActual.position.y-=1;
+						piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  						piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
@@ -900,6 +958,8 @@ function Reyplan(x0, y0, xf, yf, side){
 					if(xf!=x0){
 						piezaActual.position.x-=1;
 						piezaActual.position.y+=1;
+						piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  						piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
@@ -923,6 +983,8 @@ function Reyplan(x0, y0, xf, yf, side){
 					if(xf!=x0){
 						piezaActual.position.x-=1;
 						piezaActual.position.y-=1;
+						piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  						piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
@@ -1085,6 +1147,8 @@ function Reinaplan(x0, y0, xf, yf, side){
 	     y0=parseInt(piezaActual.position.y); 
 		if(yf!=y0){	
 		  piezaActual.position.y+=1;
+		  piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  		  piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 		}else if(yf==y0){
 			valor[xfs][yfs]= piezaActual;
 			valor[x0s][y0s]= piezaPosterior;
@@ -1098,6 +1162,8 @@ function Reinaplan(x0, y0, xf, yf, side){
 		y0=parseInt(piezaActual.position.y);
 		     if(yf!=y0){
 			piezaActual.position.y-=1;
+			piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  			piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 		     }else if(yf==y0){
 			valor[xfs][yfs]= piezaActual;
 			valor[x0s][y0s]= piezaPosterior;
@@ -1111,6 +1177,8 @@ function Reinaplan(x0, y0, xf, yf, side){
 		x0=parseInt(piezaActual.position.x);
 			if(xf!=x0){
 				piezaActual.position.x+=1;
+				piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.x));
+  				piezaActual.pieder.rotateX(Math.cos(piezaActual.position.x));
 			}else if(xf==x0){
 				valor[xfs][yfs]= piezaActual;
 				valor[x0s][y0s]= piezaPosterior;
@@ -1124,6 +1192,8 @@ function Reinaplan(x0, y0, xf, yf, side){
 		x0=parseInt(piezaActual.position.x);
 		     if(xf!=x0){
 			piezaActual.position.x-=1;
+			piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.x));
+  			piezaActual.pieder.rotateX(Math.cos(piezaActual.position.x));
 		     }else if(xf==x0){
 				valor[xfs][yfs]= piezaActual;
 				valor[x0s][y0s]= piezaPosterior;
@@ -1140,6 +1210,8 @@ function Reinaplan(x0, y0, xf, yf, side){
 				if(xf!=x0){
 					piezaActual.position.x+=1;
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(xf==x0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1163,6 +1235,8 @@ function Reinaplan(x0, y0, xf, yf, side){
 				if(xf!=x0){
 					piezaActual.position.x+=1;
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(xf==x0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1186,6 +1260,8 @@ function Reinaplan(x0, y0, xf, yf, side){
 				if(xf!=x0){
 					piezaActual.position.x-=1;
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(xf==x0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1209,6 +1285,8 @@ function Reinaplan(x0, y0, xf, yf, side){
 				if(xf!=x0){
 					piezaActual.position.x-=1;
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(xf==x0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1323,6 +1401,8 @@ function Peonplan(x0, y0, xf, yf, side){
 					if(xf!=x0){
 						piezaActual.position.x+=1;
 						piezaActual.position.y+=1;
+						piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  						piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
@@ -1346,6 +1426,8 @@ function Peonplan(x0, y0, xf, yf, side){
 					if(xf!=x0){
 						piezaActual.position.x+=1;
 						piezaActual.position.y-=1;
+						piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  						piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
@@ -1369,6 +1451,8 @@ function Peonplan(x0, y0, xf, yf, side){
 					if(xf!=x0){
 						piezaActual.position.x-=1;
 						piezaActual.position.y+=1;
+						piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  						piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
@@ -1392,6 +1476,8 @@ function Peonplan(x0, y0, xf, yf, side){
 					if(xf!=x0){
 						piezaActual.position.x-=1;
 						piezaActual.position.y-=1;
+						piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  						piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
@@ -1424,6 +1510,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1439,6 +1527,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1459,6 +1549,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p1=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1474,6 +1566,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1494,6 +1588,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p2=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1509,6 +1605,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1529,6 +1627,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p3=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1544,6 +1644,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1564,6 +1666,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p4=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1579,6 +1683,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1599,6 +1705,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p5=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1614,6 +1722,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1634,6 +1744,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p6=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1649,6 +1761,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1669,6 +1783,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p7=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1684,6 +1800,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y+=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1704,6 +1822,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p8=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1719,6 +1839,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1739,6 +1861,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p9=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1754,6 +1878,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1774,6 +1900,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p10=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1789,6 +1917,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1809,6 +1939,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p11=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1824,6 +1956,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1844,6 +1978,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p12=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1859,6 +1995,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1879,6 +2017,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p13=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1894,6 +2034,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1914,6 +2056,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p14=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1929,6 +2073,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
@@ -1949,6 +2095,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					p15=1;
 					valor[xfs][yfs]= piezaActual;
@@ -1964,6 +2112,8 @@ function Peonplan(x0, y0, xf, yf, side){
 			y0=parseInt(piezaActual.position.y);
 				if(yf!=y0){	
 					piezaActual.position.y-=1;
+					piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  					piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
