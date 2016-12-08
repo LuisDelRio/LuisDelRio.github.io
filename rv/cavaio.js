@@ -13,7 +13,6 @@ cubierta1Forma.translate(0,8,0);
 cubierta2Forma.translate(0,10,0);
 cabezaForma.rotateZ(-Math.PI/2);
 cabezaForma.translate(5,12,0);
-pico3.translate(0,15,0);
 
 var base1Malla = new THREE.Mesh(base1Forma);
 var base2Malla= new THREE.Mesh(base2Forma);
@@ -22,7 +21,6 @@ var toncoMalla= new THREE.Mesh(troncoForma);
 var cubierta1Malla= new THREE.Mesh(cubierta1Forma);
 var cubierta2Malla= new THREE.Mesh(cubierta2Forma);
 var cabezaMalla= new THREE.Mesh(cabezaForma);
-var pico3Malla= new THREE.Mesh(pico3);
 
 var caballoForma = new THREE.Geometry();
 caballoForma.merge(base1Malla.geometry, base1Malla.matrix);
@@ -32,7 +30,6 @@ caballoForma.merge(toncoMalla.geometry, toncoMalla.matrix);
 caballoForma.merge(cubierta1Malla.geometry, cubierta1Malla.matrix);
 caballoForma.merge(cubierta2Malla.geometry, cubierta2Malla.matrix);
 caballoForma.merge(cabezaMalla.geometry, cabezaMalla.matrix);
-caballoForma.merge(pico3Malla.geometry, pico3Malla.matrix);
 var material= new THREE.MeshNormalMaterial();
 var caballoMalla = new THREE.Mesh(caballoForma, material);
 
