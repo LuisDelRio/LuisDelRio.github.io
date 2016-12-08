@@ -163,6 +163,10 @@ function Torreplan(x0, y0, xf, yf, side){
   xf = parseInt(xf);
   yf = parseInt(yf);
   side = parseInt(side);
+	alert(x0s);
+	alert(xfs);
+	alert(y0s);
+	alert(yfs);
   if(x0==xf && y0<=yf){
     y0=parseInt(piezaActual.position.y);
         if(yf!=y0){	
