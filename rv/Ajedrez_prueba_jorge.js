@@ -1196,6 +1196,7 @@ var nombre=new THREE.Object3D;
 var piezaActual, piezaPosterior;
 var animar=0;
 function planGeneral(){
+	alert(cuyo);
 	nombre = valor[auxx][auxy];
 	piezaActual = nombre;
 	piezaPosterior = valor[select.position.x][select.position.y];
