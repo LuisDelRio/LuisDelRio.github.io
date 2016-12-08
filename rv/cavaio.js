@@ -29,6 +29,7 @@ var base3Malla= new THREE.Mesh(base3Forma);
 var toncoMalla= new THREE.Mesh(troncoForma);
 var cubierta1Malla= new THREE.Mesh(cubierta1Forma);
 var cubierta2Malla= new THREE.Mesh(cubierta2Forma);
+var picoMalla= new THREE.Mesh(cubierta2Forma);
 //var cabezaMalla = new THREE.Mesh(cabezaForma);
 
 var caballoForma = new THREE.Geometry();
@@ -38,7 +39,7 @@ caballoForma.merge(base3Malla.geometry, base3Malla.matrix);
 caballoForma.merge(toncoMalla.geometry, toncoMalla.matrix);
 caballoForma.merge(cubierta1Malla.geometry, cubierta1Malla.matrix);
 caballoForma.merge(cubierta2Malla.geometry, cubierta2Malla.matrix);
-caballoForma.merge(pico1.geometry, cubierta2Malla.matrix);
+caballoForma.merge(picoMalla.geometry, picoMalla.matrix);
 //caballoForma.merge(cabezaMalla.geometry, cabezaMalla.matrix);
 
 var material= new THREE.MeshNormalMaterial();
