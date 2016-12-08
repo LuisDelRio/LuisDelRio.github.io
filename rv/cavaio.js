@@ -3,7 +3,7 @@ var base2Forma = new THREE.CylinderGeometry(4,4,1,20,1,false);
 var base3Forma = new THREE.CylinderGeometry(3,4,2,20,2,false);
 var troncoForma = new THREE.CylinderGeometry(3,3,6,20,6,false);
 var cubierta1Forma = new THREE.CylinderGeometry(4,3,2,20,2,false);
-var cabezaForma = new THREE.CylinderGeometry(.25,3,10,20,2,false);
+var cabezaForma = new THREE.CylinderGeometry(.25,3,15,20,2,false);
 
 var arco3 = new THREE.Shape();
 arco3.moveTo(0, 0);
