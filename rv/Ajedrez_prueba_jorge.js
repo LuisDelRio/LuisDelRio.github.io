@@ -139,13 +139,13 @@ function Torre(textura){
 
   if(textura===TEXTURAS.ceramicablanca){
 	    this.side=1;
-	    this.pie1.position.x=10;
-	    this.pie2.position.x=10;
+	    this.pie1.position.x=4;
+	    this.pie2.position.x=-4;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
-	    this.pie1.position.x=-10;
-	    this.pie2.position.x=-10;   
+	    this.pie1.position.x=-4;
+	    this.pie2.position.x=4;   
     }
 }
 Torre.prototype=new Agent();
