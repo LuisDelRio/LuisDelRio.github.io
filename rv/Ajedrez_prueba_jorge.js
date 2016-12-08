@@ -133,8 +133,8 @@ function Torre(textura){
   this.castShadow=true;
   this.receiveShadow=true;  
   this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0));
-  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
-  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0x99CCFF}));
+  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0x99CCFF}));
   this.add(this.pieizq,this.pieder);
 
   if(textura===TEXTURAS.ceramicablanca){
@@ -281,8 +281,8 @@ function Caballo(textura){
   this.castShadow=true;
   this.receiveShadow=true;  
   this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0));
-  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
-  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0x99CCFF}));
+  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0x99CCFF}));
   this.add(this.pieizq,this.pieder);
 
   if(textura===TEXTURAS.ceramicablanca){
@@ -571,8 +571,8 @@ function Alfil(textura){
   this.add(new THREE.Mesh(alfilForma, new THREE.MeshLambertMaterial({map:textura})));
   this.castShadow=true;
   this.receiveShadow=true;  
-  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
-  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0x99CCFF}));
+  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0x99CCFF}));
   this.add(this.pieizq,this.pieder);
 
   if(textura===TEXTURAS.ceramicablanca){
@@ -795,8 +795,8 @@ function Rey(textura){
   this.add(new THREE.Mesh(reyForma, new THREE.MeshLambertMaterial({map:textura})));
   this.castShadow=true;
   this.receiveShadow=true;
-  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
-  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0x99CCFF}));
+  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0x99CCFF}));
   this.add(this.pieizq,this.pieder);
 
   if(textura===TEXTURAS.ceramicablanca){
@@ -1105,8 +1105,8 @@ function Reina(textura){
   this.add(new THREE.Mesh(reinaForma, new THREE.MeshLambertMaterial({map:textura})));
   this.castShadow=true;
   this.receiveShadow=true;
-  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
-  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0x99CCFF}));
+  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0x99CCFF}));
   this.add(this.pieizq,this.pieder);
 
   if(textura===TEXTURAS.ceramicablanca){
@@ -1340,8 +1340,8 @@ function Peon(textura){
   this.add(new THREE.Mesh(peonForma, new THREE.MeshLambertMaterial({map:textura})));
   this.castShadow=true;
   this.receiveShadow=true;  
-  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
-  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0x99CCFF}));
+  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0x99CCFF}));
   this.add(this.pieizq,this.pieder);
 
   if(textura===TEXTURAS.ceramicablanca){
