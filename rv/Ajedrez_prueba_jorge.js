@@ -271,12 +271,19 @@ function Caballo(textura){
   this.castShadow=true;
   this.receiveShadow=true;  
   this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0));
+  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.add(this.pieizq,this.pieder);
 
   if(textura===TEXTURAS.ceramicablanca){
 	    this.side=1;
+	    this.pieizq.position.x=4;
+	    this.pieder.position.x=-4;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
+	    this.pieizq.position.x=-4;
+	    this.pieder.position.x=4;   
     }
 }
 Caballo.prototype=new Agent();
@@ -518,11 +525,19 @@ function Alfil(textura){
   this.add(new THREE.Mesh(alfilForma, new THREE.MeshLambertMaterial({map:textura})));
   this.castShadow=true;
   this.receiveShadow=true;  
+  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.add(this.pieizq,this.pieder);
+
   if(textura===TEXTURAS.ceramicablanca){
 	    this.side=1;
+	    this.pieizq.position.x=4;
+	    this.pieder.position.x=-4;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
+	    this.pieizq.position.x=-4;
+	    this.pieder.position.x=4;   
     }
 }
 Alfil.prototype=new Agent();
@@ -722,11 +737,19 @@ function Rey(textura){
   this.add(new THREE.Mesh(reyForma, new THREE.MeshLambertMaterial({map:textura})));
   this.castShadow=true;
   this.receiveShadow=true;
+  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.add(this.pieizq,this.pieder);
+
   if(textura===TEXTURAS.ceramicablanca){
 	    this.side=1;
+	    this.pieizq.position.x=4;
+	    this.pieder.position.x=-4;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
+	    this.pieizq.position.x=-4;
+	    this.pieder.position.x=4;   
     }
 }
 Rey.prototype=new Agent();
@@ -1004,11 +1027,19 @@ function Reina(textura){
   this.add(new THREE.Mesh(reinaForma, new THREE.MeshLambertMaterial({map:textura})));
   this.castShadow=true;
   this.receiveShadow=true;
+  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.add(this.pieizq,this.pieder);
+
   if(textura===TEXTURAS.ceramicablanca){
 	    this.side=1;
+	    this.pieizq.position.x=4;
+	    this.pieder.position.x=-4;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
+	    this.pieizq.position.x=-4;
+	    this.pieder.position.x=4;   
     }
 }
 Reina.prototype=new Agent();
@@ -1211,11 +1242,19 @@ function Peon(textura){
   this.add(new THREE.Mesh(peonForma, new THREE.MeshLambertMaterial({map:textura})));
   this.castShadow=true;
   this.receiveShadow=true;  
+  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.add(this.pieizq,this.pieder);
+
   if(textura===TEXTURAS.ceramicablanca){
 	    this.side=1;
+	    this.pieizq.position.x=4;
+	    this.pieder.position.x=-4;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
+	    this.pieizq.position.x=-4;
+	    this.pieder.position.x=4;   
     }
 }
 Peon.prototype=new Agent();
