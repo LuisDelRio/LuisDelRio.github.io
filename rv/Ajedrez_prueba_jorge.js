@@ -141,11 +141,15 @@ function Torre(textura){
 	    this.side=1;
 	    this.pieizq.position.x=4;
 	    this.pieder.position.x=-4;
+	    this.pieizq.position.y=2;
+	    this.pieder.position.y=2;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
 	    this.pieizq.position.x=-4;
-	    this.pieder.position.x=4;   
+	    this.pieder.position.x=4;
+	    this.pieizq.position.y=2;
+	    this.pieder.position.y=2;
     }
 }
 Torre.prototype=new Agent();
