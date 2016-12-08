@@ -698,7 +698,7 @@ function setup(){
   var planoCercano = 1;
   var planoLejano = 1000;
   camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
-  camara.position.z=250;
+  camara.position.z=50;
   camara.position.x=160;
   camara.position.y=40;
   camara.lookAt(new THREE.Vector3(40,40,0));
@@ -718,24 +718,24 @@ function setup(){
   caballoMalla.rotateX(Math.PI/2);
   caballoMalla.translateY(3);
   caballoMalla.translateX(10);
-  caballoMalla.rotation.y=-Math.PI/2;
+  caballoMalla.rotation.y=Math.PI/2;
 
   caballoMalla1.rotateX(Math.PI/2);
   caballoMalla1.translateY(3);
   caballoMalla1.translateZ(-70);
   caballoMalla1.translateX(10);
-  caballoMalla1.rotation.y=Math.PI/2;
+  caballoMalla1.rotation.y=-Math.PI/2;
 
   caballoMalla2.rotateX(Math.PI/2);
   caballoMalla2.translateY(3);
   caballoMalla2.translateZ(-70);
   caballoMalla2.translateX(60);
-  caballoMalla2.rotation.y=Math.PI/2;
+  caballoMalla2.rotation.y=-Math.PI/2;
 
   caballoMalla3.rotateX(Math.PI/2);
   caballoMalla3.translateY(3);
   caballoMalla3.translateX(60);
-  caballoMalla3.rotation.y=-Math.PI/2;
+  caballoMalla3.rotation.y=Math.PI/2;
   	//TORRES
   torreMalla = new Torre(TEXTURAS.ceramicablanca);
   torreMalla1 = new Torre(TEXTURAS.ceramicanegra);
