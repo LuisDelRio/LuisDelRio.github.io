@@ -16,7 +16,7 @@ base2Forma.translate(0,1,0);
 base3Forma.translate(0,2,0);
 troncoForma.translate(0,4,0);
 cubierta1Forma.translate(0,8,0);
-pico3.translate(0,12,0);
+pico3.translate(0,15,0);
 
 var base1Malla = new THREE.Mesh(base1Forma);
 var base2Malla= new THREE.Mesh(base2Forma);
