@@ -171,6 +171,9 @@ function Torreplan(x0, y0, xf, yf, side){
 		valor[xfs][yfs]= piezaActual;
 	        valor[x0s][y0s]= piezaPosterior;
 	        alert("Terminó tu turno prro");
+		select.position.x=0;
+                select.position.y=0;
+                select.position.z=30;
 		animar=0;
 		cuyo=1;
 		}
@@ -1216,12 +1219,6 @@ function planGeneral(){
 	}else if(nombre instanceof Vacio){
 		alert("vacio");
 	}
-	select.position.x=0;
-    select.position.y=0;
-    select.position.z=30;
-    //posicionadorMalla.position.x=0;
-    //posicionadorMalla.position.y=0;
-    //posicionadorMalla.position.z=1000;
 }
 
 
