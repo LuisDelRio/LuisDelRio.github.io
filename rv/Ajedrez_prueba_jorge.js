@@ -141,8 +141,8 @@ function Torre(textura){
 	    this.side=1;
 	    this.pieizq.position.x=4;
 	    this.pieder.position.x=-4;
-	    this.pieizq.position.z=2;
-	    this.pieder.position.z=2;
+	    this.pieizq.position.z=-2;
+	    this.pieder.position.z=-2;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
@@ -281,13 +281,17 @@ function Caballo(textura){
 
   if(textura===TEXTURAS.ceramicablanca){
 	    this.side=1;
-	    this.pieizq.position.z=4;
-	    this.pieder.position.z=-4;
+	    this.pieizq.position.x=4;
+	    this.pieder.position.x=-4;
+	    this.pieizq.position.z=-2;
+	    this.pieder.position.z=-2;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
-	    this.pieizq.position.z=-4;
-	    this.pieder.position.z=4;   
+	    this.pieizq.position.x=-4;
+	    this.pieder.position.x=4;
+	    this.pieizq.position.z=2;
+	    this.pieder.position.z=2;
     }
 }
 Caballo.prototype=new Agent();
@@ -537,11 +541,15 @@ function Alfil(textura){
 	    this.side=1;
 	    this.pieizq.position.x=4;
 	    this.pieder.position.x=-4;
+	    this.pieizq.position.z=-2;
+	    this.pieder.position.z=-2;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
 	    this.pieizq.position.x=-4;
-	    this.pieder.position.x=4;   
+	    this.pieder.position.x=4;
+	    this.pieizq.position.z=2;
+	    this.pieder.position.z=2;
     }
 }
 Alfil.prototype=new Agent();
@@ -749,11 +757,15 @@ function Rey(textura){
 	    this.side=1;
 	    this.pieizq.position.x=4;
 	    this.pieder.position.x=-4;
+	    this.pieizq.position.z=-2;
+	    this.pieder.position.z=-2;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
 	    this.pieizq.position.x=-4;
-	    this.pieder.position.x=4;   
+	    this.pieder.position.x=4;
+	    this.pieizq.position.z=2;
+	    this.pieder.position.z=2;
     }
 }
 Rey.prototype=new Agent();
@@ -1039,11 +1051,15 @@ function Reina(textura){
 	    this.side=1;
 	    this.pieizq.position.x=4;
 	    this.pieder.position.x=-4;
+	    this.pieizq.position.z=-2;
+	    this.pieder.position.z=-2;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
 	    this.pieizq.position.x=-4;
-	    this.pieder.position.x=4;   
+	    this.pieder.position.x=4;
+	    this.pieizq.position.z=2;
+	    this.pieder.position.z=2;
     }
 }
 Reina.prototype=new Agent();
@@ -1254,11 +1270,15 @@ function Peon(textura){
 	    this.side=1;
 	    this.pieizq.position.x=4;
 	    this.pieder.position.x=-4;
+	    this.pieizq.position.z=-2;
+	    this.pieder.position.z=-2;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
 	    this.pieizq.position.x=-4;
-	    this.pieder.position.x=4;   
+	    this.pieder.position.x=4;
+	    this.pieizq.position.z=2;
+	    this.pieder.position.z=2;
     }
 }
 Peon.prototype=new Agent();
