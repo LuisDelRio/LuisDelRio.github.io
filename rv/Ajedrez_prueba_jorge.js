@@ -1218,7 +1218,7 @@ function planGeneral(){
     //posicionadorMalla.position.x=0;
     //posicionadorMalla.position.y=0;
     //posicionadorMalla.position.z=1000;
-    cuyo=cuyo+1;
+    cuyo=1;
 	}
 }
 
