@@ -1215,16 +1215,13 @@ function planGeneral(){
 		
 	}else if(nombre instanceof Vacio){
 		alert("vacio");
-	}else if(animar==0){
-		alert("ggizi");
+	}
 	select.position.x=0;
     select.position.y=0;
     select.position.z=30;
     //posicionadorMalla.position.x=0;
     //posicionadorMalla.position.y=0;
     //posicionadorMalla.position.z=1000;
-    cuyo=1;
-	}
 }
 
 
