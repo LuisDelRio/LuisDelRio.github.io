@@ -40,7 +40,7 @@ caballoForma.merge(pico3Malla.geometry, pico3Malla.matrix);
 var material= new THREE.MeshNormalMaterial();
 var caballoMalla = new THREE.Mesh(caballoForma, material);
 
-torreMalla.rotateX(Math.PI/4);
+caballoMalla.rotateX(Math.PI/4);
 
 var escena = new THREE.Scene();
 escena.add(caballoMalla);
