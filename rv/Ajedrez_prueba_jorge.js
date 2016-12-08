@@ -133,19 +133,19 @@ function Torre(textura){
   this.castShadow=true;
   this.receiveShadow=true;  
   this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0));
-  this.pie1= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xff0000}));
-  this.pie2= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xff0000}));
-  this.add(this.pie1,this.pie2);
+  this.pieizq= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.pieder= new THREE.Mesh(new THREE.BoxGeometry(2,2,6),new THREE.MeshBasicMaterial({color: 0xB40100}));
+  this.add(this.pieizq,this.pieder);
 
   if(textura===TEXTURAS.ceramicablanca){
 	    this.side=1;
-	    this.pie1.position.x=4;
-	    this.pie2.position.x=-4;
+	    this.pieizq.position.x=4;
+	    this.pieder.position.x=-4;
     }
     else if(textura===TEXTURAS.ceramicanegra){
 	    this.side=0;
-	    this.pie1.position.x=-4;
-	    this.pie2.position.x=4;   
+	    this.pieizq.position.x=-4;
+	    this.pieder.position.x=4;   
     }
 }
 Torre.prototype=new Agent();
@@ -168,8 +168,8 @@ function Torreplan(x0, y0, xf, yf, side){
 	y0=parseInt(piezaActual.position.y);
 	if(yf!=y0){	
 		piezaActual.position.y+=1;
-		piezaActual.pie1.rotateX(Math.sin(piezaActual.position.y));
-  		piezaActual.pie2.rotateX(Math.cos(piezaActual.position.y));
+		piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
+  		piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
 	}else if(yf==y0){
 		valor[xfs][yfs]= piezaActual;
 		valor[x0s][y0s]= piezaPosterior;
@@ -2020,8 +2020,8 @@ function setup(){
   var planoLejano = 1000;
   camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
   camara.position.z=200;
-  camara.position.x=40;
-  camara.position.y=160;
+  camara.position.x=160;
+  camara.position.y=40;
   camara.lookAt(new THREE.Vector3(40,40,0));
   camara.rotateZ(Math.PI/2);
   setupDone=true;
