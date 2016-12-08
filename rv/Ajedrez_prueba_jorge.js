@@ -177,7 +177,7 @@ function Torreplan(x0, y0, xf, yf, side){
 	}else if(yf==y0){
 		valor[xfs][yfs]= piezaActual;
 		valor[x0s][y0s]= piezaPosterior;
-		alert("Terminó tu turno prro");
+		alert("Terminó tu turno  ");
 		resetSelect();
 		animar=0;
 		cuyo=1;
@@ -191,7 +191,7 @@ function Torreplan(x0, y0, xf, yf, side){
 	}else if(yf==y0){
 		valor[xfs][yfs]= piezaActual;
 		valor[x0s][y0s]= piezaPosterior;
-		alert("Terminó tu turno prro");
+		alert("Terminó tu turno  ");
 		resetSelect();
 		animar=0;
 		cuyo=1;
@@ -205,7 +205,7 @@ function Torreplan(x0, y0, xf, yf, side){
 	}else if(xf==x0){
 		valor[xfs][yfs]= piezaActual;
 		valor[x0s][y0s]= piezaPosterior;
-		alert("Terminó tu turno prro");
+		alert("Terminó tu turno  ");
 		resetSelect();
 		animar=0;
 		cuyo=1;
@@ -219,7 +219,7 @@ function Torreplan(x0, y0, xf, yf, side){
 	}else if(xf==x0){
 		valor[xfs][yfs]= piezaActual;
 		valor[x0s][y0s]= piezaPosterior;
-		alert("Terminó tu turno prro");
+		alert("Terminó tu turno  ");
 		resetSelect();
 		animar=0;
 		cuyo=1;
@@ -336,7 +336,7 @@ function Caballoplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;
@@ -360,7 +360,7 @@ function Caballoplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;
@@ -384,7 +384,7 @@ function Caballoplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;
@@ -408,7 +408,7 @@ function Caballoplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;
@@ -432,7 +432,7 @@ function Caballoplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;
@@ -456,7 +456,7 @@ function Caballoplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;
@@ -480,7 +480,7 @@ function Caballoplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;
@@ -504,7 +504,7 @@ function Caballoplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;
@@ -622,7 +622,7 @@ function Alfilplan(x0, y0, xf, yf, side){
 		}else if(xf==x0){
 			valor[xfs][yfs]= piezaActual;
 			valor[x0s][y0s]= piezaPosterior;
-			alert("Terminó tu turno prro");
+			alert("Terminó tu turno  ");
 			resetSelect();
 			animar=0;
 			cuyo=1;
@@ -648,7 +648,7 @@ function Alfilplan(x0, y0, xf, yf, side){
 		}else if(xf==x0){
 			valor[xfs][yfs]= piezaActual;
 			valor[x0s][y0s]= piezaPosterior;
-			alert("Terminó tu turno prro");
+			alert("Terminó tu turno  ");
 			resetSelect();
 			animar=0;
 			cuyo=1;
@@ -673,7 +673,7 @@ function Alfilplan(x0, y0, xf, yf, side){
 		}else if(xf==x0){
 			valor[xfs][yfs]= piezaActual;
 			valor[x0s][y0s]= piezaPosterior;
-			alert("Terminó tu turno prro");
+			alert("Terminó tu turno  ");
 			resetSelect();
 			animar=0;
 			cuyo=1;
@@ -698,7 +698,7 @@ function Alfilplan(x0, y0, xf, yf, side){
 		}else if(xf==x0){
 			valor[xfs][yfs]= piezaActual;
 			valor[x0s][y0s]= piezaPosterior;
-			alert("Terminó tu turno prro");
+			alert("Terminó tu turno  ");
 			resetSelect();
 			animar=0;
 			cuyo=1;			
@@ -850,7 +850,7 @@ function Reyplan(x0, y0, xf, yf, side){
 			}else if(yf==y0){
 				valor[xfs][yfs]= piezaActual;
 				valor[x0s][y0s]= piezaPosterior;
-				alert("Terminó tu turno prro");
+				alert("Terminó tu turno  ");
 				resetSelect();
 				animar=0;
 				cuyo=1;			
@@ -865,7 +865,7 @@ function Reyplan(x0, y0, xf, yf, side){
 			     }else if(yf==y0){
 				valor[xfs][yfs]= piezaActual;
 				valor[x0s][y0s]= piezaPosterior;
-				alert("Terminó tu turno prro");
+				alert("Terminó tu turno  ");
 				resetSelect();
 				animar=0;
 				cuyo=1;	
@@ -880,7 +880,7 @@ function Reyplan(x0, y0, xf, yf, side){
 				}else if(xf==x0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;					
@@ -895,7 +895,7 @@ function Reyplan(x0, y0, xf, yf, side){
 			     }else if(xf==x0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -913,7 +913,7 @@ function Reyplan(x0, y0, xf, yf, side){
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
-						alert("Terminó tu turno prro");
+						alert("Terminó tu turno  ");
 						resetSelect();
 						animar=0;
 						cuyo=1;	
@@ -938,7 +938,7 @@ function Reyplan(x0, y0, xf, yf, side){
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
-						alert("Terminó tu turno prro");
+						alert("Terminó tu turno  ");
 						resetSelect();
 						animar=0;
 						cuyo=1;	
@@ -963,7 +963,7 @@ function Reyplan(x0, y0, xf, yf, side){
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
-						alert("Terminó tu turno prro");
+						alert("Terminó tu turno  ");
 						resetSelect();
 						animar=0;
 						cuyo=1;	
@@ -988,7 +988,7 @@ function Reyplan(x0, y0, xf, yf, side){
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
-						alert("Terminó tu turno prro");
+						alert("Terminó tu turno  ");
 						resetSelect();
 						animar=0;
 						cuyo=1;	
@@ -1152,7 +1152,7 @@ function Reinaplan(x0, y0, xf, yf, side){
 		}else if(yf==y0){
 			valor[xfs][yfs]= piezaActual;
 			valor[x0s][y0s]= piezaPosterior;
-			alert("Terminó tu turno prro");
+			alert("Terminó tu turno  ");
 			resetSelect();
 			animar=0;
 			cuyo=1;			
@@ -1167,7 +1167,7 @@ function Reinaplan(x0, y0, xf, yf, side){
 		     }else if(yf==y0){
 			valor[xfs][yfs]= piezaActual;
 			valor[x0s][y0s]= piezaPosterior;
-			alert("Terminó tu turno prro");
+			alert("Terminó tu turno  ");
 			resetSelect();
 			animar=0;
 			cuyo=1;	
@@ -1182,7 +1182,7 @@ function Reinaplan(x0, y0, xf, yf, side){
 			}else if(xf==x0){
 				valor[xfs][yfs]= piezaActual;
 				valor[x0s][y0s]= piezaPosterior;
-				alert("Terminó tu turno prro");
+				alert("Terminó tu turno  ");
 				resetSelect();
 				animar=0;
 				cuyo=1;					
@@ -1197,7 +1197,7 @@ function Reinaplan(x0, y0, xf, yf, side){
 		     }else if(xf==x0){
 				valor[xfs][yfs]= piezaActual;
 				valor[x0s][y0s]= piezaPosterior;
-				alert("Terminó tu turno prro");
+				alert("Terminó tu turno  ");
 				resetSelect();
 				animar=0;
 				cuyo=1;	
@@ -1215,7 +1215,7 @@ function Reinaplan(x0, y0, xf, yf, side){
 				}else if(xf==x0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1240,7 +1240,7 @@ function Reinaplan(x0, y0, xf, yf, side){
 				}else if(xf==x0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1265,7 +1265,7 @@ function Reinaplan(x0, y0, xf, yf, side){
 				}else if(xf==x0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1290,7 +1290,7 @@ function Reinaplan(x0, y0, xf, yf, side){
 				}else if(xf==x0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1406,7 +1406,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
-						alert("Terminó tu turno prro");
+						alert("Terminó tu turno  ");
 						resetSelect();
 						animar=0;
 						cuyo=1;	
@@ -1431,7 +1431,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
-						alert("Terminó tu turno prro");
+						alert("Terminó tu turno  ");
 						resetSelect();
 						animar=0;
 						cuyo=1;	
@@ -1456,7 +1456,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
-						alert("Terminó tu turno prro");
+						alert("Terminó tu turno  ");
 						resetSelect();
 						animar=0;
 						cuyo=1;	
@@ -1481,7 +1481,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					}else if(xf==x0){
 						valor[xfs][yfs]= piezaActual;
 						valor[x0s][y0s]= piezaPosterior;
-						alert("Terminó tu turno prro");
+						alert("Terminó tu turno  ");
 						resetSelect();
 						animar=0;
 						cuyo=1;	
@@ -1516,7 +1516,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1532,7 +1532,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1555,7 +1555,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p1=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1571,7 +1571,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1594,7 +1594,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p2=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1610,7 +1610,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1633,7 +1633,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p3=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1649,7 +1649,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1672,7 +1672,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p4=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1688,7 +1688,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1711,7 +1711,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p5=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1727,7 +1727,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1750,7 +1750,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p6=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1766,7 +1766,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1789,7 +1789,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p7=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1805,7 +1805,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1828,7 +1828,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p8=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1844,7 +1844,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1867,7 +1867,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p9=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1883,7 +1883,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1906,7 +1906,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p10=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1922,7 +1922,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1945,7 +1945,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p11=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1961,7 +1961,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -1984,7 +1984,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p12=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -2000,7 +2000,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -2023,7 +2023,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p13=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -2039,7 +2039,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -2062,7 +2062,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p14=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -2078,7 +2078,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -2101,7 +2101,7 @@ function Peonplan(x0, y0, xf, yf, side){
 					p15=1;
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
@@ -2117,7 +2117,7 @@ function Peonplan(x0, y0, xf, yf, side){
 				}else if(yf==y0){
 					valor[xfs][yfs]= piezaActual;
 					valor[x0s][y0s]= piezaPosterior;
-					alert("Terminó tu turno prro");
+					alert("Terminó tu turno  ");
 					resetSelect();
 					animar=0;
 					cuyo=1;	
