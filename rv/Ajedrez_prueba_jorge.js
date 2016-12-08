@@ -163,10 +163,6 @@ function Torreplan(x0, y0, xf, yf, side){
   xf = parseInt(xf);
   yf = parseInt(yf);
   side = parseInt(side);
-	alert(x0s);
-	alert(xfs);
-	alert(y0s);
-	alert(yfs);
   if(x0==xf && y0<=yf){
     y0=parseInt(piezaActual.position.y);
         if(yf!=y0){	
@@ -1204,6 +1200,7 @@ function planGeneral(){
 	piezaActual = nombre;
 	piezaPosterior = valor[select.position.x][select.position.y];
 	if(nombre instanceof Torre && animar != 0){
+	  alert("Torre");
 	  cuyo=4;
 	  Torreplan(auxx, auxy, select.position.x, select.position.y, nombre.side);
 	}else if(nombre instanceof Alfil){
@@ -1217,6 +1214,7 @@ function planGeneral(){
 	}else if(nombre instanceof Vacio){
 		
 	}else if(animar==0){
+		alert("ggizi");
 	select.position.x=0;
     select.position.y=0;
     select.position.z=30;
