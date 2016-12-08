@@ -168,8 +168,8 @@ function Torreplan(x0, y0, xf, yf, side){
 	y0=parseInt(piezaActual.position.y);
 	if(yf!=y0){	
 		piezaActual.position.y+=1;
-		piezaActual.pieizq.rotateX(Math.sin(piezaActual.position.y));
-  		piezaActual.pieder.rotateX(Math.cos(piezaActual.position.y));
+		piezaActual.pieizq.rotateX((Math.sin(piezaActual.position.y))/2);
+  		piezaActual.pieder.rotateX((Math.cos(piezaActual.position.y))/2);
 	}else if(yf==y0){
 		valor[xfs][yfs]= piezaActual;
 		valor[x0s][y0s]= piezaPosterior;
@@ -2019,8 +2019,8 @@ function setup(){
   var planoCercano = 1;
   var planoLejano = 1000;
   camara = new THREE.PerspectiveCamera(campoVision, relacionAspecto, planoCercano, planoLejano);
-  camara.position.z=200;
-  camara.position.x=160;
+  camara.position.z=150;
+  camara.position.x=100;
   camara.position.y=40;
   camara.lookAt(new THREE.Vector3(40,40,0));
   camara.rotateZ(Math.PI/2);
