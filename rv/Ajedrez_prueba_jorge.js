@@ -1212,7 +1212,7 @@ function planGeneral(){
 	}else if(nombre instanceof Peon){
 		
 	}else if(nombre instanceof Vacio){
-		
+		alert("vacio");
 	}else if(animar==0){
 		alert("ggizi");
 	select.position.x=0;
