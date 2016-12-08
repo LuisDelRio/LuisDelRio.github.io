@@ -171,7 +171,7 @@ function Torreplan(x0, y0, xf, yf, side){
 		valor[xfs][yfs]= piezaActual;
 	        valor[x0s][y0s]= piezaPosterior;
 	        alert("Terminó tu turno prro");
-		cuyo=1;
+		animar=0;
 		}
    }else if(x0==xf && y0>=yf){
 	for(j=0; j<=yf; j++){
