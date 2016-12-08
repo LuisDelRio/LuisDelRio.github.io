@@ -1208,12 +1208,10 @@ var nombre=new THREE.Object3D;
 var piezaActual, piezaPosterior;
 var animar=0;
 function planGeneral(){
-	alert(cuyo);
 	nombre = valor[auxx][auxy];
 	piezaActual = nombre;
 	piezaPosterior = valor[select.position.x][select.position.y];
 	if(nombre instanceof Torre && animar != 0){
-	  alert("Torre");
 	  cuyo=4;
 	  Torreplan(auxx, auxy, select.position.x, select.position.y, nombre.side);
 	}else if(nombre instanceof Alfil){
